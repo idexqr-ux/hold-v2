@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hold — The Strata Group Dashboard</title>
+  <link rel="stylesheet" href="style.css?v=43" />
+  <link rel="stylesheet" href="sidebar.css" />
+</head>
+
+<body>
+  <div class="dashboard-layout">
+
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <p class="sidebar-eyebrow">Hold</p>
+        <h2>Governance Platform</h2>
+        <p class="sidebar-entity">The Strata Group</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-group">
+  <p class="sidebar-label">Group View</p>
+
+  <a href="strata-group-dashboard.html" class="active">Group Dashboard</a>
+
+  <a href="strata-aggregates-dashboard.html">Aggregates</a>
+
+  <a href="strata-estates-dashboard.html">Estates</a>
+
+  <a href="strata-logistics-dashboard.html">Logistics</a>
+</div>
+
+        <div class="sidebar-group">
+  <p class="sidebar-label">Group Oversight</p>
+
+  <a href="strata-aggregates-operational-audit.html">
+    Aggregates Audit
+  </a>
+
+  <a href="strata-estates-operational-audit.html">
+    Estates Audit
+  </a>
+
+  <a href="strata-logistics-operational-audit.html">
+    Logistics Audit
+  </a>
+        </div>
+
+   <div>
+
+     <div class="sidebar-group">
+  <p class="sidebar-label">PLATFORM</p>
+  <span class="sidebar-disabled">
+  Alerts & Risks — In Development
+</span>
+
+<span class="sidebar-disabled">
+  Reports — In Development
+</span>
+
+<span class="sidebar-disabled">
+  Settings — In Development
+</span>
+
+<span class="sidebar-disabled">
+  Hold Signal — In Development
+</span>
+
+</div>
+      </nav>
+
+      <div class="sidebar-operational-time">
+        <p class="sidebar-time-label">Operational time</p>
+        <p id="currentTime">Loading current time…</p>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+
+      <div class="dashboard-header">
+        <p class="dashboard-breadcrumb">
+          Hold / The Strata Group
+        </p>
+
+        <div class="dashboard-title-row">
+          <div>
+            <h1>The Strata Group Dashboard</h1>
+            <p class="dashboard-subtitle">
+              Group-level visibility across operational entities without removing local control.
+            </p>
+          </div>
+
+          <span class="dashboard-status-pill">
+            Group Oversight
+          </span>
+        </div>
+      </div>
+
+      <section class="alert-grid">
+
+       <article class="dashboard-card alert-card amber-alerts">
+
+  <p class="section-kicker alert-kicker amber-kicker">
+    Amber Alerts
+  </p>
+
+  <span class="alert-title-pill amber-title-pill">
+    Group Operational Watch
+  </span>
+
+  <span class="alert-pill amber-pill">
+    3 Active
+  </span>
+
+  <p class="section-intro">
+    Items affecting one or more Strata entities that require awareness or follow-up.
+  </p>
+
+  <div id="amberAlerts">
+
+    <p>
+      <strong>Strata Aggregates</strong>
+      <span> : Lower stockyard surface advisory active pending inspection.</span>
+    </p>
+
+    <p>
+      <strong>Strata Estates</strong>
+      <span> : East service lane drainage survey affecting visitor parking.</span>
+    </p>
+
+    <p>
+      <strong>Strata Logistics</strong>
+      <span> : Dispatch queue pressure being monitored before midday peak.</span>
+    </p>
+
+  </div>
+
+</article>
+
+   <article class="dashboard-card alert-card red-alerts">
+
+  <p class="section-kicker alert-kicker red-kicker">
+    Red Alerts
+  </p>
+
+  <span class="alert-title-pill red-title-pill">
+    Immediate Group Attention
+  </span>
+
+  <span class="alert-pill red-pill">
+    0 Active
+  </span>
+
+  <p class="section-intro">
+    Items requiring urgent leadership awareness or immediate operational response.
+  </p>
+
+  <div id="redAlerts">
+
+    <p>
+      <strong>No Active Escalations</strong>
+      <span> : No group-level operational escalations currently active.</span>
+    </p>
+
+  </div>
+
+</article>   
+
+      </section>
+
+      <section class="signal-strip signal-ai">
+  <strong>Hold Signal:</strong>
+  Repeated drainage-related operational pressure now visible across Estates and Aggregates environments.
+</section>
+
+      <section class="dashboard-layer">
+        <div class="top-shift-grid">
+
+          <section class="dashboard-card operational-attention">
+            <p class="section-kicker">Group picture</p>
+            <h2>Current group priorities</h2>
+
+            <p class="section-intro">
+              Current operational conditions across Strata entities requiring oversight, coordination or governance awareness.
+            </p>
+                         
+            <div class="attention-item">
+              <h3>Aggregates — stockyard conditions</h3>
+              <p>
+                Overnight rainfall is affecting lower stockyard routes.
+                Designated plant movement remains in place pending ground inspection.
+              </p>
+            </div>
+
+            <div class="attention-item">
+  <h3>Estates — infrastructure review</h3>
+  <p>
+    Ongoing drainage and buried-services review continues at Oakfield Depot following recurring ground saturation observations.
+  </p>
+</div>
+
+             <div class="attention-item">
+              <h3>Logistics — dispatch recovery</h3>
+              <p>
+                Outbound recovery continues following overnight backlog reduction.
+                Dispatch pressure remains visible but managed locally.
+              </p>
+            </div>
+          </section>
+                    
+          <section class="dashboard-card shift-flow">
+            <p class="section-kicker">Cross-entity flow</p>
+            <h2>Current group flow</h2>
+
+            <p class="section-intro">
+              A high-level operational view across active Strata entities and managed environments.
+            </p>
+            
+            <div class="flow-item">
+              <h3>Strata Aggregates</h3>
+              <p>
+                Quarry activity continuing with stockyard condition monitoring and environmental checks pending.
+              </p>
+            </div>
+           
+            <div class="flow-item">
+              <h3>Strata Estates</h3>
+              <p>
+                Portfolio activity active across contractor works, access coordination and compliance reviews.
+              </p>
+            </div>
+
+            <div class="flow-item">
+              <h3>Strata Logistics</h3>
+              <p>
+                Warehouse flow active with dispatch recovery and temporary routing awareness.
+              </p>
+            </div>
+
+            <div class="flow-item">
+              <h3>Group continuity</h3>
+              <p>
+                No group-wide operational stoppage reported. Local managers retain control of live site decisions.
+              </p>
+            </div>
+          </section>
+                    
+      <section class="dashboard-card operational-capability">
+        <p class="section-kicker">Group capability</p>
+        <h2>Current governance pressure</h2>
+
+        <p class="section-intro">
+          Group-level indicators showing where operational capacity, compliance or governance attention is currently concentrated.
+        </p>
+
+        <div class="capability-grid">
+
+          <div class="capability-card">
+            <h3>Operational capacity</h3>
+            <ul>
+              <li>Local management cover confirmed across all entities</li>
+              <li>Aggregates plant support active pending inspection follow-up</li>
+              <li>Logistics dispatch recovery remains locally managed</li>
+            </ul>
+          </div>
+
+          <div class="capability-card">
+            <h3>Compliance pressure</h3>
+            <ul>
+               <li>Aggregates environmental monitoring awaiting update</li>
+              <li>Estates water hygiene inspection pending</li>
+              <li>Logistics review queue contains active follow-up items</li>
+            </ul>
+          </div>
+
+          <div class="capability-card">
+            <h3>Leadership context</h3>
+            <ul>
+              <li>No immediate group-wide intervention required</li>
+              <li>Amber items visible for trend awareness</li>
+              <li>Entity dashboards remain source of operational detail</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="dashboard-card operational-overview">
+        <p class="section-kicker">Group overview</p>
+        <h2>Portfolio overview</h2>
+
+        <div class="overview-inline">
+
+          <div class="overview-item">
+            <span class="overview-label">Managed Entities</span>
+            <span class="overview-value">3 Active</span>
+          </div>
+
+          <div class="overview-item">
+            <span class="overview-label">Estate Sites</span>
+            <span class="overview-value">4 Managed</span>
+          </div>
+
+          <div class="overview-item">
+            <span class="overview-label">Operational Reviews</span>
+            <span class="overview-value">12 Open</span>
+          </div>
+
+          <div class="overview-item">
+            <span class="overview-label">Governed QR Points</span>
+            <span class="overview-value">Active</span>
+          </div>
+      </section>
+          
+        <section class="content-grid">
+
+  <article class="panel">
+    <p class="eyebrow">Explore Hold in Practice</p>
+    <h3>Contractor Arrival Journey</h3>
+
+    <p>
+      Follow how one QR point delivers different guidance to visitors,
+      contractors and tenants across a shared estate environment.
+    </p>
+
+    <div class="workflow-list">
+     <a href="strata-estates-millbrook-yard-access-views.html"
+   class="workflow-item workflow-link">
+        <strong>Start Journey</strong>
+        <span>Role-aware access and governed visibility</span>
+      </a>
+    </div>
+  </article>
+
+  <article class="panel">
+    <p class="eyebrow">Operational Response</p>
+    <h3>Warehouse Incident Journey</h3>
+
+    <p>
+      Explore how Hold connects operational oversight,
+      emergency response and governance during a live warehouse incident.
+    </p>
+
+    <div class="workflow-list">
+      <a href="strata-logistics-emergency-response-pack.html"
+   class="workflow-item workflow-link">
+        <strong>Start Journey</strong>
+        <span>Operational coordination under pressure</span>
+      </a>
+    </div>
+  </article>
+
+</section>
+
+<section class="content-grid">
+
+  <article class="panel">
+    <p class="eyebrow">Emergency Orientation</p>
+    <h3>Quarry Emergency Journey</h3>
+
+    <p>
+      View the emergency response orientation layer used during
+      a live quarry incident scenario.
+    </p>
+
+    <div class="workflow-list">
+      <a href="strata-aggregates-operational-audit.html"
+        class="workflow-item workflow-link">
+        <strong>Start Journey</strong>
+        <span>Responder access, hazards and spill response</span>
+      </a>
+    </div>
+  </article>
+
+  <article class="panel">
+    <p class="eyebrow">Governance Continuity</p>
+    <h3>Operational Memory Journey</h3>
+
+    <p>
+      See how Hold turns inherited operational knowledge
+      into governed, usable operational records.
+    </p>
+
+    <div class="workflow-list">
+      <a href="strata-estates-old-works-unit-7.html"
+   class="workflow-item workflow-link">
+        <strong>Start Journey</strong>
+        <span>From informal memory to managed record</span>
+      </a>
+    </div>
+  </article>
+
+</section>
+
+    </main>
+  </div>
+
+<p class="footer-return">
+  <a href="https://idexqr.com/">Back to IdexQR</a>
+</p>
+        
+  <footer class="footer">
+    Powered by IdexQR<sup>®</sup>
+    <p class="footer-sub">
+    IdexQR® concepts, demonstrations and platform designs © 2026 IdexQR. All rights reserved.
+  </p>
+  </footer>
+
+  <script>
+    function updateOperationalTime() {
+      const now = new Date();
+
+      const formatted = now.toLocaleString("en-GB", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+
+      document.getElementById("currentTime").textContent = formatted;
+    }
+
+    updateOperationalTime();
+    setInterval(updateOperationalTime, 60000);
+  </script>
+
+<script>
+  const sidebar = document.querySelector('.sidebar');
+
+  if (sidebar) {
+
+    const savedSidebarScroll =
+      localStorage.getItem('holdSidebarScroll');
+
+    if (savedSidebarScroll !== null) {
+      sidebar.scrollTop = savedSidebarScroll;
+    }
+
+    sidebar.addEventListener('scroll', () => {
+      localStorage.setItem(
+        'holdSidebarScroll',
+        sidebar.scrollTop
+      );
+    });
+
+  }
+</script>
+  <script src="sidebar.js?v=8"></script>
+  <script src="clock.js?v=2"></script>
+</body>
+</html>
+

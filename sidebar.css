@@ -1,0 +1,34 @@
+/* ==============================
+   SIDEBAR OVERRIDES
+   ============================== */
+
+@media (min-width: 901px) {
+
+  .dashboard-layout {
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+  }
+
+  .dashboard-main {
+    min-width: 0;
+  }
+
+}
+
+.sidebar-helper {
+  margin: -0.35rem 0 0.75rem;
+  padding-left: 0.2rem;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: rgba(88, 102, 96, 0.72);
+  line-height: 1.35;
+}
