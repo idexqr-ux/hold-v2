@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>East Service Lane Works — Contractor View</title>
+  <link rel="stylesheet" href="style.css?v=24" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
+</head>
+
+<body>
+  <div class="dashboard-layout">
+
+    <div id="hold-sidebar" data-sidebar="sidebar-estates.html"></div>
+
+    <main class="dashboard-main">
+    <section class="scan-card">
+      <p class="scan-eyebrow">Contractor Site View</p>
+
+      <div class="scan-header">
+        <h1>East Service Lane Works</h1>
+        <p class="dashboard-subtitle">
+          Contractor guidance for drainage survey works near the east service lane.
+        </p>
+
+        <span class="status-pill status-review">Active Works</span>
+      </div>
+
+      <section class="scan-section">
+  <h2>Access guidance</h2>
+
+  <p class="asset-alias">
+    Neighbouring landowner access track operationally referred to as “The Willows”.
+  </p>
+
+  <p>
+    Use the north compound parking area while visitor parking is temporarily redirected.
+    Follow site signage and avoid blocking shared access routes.
+  </p>
+</section>
+
+      <section class="scan-section">
+        <h2>Before work starts</h2>
+        <ul>
+          <li>Confirm RAMS approval before entering the working area.</li>
+          <li>Check current drainage survey boundary with the estates contact.</li>
+          <li>Keep the east service lane clear for authorised access.</li>
+        </ul>
+      </section>
+
+      <section class="scan-section">
+        <h2>Operational note</h2>
+        <p>
+          Any change to parking, drainage access, or temporary restrictions should be reported
+          back to the Estates dashboard.
+        </p>
+      </section>
+
+      <article class="card">
+
+  <h3>Contractor Actions</h3>
+
+  <p>
+    Use these actions to report temporary restrictions, drainage access changes
+    or operational issues back into Hold.
+  </p>
+
+  <div class="button-row">
+
+    <button type="button" class="quiet-button" data-action="access-issue">
+      Report Access Issue
+    </button>
+
+    <button type="button" class="quiet-button" data-action="temporary-restriction">
+      Report Temporary Restriction
+    </button>
+
+    <button type="button" class="quiet-button" data-action="drainage-change">
+      Report Drainage Access Change
+    </button>
+
+    <button type="button" class="quiet-button" data-action="works-complete">
+      Confirm Works Complete
+    </button>
+
+    <button type="button" class="quiet-button secondary" data-action="contractor-other">
+      Other Contractor Issue
+    </button>
+
+  </div>
+
+</article>
+
+      <article class="card action-result-card" id="access-issue-card" hidden>
+
+  <div class="action-result-header">
+
+    <span class="status-pill status-review">
+      Report Access Issue
+    </span>
+
+    <button class="card-close" type="button" aria-label="Close action card">
+      ×
+    </button>
+
+  </div>
+
+  <p>
+    Report blocked access routes, vehicle conflicts or restricted entry points affecting operational movement.
+  </p>
+
+  <ul class="workflow-list">
+    <li>Routes reported through Hold remain visible to Estates review teams.</li>
+    <li>Temporary restrictions may appear within operational dashboard notices.</li>
+  </ul>
+
+</article>
+
+<article class="card action-result-card" id="temporary-restriction-card" hidden>
+
+  <div class="action-result-header">
+
+    <span class="status-pill status-review">
+      Report Temporary Restriction
+    </span>
+
+    <button class="card-close" type="button" aria-label="Close action card">
+      ×
+    </button>
+
+  </div>
+
+  <p>
+    Record temporary parking restrictions, drainage barriers or shared route limitations affecting operational access.
+  </p>
+
+</article>
+
+<article class="card action-result-card" id="drainage-change-card" hidden>
+
+  <div class="action-result-header">
+
+    <span class="status-pill status-review">
+      Report Drainage Access Change
+    </span>
+
+    <button class="card-close" type="button" aria-label="Close action card">
+      ×
+    </button>
+
+  </div>
+
+  <p>
+    Record updated drainage survey boundaries or revised operational access requirements.
+  </p>
+
+</article>
+
+<article class="card action-result-card" id="works-complete-card" hidden>
+
+  <div class="action-result-header">
+
+    <span class="status-pill status-active">
+      Confirm Works Complete
+    </span>
+
+    <button class="card-close" type="button" aria-label="Close action card">
+      ×
+    </button>
+
+  </div>
+
+  <p>
+    Confirm that drainage survey works have completed and temporary operational restrictions may be reviewed for removal.
+  </p>
+
+</article>
+
+<article class="card action-result-card" id="contractor-other-card" hidden>
+
+  <div class="action-result-header">
+
+    <span class="status-pill status-review">
+      Other Contractor Issue
+    </span>
+
+    <button class="card-close" type="button" aria-label="Close action card">
+      ×
+    </button>
+
+  </div>
+
+  <p>
+    Record operational concerns not covered by an existing contractor workflow category.
+  </p>
+
+  <label class="sr-only" for="contractorIssue">
+    Contractor issue details
+  </label>
+
+  <textarea
+    id="contractorIssue"
+    class="hold-textarea"
+    rows="5"
+    placeholder="Describe the operational issue, restriction or concern..."></textarea>
+
+  <div class="button-row">
+
+    <button type="button" class="quiet-button">
+      Submit Operational Note
+    </button>
+
+  </div>
+
+</article>
+      
+       </main>
+
+</div>
+
+<footer class="footer">
+
+  <p>
+    Powered by IdexQR<sup>®</sup>
+  </p>
+
+  <p class="footer-sub">
+    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
+  </p>
+
+</footer>
+
+<script src="sidebar.js?v=4"></script>
+<script src="clock.js?v=4"></script>
+
+</body>
+</html>

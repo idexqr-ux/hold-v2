@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Strata Estates Operational Points — Hold</title>
+  <link rel="stylesheet" href="style.css?v=24" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
+</head>
+
+<body>
+  <div class="dashboard-layout">
+
+    <div id="hold-sidebar" data-sidebar="sidebar-estates.html"></div>
+
+    <main class="dashboard-main">
+
+      <p class="breadcrumb">
+        Hold / Strata Estates / Operational Points
+      </p>
+
+      <div class="dashboard-header">
+
+  <p class="dashboard-breadcrumb">
+    Hold / Strata Estates / Operational Points
+  </p>
+
+  <div class="dashboard-title-row">
+
+    <div>
+
+      <p class="section-kicker">Portfolio Governance</p>
+
+      <h1 id="operationalTitle">Operational Points</h1>
+
+      <p class="dashboard-subtitle">
+        QR-linked operational guidance across managed estate environments,
+        supporting contractor activity, utilities oversight, access governance,
+        drainage management and operational land coordination.
+      </p>
+
+    </div>
+
+    <span class="dashboard-status-pill">
+      Entity View
+    </span>
+
+  </div>
+
+</div>
+
+      <section class="dashboard-panels">
+
+        <article class="panel site-card" data-site="oakfield-depot">
+          <p class="eyebrow">Oakfield Depot</p>
+          <h3>Operational QR Points</h3>
+
+          <div class="workflow-item">
+            <strong>QR1 — Contractor Works</strong>
+            <span>Marked-up operational plan and contractor guidance</span>
+          </div>
+
+          <div class="workflow-item">
+            <strong>QR2 — Utility Isolation</strong>
+            <span>Isolation controls, buried service notes and emergency guidance</span>
+          </div>
+
+          <div class="workflow-item">
+            <strong>QR3 — Drainage Inspection</strong>
+            <span>Seasonal drainage checks and standing water observations</span>
+          </div>
+
+          <div class="workflow-item">
+            <strong>QR4 — Access Guidance</strong>
+            <span>Vehicle routing, turning restrictions and low-loader access</span>
+          </div>
+        </article>
+        
+<article class="panel site-card" data-site="millbrook-yard">
+        <div class="workflow-item">
+          <p class="eyebrow">Millbrook Yard</p>
+          <h3>Operational QR Points</h3>
+
+          <div class="workflow-item">
+            <strong>QR1 — Shared Access Route</strong>
+            <span>Shared parking guidance and delivery routing controls</span>
+          </div>
+
+         <div class="workflow-item">
+            <strong>QR2 — Contractor Parking</strong>
+            <span>Temporary contractor parking and neighbour access guidance</span>
+          </div>
+
+         <div class="workflow-item">
+            <strong>QR3 — Signage Review Point</strong>
+            <span>Operational signage controls and visibility checks</span>
+          </div>
+        </article>
+
+        <article class="panel site-card" data-site="old-works-unit-7">
+          <p class="eyebrow">Old Works Unit 7</p>
+          <h3>Operational QR Points</h3>
+
+         <div class="workflow-item">
+            <strong>QR1 — Lease Restrictions</strong>
+            <span>Operational limitations and landlord governance notes</span>
+          </div>
+
+          <div class="workflow-item">
+            <strong>QR2 — Loading Controls</strong>
+            <span>Vehicle access timing and shared loading guidance</span>
+          </div>
+        </article>
+
+        <article class="panel site-card" data-site="south-meadow-storage">
+          <p class="eyebrow">South Meadow Storage</p>
+          <h3>Operational QR Points</h3>
+
+          <div class="workflow-item">
+            <strong>QR1 — Boundary Guidance</strong>
+            <span>Boundary clarification and neighbouring land reference</span>
+          </div>
+
+         <div class="workflow-item">
+            <strong>QR2 — Shared Access Route</strong>
+            <span>Maintenance responsibility and shared route controls</span>
+          </div>
+        </article>
+
+      </section>
+
+     </main>
+
+</div>
+
+<footer class="footer">
+
+  <p>
+    Powered by IdexQR<sup>®</sup>
+  </p>
+
+  <p class="footer-sub">
+    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
+  </p>
+
+</footer>
+
+<script src="sidebar.js?v=4"></script>
+<script src="clock.js?v=4"></script>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const activeSite = params.get("site");
+
+  if (activeSite) {
+    const grid = document.querySelector(".dashboard-panels");
+    const selectedCard = document.querySelector(`[data-site="${activeSite}"]`);
+
+    if (grid && selectedCard) {
+      grid.prepend(selectedCard);
+    }
+
+    const activeSidebarLink = document.querySelector(`[data-site-link="${activeSite}"]`);
+
+    if (activeSidebarLink) {
+      activeSidebarLink.classList.add("active");
+    }
+
+    const siteTitles = {
+      "oakfield-depot": "Oakfield Depot Operational Points",
+      "millbrook-yard": "Millbrook Yard Operational Points",
+      "old-works-unit-7": "Old Works Unit 7 Operational Points",
+      "south-meadow-storage": "South Meadow Storage Operational Points"
+    };
+
+    const title = document.getElementById("operationalTitle");
+
+    if (siteTitles[activeSite] && title) {
+      title.textContent = siteTitles[activeSite];
+    }
+  }
+</script>
+</body>
+</html>
+
