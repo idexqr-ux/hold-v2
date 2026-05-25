@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hold — Weighbridge Station</title>
+  <link rel="stylesheet" href="style.css?v=24" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
+</head>
+
+<body>
+  <div class="dashboard-layout">
+    <div id="hold-sidebar" data-sidebar="sidebar-aggregates.html"></div>
+    <main class="dashboard-main">
+      <div class="dashboard-header">
+
+  <p class="dashboard-breadcrumb">
+    Strata Aggregates / Weighbridge Station
+  </p>
+
+  <div class="dashboard-title-row">
+
+    <div>
+
+      <h1>Weighbridge Station</h1>
+
+      <p class="dashboard-subtitle">
+  Quarry vehicle movements, weighbridge operations and ticketing continuity.
+</p>
+
+      <p class="asset-alias">
+        Operationally known on site as WB-01 / “South Bridge”
+      </p>
+
+    </div>
+
+    <span class="dashboard-status-pill">
+      Operational Point
+    </span>
+
+  </div>
+
+</div>
+
+      <section class="stats-grid">
+        <div class="stat-card">
+          <h3>Status</h3>
+          <p>Active</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Calibration</h3>
+          <p>Due in 28 Days</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Manual Tickets Pending</h3>
+          <p>3 Awaiting Upload</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Operator Cover</h3>
+          <p>1 Backup Required</p>
+        </div>
+      </section>
+
+      <section class="offline-banner">
+        <strong>Offline Mode Active</strong><br>
+        Signal intermittent at the weighbridge — tickets are stored locally and synced automatically when connection returns.
+      </section>
+
+      <section class="content-grid">
+        <article class="panel">
+          <p class="eyebrow">Offline Workflow</p>
+          <h3>Pending Synchronisation</h3>
+
+          <ul class="activity-list">
+            <li>
+              <strong>WB-1050</strong>
+              <span>Stored locally pending sync — 09:31</span>
+            </li>
+             <li>
+              <strong>WB-1049</strong>
+              <span>Stored locally — 09:27</span>
+            </li>
+            <li>
+              <strong>WB-1048</strong>
+              <span>Stored locally — 09:14</span>
+            </li>         
+            
+          </ul>
+        </article>
+
+        <article class="panel">
+          <p class="eyebrow">Operational Risk</p>
+          <h3>Current Governance Notes</h3>
+
+          <ul class="activity-list">
+            <li>
+              <strong>Single trained operator dependency identified</strong>
+              <span>Backup cover below target</span>
+            </li>
+            <li>
+              <strong>Manual ticket backlog present</strong>
+              <span>3 entries pending upload</span>
+            </li>
+            <li>
+              <strong>Calibration review upcoming</strong>
+              <span>Schedule engineer attendance</span>
+            </li>
+            <li>
+  <strong>Snapshot-period movement increase</strong>
+  <span>Additional outbound and internal material movements expected during stock-building activity</span>
+</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel">
+          <p class="eyebrow">Authorised Operators</p>
+          <h3>Current Access List</h3>
+
+          <ul class="activity-list">
+            <li>
+              <strong>Primary Operator</strong>
+              <span>Certified — Active</span>
+            </li>
+            <li>
+              <strong>Deputy Operator</strong>
+              <span>Training Required</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <p class="eyebrow">Fallback Procedure</p>
+          <h3>Manual Ticket Process</h3>
+
+          <ol class="check-list">
+            <li>Record vehicle registration</li>
+            <li>Record customer / supplier</li>
+            <li>Record material / load type</li>
+            <li>Record gross, tare and net weight where available</li>
+            <li>Mark ticket as manual pending upload</li>
+            <li>Retain local timestamp until synchronisation confirmed</li>
+            <li>Notify site manager and central accounts</li>
+          </ol>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel">
+          <p class="eyebrow">Accounts Visibility</p>
+          <h3>Ticket Upload Status</h3>
+
+          <ul class="activity-list">
+            <li>
+              <strong>Uploaded Today</strong>
+              <span>47 Tickets</span>
+            </li>
+            <li>
+              <strong>Pending Manual Upload</strong>
+              <span>3 Tickets</span>
+            </li>
+            <li>
+              <strong>Exceptions Requiring Review</strong>
+              <span>1 Weight Variance</span>
+            </li>
+          </ul>
+        </article>
+     </section>
+
+    </main>
+
+</div>
+
+<footer class="footer">
+
+  <p>
+    Powered by IdexQR<sup>®</sup>
+  </p>
+
+  <p class="footer-sub">
+    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
+  </p>
+
+</footer>
+
+<script src="sidebar.js?v=4"></script>
+<script src="clock.js?v=4"></script>
+
+</body>
+</html>

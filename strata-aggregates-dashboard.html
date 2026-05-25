@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hold Dashboard — Strata Aggregates</title>
+  <link rel="stylesheet" href="style.css?v=29" />
+  <link rel="stylesheet" href="sidebar.css" />
+</head>
+
+<body>
+  <div class="dashboard-layout">
+
+    <div id="hold-sidebar" data-sidebar="sidebar-aggregates.html"></div>
+
+    <main class="dashboard-main">
+
+      <div class="dashboard-header">
+
+        <p class="dashboard-breadcrumb">
+          Strata Aggregates Dashboard
+        </p>
+
+        <div class="dashboard-title-row">
+          <div>
+            <h1>Operational Snapshot</h1>
+            <p class="dashboard-subtitle">
+              Current operational conditions, environmental monitoring and governance visibility.
+            </p>
+          </div>
+
+                    <span class="dashboard-status-pill">
+            Operations Hub
+          </span>
+        </div>
+      </div>
+
+      <section class="alert-grid">
+
+ <article class="dashboard-card alert-card amber-alerts">
+
+  <div class="alert-header centered-alert">
+
+    <p class="section-kicker alert-kicker amber-kicker">
+      Amber Alerts
+    </p>
+
+    <span class="alert-title-pill amber-title-pill">
+      Operational Watch
+    </span>
+
+    <span class="alert-pill amber-pill">
+      2 Active
+    </span>
+
+  </div>
+
+  <p class="section-intro">
+    Conditions and operational items requiring awareness during the current production shift.
+  </p>
+
+  <div id="amberAlerts">
+
+    <p>
+      <strong>Lower Stockyard</strong>
+      <span> : Surface advisory active — designated plant routes remain in use during ground recovery works.</span>
+    </p>
+
+    <p>
+      <strong>Weighbridge</strong>
+      <span> : Calibration due within 3 days — monitor outbound ticketing consistency pending inspection.</span>
+    </p>
+
+  </div>
+
+</article>
+
+ <article class="dashboard-card alert-card red-alerts">
+
+  <div class="alert-header centered-alert">
+
+    <p class="section-kicker alert-kicker red-kicker">
+      Red Alerts
+    </p>
+
+    <span class="alert-title-pill red-title-pill">
+      Immediate Operational Attention
+    </span>
+
+    <span class="alert-pill red-pill">
+      0 Active
+    </span>
+
+  </div>
+
+  <p class="section-intro">
+    Conditions requiring immediate operational restriction, escalation or emergency response.
+  </p>
+
+  <div id="redAlerts">
+
+    <p>
+      <strong>No</strong>
+      <span> : red-alert operational restrictions currently active.</span>
+    </p>
+
+  </div>
+
+</article> 
+
+</section>
+
+      <section class="dashboard-layer">
+        <div class="top-shift-grid">
+
+          <section class="dashboard-card operational-attention">
+            <p class="section-kicker">Quarry Conditions During Active Production</p>
+<h2>High-throughput quarry period</h2>
+<p class="section-intro">
+  Current quarry activity remains elevated following a sustained improvement in weather conditions. 
+  Additional crushing capacity has been hired onto site to extend grading operations and support increased stock build requirements during the current production window.
+       
+            <div class="attention-item">
+              <h3>Lower stockyard surface conditions</h3>
+              <p>
+                Lower stockyard surface maintenance remains ongoing following prolonged heavy rainfall earlier in the month. 
+                Designated plant routes remain active while ground recovery and surface inspections continue across affected operational areas.
+              </p>
+              <p class="next-action">
+                <strong>Next action:</strong> Morning ground-condition inspection due before unrestricted lower-route access resumes.
+              </p>
+            </div>
+
+            <div class="attention-item">
+  <h3>Temporary crusher hire active</h3>
+  <p>
+    A temporary crusher unit has been brought onto site to support increased grading demand and stock-building activity during the improved weather period.
+    Initial hire inspection and QR-linked operational record remain pending confirmation within the audit register.
+  </p>
+  <p class="next-action">
+    <strong>Next action:</strong> Confirm hire inspection and governed QR operational record.
+  </p>
+</div>
+          </section>
+
+          <section class="dashboard-card shift-flow">
+            <p class="section-kicker">Quarry flow</p>
+<h2>Snapshot-period flow</h2>
+<p class="section-intro">
+  Quarry movement, plant activity and material flow during the current high-throughput production period.
+</p>
+
+            <div class="flow-item">
+              <h3>Extraction face</h3>
+              <p>Primary extraction and extended grading-line feed activity.</p>
+            </div>
+
+            <div class="flow-item">
+  <h3>Extended grading line</h3>
+  <p>Hired crusher deployed to support additional stone grading and stock-building while dry-weather conditions remain favourable.</p>
+</div>
+
+            <div class="flow-item">
+              <h3>Stockyard movement</h3>
+              <p>Stockyard recovery checks and environmental monitoring follow-up.</p>
+            </div>
+
+            <div class="flow-item">
+              <h3>Shift continuity</h3>
+              <p>Previous shift cached three records during intermittent signal. Two updates remain pending sync.</p>
+            </div>
+          </section>
+
+        <section class="dashboard-card expected-movements">
+  <section class="dashboard-card expected-movements">
+  <p class="section-kicker">Operational workload</p>
+
+  <h2>Today’s expected movements</h2>
+
+  <p class="section-intro">
+    Planned quarry, stockyard and outbound activity during the current production shift.
+  </p>
+
+  <div class="movement-table">
+
+    <div class="movement-row">
+      <span class="movement-time">Afternoon</span>
+      <span class="movement-detail">
+        Stockyard recovery checks and environmental monitoring follow-up.
+      </span>
+    </div>
+
+    <div class="movement-row">
+      <span class="movement-time">11:30–13:00</span>
+      <span class="movement-detail">
+        Weighbridge ticketing and outbound aggregate movements.
+      </span>
+    </div>
+
+    <div class="movement-row">
+      <span class="movement-time">09:00–11:30</span>
+      <span class="movement-detail">
+        Primary extraction and extended grading-line feed activity.
+      </span>
+    </div>
+
+    <div class="movement-row">
+      <span class="movement-time">07:00–09:00</span>
+      <span class="movement-detail">
+        Ground-condition review and designated plant-route confirmation.
+      </span>
+    </div>
+
+  </div>
+</section>
+          
+      <section class="dashboard-card operational-capability">
+
+  <p class="section-kicker">Shift capability</p>
+
+  <h2>Current operational capability</h2>
+
+  <p class="section-intro">
+    Workforce, plant availability and operational support currently sustaining the active quarry production shift.
+  </p>
+
+  <div class="capability-grid">
+
+    <div class="capability-card">
+      <h3>Workforce</h3>
+
+      <ul>
+        <li>Quarry supervisor cover confirmed</li>
+        <li>Loading shovel operator assigned to lower stockyard support</li>
+        <li>Weighbridge cover confirmed for outbound movement period</li>
+      </ul>
+    </div>
+
+    <div class="capability-card">
+      <h3>Plant & equipment</h3>
+
+      <ul>
+        <li>Primary crusher operating under normal load</li>
+        <li>Temporary crusher deployed for grading-line extension</li>
+        <li>Forklift 08 available for stockyard recovery activity</li>
+        <li>Fuel and hazard-store access operating under standard controls</li>
+      </ul>
+    </div>
+
+    <div class="capability-card">
+      <h3>Operational support</h3>
+
+      <ul>
+        <li>Ground-condition inspection due before unrestricted lower-route access resumes</li>
+        <li>Dust suppression audit scheduled during current dry-weather production period</li>
+        <li>Environmental monitoring record awaiting synchronisation from remote operational point</li>
+      </ul>
+    </div>
+
+  </div>
+
+</section>
+          
+      <section class="dashboard-card operational-overview">
+  <p class="section-kicker">Quarry record</p>
+  <h2>Operational overview</h2>
+
+  <div class="overview-inline">
+
+    <div class="overview-item">
+      <span class="overview-label">Governed QR Points</span>
+      <span class="overview-value">18 Active</span>
+    </div>
+
+    <div class="overview-item">
+      <span class="overview-label">Plant Inspections</span>
+      <span class="overview-value">4 Due This Week</span>
+    </div>
+
+    <div class="overview-item">
+      <span class="overview-label">Surface / Route Items</span>
+      <span class="overview-value">2 Open</span>
+    </div>
+
+    <div class="overview-item">
+      <span class="overview-label">Environmental Records</span>
+      <span class="overview-value">1 Awaiting Sync</span>
+    </div>
+
+  </div>
+</section>
+
+    </main>
+  </div>
+
+  
+  <script>
+  function updateAmberCount() {
+
+    const amber = document.getElementById("amberAlerts");
+
+    const alerts =
+      amber.querySelectorAll("p:not(.live-note)");
+
+    const amberCount =
+      document.querySelector(".amber-pill");
+
+    amberCount.textContent =
+      `${alerts.length} Active`;
+  }
+
+  updateAmberCount();
+
+  setTimeout(() => {
+
+    const amber =
+      document.getElementById("amberAlerts");
+
+    amber.innerHTML += `
+      <p>
+  <strong>Stockyard Operational Point</strong>
+  <span> : Surface condition updated — lower route remains designated-plant access only pending ground inspection.</span>
+</p>
+
+<p class="live-note">
+  Updated just now from Stockyard Operational Point
+</p>
+    `;
+
+    updateAmberCount();
+
+  }, 5000);
+</script>
+
+<p class="footer-return">
+  <a href="https://idexqr.com/">Back to IdexQR</a>
+</p>
+        
+ <footer class="footer">
+  Powered by IdexQR<sup>®</sup>
+   <p class="footer-sub">
+    IdexQR® concepts, demonstrations and platform designs © 2026 IdexQR. All rights reserved.
+  </p>
+</footer>
+
+<script src="sidebar.js?v=1"></script>
+<script src="clock.js?v=2"></script>
+</body>
+</html>
