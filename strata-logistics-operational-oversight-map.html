@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Strata Logistics — Operational Oversight Map</title>
+
+  <meta
+    name="description"
+    content="Operational oversight map for Strata Logistics showing goods-in flow, dispatch routing, hold areas and operational movement zones."
+  />
+
+  <link rel="stylesheet" href="style.css?v=42" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
+</head>
+
+<body>
+  <div class="dashboard-layout">
+
+     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
+
+    <main class="dashboard-main">
+  <div class="dashboard-header">
+
+  <p class="dashboard-breadcrumb">
+    Strata Logistics / Operational Oversight Map
+  </p>
+
+  <div class="dashboard-title-row">
+
+    <div>
+      <h1>Operational Oversight Map</h1>
+
+      <p class="dashboard-subtitle">
+        Operational routing, review zones and live workflow awareness across the Strata Logistics site.
+      </p>
+    </div>
+
+    <span class="dashboard-status-pill">
+      Operational Map
+    </span>
+
+  </div>
+
+</div>
+
+<section class="signal-strip signal-info">
+  <strong>Operational Note:</strong>
+  Bay C03 and Hold Area B may experience temporary routing overlap during peak dispatch and reviewed-load activity.
+</section>
+
+   <section class="dashboard-card">
+  <p class="section-kicker">Operational routing</p>
+  <h2>Logistics site overview</h2>
+
+  <figure class="map-card">
+    <div class="map-focus-wrap">
+      <img
+        class="safety-map"
+        src="images/strata-logistics-operational-oversight-map.png"
+        alt="Strata Logistics operational oversight map."
+      />
+
+<span class="map-focus-marker bay-a12-marker active" data-map-point="bay-a12"></span>
+<span class="map-focus-marker bay-c03-marker" data-map-point="bay-c03"></span>
+<span class="map-focus-marker hold-area-b-marker" data-map-point="hold-area-b"></span>
+<span class="map-focus-marker forklift-03-marker" data-map-point="forklift-03"></span>
+    </div>
+
+    <figcaption>
+      Operational routing, dispatch, hold area and forklift movement points.
+    </figcaption>
+  </figure>
+
+<div class="map-focus-controls">
+  <button class="map-focus-row active" type="button" data-map-target="bay-a12">
+    <strong>Bay A12</strong>
+    <small>Goods-in and intake movement point</small>
+  </button>
+
+  <button class="map-focus-row" type="button" data-map-target="bay-c03">
+    <strong>Bay C03</strong>
+    <small>Dispatch bay and driver collection point</small>
+  </button>
+
+  <button class="map-focus-row" type="button" data-map-target="hold-area-b">
+    <strong>Hold Area B</strong>
+    <small>Controlled hold area for reviewed stock movement</small>
+  </button>
+
+  <button class="map-focus-row" type="button" data-map-target="forklift-03">
+    <strong>Forklift 03</strong>
+    <small>Forklift movement and equipment point</small>
+  </button>
+</div>
+</section>
+      
+      </main>
+
+</div>
+
+<footer class="footer">
+
+  <p>
+    Powered by IdexQR<sup>®</sup>
+  </p>
+
+  <p class="footer-sub">
+    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
+  </p>
+
+</footer>
+
+<script src="sidebar.js?v=4"></script>
+<script src="clock.js?v=4"></script>
+
+<script>
+  const mapButtons = document.querySelectorAll("[data-map-target]");
+  const mapMarkers = document.querySelectorAll("[data-map-point]");
+
+  mapButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const target = button.dataset.mapTarget;
+
+      mapButtons.forEach((item) => item.classList.remove("active"));
+      mapMarkers.forEach((marker) => marker.classList.remove("active"));
+
+      button.classList.add("active");
+
+      const marker = document.querySelector(`[data-map-point="${target}"]`);
+      if (marker) {
+        marker.classList.add("active");
+      }
+    });
+  });
+</script>  
+</body>
+</html>

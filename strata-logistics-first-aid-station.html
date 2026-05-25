@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>First Aid Station — Hold</title>
+  <meta
+    name="description"
+    content="A Strata Logistics health and safety record for first aid kit inspection, stock compliance and incident reporting, powered by Hold."
+  />
+  <link rel="stylesheet" href="style.css?v=24" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
+</head>
+
+<body>
+  <div class="dashboard-layout">
+
+     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
+
+    <main class="dashboard-main">
+
+  <main class="dashboard-main">
+
+  <div class="dashboard-header">
+
+    <p class="dashboard-breadcrumb">
+      Hold / Strata Logistics
+    </p>
+
+    <div class="dashboard-title-row">
+
+      <div>
+
+        <p class="section-kicker">H&amp;S Point</p>
+
+        <h1>First Aid Station</h1>
+
+        <p class="dashboard-subtitle">
+          Health and safety record for first aid kit inspections, required stock levels,
+          expiry checks, replenishment requests and incident reporting access.
+        </p>
+
+      </div>
+
+      <div class="button-row">
+        <span class="status-pill status-active">Compliant</span>
+        <span class="status-pill status-pending">H&amp;S Point</span>
+        <span class="status-pill status-review">Audit Enabled</span>
+      </div>
+
+    </div>
+
+  </div>
+
+    <section class="grid">
+
+      <article class="card soft-panel">
+        <h3>Operational Snapshot</h3>
+        <div class="detail-grid">
+          <p><strong>Status</strong><span class="value value-key">Kit Complete</span></p>
+          <p><strong>Responsible Lead</strong><span class="value">H&amp;S Coordinator</span></p>
+          <p><strong>Last Inspection</strong><span class="value">Today · 07:25</span></p>
+          <p><strong>Next Inspection Due</strong><span class="value">10 May 2026</span></p>
+          <p><strong>Inspection Frequency</strong><span class="value">Weekly</span></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Required Kit Standard</h3>
+        <ul class="workflow-list">
+          <li>Used or missing items reported through Hold are automatically logged for replenishment workflow.</li>
+          <li>Required dressings and bandages present at approved stock level.</li>
+          <li>Eye wash supplies available and within expiry date.</li>
+          <li>Disposable gloves stocked and accessible.</li>
+          <li>Burn dressings present where required by site risk assessment.</li>
+          <li>Incident reporting access should remain available to authorised operational staff.</li>
+        </ul>
+      </article>
+
+      <article class="card soft-panel">
+        <h3>Current Stock Advisory</h3>
+        <p>
+          <strong>No urgent stock issue recorded.</strong>
+          Medium dressings due for replenishment at next scheduled stock check.
+        </p>
+      </article>
+
+      <article class="card">
+
+  <h3>First Aid Actions</h3>
+
+  <p>
+    Use these actions to record checks, report missing items and preserve the audit trail.
+  </p>
+
+  <div class="button-row">
+
+    <button type="button" class="quiet-button" data-action="inspection">
+      Confirm Kit Inspection Complete
+    </button>
+
+    <button type="button" class="quiet-button" data-action="missing-item">
+      Report Missing / Used Item
+    </button>
+
+    <button type="button" class="quiet-button" data-action="replenishment">
+      Request Replenishment
+    </button>
+
+    <button type="button" class="quiet-button" data-action="expired-item">
+      Report Expired Item
+    </button>
+
+    <button type="button" class="quiet-button" data-action="incident-record">
+      Open Incident Reporting Record
+    </button>
+
+    <button type="button" class="quiet-button" data-action="hs-concern">
+      Escalate H&amp;S Concern
+    </button>
+
+    <button type="button" class="quiet-button secondary" data-action="other-first-aid">
+      Other First Aid Issue
+    </button>
+
+  </div>
+
+</article>
+      
+     <article class="card action-result-card" id="inspection-card" hidden>
+  <div class="action-result-header">
+  <span class="status-pill status-review">
+    Confirm Kit Inspection Complete
+  </span>
+
+  <button class="card-close" type="button" aria-label="Close action card">
+    ×
+  </button>
+</div>
+  <p>Record that the first aid kit inspection has been completed and no immediate replenishment or expiry issue has been identified.</p>
+</article>
+
+<article class="card action-result-card" id="missing-item-card" hidden>
+  <div class="action-result-header">
+  <span class="status-pill status-review">
+    Report Missing / Used Item
+  </span>
+
+  <button class="card-close" type="button" aria-label="Close action card">
+    ×
+  </button>
+</div>
+  <p>Record the missing or used item, note whether the kit remains operational, and flag urgent replenishment if required.</p>
+</article>
+
+<article class="card action-result-card" id="replenishment-card" hidden>
+  <div class="action-result-header">
+
+  <span class="status-pill status-review">
+    Request Replenishment
+  </span>
+
+  <button
+    class="card-close"
+    type="button"
+    aria-label="Close action card">
+    ×
+  </button>
+
+</div>
+  <p>Record the item required, current stock level and urgency before submitting the replenishment request.</p>
+</article>
+
+<article class="card action-result-card" id="expired-item-card" hidden>
+  <div class="action-result-header">
+  <span class="status-pill status-review">
+    Report Expired Item
+  </span>
+
+  <button class="card-close" type="button" aria-label="Close action card">
+    ×
+  </button>
+</div>
+  <p>Record the expired item, remove it from available use, and request a compliant replacement.</p>
+</article>
+
+<article class="card action-result-card" id="incident-record-card" hidden>
+  <div class="action-result-header">
+  <span class="status-pill status-review">
+    Open Incident Reporting Record
+  </span>
+
+  <button class="card-close" type="button" aria-label="Close action card">
+    ×
+  </button>
+</div>
+  <p>Open or create an incident reporting record where first aid use relates to an injury, near miss or reportable operational event.</p>
+</article>
+
+<article class="card action-result-card" id="hs-concern-card" hidden>
+ <div class="action-result-header">
+  <span class="status-pill status-review">
+    Escalate H&amp;S Concern
+  </span>
+
+  <button class="card-close" type="button" aria-label="Close action card">
+    ×
+  </button>
+</div>
+  <p>Escalate concerns where repeated kit use, missing stock or access issues suggest a wider health and safety risk.</p>
+</article>
+
+<article class="card action-result-card" id="other-first-aid-card" hidden>
+ <div class="action-result-header">
+  <span class="status-pill status-review">
+    Other First Aid Issue
+  </span>
+
+  <button class="card-close" type="button" aria-label="Close action card">
+    ×
+  </button>
+</div>
+  <p>Use this route where the issue does not fit an existing category but should still be retained in the operational audit trail.</p>
+</article>
+        
+      <article class="card">
+        <h3>Inspection History</h3>
+        <div class="delivery-list">
+
+          <article class="delivery-card">
+            <div>
+              <strong>03 May 2026</strong><br />
+              Weekly kit inspection completed<br />
+              <span class="muted-text">Kit complete; medium dressings noted for replenishment</span>
+            </div>
+            <span class="status-pill status-active">Complete</span>
+          </article>
+
+          <article class="delivery-card">
+            <div>
+              <strong>26 April 2026</strong><br />
+              Eye wash expiry check completed<br />
+              <span class="muted-text">No expired stock identified</span>
+            </div>
+            <span class="status-pill status-active">Complete</span>
+          </article>
+
+          <article class="delivery-card">
+            <div>
+              <strong>18 April 2026</strong><br />
+              Gloves replenished<br />
+              <span class="muted-text">Low stock issue closed by H&amp;S Coordinator</span>
+            </div>
+            <span class="status-pill status-active">Resolved</span>
+          </article>
+
+        </div>
+      </article>
+
+      <article class="card warning-card">
+        <h3>Missing / Expired Stock Procedure</h3>
+        <p>
+          If required first aid stock is missing, used, damaged or expired, update Hold
+          and request replenishment before the next scheduled inspection.
+        </p>
+        <ul class="workflow-list">
+          <li>Used, missing or expired items reported through Hold automatically enter replenishment workflow and remain open until replacement stock is confirmed.</li>
+          <li>Mark urgent shortages where minimum stock level is affected.</li>
+          <li>Request replenishment from the H&amp;S Coordinator or warehouse office.</li>
+          <li>Do not mark the kit complete until required stock is restored.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Workflow Notes</h3>
+        <ul class="workflow-list">
+          <li>First aid stock issues appear in the operational review queue where action is required.</li>
+          <li>Inspection completion is retained for H&amp;S audit purposes.</li>
+          <li>Used or expired items should remain open until replenishment is confirmed.</li>
+          <li>Incident reporting access should remain available to authorised staff.</li>
+        </ul>
+      </article>
+      
+      <article class="card">
+        <h3>Record Control</h3>
+        <div class="detail-grid">
+          <p><strong>Owner</strong><span class="value">Health &amp; Safety Coordinator</span></p>
+          <p><strong>Point Type</strong><span class="value">Health &amp; Safety</span></p>
+          <p><strong>Record Version</strong><span class="value">1.0</span></p>
+          <p><strong>Audit Status</strong><span class="value">Enabled</span></p>
+        </div>
+      </article>
+
+    </section>
+
+          </main>
+
+</div>
+
+<footer class="footer">
+
+  <p>
+    Powered by IdexQR<sup>®</sup>
+  </p>
+
+  <p class="footer-sub">
+    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
+  </p>
+
+</footer>
+
+<script src="sidebar.js?v=4"></script>
+<script src="clock.js?v=4"></script>
+
+</body>
+</html>

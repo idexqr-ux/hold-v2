@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Operational Points — Hold</title>
+  <link rel="stylesheet" href="style.css?v=29" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
+</head>
+
+<body>
+  <div class="dashboard-layout">
+
+     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
+
+    <main class="dashboard-main">
+
+      <div class="dashboard-header">
+
+  <p class="dashboard-breadcrumb">
+    Strata Logistics
+  </p>
+
+  <div class="dashboard-title-row">
+
+    <div>
+
+      <p class="section-kicker">Operational Governance</p>
+
+      <h1>Operational Points</h1>
+
+      <p class="dashboard-subtitle">
+        QR-linked operational points, equipment locations, storage areas,
+        dispatch zones and safety entities across the logistics environment.
+      </p>
+
+    </div>
+
+    <div class="button-row">
+      <span class="status-pill status-active">10 Active</span>
+      <span class="status-pill status-pending">3 Storage Bays</span>
+      <span class="status-pill status-review">2 Equipment Records</span>
+    </div>
+
+  </div>
+
+</div>
+
+<section class="map-layout">
+
+  <div class="panel qr-map-panel">
+  <h3>Operational Points Map</h3>
+
+  <figure class="map-card">
+    <div class="map-focus-wrap">
+      <img
+        class="safety-map"
+        src="images/strata-logistics-operational-oversight-map.png"
+        alt="Strata Logistics operational oversight map."
+      />
+
+      <span id="mapFocusMarker" class="map-focus-marker bay-a12-marker"></span>
+    </div>
+
+    <figcaption>
+      Operational points shown in context across the Strata Logistics site.
+    </figcaption>
+  </figure>
+
+  <p class="map-note">
+    QR-linked operational points are shown within the live site flow map.
+  </p>
+</div>
+
+<section class="content-grid">
+    
+  <div class="panel">
+    <h3>Point Categories</h3>
+
+<button
+  class="map-focus-row active"
+  type="button"
+  data-label="Bay A12"
+  data-detail="Goods In / Inbound Zone"
+  data-marker="bay-a12-marker"
+>
+  <span>
+    <strong>Bay A12</strong>
+    <small>Goods In / Inbound Zone</small>
+  </span>
+</button>
+
+<button
+  class="map-focus-row"
+  type="button"
+  data-label="Bay C03"
+  data-detail="Dispatch / Outbound Zone"
+  data-marker="bay-c03-marker"
+>
+  <span>
+    <strong>Bay C03</strong>
+  </span>
+</button>
+
+<button
+  class="map-focus-row"
+  type="button"
+  data-label="Hold Area B"
+  data-detail="Review / Exception Zone"
+  data-marker="hold-area-b-marker"
+>
+  <span>
+    <strong>Hold Area B</strong>
+  </span>
+</button>
+
+<button
+  class="map-focus-row"
+  type="button"
+  data-label="Forklift 03"
+  data-detail="Equipment / Movement Control"
+  data-marker="forklift-03-marker"
+>
+  <span>
+    <strong>Forklift 03</strong>
+  </span>
+</button>
+    
+  <div class="panel">
+    <h3>Point Categories</h3>
+    <p>Goods In — Bay A12 and receiving checks</p>
+    <p>Dispatch — Bay C03 and outbound staging</p>
+    <p>Hold / Review — Hold Area B and Overflow Area C</p>
+    <p>Equipment — Forklift records and charging area</p>
+    <p>Safety — exits, muster point and pedestrian routes</p>
+  </div>
+</section>
+</section>
+  </main>
+
+</div>
+
+<footer class="footer">
+
+  <p>
+    Powered by IdexQR<sup>®</sup>
+  </p>
+
+  <p class="footer-sub">
+    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
+  </p>
+
+</footer>
+
+<script src="sidebar.js?v=8"></script>
+<script src="clock.js?v=4"></script>
+
+<script>
+  const focusRows = document.querySelectorAll(".map-focus-row");
+  const marker = document.getElementById("mapFocusMarker");
+
+  focusRows.forEach((row) => {
+    row.addEventListener("click", () => {
+      focusRows.forEach((item) => {
+        item.classList.remove("active");
+
+        const strong = item.querySelector("strong");
+        const span = item.querySelector("span");
+
+        if (strong && span) {
+          span.innerHTML = `<strong>${item.dataset.label}</strong>`;
+        }
+      });
+
+      row.classList.add("active");
+
+      const span = row.querySelector("span");
+      if (span) {
+        span.innerHTML = `<strong>${row.dataset.label}</strong><small>${row.dataset.detail}</small>`;
+      }
+
+      marker.className = "map-focus-marker";
+      marker.classList.add(row.dataset.marker);
+    });
+  });
+</script>
+ 
+</body>
+</html>

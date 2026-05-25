@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Strata Logistics — Goods In Workflow</title>
+  <meta
+    name="description"
+    content="A Strata Logistics goods-in workflow for inbound delivery checks, pallet verification and intake guidance."
+  />
+  <link rel="stylesheet" href="style.css?v=24" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
+</head>
+
+<body>
+  <div class="dashboard-layout">
+
+     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
+
+    <main class="dashboard-main">
+    <div class="dashboard-header">
+      <p class="dashboard-breadcrumb">
+        Hold / Strata Logistics / Goods In Workflow
+      </p>
+
+      <div class="dashboard-title-row">
+        <div>
+          <h1>Goods In Workflow</h1>
+          <p class="dashboard-subtitle">
+            Inbound delivery checks, pallet verification and intake guidance.
+          </p>
+        </div>
+
+        <span class="dashboard-status-pill">
+          Operational Workflow
+        </span>
+      </div>
+    </div>
+
+    <section class="dashboard-card operational-overview">
+      <p class="section-kicker">Goods in status</p>
+      <h2>Inbound activity</h2>
+
+      <div class="overview-inline">
+
+        <div class="overview-item">
+          <span class="overview-label">Awaiting Receipt</span>
+          <span class="overview-value">12</span>
+        </div>
+
+        <div class="overview-item">
+          <span class="overview-label">Accepted Today</span>
+          <span class="overview-value">38</span>
+        </div>
+
+        <div class="overview-item">
+          <span class="overview-label">Issues Flagged</span>
+          <span class="overview-value">2</span>
+        </div>
+
+        <div class="overview-item">
+          <span class="overview-label">Robotic Queue</span>
+          <span class="overview-value">5</span>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="dashboard-card">
+      <p class="section-kicker">Inbound deliveries</p>
+      <h2>Active deliveries</h2>
+
+      <p class="section-intro">
+        Deliveries awaiting receipt, pallet scan or intake confirmation.
+      </p>
+
+      <div class="delivery-list">
+
+        <article class="delivery-card">
+          <div>
+            <strong>DEL-1042</strong><br>
+            Alpha Components Ltd
+          </div>
+          <a class="quiet-button" href="strata-logistics-pallet-scan.html">
+            Start pallet scan
+          </a>
+        </article>
+
+        <article class="delivery-card">
+          <div>
+            <strong>DEL-1043</strong><br>
+            Nexa Logistics
+          </div>
+          <span class="status-pill status-pending">Due Next</span>
+        </article>
+
+        <article class="delivery-card">
+          <div>
+            <strong>DEL-1044</strong><br>
+            Core Supply Group
+          </div>
+          <span class="status-pill status-pending">Due Later</span>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="dashboard-card">
+      <p class="section-kicker">Workflow sequence</p>
+      <h2>Goods in process</h2>
+
+      <div class="attention-item">
+        <h3>1. Delivery arrives</h3>
+        <p>
+          Confirm delivery reference, supplier and expected intake location before unloading.
+        </p>
+      </div>
+
+      <div class="attention-item">
+        <h3>2. Pallet verification</h3>
+        <p>
+          Scan inbound pallet labels and confirm they match the delivery record.
+        </p>
+      </div>
+
+      <div class="attention-item">
+        <h3>3. Acceptance record</h3>
+        <p>
+          Accepted pallets move into the intake record and downstream storage workflow.
+        </p>
+      </div>
+    </section>
+
+    </main>
+
+</div>
+
+<footer class="footer">
+
+  <p>
+    Powered by IdexQR<sup>®</sup>
+  </p>
+
+  <p class="footer-sub">
+    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
+  </p>
+
+</footer>
+
+<script src="sidebar.js?v=4"></script>
+<script src="clock.js?v=4"></script>
+
+</body>
+</html>

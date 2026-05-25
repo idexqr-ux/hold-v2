@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Strata Logistics — Dispatch Confirmation</title>
+  <meta
+    name="description"
+    content="A Strata Logistics dispatch confirmation record showing outbound release, carrier logging and connected business-system sync."
+  />
+  <link rel="stylesheet" href="style.css?v=24" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
+</head>
+
+<body>
+  <div class="dashboard-layout">
+
+     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
+
+    <main class="dashboard-main">
+
+    <div class="dashboard-header">
+      <p class="dashboard-breadcrumb">
+        Hold / Strata Logistics / Dispatch Confirmation
+      </p>
+
+      <div class="dashboard-title-row">
+        <div>
+          <h1>Dispatch Confirmation</h1>
+          <p class="dashboard-subtitle">
+            Outbound release, carrier logging and dispatch verification record.
+          </p>
+        </div>
+
+        <span class="dashboard-status-pill">
+          Dispatched
+        </span>
+      </div>
+    </div>
+
+    <section class="dashboard-card operational-overview">
+      <p class="section-kicker">Dispatch record</p>
+      <h2>Outbound consignment OUT-2048</h2>
+
+      <div class="overview-inline">
+
+        <div class="overview-item">
+          <span class="overview-label">Customer</span>
+          <span class="overview-value">Core Retail Group</span>
+        </div>
+
+        <div class="overview-item">
+          <span class="overview-label">Carrier</span>
+          <span class="overview-value">DHL Freight</span>
+        </div>
+
+        <div class="overview-item">
+          <span class="overview-label">Destination</span>
+          <span class="overview-value">Birmingham DC</span>
+        </div>
+
+        <div class="overview-item">
+          <span class="overview-label">Dispatch Time</span>
+          <span class="overview-value">08:34</span>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="dashboard-card">
+      <p class="section-kicker">Workflow progress</p>
+      <h2>Outbound processing status</h2>
+
+      <div class="attention-item">
+        <h3>1. Dispatch confirmed</h3>
+        <p>
+          Consignment released and verified against outbound dispatch record.
+        </p>
+      </div>
+
+      <div class="attention-item">
+        <h3>2. Inventory updated</h3>
+        <p>
+          Warehouse inventory reduced following confirmed outbound movement.
+        </p>
+      </div>
+
+      <div class="attention-item">
+        <h3>3. Carrier logging</h3>
+        <p>
+          DHL Freight collection recorded and linked to dispatch reference.
+        </p>
+      </div>
+
+      <div class="attention-item">
+        <h3>4. Business systems sync</h3>
+        <p>
+          ERP and finance systems updated following dispatch completion.
+        </p>
+      </div>
+    </section>
+
+    <section class="dashboard-card">
+      <p class="section-kicker">Integration status</p>
+      <h2>Connected records</h2>
+
+      <div class="overview-inline">
+
+        <div class="overview-item">
+          <span class="overview-label">Inventory</span>
+          <span class="overview-value">Reduced</span>
+        </div>
+
+        <div class="overview-item">
+          <span class="overview-label">Dispatch Record</span>
+          <span class="overview-value">Updated</span>
+        </div>
+
+        <div class="overview-item">
+          <span class="overview-label">Finance System</span>
+          <span class="overview-value">Synced</span>
+        </div>
+
+        <div class="overview-item">
+          <span class="overview-label">Carrier Status</span>
+          <span class="overview-value">Collection Logged</span>
+        </div>
+      </div>
+    </section>
+
+   </main>
+
+</div>
+
+<footer class="footer">
+
+  <p>
+    Powered by IdexQR<sup>®</sup>
+  </p>
+
+  <p class="footer-sub">
+    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
+  </p>
+
+</footer>
+
+<script src="sidebar.js?v=4"></script>
+<script src="clock.js?v=4"></script>
+
+</body>
+</html>
