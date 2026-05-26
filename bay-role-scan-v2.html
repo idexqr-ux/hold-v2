@@ -3,121 +3,188 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Strata Logistics — Bay A12 Scan View</title>
-  <link rel="stylesheet" href="style.css?v=24" />
+  <title>Strata Logistics - Bay C03 Driver Scan View</title>
+  <link rel="stylesheet" href="style.css?v=43" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
+    <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
 
-     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
-    
-     <main class="dashboard-main">
-       <section class="scan-card">      
-        
-          <p class="scan-eyebrow">Hold / Bay Role Scan</p>
+    <main class="dashboard-main">
+      <div class="scan-shell">
+        <section class="scan-card">
+          <p class="scan-eyebrow">Hold / Driver Scan View</p>
 
-         <header class="scan-header">
-  <h1>Bay A12</h1>
-  <p>Goods In · Bay A12</p>
-          
-  <span class="status-pill status-pending">Validation</span>
-</header>
+          <header class="scan-header">
+            <h1>Bay C03</h1>
+            <p>Dispatch Bay &middot; External Driver Arrival</p>
+            <span class="status-pill status-pending">Wait for Marshal</span>
+          </header>
 
-<details class="scan-section muted-section driver-map-details">
-  <summary>View Bay A12 area map</summary>
+          <details class="scan-section driver-map-details">
+            <summary>View route and site map</summary>
 
-  <figure class="map-card driver-map">
-    <img
-      class="safety-map"
-      src="images/strata-logistics-bay-a12-area-map.png"
-      alt="Bay A12 goods-in area map showing intake routing and movement guidance."
-    />
-    <figcaption>Bay A12 goods-in routing and movement guidance</figcaption>
-  </figure>
-</details>
-    
-        <section class="scan-section">
-  <h2>Current Instruction</h2>
-  <ul>
-    <li><strong>Status:</strong> Bay A12 validation active</li>
-    <li><strong>Work area:</strong> Goods In intake</li>
-    <li><strong>Site contact:</strong> James Porter — Goods In Supervisor</li>
-    <li>Confirm delivery reference before accepting goods into Bay A12.</li>
-    <li>Check pallet labels remain visible before movement.</li>
-    <li>Record damaged, incomplete or unclear loads before release.</li>
-  </ul>
-</section>
+            <figure class="map-card driver-map">
+              <p class="muted-text">
+                Driver route from arrival gate to Bay C03, including waiting lane, pedestrian crossing and exit route.
+              </p>
 
-<section class="scan-section">
-  <h2>Safety Information</h2>
-  <ul>
-    <li>Forklift movements operate across the Goods In route.</li>
-    <li>Keep pedestrian route clear during intake checks.</li>
-    <li>Do not move unverified goods into normal workflow.</li>
-    <li>Use Hold Area B for damaged, disputed or awaiting-decision stock.</li>
-  </ul>
-</section>
+              <img
+                class="safety-map"
+                src="images/strata-logistics-bay-c03-dispatch-area-map.png"
+                alt="Bay C03 dispatch area map showing external driver routing, waiting lane and loading bay guidance."
+              />
 
-<section class="scan-section">
-  <h2>Bay Actions</h2>
-  <p>
-    Use these actions to preserve the bay record while work is happening.
-  </p>
+              <figcaption>Bay C03 driver route, waiting lane and dispatch bay context</figcaption>
+            </figure>
+          </details>
 
-  <div class="button-row">
-    <button type="button" class="quiet-button" data-action="bay-damage">
-      Report Damage
-    </button>
+          <section class="scan-section">
+            <h2>Current Instruction</h2>
+            <ul>
+              <li><strong>Status:</strong> Arrival registered at Bay C03 waiting lane</li>
+              <li><strong>Assigned bay:</strong> Bay C03 dispatch collection point</li>
+              <li><strong>Site contact:</strong> James Porter - Goods In Supervisor</li>
+              <li>Remain with your vehicle until the marshal confirms movement to the loading line.</li>
+              <li>Keep dispatch paperwork ready for checking before unload or collection continues.</li>
+              <li>Follow marshal instruction over any older route, booking or yard guidance.</li>
+            </ul>
+          </section>
 
-    <button type="button" class="quiet-button" data-action="bay-paperwork">
-      Paperwork Issue
-    </button>
+          <section class="scan-section">
+            <h2>Safety Information</h2>
+            <ul>
+              <li>Hi-vis vest and safety boots required if leaving the cab under instruction.</li>
+              <li>Forklift movement crosses the loading lane during mixed dispatch activity.</li>
+              <li>Keep the pedestrian crossing and emergency route clear at all times.</li>
+              <li>Use the signed left-turn exit route after departure confirmation.</li>
+              <li>Do not enter the warehouse or loading bay without a marshal.</li>
+            </ul>
+          </section>
 
-    <button type="button" class="quiet-button" data-action="bay-hold">
-      Move to Hold Area B
-    </button>
+          <section class="scan-section">
+            <h2>Driver Welfare &amp; Waiting Guidance</h2>
+            <ul>
+              <li>Use the marked waiting lane until Bay C03 is ready.</li>
+              <li>For toilet access or urgent assistance, use <strong>Request Welfare Access</strong> below.</li>
+              <li>Smoking is not permitted in the loading bay, waiting lane or pedestrian route.</li>
+              <li>If delayed, stay in sequence and wait for an updated instruction through the site team.</li>
+              <li>Emergency concerns should be reported immediately using the assistance actions below.</li>
+            </ul>
+          </section>
 
-    <button type="button" class="quiet-button" data-action="bay-supervisor">
-      Request Supervisor
-    </button>
+          <section class="scan-section">
+            <h2>Report or Request Assistance</h2>
+            <p>
+              These actions keep the driver arrival, vehicle location, bay status and exception visible to the site team.
+            </p>
 
-    <button type="button" class="quiet-button secondary" data-action="bay-other">
-      Other Bay Issue
-    </button>
-  </div>
-</section>
-    
-          
+            <div class="button-row">
+              <button type="button" class="quiet-button" data-action="driver-hazard">
+                Report Hazard
+              </button>
+
+              <button type="button" class="quiet-button" data-action="driver-unclear">
+                Something Does Not Match
+              </button>
+
+              <button type="button" class="quiet-button" data-action="driver-welfare">
+                Request Welfare Access
+              </button>
+
+              <button type="button" class="quiet-button" data-action="driver-supervisor">
+                Request Supervisor Assistance
+              </button>
+
+              <button type="button" class="quiet-button secondary" data-action="driver-other">
+                Other Driver Issue
+              </button>
+            </div>
+          </section>
+
+          <article class="card action-result-card" id="driver-hazard-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Report Hazard</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+
+            <p>
+              Hazard report linked to Bay C03 driver arrival. The site team should review the route before the vehicle moves.
+            </p>
+          </article>
+
+          <article class="card action-result-card" id="driver-unclear-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Something Does Not Match</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+
+            <p>
+              Use this where signage, bay allocation, paperwork, route position or marshal instruction appears inconsistent.
+            </p>
+          </article>
+
+          <article class="card action-result-card" id="driver-welfare-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Request Welfare Access</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+
+            <p>
+              Welfare access request sent to the site team. Remain with the vehicle until access is confirmed.
+            </p>
+          </article>
+
+          <article class="card action-result-card" id="driver-supervisor-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Request Supervisor Assistance</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+
+            <p>
+              Supervisor assistance requested for Bay C03, preserving the arrival scan, bay context and driver position.
+            </p>
+          </article>
+
+          <article class="card action-result-card" id="driver-other-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Driver Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+
+            <p>
+              Record an issue that does not fit the available categories but should still be visible to the logistics team.
+            </p>
+
+            <textarea
+              class="hold-textarea"
+              rows="4"
+              placeholder="Describe the issue, request or concern..."></textarea>
+          </article>
+
           <footer class="scan-footer">
             <p>Scan time held against Bay C03 driver view</p>
-            <p>Managed via Hold / Operations Hub</p>
+            <p>Operational continuity: arrival, waiting, instruction, exception and departure context remain connected</p>
             <a href="strata-logistics-bay-c03.html">Manager record view</a>
           </footer>
-
         </section>
       </div>
-   
+    </main>
+  </div>
 
-     </main>
+  <footer class="footer">
+    <p>
+      Powered by IdexQR<sup>&reg;</sup>
+    </p>
 
-</div>
+    <p class="footer-sub">
+      Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.
+    </p>
+  </footer>
 
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+  <script src="sidebar.js?v=5"></script>
+  <script src="clock.js?v=4"></script>
 </body>
 </html>
