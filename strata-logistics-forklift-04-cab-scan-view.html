@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Strata Logistics - Forklift 04 Cab Scan View</title>
+  <meta
+    name="description"
+    content="Equipment-aware cab scan view for Forklift 04, showing current operator movement context, route restrictions and assistance actions."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
+</head>
+
+<body>
+  <div class="dashboard-layout">
+    <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
+
+    <main class="dashboard-main">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Logistics / FLT-04</p>
+
+          <header class="scan-header">
+            <h1>Forklift 04</h1>
+            <p>Cab Scan &middot; Equipment-Aware Operator View</p>
+            <span class="status-pill status-review">Inspection Due</span>
+          </header>
+
+          <details class="scan-section muted-section driver-map-details">
+            <summary>View current movement routes</summary>
+            <figure class="map-card driver-map">
+              <p class="muted-text">
+                Current movement context across Bay C03, Hold Area B, shared dispatch routes and charging access.
+              </p>
+              <img
+                class="safety-map"
+                src="images/strata-logistics-operational-oversight-map.png"
+                alt="Operational oversight map showing forklift movement routes and shared logistics areas."
+              />
+              <figcaption>
+                Forklift 04 movement routes, shared-use areas and route restrictions
+              </figcaption>
+            </figure>
+          </details>
+
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Equipment State</h2>
+                <span class="status-pill status-pending">Inspection due before next movement</span>
+              </div>
+              <p>Forklift 04 is currently assigned to shared dispatch support. Complete the visible condition check before movement continues.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Current Priority Task</h2>
+              </div>
+              <p>Support mixed dispatch movement between Hold Area B and Bay C03. Confirm route access before collecting or moving wrapped loads.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Shared-Use Notice</h2>
+                <span class="status-pill status-review">Handover Visible</span>
+              </div>
+              <p>Forklift 04 may be reassigned during active dispatch coordination. Handover notes should remain visible through the active scan record.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Route Restrictions</h2>
+              </div>
+              <p>Mixed intake and dispatch movement may be active across shared routes. Do not continue if the route, bay or marshal instruction does not match the current scan view.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Battery / Charging Awareness</h2>
+              </div>
+              <p>Check battery level before entering an active dispatch movement. If charge level is low, report before accepting the next movement task.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Safety Information</h2>
+              </div>
+              <p>Watch for pedestrian movement, pallet staging, vehicle reversing and forklift crossing activity near Bay C03 and Hold Area B.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Report / Request Assistance</h2>
+              </div>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="forklift-04-delay">Report delay</button>
+                <button type="button" class="quiet-button" data-action="forklift-04-obstruction">Route obstruction</button>
+                <button type="button" class="quiet-button" data-action="forklift-04-hold-area">Move load to Hold Area B</button>
+                <button type="button" class="quiet-button" data-action="forklift-04-supervisor">Request supervisor</button>
+                <button type="button" class="quiet-button secondary" data-action="forklift-04-other">Other operational issue</button>
+              </div>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="forklift-04-delay-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Delay Logged</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Delay logged. Supervisor visibility updated for active dispatch coordination.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-04-obstruction-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Route Obstruction</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Route obstruction reported. Pause movement until the route is confirmed clear.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-04-hold-area-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Hold Area B Movement</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Hold Area B movement selected. Confirm load identity before transfer.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-04-supervisor-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Supervisor Requested</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Supervisor requested. Remain in safe position until instruction is confirmed.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-04-other-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Operational Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Other issue recorded. Add details so human judgement remains visible in the operational record.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the issue, route condition or instruction needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Scan view held against Forklift 04 cab point FLT-04</p>
+            <p>Equipment, operator, route, charge state and dispatch support remain connected</p>
+            <a href="strata-logistics-forklift-04.html">Open Forklift 04 record</a>
+          </footer>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
+
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
+</body>
+</html>
