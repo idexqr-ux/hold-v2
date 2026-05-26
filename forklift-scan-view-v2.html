@@ -42,38 +42,131 @@
   </figure>
       </details>   
 
-      <section class="scan-section">
-  <h2>Current Safety State</h2>
-  <p class="muted-text">
-  Forklift 03 restriction may affect Bay C03 loading turnaround during peak operational periods.
-</p>
-</section>
+             <section class="scan-section">
+            <h2>Safety Information</h2>
+            <ul>
+              <li>Hi-vis vest and safety boots required if leaving the cab under instruction.</li>
+              <li>Forklift movements operate in this area.</li>
+              <li>Pedestrian crossing active.</li>
+              <li>Forklift route intersects loading lane.</li>
+              <li>Left-turn exit only.</li>
+              <li>Do not block emergency route.</li>
+            </ul>
+          </section>
 
-      <section class="scan-section">
-        <h2>Instructions</h2>
-        <ul>
-          <li>Conduct pre-use visual inspection before operation.</li>
-          <li>Return to charging bay after shift.</li>
-          <li>Report faults immediately if warning light is displayed.</li>
-        </ul>
-      </section>
+          <section class="scan-section">
+            <h2>Driver Welfare &amp; Waiting Guidance</h2>
+            <ul>
+              <li>Remain in the marked waiting area until directed.</li>
+              <li>To request toilet access, use <strong>Request Assistance</strong> below.</li>
+              <li>Smoking is not permitted in the loading bay or waiting lane.</li>
+              <li>If delayed, await marshal instruction before moving from the bay queue.</li>
+              <li>For emergency assistance, use the site contact route below.</li>
+            </ul>
+          </section>
 
-      <section class="scan-section muted-section">
-  <h2>Operator Access</h2>
-  <p>Authorised operators only. Supervisor clearance required before this asset returns to use.</p>
-</section>
+          <section class="scan-section">
+            <h2>Report or Request Assistance</h2>
+            <p>
+              Use these options if you see a hazard, cannot access the bay, need welfare assistance,
+              or something does not match the site guidance.
+            </p>
 
+            <div class="button-row">
+              <button type="button" class="quiet-button" data-action="driver-hazard">
+                Report Hazard
+              </button>
 
-      
-      <footer class="scan-footer">
-        <p>Last updated 22 April 2026</p>
-        <p>Managed via Hold / Operations Hub</p>
-        <a href="forklift-03.html">Manager record view</a>
-      </footer>
+              <button type="button" class="quiet-button" data-action="driver-unclear">
+                Something Does Not Match
+              </button>
+
+              <button type="button" class="quiet-button" data-action="driver-welfare">
+                Request Welfare Access
+              </button>
+
+              <button type="button" class="quiet-button" data-action="driver-supervisor">
+                Request Supervisor Assistance
+              </button>
+
+              <button type="button" class="quiet-button secondary" data-action="driver-other">
+                Other Driver Issue
+              </button>
+            </div>
+          </section>
+
+          <article class="card action-result-card" id="driver-hazard-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Report Hazard</span>
+              <button class="card-close" type="button" aria-label="Close action card">×</button>
+            </div>
+
+            <p>
+              Hazard report linked to Bay C03 driver scan view. Site team should review before
+              the vehicle is moved further.
+            </p>
+          </article>
+
+          <article class="card action-result-card" id="driver-unclear-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Something Does Not Match</span>
+              <button class="card-close" type="button" aria-label="Close action card">×</button>
+            </div>
+
+            <p>
+              Use this where signage, bay allocation, paperwork or marshal instruction appears
+              inconsistent with the scan guidance.
+            </p>
+          </article>
+
+          <article class="card action-result-card" id="driver-welfare-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Request Welfare Access</span>
+              <button class="card-close" type="button" aria-label="Close action card">×</button>
+            </div>
+
+            <p>
+              Welfare access request sent to the site team. Driver should remain with the vehicle
+              until access is confirmed.
+            </p>
+          </article>
+
+          <article class="card action-result-card" id="driver-supervisor-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Request Supervisor Assistance</span>
+              <button class="card-close" type="button" aria-label="Close action card">×</button>
+            </div>
+
+            <p>
+              Supervisor assistance requested for Bay C03. This preserves the operational context,
+              vehicle location and scan point.
+            </p>
+          </article>
+
+          <article class="card action-result-card" id="driver-other-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Driver Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">×</button>
+            </div>
+
+            <p>
+              Record an issue that does not fit the available categories but should still be visible
+              to the logistics team.
+            </p>
+
+            <textarea
+              class="hold-textarea"
+              rows="4"
+              placeholder="Describe the issue, request or concern..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Scan time held against Bay C03 driver view</p>
+            <p>Managed via Hold / Operations Hub</p>
+            <a href="strata-logistics-bay-c03.html">Manager record view</a>
+          </footer>
 
         </section>
-
-  </div>
 
 </main>
 
