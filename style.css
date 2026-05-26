@@ -1746,6 +1746,109 @@ h2 {
   font-size: 0.9rem;
 }
 
+.role-scan-card {
+  width: min(100%, 560px);
+}
+
+.role-scan-tabs {
+  padding: 18px 0 0;
+}
+
+.role-tab-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.role-tab-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  padding: 6px;
+  border: 1px solid rgba(120, 135, 130, 0.2);
+  border-radius: 18px;
+  background: rgba(236, 241, 238, 0.72);
+}
+
+.role-tab-pill {
+  display: flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 10px;
+  border-radius: 13px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  cursor: pointer;
+}
+
+.role-panels {
+  margin-top: 4px;
+}
+
+.role-panel {
+  display: none;
+}
+
+#role-floor:checked ~ .role-tab-list label[for="role-floor"],
+#role-supervisor:checked ~ .role-tab-list label[for="role-supervisor"],
+#role-governance:checked ~ .role-tab-list label[for="role-governance"] {
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: 0 8px 18px rgba(28, 45, 39, 0.08);
+}
+
+#role-floor:checked ~ .role-panels #floor-worker-panel,
+#role-supervisor:checked ~ .role-panels #supervisor-panel,
+#role-governance:checked ~ .role-panels #governance-panel {
+  display: block;
+}
+
+.action-result-card {
+  margin-top: 14px;
+  padding: 16px;
+  border-radius: 18px;
+}
+
+.action-result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.card-close {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(120, 135, 130, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--muted);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.card-close:hover {
+  color: var(--ink);
+  border-color: rgba(88, 115, 105, 0.45);
+}
+
+.driver-map-details summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+@media (max-width: 620px) {
+  .role-tab-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 .muted-section {
   background: rgba(230, 238, 234, 0.38);
   margin: 0 -14px;

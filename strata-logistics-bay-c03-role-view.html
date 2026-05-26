@@ -3,200 +3,338 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Strata Logistics — Bay C03 Role-Aware View</title>
-  <link rel="stylesheet" href="style.css?v=24" />
+  <title>Strata Logistics - Bay C03 Role-Aware Scan View</title>
+  <meta
+    name="description"
+    content="Role-aware operational QR view for Bay C03 dispatch point, showing floor worker, supervisor and governance visibility."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
-     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
+    <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
 
     <main class="dashboard-main">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Logistics / LOG-C03</p>
 
-    <section class="page-header">
-      <h2>Bay C03 — Role-Aware View</h2>
-      <p>Operational guidance layered by role, responsibility and dispatch visibility.</p>
-    </section>
+          <header class="scan-header">
+            <h1>Bay C03</h1>
+            <p>Dispatch Point &middot; Role-Aware Operational QR</p>
+            <span class="status-pill status-active">Dispatch Active</span>
+          </header>
 
-    <p class="asset-alias">
-      Live role-aware view from operational QR point LOG-C03
-    </p>
+          <details class="scan-section muted-section driver-map-details">
+            <summary>View Bay C03 dispatch map</summary>
+            <figure class="map-card driver-map">
+              <p class="muted-text">
+                Dispatch routing, Bay A12 overlap and Hold Area B movement context for the current scan point.
+              </p>
+              <img
+                class="safety-map"
+                src="images/strata-logistics-bay-c03-dispatch-area-map.png"
+                alt="Bay C03 dispatch area map showing dispatch routing and temporary movement guidance."
+              />
+              <figcaption>
+                Bay C03 dispatch routing and operational guidance
+              </figcaption>
+            </figure>
+          </details>
 
-    <section class="offline-banner">
-      <strong>Viewing As:</strong><br>
-      Driver / Visitor · Dispatch User · Operational Owner · Governance Manager
-    </section>
+          <section class="role-scan-tabs" aria-label="Select operational role">
+            <input class="role-tab-input" type="radio" name="bay-c03-role" id="role-floor" checked />
+            <input class="role-tab-input" type="radio" name="bay-c03-role" id="role-supervisor" />
+            <input class="role-tab-input" type="radio" name="bay-c03-role" id="role-governance" />
 
-    <section class="content-grid compact-scan-view">
+            <div class="role-tab-list" role="tablist" aria-label="Bay C03 role views">
+              <label class="role-tab-pill" for="role-floor" role="tab">Floor Worker</label>
+              <label class="role-tab-pill" for="role-supervisor" role="tab">Supervisor</label>
+              <label class="role-tab-pill" for="role-governance" role="tab">Management / Governance</label>
+            </div>
 
-      <article class="panel compact-scan-panel">
-        <p class="eyebrow">Universal Safety Information</p>
-        <h3>Emergency / Site Safety</h3>
+            <div class="role-panels">
+              <section class="role-panel" id="floor-worker-panel">
+                <div class="operational-window-grid">
+                  <article class="operational-window">
+                    <div class="operational-window-header">
+                      <h2>Current Instruction</h2>
+                      <span class="status-pill status-pending">Confirm Bay</span>
+                    </div>
+                    <p>You are at Bay C03 dispatch point. Confirm the bay is correct before loading continues. Wait for marshal or supervisor confirmation if the loading route is unclear.</p>
+                  </article>
 
-        <ul class="activity-list">
-          <li>
-            <strong>PPE Requirement</strong>
-            <span>Hi-vis vest and safety boots mandatory</span>
-          </li>
+                  <article class="operational-window">
+                    <div class="operational-window-header">
+                      <h2>Safety Information</h2>
+                      <span class="status-pill status-review">Movement Active</span>
+                    </div>
+                    <p>Forklift crossing and outbound vehicle movement may be active near this bay. Wear required PPE and keep the emergency route clear.</p>
+                  </article>
 
-          <li>
-            <strong>Nearest Fire Point</strong>
-            <span>Fire Exit East / Extinguisher Cabinet B</span>
-          </li>
+                  <article class="operational-window">
+                    <div class="operational-window-header">
+                      <h2>Expected Activity</h2>
+                    </div>
+                    <p>Mixed dispatch movement is currently active near the Bay C03 loading route. Additional pallet movement may occur during this dispatch window.</p>
+                  </article>
 
-          <li>
-            <strong>Emergency Contact</strong>
-            <span>Warehouse Office Ext. 204 / Radio Channel 1</span>
-          </li>
-        </ul>
-      </article>
+                  <article class="operational-window">
+                    <div class="operational-window-header">
+                      <h2>Operational Awareness</h2>
+                    </div>
+                    <p>If site conditions, routing or instructions do not match the current scan view, report before continuing.</p>
+                  </article>
 
-      <article class="panel compact-scan-panel">
-        <p class="eyebrow">Driver / Visitor View</p>
-        <h3>Arrival &amp; Collection Guidance</h3>
+                  <article class="operational-window">
+                    <div class="operational-window-header">
+                      <h2>Report / Request Assistance</h2>
+                    </div>
+                    <div class="button-row">
+                      <button type="button" class="quiet-button" data-action="floor-obstruction">Report obstruction</button>
+                      <button type="button" class="quiet-button" data-action="floor-mismatch">Report mismatch</button>
+                      <button type="button" class="quiet-button" data-action="floor-supervisor">Request supervisor</button>
+                      <button type="button" class="quiet-button secondary" data-action="floor-other">Other issue</button>
+                    </div>
+                  </article>
+                </div>
+              </section>
 
-        <ul class="activity-list">
-          <li>
-            <strong>Check In</strong>
-            <span>Present dispatch paperwork at warehouse office before loading</span>
-          </li>
+              <section class="role-panel" id="supervisor-panel">
+                <div class="operational-window-grid">
+                  <article class="operational-window">
+                    <div class="operational-window-header">
+                      <h2>Dispatch Continuity</h2>
+                      <span class="status-pill status-active">Linked Route</span>
+                    </div>
+                    <p>Current dispatch continuity depends on clear route access between Bay C03, Bay A12 and Hold Area B.</p>
+                  </article>
 
-          <li>
-            <strong>Waiting Position</strong>
-            <span>Remain in marked holding area until directed</span>
-          </li>
+                  <article class="operational-window">
+                    <div class="operational-window-header">
+                      <h2>Bay C03 Checks</h2>
+                    </div>
+                    <p>Confirm pallet count, vehicle registration, paperwork match and loading area condition before release.</p>
+                  </article>
 
-          <li>
-            <strong>Vehicle Positioning</strong>
-            <span>Reverse to dispatch line only when bay marshal present</span>
-          </li>
+                  <article class="operational-window">
+                    <div class="operational-window-header">
+                      <h2>Shared Route Awareness</h2>
+                      <span class="status-pill status-review">Visible Handover</span>
+                    </div>
+                    <p>Shared-use equipment and operator handover should remain visible while this dispatch movement is active.</p>
+                  </article>
 
-          <li>
-            <strong>Restricted Access</strong>
-            <span>Do not enter loading zone unless authorised</span>
-          </li>
-        </ul>
-      </article>
+                  <article class="operational-window">
+                    <div class="operational-window-header">
+                      <h2>Exception Handling</h2>
+                    </div>
+                    <p>If damage, mismatch, delay or unsafe movement is identified, pause loading and raise an operational exception.</p>
+                  </article>
 
-      <article class="panel compact-scan-panel">
-        <p class="eyebrow">Driver / Visitor · Dispatch User · Operational Owner · Governance Manager View</p>
-        <h3>Dispatch Operations</h3>
+                  <article class="operational-window">
+                    <div class="operational-window-header">
+                      <h2>Supervisor Actions</h2>
+                    </div>
+                    <div class="button-row">
+                      <button type="button" class="quiet-button" data-action="supervisor-pause">Pause loading</button>
+                      <button type="button" class="quiet-button" data-action="supervisor-hold-area">Move to Hold Area B</button>
+                      <button type="button" class="quiet-button" data-action="supervisor-forklift">Request forklift support</button>
+                      <button type="button" class="quiet-button" data-action="supervisor-pallet">Escalate pallet issue</button>
+                      <button type="button" class="quiet-button secondary" data-action="supervisor-release">Confirm supervisor release</button>
+                    </div>
+                  </article>
+                </div>
+              </section>
 
-        <ul class="activity-list">
-          <li>
-            <strong>Assigned Load Queue</strong>
-            <span>Dispatch Ref DS-204 awaiting vehicle confirmation</span>
-          </li>
+              <section class="role-panel" id="governance-panel">
+                <div class="operational-window-grid">
+                  <article class="operational-window">
+                    <div class="operational-window-header">
+                      <h2>Operational Continuity</h2>
+                      <span class="status-pill status-active">Visible in Hold</span>
+                    </div>
+                    <p>Unverified, damaged or unclear loads should remain visible within Hold until an operational decision is confirmed.</p>
+                  </article>
 
-          <li>
-            <strong>Bay Readiness Check</strong>
-            <span>Clear floor / confirm pallet labels / inspect restraints</span>
-          </li>
+                  <article class="operational-window">
+                    <div class="operational-window-header">
+                      <h2>Governance Visibility</h2>
+                    </div>
+                    <p>This view shows whether dispatch checks, exceptions and route restrictions are being recorded at the point of work.</p>
+                  </article>
 
-          <li>
-            <strong>Load Confirmation</strong>
-            <span>Verify pallet count before release</span>
-          </li>
+                  <article class="operational-window">
+                    <div class="operational-window-header">
+                      <h2>Open Exceptions</h2>
+                      <span class="status-pill status-review">Review</span>
+                    </div>
+                    <p>Show any active mismatch, damage, obstruction, delayed dispatch or unresolved supervisor action.</p>
+                  </article>
 
-          <li>
-            <strong>Escalate Issue</strong>
-            <span>Raise hold, damage or mismatch issues through the dispatch workflow.</span>
-          </li>
-        </ul>
-      </article>
+                  <article class="operational-window">
+                    <div class="operational-window-header">
+                      <h2>Audit Confidence</h2>
+                    </div>
+                    <p>Hold supports evidence of process, not just completion of the task.</p>
+                  </article>
 
-      <article class="panel compact-scan-panel">
-        <p class="eyebrow">Operational Owner View</p>
-        <h3>Supervisor Oversight</h3>
+                  <article class="operational-window">
+                    <div class="operational-window-header">
+                      <h2>Human Judgement</h2>
+                    </div>
+                    <p>Keep an "Other issue" action available so staff can report what the system did not predict.</p>
+                  </article>
 
-        <ul class="activity-list">
-          <li>
-            <strong>Queue Status</strong>
-            <span>2 outbound loads awaiting completion</span>
-          </li>
+                  <article class="operational-window">
+                    <div class="operational-window-header">
+                      <h2>Governance Actions</h2>
+                    </div>
+                    <div class="button-row">
+                      <button type="button" class="quiet-button" data-action="governance-exceptions">View open exceptions</button>
+                      <button type="button" class="quiet-button" data-action="governance-audit">Review audit trail</button>
+                      <button type="button" class="quiet-button" data-action="governance-overdue">Review overdue checks</button>
+                      <button type="button" class="quiet-button" data-action="governance-continuity">View dispatch continuity</button>
+                      <button type="button" class="quiet-button secondary" data-action="governance-other">Other governance issue</button>
+                    </div>
+                  </article>
+                </div>
+              </section>
+            </div>
+          </section>
 
-          <li>
-            <strong>Bay Restriction</strong>
-            <span>Forklift congestion reported during peak period</span>
-          </li>
+          <article class="card action-result-card" id="floor-obstruction-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Obstruction Reported</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Obstruction report attached to Bay C03. Keep the route clear and wait for marshal or supervisor confirmation before continuing.</p>
+          </article>
 
-          <li>
-            <strong>Temporary Notice</strong>
-            <span>Alternate dispatch lane active during periods of increased outbound flow.</span>
-          </li>
+          <article class="card action-result-card" id="floor-mismatch-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Mismatch Reported</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Mismatch recorded against the scan point so dispatch reference, physical bay and supervisor review stay connected.</p>
+          </article>
 
-          <li>
-            <strong>Inspection Due</strong>
-            <span>Bay safety inspection due tomorrow</span>
-          </li>
-        </ul>
-      </article>
+          <article class="card action-result-card" id="floor-supervisor-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Supervisor Requested</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Supervisor request raised with current Bay C03 role view and routing context attached.</p>
+          </article>
 
-      <article class="panel compact-scan-panel">
-        <p class="eyebrow">Governance Manager View</p>
-        <h3>Governed Record Controls</h3>
+          <article class="card action-result-card" id="floor-other-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Record a condition or instruction that does not match the expected Bay C03 dispatch view.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the issue or assistance needed..."></textarea>
+          </article>
 
-        <ul class="activity-list">
-          <li>
-            <strong>Last Published</strong>
-            <span>Updated 2 days ago by Operations Manager</span>
-          </li>
+          <article class="card action-result-card" id="supervisor-pause-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-overdue">Loading Paused</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Loading pause opened for Bay C03. Confirm route condition, pallet state and dispatch paperwork before release resumes.</p>
+          </article>
 
-          <li>
-            <strong>Version History</strong>
-            <span>3 revisions in current quarter</span>
-          </li>
+          <article class="card action-result-card" id="supervisor-hold-area-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Hold Area B Move</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Hold Area B movement prepared. Keep load identity and route access visible until the transfer is confirmed.</p>
+          </article>
 
-          <li>
-            <strong>QR Deployment</strong>
-            <span>QR-LOG-014 / Active / Last replaced 42 days ago</span>
-          </li>
+          <article class="card action-result-card" id="supervisor-forklift-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Forklift Support</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Forklift support requested with Bay C03 route, shared-use equipment and current dispatch movement attached.</p>
+          </article>
 
-          <li>
-            <strong>Permission Scope</strong>
-            <span>Dispatch Supervisor / Governance Manager</span>
-          </li>
-        </ul>
-      </article>
+          <article class="card action-result-card" id="supervisor-pallet-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Pallet Escalation</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Pallet issue escalated for supervisor review. Keep affected stock visible and do not release until the decision is recorded.</p>
+          </article>
 
-    </section>
+          <article class="card action-result-card" id="supervisor-release-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-active">Release Confirmed</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Supervisor release confirmation prepared with Bay C03 checks, route status and dispatch continuity context attached.</p>
+          </article>
 
-<details class="map-details">
-  <summary>View Bay C03 dispatch routing map</summary>
+          <article class="card action-result-card" id="governance-exceptions-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Open Exceptions</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Open Bay C03 exceptions include mismatch, obstruction, delayed dispatch and unresolved supervisor action states.</p>
+          </article>
 
-  <figure class="map-card">
-    <img
-      class="safety-map"
-      src="images/strata-logistics-bay-c03-dispatch-area-map.png"
-      alt="Bay C03 dispatch area operational map."
-    />
+          <article class="card action-result-card" id="governance-audit-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-active">Audit Trail</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Audit review connects scan role, selected action, dispatch status and exception handling evidence.</p>
+          </article>
 
-    <figcaption>
-      Bay C03 dispatch routing and operational guidance.
-    </figcaption>
-  </figure>
-</details>
-    
-     </main>
+          <article class="card action-result-card" id="governance-overdue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Overdue Checks</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Overdue review highlights dispatch checks that remain unresolved beyond the current operational window.</p>
+          </article>
 
-</div>
+          <article class="card action-result-card" id="governance-continuity-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-active">Dispatch Continuity</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Continuity view keeps Bay C03, Bay A12 and Hold Area B dependencies visible until the dispatch decision is complete.</p>
+          </article>
 
-<footer class="footer">
+          <article class="card action-result-card" id="governance-other-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Governance Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Capture governance context that is outside the standard exception set but may affect confidence in the record.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the governance concern..."></textarea>
+          </article>
 
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
+          <footer class="scan-footer">
+            <p>Scan view held against Bay C03 dispatch point LOG-C03</p>
+            <p>Role visibility supports point-of-work action, supervision and governance review</p>
+            <a href="strata-logistics-bay-c03.html">Open Bay C03 record</a>
+          </footer>
+        </section>
+      </div>
+    </main>
+  </div>
 
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
 </body>
 </html>
