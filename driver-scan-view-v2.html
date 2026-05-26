@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Strata Logistics - Bay C03 Driver Scan View</title>
-  <link rel="stylesheet" href="style.css?v=43" />
+  <link rel="stylesheet" href="style.css?v=44" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
@@ -25,94 +25,91 @@
 
           <details class="scan-section driver-map-details">
             <summary>View route and site map</summary>
-
             <figure class="map-card driver-map">
-              <p class="muted-text">
-                Driver route from arrival gate to Bay C03, including waiting lane, pedestrian crossing and exit route.
-              </p>
-
-              <img
-                class="safety-map"
-                src="images/strata-logistics-bay-c03-dispatch-area-map.png"
-                alt="Bay C03 dispatch area map showing external driver routing, waiting lane and loading bay guidance."
-              />
-
+              <p class="muted-text">Driver route from arrival gate to Bay C03, waiting lane and exit route.</p>
+              <img class="safety-map" src="images/strata-logistics-bay-c03-dispatch-area-map.png" alt="Bay C03 dispatch area map showing external driver routing, waiting lane and loading bay guidance." />
               <figcaption>Bay C03 driver route, waiting lane and dispatch bay context</figcaption>
             </figure>
           </details>
 
-          <section class="scan-section">
-            <h2>Current Instruction</h2>
-            <ul>
-              <li><strong>Status:</strong> Arrival registered at Bay C03 waiting lane</li>
-              <li><strong>Assigned bay:</strong> Bay C03 dispatch collection point</li>
-              <li><strong>Site contact:</strong> James Porter - Goods In Supervisor</li>
-              <li>Remain with your vehicle until the marshal confirms movement to the loading line.</li>
-              <li>Keep dispatch paperwork ready for checking before unload or collection continues.</li>
-              <li>Follow marshal instruction over any older route, booking or yard guidance.</li>
-            </ul>
-          </section>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Current Instruction</h2>
+                <span class="status-pill status-pending">Arrival Registered</span>
+              </div>
+              <ul>
+                <li>Wait for marshal before moving.</li>
+                <li>Assigned bay: Bay C03.</li>
+                <li>Current status: vehicle in waiting lane.</li>
+              </ul>
+            </article>
 
-          <section class="scan-section">
-            <h2>Safety Information</h2>
-            <ul>
-              <li>Hi-vis vest and safety boots required if leaving the cab under instruction.</li>
-              <li>Forklift movement crosses the loading lane during mixed dispatch activity.</li>
-              <li>Keep the pedestrian crossing and emergency route clear at all times.</li>
-              <li>Use the signed left-turn exit route after departure confirmation.</li>
-              <li>Do not enter the warehouse or loading bay without a marshal.</li>
-            </ul>
-          </section>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Safety Information</h2>
+              </div>
+              <ul>
+                <li>Forklift crossing active near loading route.</li>
+                <li>Keep emergency route clear.</li>
+                <li>PPE required if leaving cab under instruction.</li>
+              </ul>
+            </article>
 
-          <section class="scan-section">
-            <h2>Driver Welfare &amp; Waiting Guidance</h2>
-            <ul>
-              <li>Use the marked waiting lane until Bay C03 is ready.</li>
-              <li>For toilet access or urgent assistance, use <strong>Request Welfare Access</strong> below.</li>
-              <li>Smoking is not permitted in the loading bay, waiting lane or pedestrian route.</li>
-              <li>If delayed, stay in sequence and wait for an updated instruction through the site team.</li>
-              <li>Emergency concerns should be reported immediately using the assistance actions below.</li>
-            </ul>
-          </section>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Driver Welfare</h2>
+              </div>
+              <ul>
+                <li>Request toilet access below.</li>
+                <li>No smoking in bay or waiting lane.</li>
+                <li>Remain in marked waiting lane.</li>
+              </ul>
+            </article>
 
-          <section class="scan-section">
-            <h2>Report or Request Assistance</h2>
-            <p>
-              These actions keep the driver arrival, vehicle location, bay status and exception visible to the site team.
-            </p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Expected Activity</h2>
+                <span class="status-pill status-review">Mixed Dispatch</span>
+              </div>
+              <p>Additional outbound vehicle movement is expected near the Bay C03 loading route during the current dispatch window.</p>
+            </article>
 
-            <div class="button-row">
-              <button type="button" class="quiet-button" data-action="driver-hazard">
-                Report Hazard
-              </button>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Temporary Restriction</h2>
+              </div>
+              <p>Left-turn exit route is currently active for outbound vehicles.</p>
+            </article>
 
-              <button type="button" class="quiet-button" data-action="driver-unclear">
-                Something Does Not Match
-              </button>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Operational Awareness</h2>
+              </div>
+              <p>If site conditions, routing or instructions do not match this scan view, report before continuing.</p>
+            </article>
 
-              <button type="button" class="quiet-button" data-action="driver-welfare">
-                Request Welfare Access
-              </button>
-
-              <button type="button" class="quiet-button" data-action="driver-supervisor">
-                Request Supervisor Assistance
-              </button>
-
-              <button type="button" class="quiet-button secondary" data-action="driver-other">
-                Other Driver Issue
-              </button>
-            </div>
-          </section>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Report or Request Assistance</h2>
+              </div>
+              <p>Keep arrival, vehicle location, bay status and exception visible to the site team.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="driver-hazard">Report Hazard</button>
+                <button type="button" class="quiet-button" data-action="driver-unclear">Something Does Not Match</button>
+                <button type="button" class="quiet-button" data-action="driver-welfare">Request Welfare Access</button>
+                <button type="button" class="quiet-button" data-action="driver-supervisor">Request Supervisor Assistance</button>
+                <button type="button" class="quiet-button secondary" data-action="driver-other">Other Driver Issue</button>
+              </div>
+            </article>
+          </div>
 
           <article class="card action-result-card" id="driver-hazard-card" hidden>
             <div class="action-result-header">
               <span class="status-pill status-review">Report Hazard</span>
               <button class="card-close" type="button" aria-label="Close action card">&times;</button>
             </div>
-
-            <p>
-              Hazard report linked to Bay C03 driver arrival. The site team should review the route before the vehicle moves.
-            </p>
+            <p>Hazard report linked to Bay C03 driver arrival. The site team should review the route before the vehicle moves.</p>
           </article>
 
           <article class="card action-result-card" id="driver-unclear-card" hidden>
@@ -120,10 +117,7 @@
               <span class="status-pill status-review">Something Does Not Match</span>
               <button class="card-close" type="button" aria-label="Close action card">&times;</button>
             </div>
-
-            <p>
-              Use this where signage, bay allocation, paperwork, route position or marshal instruction appears inconsistent.
-            </p>
+            <p>Use this where signage, bay allocation, paperwork, route position or marshal instruction appears inconsistent.</p>
           </article>
 
           <article class="card action-result-card" id="driver-welfare-card" hidden>
@@ -131,10 +125,7 @@
               <span class="status-pill status-review">Request Welfare Access</span>
               <button class="card-close" type="button" aria-label="Close action card">&times;</button>
             </div>
-
-            <p>
-              Welfare access request sent to the site team. Remain with the vehicle until access is confirmed.
-            </p>
+            <p>Welfare access request sent to the site team. Remain with the vehicle until access is confirmed.</p>
           </article>
 
           <article class="card action-result-card" id="driver-supervisor-card" hidden>
@@ -142,10 +133,7 @@
               <span class="status-pill status-review">Request Supervisor Assistance</span>
               <button class="card-close" type="button" aria-label="Close action card">&times;</button>
             </div>
-
-            <p>
-              Supervisor assistance requested for Bay C03, preserving the arrival scan, bay context and driver position.
-            </p>
+            <p>Supervisor assistance requested for Bay C03, preserving the arrival scan, bay context and driver position.</p>
           </article>
 
           <article class="card action-result-card" id="driver-other-card" hidden>
@@ -153,15 +141,8 @@
               <span class="status-pill status-review">Other Driver Issue</span>
               <button class="card-close" type="button" aria-label="Close action card">&times;</button>
             </div>
-
-            <p>
-              Record an issue that does not fit the available categories but should still be visible to the logistics team.
-            </p>
-
-            <textarea
-              class="hold-textarea"
-              rows="4"
-              placeholder="Describe the issue, request or concern..."></textarea>
+            <p>Record an issue that does not fit the available categories but should still be visible to the logistics team.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the issue, request or concern..."></textarea>
           </article>
 
           <footer class="scan-footer">
@@ -175,16 +156,11 @@
   </div>
 
   <footer class="footer">
-    <p>
-      Powered by IdexQR<sup>&reg;</sup>
-    </p>
-
-    <p class="footer-sub">
-      Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.
-    </p>
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
   </footer>
 
-  <script src="sidebar.js?v=5"></script>
+  <script src="sidebar.js?v=6"></script>
   <script src="clock.js?v=4"></script>
 </body>
 </html>
