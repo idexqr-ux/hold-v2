@@ -1,69 +1,4 @@
 
-.operational-window-grid {
-  display: grid;
-  gap: 14px;
-  padding: 18px 0;
-  border-bottom: 1px solid rgba(221, 227, 223, 0.78);
-}
-
-.operational-window {
-  padding: 16px;
-  border: 1px solid rgba(120, 135, 130, 0.2);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.72);
-}
-
-.operational-window-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 10px;
-}
-
-.operational-window h2 {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.25;
-  letter-spacing: 0;
-  text-align: left;
-}
-
-.operational-window .status-pill {
-  flex: 0 0 auto;
-  margin: 0;
-  white-space: nowrap;
-}
-
-.operational-window ul {
-  margin: 0;
-  padding-left: 18px;
-}
-
-.operational-window p,
-.operational-window li {
-  color: var(--muted);
-  font-size: 0.94rem;
-  line-height: 1.45;
-}
-
-.operational-window p {
-  margin: 0;
-}
-
-.operational-window .button-row {
-  margin-top: 12px;
-  gap: 10px;
-}
-
-.operational-window .quiet-button {
-  min-height: 38px;
-  padding: 8px 14px;
-  font-size: 0.9rem;
-}
-
-.muted-section {
-
 .footer-return a {
   color: #6B7275;
   text-decoration: none;
@@ -1746,6 +1681,69 @@ h2 {
 .scan-section ul {
   margin: 0;
   padding-left: 20px;
+}
+
+.operational-window-grid {
+  display: grid;
+  gap: 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(221, 227, 223, 0.78);
+}
+
+.operational-window {
+  padding: 16px;
+  border: 1px solid rgba(120, 135, 130, 0.2);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.operational-window-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.operational-window h2 {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.25;
+  letter-spacing: 0;
+  text-align: left;
+}
+
+.operational-window .status-pill {
+  flex: 0 0 auto;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.operational-window ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.operational-window p,
+.operational-window li {
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+.operational-window p {
+  margin: 0;
+}
+
+.operational-window .button-row {
+  margin-top: 12px;
+  gap: 10px;
+}
+
+.operational-window .quiet-button {
+  min-height: 38px;
+  padding: 8px 14px;
+  font-size: 0.9rem;
 }
 
 .muted-section {
