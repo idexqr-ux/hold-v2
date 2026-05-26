@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Strata Logistics - Forklift 04 Cab Scan View</title>
-  <link rel="stylesheet" href="style.css?v=43" />
+  <link rel="stylesheet" href="style.css?v=44" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
@@ -25,110 +25,100 @@
 
           <details class="scan-section driver-map-details">
             <summary>View current movement routes</summary>
-
             <figure class="map-card driver-map">
-              <p class="muted-text">
-                Current forklift movement context across Goods In, Bay C03 dispatch, Hold Area B and charging access.
-              </p>
-
-              <img
-                class="safety-map"
-                src="images/strata-logistics-operational-oversight-map.png"
-                alt="Operational oversight map showing forklift movement routes and shared logistics areas."
-              />
-
+              <p class="muted-text">Current movement context across Goods In, Bay C03, Hold Area B and charging access.</p>
+              <img class="safety-map" src="images/strata-logistics-operational-oversight-map.png" alt="Operational oversight map showing forklift movement routes and shared logistics areas." />
               <figcaption>Forklift 04 movement routes, shared-use areas and route restrictions</figcaption>
             </figure>
           </details>
 
-          <section class="scan-section">
-            <h2>Equipment State</h2>
-            <ul>
-              <li><strong>Status:</strong> Available for shared operational use</li>
-              <li><strong>Last check:</strong> Pre-use inspection completed this shift</li>
-              <li><strong>Assigned operator:</strong> Recognised operator required before movement</li>
-              <li><strong>Current area:</strong> Main floor, near charging access</li>
-              <li>Report any damage, warning light or handling concern before accepting the task.</li>
-            </ul>
-          </section>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Equipment State</h2>
+                <span class="status-pill status-active">Checked</span>
+              </div>
+              <ul>
+                <li>Inspection completed this shift.</li>
+                <li>Assigned area: main floor / charging access.</li>
+                <li>Battery suitable for current movement.</li>
+              </ul>
+            </article>
 
-          <section class="scan-section">
-            <h2>Shared-Use Notices</h2>
-            <ul>
-              <li>Forklift 04 may be temporarily reassigned between Goods In and Dispatch during peak movement.</li>
-              <li>Confirm handover status before taking over from another operator.</li>
-              <li>Keep load status, route decision and exception notes visible through Hold actions.</li>
-              <li>Do not leave a load staged without a receiving area, bay or hold-area status.</li>
-            </ul>
-          </section>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Shared-Use Notices</h2>
+              </div>
+              <ul>
+                <li>May be reassigned between Goods In and Dispatch.</li>
+                <li>Handover visibility required before takeover.</li>
+              </ul>
+            </article>
 
-          <section class="scan-section">
-            <h2>Route Restrictions</h2>
-            <ul>
-              <li>Bay C03 loading lane intersects external driver waiting movement.</li>
-              <li>Bay A12 intake route must remain clear for validation checks.</li>
-              <li>Hold Area B movements require clear load identity and supervisor visibility.</li>
-              <li>Charging access must not be blocked by wrapped dispatch loads.</li>
-            </ul>
-          </section>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Route Restrictions</h2>
+                <span class="status-pill status-review">Check Route</span>
+              </div>
+              <ul>
+                <li>Bay C03 crossing activity active.</li>
+                <li>Keep Bay A12 intake route clear.</li>
+                <li>Do not block charging access.</li>
+              </ul>
+            </article>
 
-          <section class="scan-section">
-            <h2>Battery, Fuel &amp; Charging Awareness</h2>
-            <ul>
-              <li><strong>Battery:</strong> Suitable for current priority task and short reassignment.</li>
-              <li><strong>Charging area:</strong> Keep access clear for end-of-shift return.</li>
-              <li>Report low battery, charge access blockage or charger issue before accepting extended movement.</li>
-              <li>Do not park on pedestrian or emergency routes while awaiting charging access.</li>
-            </ul>
-          </section>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Current Priority Task</h2>
+              </div>
+              <ul>
+                <li>Move reviewed load toward Hold Area B.</li>
+                <li>Coordinate with dispatch crossing activity.</li>
+              </ul>
+            </article>
 
-          <section class="scan-section">
-            <h2>Current Priority Task</h2>
-            <ul>
-              <li><strong>Priority:</strong> Move reviewed pallet from Bay A12 to Hold Area B for supervisor decision.</li>
-              <li><strong>Coordination:</strong> Check Bay C03 crossing before entering shared route.</li>
-              <li><strong>Continuity:</strong> Keep load, route, status and responsibility connected through the scan record.</li>
-            </ul>
-          </section>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Expected Activity</h2>
+              </div>
+              <p>Additional pallet movement is expected during mixed dispatch coordination.</p>
+            </article>
 
-          <section class="scan-section">
-            <h2>Cab Actions</h2>
-            <p>
-              Use these actions when the movement can continue only if the operational context is visible to others.
-            </p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Operational Awareness</h2>
+              </div>
+              <p>Shared-use equipment handover should remain visible through the active scan record. Route continuity depends on clear handover between operators.</p>
+            </article>
 
-            <div class="button-row">
-              <button type="button" class="quiet-button" data-action="forklift-delay">
-                Report Delay
-              </button>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Operational Dependency</h2>
+              </div>
+              <p>Current dispatch continuity depends on active route access between Bay A12 and Hold Area B.</p>
+            </article>
 
-              <button type="button" class="quiet-button" data-action="forklift-obstruction">
-                Route Obstruction
-              </button>
-
-              <button type="button" class="quiet-button" data-action="forklift-hold">
-                Move Load to Hold Area
-              </button>
-
-              <button type="button" class="quiet-button" data-action="forklift-supervisor">
-                Request Supervisor
-              </button>
-
-              <button type="button" class="quiet-button secondary" data-action="forklift-other">
-                Other Operational Issue
-              </button>
-            </div>
-          </section>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Cab Actions</h2>
+              </div>
+              <p>Use these actions when movement, route or handover context needs to stay visible.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="forklift-delay">Report Delay</button>
+                <button type="button" class="quiet-button" data-action="forklift-obstruction">Route Obstruction</button>
+                <button type="button" class="quiet-button" data-action="forklift-hold">Move Load to Hold Area</button>
+                <button type="button" class="quiet-button" data-action="forklift-supervisor">Request Supervisor</button>
+                <button type="button" class="quiet-button secondary" data-action="forklift-other">Other Operational Issue</button>
+              </div>
+            </article>
+          </div>
 
           <article class="card action-result-card" id="forklift-delay-card" hidden>
             <div class="action-result-header">
               <span class="status-pill status-review">Report Delay</span>
               <button class="card-close" type="button" aria-label="Close action card">&times;</button>
             </div>
-
-            <p>
-              Delay linked to Forklift 04 so Bay A12, Bay C03 and current load responsibility remain visible.
-            </p>
+            <p>Delay linked to Forklift 04 so Bay A12, Bay C03 and current load responsibility remain visible.</p>
           </article>
 
           <article class="card action-result-card" id="forklift-obstruction-card" hidden>
@@ -136,10 +126,7 @@
               <span class="status-pill status-review">Route Obstruction</span>
               <button class="card-close" type="button" aria-label="Close action card">&times;</button>
             </div>
-
-            <p>
-              Route obstruction recorded against the active movement route. Use an alternative only if the supervisor or marshal confirms it.
-            </p>
+            <p>Route obstruction recorded against the active movement route. Use an alternative only if confirmed.</p>
           </article>
 
           <article class="card action-result-card" id="forklift-hold-card" hidden>
@@ -147,10 +134,7 @@
               <span class="status-pill status-review">Move Load to Hold Area</span>
               <button class="card-close" type="button" aria-label="Close action card">&times;</button>
             </div>
-
-            <p>
-              Hold Area movement prepared with Forklift 04, source area and load status attached to the operational record.
-            </p>
+            <p>Hold Area movement prepared with Forklift 04, source area and load status attached.</p>
           </article>
 
           <article class="card action-result-card" id="forklift-supervisor-card" hidden>
@@ -158,10 +142,7 @@
               <span class="status-pill status-review">Request Supervisor</span>
               <button class="card-close" type="button" aria-label="Close action card">&times;</button>
             </div>
-
-            <p>
-              Supervisor requested for Forklift 04 with route restriction, current task and shared-use context attached.
-            </p>
+            <p>Supervisor requested for Forklift 04 with route restriction, current task and shared-use context attached.</p>
           </article>
 
           <article class="card action-result-card" id="forklift-other-card" hidden>
@@ -169,15 +150,8 @@
               <span class="status-pill status-review">Other Operational Issue</span>
               <button class="card-close" type="button" aria-label="Close action card">&times;</button>
             </div>
-
-            <p>
-              Record an operational issue that does not fit the standard cab actions but may affect movement continuity.
-            </p>
-
-            <textarea
-              class="hold-textarea"
-              rows="4"
-              placeholder="Describe the issue, restriction or decision needed..."></textarea>
+            <p>Record an operational issue that does not fit the standard cab actions but may affect movement continuity.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the issue, restriction or decision needed..."></textarea>
           </article>
 
           <footer class="scan-footer">
@@ -191,16 +165,11 @@
   </div>
 
   <footer class="footer">
-    <p>
-      Powered by IdexQR<sup>&reg;</sup>
-    </p>
-
-    <p class="footer-sub">
-      Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.
-    </p>
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
   </footer>
 
-  <script src="sidebar.js?v=5"></script>
+  <script src="sidebar.js?v=6"></script>
   <script src="clock.js?v=4"></script>
 </body>
 </html>
