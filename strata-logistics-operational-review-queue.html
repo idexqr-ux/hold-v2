@@ -3,221 +3,194 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Operational Review Queue — Hold</title>
+  <title>Strata Logistics - Operational Review Queue</title>
   <meta
     name="description"
-    content="A Strata Logistics manager view for reviewing operational issues, exceptions and workflow actions raised through Hold."
+    content="A Strata Logistics governance queue for unresolved mismatches, damaged loads, blocked routes, environmental concerns, escalations, pending decisions and audit follow-up."
   />
-  <link rel="stylesheet" href="style.css?v=24" />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
+    <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
 
-     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
-<main class="dashboard-main">
-    <div class="dashboard-header">
+    <main class="dashboard-main">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Logistics / Operational Review Queue</p>
 
-  <p class="dashboard-breadcrumb">
-    Strata Logistics / Operational Review Queue
-  </p>
+          <header class="scan-header">
+            <h1>Operational Review Queue</h1>
+            <p>Live governance queue for exceptions, pending decisions, supervisor escalations and audit follow-up.</p>
+            <span class="status-pill status-pending">7 Open Items</span>
+          </header>
 
-  <div class="dashboard-title-row">
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Unresolved Mismatches</h2>
+                <span class="status-pill status-review">Decision needed</span>
+              </div>
+              <p>HOLD-302 remains open for dispatch quantity discrepancy from Bay C03 and requires supervisor decision.</p>
+            </article>
 
-    <div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Damaged Loads</h2>
+                <span class="status-pill status-review">Awaiting review</span>
+              </div>
+              <p>HOLD-301 remains open for damaged inbound pallet from Bay A12 with photos already reviewed.</p>
+            </article>
 
-      <h1>Operational Review Queue</h1>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Blocked Routes</h2>
+                <span class="status-pill status-pending">Route watch</span>
+              </div>
+              <p>Blocked bay, forklift lane and emergency-route reports should be owned quickly before movement workarounds appear.</p>
+            </article>
 
-      <p class="dashboard-subtitle">
-        Office and manager view for monitoring live operational issues, assigning ownership, tracking progress and closing workflow actions raised from the warehouse floor.
-      </p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Environmental Concerns</h2>
+              </div>
+              <p>Spill, battery, charging, damaged stock or waste issues should show containment, owner and follow-up action.</p>
+            </article>
 
-    </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Supervisor Escalations</h2>
+              </div>
+              <p>Escalations need named owner, next action, target time and shift handover visibility.</p>
+            </article>
 
-    <span class="dashboard-status-pill">
-      Live Queue
-    </span>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Pending Decisions</h2>
+                <span class="status-pill status-overdue">Oldest 4h 15m</span>
+              </div>
+              <p>ISSUE-119 remains overdue after repeated Goods In printer fault and reassignment to Warehouse Office.</p>
+            </article>
 
-  </div>
-</div>
-    
-      <div class="button-row">
-        <span class="status-pill status-active">Live Queue</span>
-        <span class="status-pill status-pending">7 Open Items</span>
-        <span class="status-pill status-review">Audit Enabled</span>
-      </div>
-    
-    <section class="stats-grid">
-      <div class="stat-card">
-        <h3>Open Items</h3>
-        <p>7</p>
-      </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Review Queue Actions</h2>
+              </div>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="review-owner">Assign owner</button>
+                <button type="button" class="quiet-button" data-action="review-update">Add update</button>
+                <button type="button" class="quiet-button" data-action="review-escalate">Escalate supervisor review</button>
+                <button type="button" class="quiet-button" data-action="review-mismatch">Review mismatch</button>
+                <button type="button" class="quiet-button" data-action="review-damage">Review damaged load</button>
+                <button type="button" class="quiet-button" data-action="review-route">Review blocked route</button>
+                <button type="button" class="quiet-button" data-action="review-audit">Audit follow-up</button>
+                <button type="button" class="quiet-button" data-action="review-close">Close / resolve</button>
+                <button type="button" class="quiet-button secondary" data-action="review-other">Other review issue</button>
+              </div>
+            </article>
 
-      <div class="stat-card">
-        <h3>High Priority</h3>
-        <p>2</p>
-      </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Operational Exceptions</h2>
+              </div>
+              <p>Open items from Bay A12, Bay C03, Hold Area B, First Aid and equipment records carry forward until formally closed.</p>
+            </article>
 
-      <div class="stat-card">
-        <h3>Awaiting Review</h3>
-        <p>3</p>
-      </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Audit Follow-Up</h2>
+              </div>
+              <p>Updates, reassignment, evidence review and closure decisions remain connected to the original operational report.</p>
+            </article>
 
-      <div class="stat-card">
-        <h3>Oldest Open</h3>
-        <p>4h 15m</p>
-      </div>
-    </section>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Human Judgement Review</h2>
+              </div>
+              <p>Queue governance should show what judgement was needed, who made the call and why the closure is credible.</p>
+            </article>
+          </div>
 
-    <section class="grid">
-
-      <article class="card soft-panel">
-        <h3>Active Operational Queue</h3>
-
-        <div class="delivery-list">
-
-          <article class="delivery-card">
-  <div>
-    <strong>H&S-204</strong><br />
-    4 × Eye Bath Refill Required<br />
-    <span class="muted-text">
-      Source: First Aid Station · Open 18 mins · Assigned: H&amp;S Coordinator
-    </span>
-  </div>
-  <span class="status-pill status-pending">Awaiting Replenishment</span>
-</article>
-          
-          <article class="delivery-card">
-            <div>
-              <strong>HOLD-302</strong><br />
-              Dispatch quantity discrepancy<br />
-              <span class="muted-text">
-                Source: Bay C03 · Open 42 mins · Assigned: Dispatch Supervisor</span>
-            </div>
-            <span class="status-pill status-review">Decision Needed</span>
+          <article class="card action-result-card" id="review-owner-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Owner Assignment</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Owner assignment opened. Confirm named owner, source record, priority and next action before handover.</p>
           </article>
 
-          <article class="delivery-card">
-            <div>
-              <strong>ISSUE-118</strong><br />
-              Carrier delay / no-show<br />
-              <span class="muted-text">
-                Source: Bay C03 · Open 1h 10m · Assigned: Dispatch Team</span>
-            </div>
-            <span class="status-pill status-pending">In Progress</span>
+          <article class="card action-result-card" id="review-update-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-active">Update Added</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Update route opened. Add progress, evidence, contact attempt or decision note against the open item.</p>
           </article>
 
-          <article class="delivery-card">
-            <div>
-              <strong>HOLD-301</strong><br />
-              Damaged inbound pallet<br />
-              <span class="muted-text">
-                Source: Bay A12 · Open 2h 05m · Assigned: Goods In Supervisor</span>
-            </div>
-            <span class="status-pill status-review">Awaiting Review</span>
+          <article class="card action-result-card" id="review-escalate-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Supervisor Escalation</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Supervisor escalation opened with source, urgency, operational dependency and expected decision attached.</p>
           </article>
 
-        <article class="delivery-card">
-  <div>
-    <strong>ISSUE-119</strong><br />
-    Goods In printer intermittent<br />
+          <article class="card action-result-card" id="review-mismatch-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Mismatch Review</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Mismatch review opened for paperwork, pallet count, vehicle, stock or dispatch identity discrepancy.</p>
+          </article>
 
-    <span class="muted-text">
-      Source: Bay A12 · Open 4h 15m · Assigned: Warehouse Office
-    </span>
+          <article class="card action-result-card" id="review-damage-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Damaged Load Review</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Damaged load review opened. Confirm evidence, hold status, movement decision and supplier or customer impact.</p>
+          </article>
+
+          <article class="card action-result-card" id="review-route-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-overdue">Blocked Route Review</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Blocked route review opened. Confirm area, safety impact, temporary restriction and route clearance owner.</p>
+          </article>
+
+          <article class="card action-result-card" id="review-audit-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Audit Follow-Up</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Audit follow-up opened to check evidence, closure reason, owner and cross-shift visibility.</p>
+          </article>
+
+          <article class="card action-result-card" id="review-close-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-active">Closure Review</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Closure route opened. Confirm the operational issue is resolved and the judgement trail is clear before closing.</p>
+          </article>
+
+          <article class="card action-result-card" id="review-other-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Other Review Issue</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Capture a review concern that does not fit the standard mismatch, damage, route, escalation or audit categories.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the review issue, source record and decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Operational review connects unresolved items, owners, decisions and audit confidence</p>
+            <p>Human judgement remains visible from report through closure</p>
+            <a href="strata-logistics-hold-area-b.html">Open Hold Area B record</a>
+          </footer>
+        </section>
+      </div>
+    </main>
   </div>
 
-  <span class="status-pill status-overdue">Overdue</span>
-</article>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-</div>
-</article>
-      
-      <article class="card">
-        <h3>Priority Triage</h3>
-        <ul class="workflow-list">
-          <li><strong>High:</strong> Safety, blocked bay, dispatch-critical issue or stock control risk.</li>
-          <li><strong>Medium:</strong> Requires action but does not stop current operations.</li>
-          <li><strong>Low:</strong> Informational, minor or scheduled follow-up.</li>
-        </ul>
-      </article>
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
+  <script>
+    document.querySelectorAll("[data-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = document.getElementById(`${button.dataset.action}-card`);
+        if (!card) return;
+        card.hidden = false;
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
 
-      <article class="card">
-        <h3>Latest Updates</h3>
-        <ul class="workflow-list">
-          <li><strong>09:48:</strong> Carrier contacted for ISSUE-118 — revised ETA requested.</li>
-          <li><strong>09:34:</strong> HOLD-301 photos reviewed by Goods In Supervisor.</li>
-          <li><strong>09:12:</strong> ISSUE-119 reassigned to Warehouse Office after printer fault continued.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <h3>Manager Actions</h3>
-        <p>
-          Use these actions to progress items while preserving the workflow audit trail.
-        </p>
-
-        <div class="button-row">
-          <a class="quiet-button" href="#">Assign Owner</a>
-          <a class="quiet-button" href="#">Add Update</a>
-          <a class="quiet-button" href="#">Mark In Progress</a>
-          <a class="quiet-button" href="#">Escalate</a>
-          <a class="quiet-button" href="#">Close / Resolve</a>
-          <a class="quiet-button secondary" href="#">Other Operational Action</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h3>Cross-Shift Visibility</h3>
-        <ul class="workflow-list">
-          <li>Open items remain visible until formally resolved.</li>
-          <li>Unresolved items carry forward into the next shift handover.</li>
-          <li>Issue age and progress status help prevent items becoming background noise.</li>
-          <li>Visible updates help ground staff see that reported issues are being handled.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <h3>Governance Notes</h3>
-        <ul class="workflow-list">
-          <li>Actions raised from Bay A12, Bay C03 and Hold Area B feed into this review queue.</li>
-          <li>Role-based visibility prevents workflows depending on one named person being present.</li>
-          <li>Updates, reassignment and closure are retained for audit and operational review.</li>
-          <li>Issue reporting should close the loop so staff understand what happened next.</li>
-        </ul>
-      </article>
-     
-      <article class="card">
-        <h3>Record Control</h3>
-        <div class="detail-grid">
-          <p><strong>Owner</strong><span class="value">L Bennett "Cooper", Operations Manager</span></p>
-          <p><strong>View Type</strong><span class="value">Manager / Office</span></p>
-          <p><strong>Last Updated</strong><span class="value">09:52</span></p>
-          <p><strong>Audit Status</strong><span class="value">Enabled</span></p>
-        </div>
-      </article>
-
-    </section>
-
-       </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+    document.querySelectorAll(".card-close").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest(".action-result-card").hidden = true;
+      });
+    });
+  </script>
 </body>
 </html>

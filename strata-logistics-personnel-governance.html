@@ -3,95 +3,188 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Personnel Governance</title>
+  <title>Strata Logistics - Personnel Governance</title>
   <meta
     name="description"
-    content="A Strata Logistics manager view for workforce readiness, competency cover and operational staffing visibility through Hold."
+    content="A Strata Logistics governance view for staffing readiness, shift coverage, role allocation, restricted duties, temporary access, contractor visibility and welfare escalation."
   />
-  <link rel="stylesheet" href="style.css?v=24" />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
-     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
+    <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
 
     <main class="dashboard-main">
-    <div class="dashboard-header">
-      <p class="dashboard-breadcrumb">
-        Hold / Governance / Personnel Governance
-      </p>
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Logistics / Personnel Governance</p>
 
-      <div class="dashboard-title-row">
-        <div>
-          <h1>Personnel Governance</h1>
-          <p class="dashboard-subtitle">
-            Workforce readiness and competency visibility for Strata Logistics
-          </p>
-        </div>
+          <header class="scan-header">
+            <h1>Personnel Governance</h1>
+            <p>Live workforce view for staffing readiness, role allocation, temporary access and welfare escalation.</p>
+            <span class="status-pill status-review">Operations Hub</span>
+          </header>
 
-        <span class="dashboard-status-pill">
-          Operations Hub
-        </span>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Staffing Readiness</h2>
+                <span class="status-pill status-active">Shift covered</span>
+              </div>
+              <p>Early and late shift supervision are confirmed. Weekend contingency cover remains under review.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Shift Coverage</h2>
+                <span class="status-pill status-review">Reduced cover</span>
+              </div>
+              <p>Six forklift-certified operators are available today, with reduced early-shift cover due to sickness absence.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Role Allocation</h2>
+              </div>
+              <p>Confirm who is covering goods in, dispatch, Hold Area B review, first aid, fire marshal and supervisor decisions.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Restricted Duties</h2>
+                <span class="status-pill status-pending">Competency linked</span>
+              </div>
+              <p>Restricted equipment or controlled tasks should remain visible until competency and supervisor sign-off are current.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Temporary Access</h2>
+              </div>
+              <p>Two temporary drivers are approved for outbound support after operational induction scans.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Contractor Visibility</h2>
+              </div>
+              <p>Contractor roles should show induction state, permitted area, task owner and time-limited access decision.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Fatigue / Welfare Concern</h2>
+                <span class="status-pill status-review">Human check</span>
+              </div>
+              <p>Fatigue, welfare, sickness cover and pressure on safety-critical roles need visible escalation before risk builds.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Personnel Actions</h2>
+              </div>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="personnel-coverage">Confirm shift coverage</button>
+                <button type="button" class="quiet-button" data-action="personnel-role">Update role allocation</button>
+                <button type="button" class="quiet-button" data-action="personnel-restrict">Apply restricted duty</button>
+                <button type="button" class="quiet-button" data-action="personnel-temp-access">Verify temporary access</button>
+                <button type="button" class="quiet-button" data-action="personnel-contractor">Review contractor visibility</button>
+                <button type="button" class="quiet-button" data-action="personnel-welfare">Escalate welfare concern</button>
+                <button type="button" class="quiet-button" data-action="personnel-escalation">Assign escalation owner</button>
+                <button type="button" class="quiet-button secondary" data-action="personnel-other">Other personnel issue</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Escalation Responsibility</h2>
+              </div>
+              <p>L Bennett, operationally known as Cooper, owns current personnel governance and cross-shift visibility.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Human Judgement</h2>
+              </div>
+              <p>If coverage looks adequate on paper but unsafe in practice, record the concern and make the decision owner visible.</p>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="personnel-coverage-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-active">Coverage Confirmed</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Shift coverage confirmation opened with supervisor, role and safety-critical cover context attached.</p>
+          </article>
+
+          <article class="card action-result-card" id="personnel-role-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Role Allocation</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Role allocation update opened. Confirm named person, role scope, shift window and any handover dependency.</p>
+          </article>
+
+          <article class="card action-result-card" id="personnel-restrict-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-overdue">Restricted Duty</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Restricted duty route opened. Keep role limits visible until competency or manager review is complete.</p>
+          </article>
+
+          <article class="card action-result-card" id="personnel-temp-access-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Temporary Access</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Temporary access verification opened with induction, area, task owner and expiry context attached.</p>
+          </article>
+
+          <article class="card action-result-card" id="personnel-contractor-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Contractor Visibility</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Contractor visibility review opened. Confirm permitted work area, induction status, escort and operational owner.</p>
+          </article>
+
+          <article class="card action-result-card" id="personnel-welfare-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Welfare Concern</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Fatigue or welfare concern escalated so staffing pressure and safety-critical cover can be reviewed.</p>
+          </article>
+
+          <article class="card action-result-card" id="personnel-escalation-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Escalation Owner</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Escalation owner assignment opened. Make the responsible person and next decision visible across shifts.</p>
+          </article>
+
+          <article class="card action-result-card" id="personnel-other-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Other Personnel Issue</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Capture a personnel concern that does not fit the standard readiness, access or welfare routes.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the personnel issue, role impact and decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Personnel governance connects staffing, role cover, access decisions and welfare escalation</p>
+            <p>Workforce risks stay visible when human judgement is needed beyond the roster</p>
+            <a href="strata-logistics-training-competency-register.html">Open training and competency register</a>
+          </footer>
+        </section>
       </div>
-    </div>
+    </main>
+  </div>
 
-    <section class="dashboard-card capability-card">
-      <p class="section-kicker">Operational workforce governance</p>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-      <h2>Personnel Governance</h2>
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
+  <script>
+    document.querySelectorAll("[data-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = document.getElementById(`${button.dataset.action}-card`);
+        if (!card) return;
+        card.hidden = false;
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
 
-      <p class="section-intro">
-        Workforce readiness, competency cover and operational staffing visibility for the current logistics environment.
-      </p>
-
-      <div class="attention-item">
-  <h3>Shift Supervisor Coverage</h3>
-
-  <p>
-    Early and late shift supervision confirmed. Weekend contingency cover under review.
-  </p>
-
-  <p class="asset-alias">
-    L Bennett — operationally known as "Cooper"
-  </p>
-</div>
-
-      <div class="attention-item">
-        <h3>Forklift-Certified Operators</h3>
-        <p>6 operators available today. Temporary reduced coverage remains in place during early shift due to sickness absence.</p>
-      </div>
-
-      <div class="attention-item">
-        <h3>Agency Staff Access</h3>
-        <p>Two temporary drivers approved for outbound support. Operational induction scans completed.</p>
-      </div>
-
-      <div class="attention-item">
-        <h3>Training & Competency</h3>
-        <p>Forklift refresher training due for one operator this week. Manual handling review scheduled this week.</p>
-      </div>
-    </section>
-
-       </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+    document.querySelectorAll(".card-close").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest(".action-result-card").hidden = true;
+      });
+    });
+  </script>
 </body>
 </html>
