@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Strata Estates - Operational Stewardship</title>
+  <meta
+    name="description"
+    content="Operational stewardship page for Strata Estates, showing land, buildings, utilities, access, environmental risk, contractor governance and inherited site knowledge."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
+</head>
+
+<body>
+  <div class="dashboard-layout">
+    <div id="hold-sidebar" data-sidebar="sidebar-estates.html"></div>
+
+    <main class="dashboard-main">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Estates / Operational Stewardship</p>
+
+          <header class="scan-header">
+            <h1>Operational Stewardship</h1>
+            <p>Governed visibility for the dependencies that shape land, buildings, utilities, access and inherited site knowledge.</p>
+            <span class="status-pill status-review">Estate dependency view</span>
+          </header>
+
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Land &amp; Boundary Governance</h2>
+                <span class="status-pill status-review">Before works</span>
+              </div>
+              <p>Boundary maps, ownership, landlord responsibility, shared access, service responsibility, easements and wayleaves should remain visible before works, access or development decisions are made.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Utilities &amp; Isolation</h2>
+                <span class="status-pill status-pending">Point of work</span>
+              </div>
+              <p>Isolation points, plant rooms, roof access, electrical shutdowns, water systems and heating infrastructure need clear visibility at the point of work.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="utility-isolation-guidance">Request utility isolation guidance</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Planning &amp; Constraint Awareness</h2>
+              </div>
+              <p>Approved building use, listed building constraints, environmental conditions, access limitations and inherited planning obligations may affect what can safely or legally happen on site.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Tree &amp; Grounds Infrastructure</h2>
+              </div>
+              <p>Tree surveys, vegetation management, storm damage, protected tree controls, roadside visibility and public safety should be traceable through inspection history and recommended actions.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="environmental-concern">Report environmental concern</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Environmental &amp; Conservation</h2>
+                <span class="status-pill status-active">Seasonal controls</span>
+              </div>
+              <p>Protected trees, nesting birds, bat habitats, conservation restrictions, drainage impact and seasonal work limitations may affect access, works and contractor activity.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Hazardous Materials &amp; Building Risk</h2>
+                <span class="status-pill status-pending">Before disturbance</span>
+              </div>
+              <p>Asbestos registers, confined spaces, service void risks, legacy materials, permit-controlled areas and hazard registers should be visible before disturbance or maintenance begins.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Contractor Governance</h2>
+              </div>
+              <p>Contractor insurance, RAMS review, asbestos awareness, specialist contractor requirements, pest control licences and controlled work zones should be recorded before work starts.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="contractor-review">Request contractor review</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Public &amp; Shared Access</h2>
+              </div>
+              <p>Public access, shared spaces, event coordination, visitor movement, emergency access and pedestrian safety can affect how estates work is planned and controlled.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="access-issue">Report access issue</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Documentation &amp; Traceability</h2>
+              </div>
+              <p>Survey references, inspection history, management plans, reinspection schedules, removal records and recommended actions should remain connected to the place they relate to.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Human Operational Memory</h2>
+                <span class="status-pill status-review">Inherited knowledge</span>
+              </div>
+              <p>Some critical site knowledge lives in people rather than systems. Hold should preserve inherited information such as: "Janet knows where the isolation valve really is."</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="inherited-knowledge">Report inherited knowledge</button>
+                <button type="button" class="quiet-button secondary" data-action="other-estates-issue">Other estates issue</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Operational stewardship of place</h2>
+                <span class="status-pill status-active">Principle</span>
+              </div>
+              <p>Hold helps estates teams make hidden dependencies visible before they become delays, disputes, safety risks or lost knowledge.</p>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="access-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Access Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Access issue recorded against the estate context. Review shared routes, emergency access, pedestrian safety and any temporary movement controls before works continue.</p>
+          </article>
+
+          <article class="card action-result-card" id="environmental-concern-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Environmental Concern</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Environmental concern logged. Check tree controls, habitats, drainage impact, seasonal limitations and recommended actions before authorising activity.</p>
+          </article>
+
+          <article class="card action-result-card" id="contractor-review-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Contractor Review</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Contractor review requested. Confirm insurance, RAMS, permit conditions, specialist competence and controlled work zones before work starts.</p>
+          </article>
+
+          <article class="card action-result-card" id="utility-isolation-guidance-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Utility Isolation Guidance</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Utility isolation guidance opened. Confirm isolation points, plant room access, electrical shutdowns, water systems and heating infrastructure before disturbance.</p>
+          </article>
+
+          <article class="card action-result-card" id="inherited-knowledge-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Inherited Knowledge</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Inherited site knowledge can now be captured against the place it relates to, preserving local operational memory before it is lost.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Record the person, place, operational detail and any verification needed..."></textarea>
+          </article>
+
+          <article class="card action-result-card" id="other-estates-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Estates Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Other estates issue recorded. Use this route when the operational concern needs human judgement before it fits a formal category.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the estate issue, constraint or decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Operational stewardship held against Strata Estates</p>
+            <p>Land, utilities, access, environmental risk, contractor governance and site memory remain connected</p>
+            <a href="strata-estates-dashboard.html">Open Strata Estates dashboard</a>
+          </footer>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
+
+  <script src="sidebar.js?v=7"></script>
+  <script src="clock.js?v=4"></script>
+</body>
+</html>
