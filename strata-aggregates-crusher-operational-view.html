@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Strata Aggregates - Crusher Operational View</title>
+  <meta
+    name="description"
+    content="Governed crusher operational view for Strata Aggregates, showing machine state, authorised use, safety controls, continuity and escalation routes."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
+</head>
+
+<body>
+  <div class="dashboard-layout">
+    <div id="hold-sidebar" data-sidebar="sidebar-aggregates.html"></div>
+
+    <main class="dashboard-main">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Aggregates / CR-01</p>
+
+          <header class="scan-header">
+            <h1>Crusher Operational View</h1>
+            <p>Governed dependency view for active aggregates production.</p>
+            <span class="status-pill status-review">Active / monitored</span>
+          </header>
+
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Crusher Status</h2>
+                <span class="status-pill status-review">Active / monitored</span>
+              </div>
+              <p>Crusher line active for scheduled aggregates production. Confirm operational state before feeding material or entering the working zone.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Authorised Use</h2>
+              </div>
+              <p>Only authorised operators and supervisors should start, stop, clear or override crusher activity.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="crusher-authorised-operator">Check authorised operator</button>
+                <button type="button" class="quiet-button" data-action="crusher-request-supervisor">Request supervisor</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Safety Controls</h2>
+              </div>
+              <p>Keep clear of moving parts, feed zones, discharge areas and exclusion barriers. Do not enter the crusher area unless isolation or supervisor clearance is confirmed.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="crusher-safety-concern">Report safety concern</button>
+                <button type="button" class="quiet-button" data-action="crusher-isolation-guidance">View isolation guidance</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Maintenance &amp; Isolation</h2>
+              </div>
+              <p>Blockages, jams, unusual vibration or unplanned stoppages require controlled escalation. Maintenance work must follow lockout and isolation procedure.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="crusher-report-blockage">Report blockage</button>
+                <button type="button" class="quiet-button" data-action="crusher-request-maintenance">Request maintenance</button>
+                <button type="button" class="quiet-button" data-action="crusher-confirm-isolation">Confirm isolation required</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Production Continuity</h2>
+              </div>
+              <p>Crusher downtime may affect stockpile levels, dispatch availability, customer orders and weighbridge flow.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="crusher-production-delay">Report production delay</button>
+                <button type="button" class="quiet-button" data-action="crusher-affected-stockyard">View affected stockyard</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Environmental Controls</h2>
+              </div>
+              <p>Dust, noise, vibration, runoff and material spillage should remain visible during active crushing operations.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="crusher-dust-issue">Report dust issue</button>
+                <button type="button" class="quiet-button" data-action="crusher-noise-vibration">Report noise/vibration concern</button>
+                <button type="button" class="quiet-button" data-action="crusher-environmental-response">View environmental response</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Material Feed Awareness</h2>
+              </div>
+              <p>Confirm material type before feeding. Mixed, contaminated, oversized or wet material may affect crusher performance and product quality.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="crusher-material-concern">Report material concern</button>
+                <button type="button" class="quiet-button" data-action="crusher-pause-feed">Pause feed pending review</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Operational Technology</h2>
+              </div>
+              <p>Crusher sensors, telemetry and production data should support visibility of operating state, throughput and abnormal conditions.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="crusher-sensor-issue">Report sensor issue</button>
+                <button type="button" class="quiet-button" data-action="crusher-telemetry-status">Check telemetry status</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Emergency Escalation</h2>
+                <span class="status-pill status-pending">Immediate escalation</span>
+              </div>
+              <p>Emergency stops, entrapment risk, fire, spill or uncontrolled movement must be escalated immediately.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="crusher-emergency-stop">Emergency stop guidance</button>
+                <button type="button" class="quiet-button" data-action="crusher-site-supervisor">Request site supervisor</button>
+                <button type="button" class="quiet-button secondary" data-action="crusher-other-issue">Other crusher issue</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Governance Visibility</h2>
+              </div>
+              <p>Hold keeps crusher checks, stoppages, overrides, maintenance escalation and environmental concerns visible as part of the operational record.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Operational dependency made visible</h2>
+              </div>
+              <p>Hold helps teams understand what depends on the crusher, what happens if it stops, and who needs to act before a small issue becomes a wider operational failure.</p>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="crusher-authorised-operator-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Authorisation Check</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Operator authorisation check opened. Confirm the named operator before start, stop, clear or override activity continues.</p>
+          </article>
+
+          <article class="card action-result-card" id="crusher-request-supervisor-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Supervisor Requested</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Supervisor request logged against the active crusher record. Hold the action until clearance is confirmed.</p>
+          </article>
+
+          <article class="card action-result-card" id="crusher-safety-concern-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Safety Concern</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Safety concern recorded. Keep personnel outside the exclusion area until the concern is reviewed.</p>
+          </article>
+
+          <article class="card action-result-card" id="crusher-isolation-guidance-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Isolation Guidance</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Isolation guidance opened. Confirm lockout, energy isolation and supervisor clearance before entry or maintenance work.</p>
+          </article>
+
+          <article class="card action-result-card" id="crusher-report-blockage-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Blockage Reported</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Blockage report logged. Stop feed and use the controlled escalation route before any clearing activity.</p>
+          </article>
+
+          <article class="card action-result-card" id="crusher-request-maintenance-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Maintenance Requested</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Maintenance request raised for the crusher line. Production and stockyard dependencies remain visible while review is pending.</p>
+          </article>
+
+          <article class="card action-result-card" id="crusher-confirm-isolation-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Isolation Required</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Isolation requirement confirmed. Do not enter or work on the crusher until lockout and clearance are complete.</p>
+          </article>
+
+          <article class="card action-result-card" id="crusher-production-delay-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Production Delay</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Production delay logged. Stockpile, dispatch, customer order and weighbridge impacts should be reviewed.</p>
+          </article>
+
+          <article class="card action-result-card" id="crusher-affected-stockyard-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Stockyard Impact</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Stockyard impact view selected. Check stockpile levels and dispatch availability before confirming load commitments.</p>
+          </article>
+
+          <article class="card action-result-card" id="crusher-dust-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Dust Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Dust issue recorded. Confirm suppression, wind exposure and nearby working zones during active crushing.</p>
+          </article>
+
+          <article class="card action-result-card" id="crusher-noise-vibration-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Noise / Vibration</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Noise or vibration concern logged. Review abnormal conditions before production continues at normal rate.</p>
+          </article>
+
+          <article class="card action-result-card" id="crusher-environmental-response-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Environmental Response</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Environmental response route opened. Check dust, noise, vibration, runoff and material spillage controls.</p>
+          </article>
+
+          <article class="card action-result-card" id="crusher-material-concern-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Material Concern</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Material concern logged. Confirm type, size, condition and contamination risk before feeding continues.</p>
+          </article>
+
+          <article class="card action-result-card" id="crusher-pause-feed-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Feed Paused</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Feed pause selected pending review. Keep the line stable until material and operator clearance are confirmed.</p>
+          </article>
+
+          <article class="card action-result-card" id="crusher-sensor-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Sensor Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Sensor issue recorded. Compare machine state, telemetry and local observation before relying on production data.</p>
+          </article>
+
+          <article class="card action-result-card" id="crusher-telemetry-status-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Telemetry Status</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Telemetry status check opened. Confirm operating state, throughput and abnormal-condition signals are current.</p>
+          </article>
+
+          <article class="card action-result-card" id="crusher-emergency-stop-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Emergency Stop</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Emergency stop guidance opened. Use the site emergency route immediately for entrapment, fire, spill or uncontrolled movement.</p>
+          </article>
+
+          <article class="card action-result-card" id="crusher-site-supervisor-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Site Supervisor</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Site supervisor request raised. Maintain exclusion controls until supervisor instruction is received.</p>
+          </article>
+
+          <article class="card action-result-card" id="crusher-other-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Crusher Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Other crusher issue recorded. Add context so human judgement remains visible in the operational record.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the crusher issue, condition or decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Operational view held against Crusher CR-01</p>
+            <p>Machine state, safety controls, production continuity and escalation routes remain connected</p>
+            <a href="strata-aggregates-crusher.html">Open Crusher record</a>
+          </footer>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
+
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
+</body>
+</html>
