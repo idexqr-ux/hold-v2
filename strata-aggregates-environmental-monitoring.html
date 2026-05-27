@@ -73,6 +73,19 @@
 
             <article class="operational-window">
               <div class="operational-window-header">
+                <h2>COSHH &amp; Hazardous Substance Controls</h2>
+                <span class="status-pill status-review">Exposure control</span>
+              </div>
+              <p>COSHH information, substance registers, exposure routes, PPE requirements, storage controls and handling guidance should be visible where fuel, dust, hydraulic fluids, cleaning chemicals or contaminated materials may affect workers or contractors.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="environmental-coshh-information">View COSHH information</button>
+                <button type="button" class="quiet-button" data-action="environmental-exposure-concern">Report exposure concern</button>
+                <button type="button" class="quiet-button" data-action="environmental-handling-guidance">Request handling guidance</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
                 <h2>Protected Habitat Awareness</h2>
                 <span class="status-pill status-review">Seasonal controls</span>
               </div>
@@ -145,6 +158,30 @@
               <button class="card-close" type="button" aria-label="Close action card">&times;</button>
             </div>
             <p>Spill risk logged. Check refuelling observations, bowser integrity, hydraulic leaks, drain exposure and available response controls.</p>
+          </article>
+
+          <article class="card action-result-card" id="environmental-coshh-information-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">COSHH Information</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>COSHH information opened. Check the substance register, exposure routes, PPE requirements, storage controls and handling guidance before work continues.</p>
+          </article>
+
+          <article class="card action-result-card" id="environmental-exposure-concern-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Exposure Concern</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Exposure concern recorded. Link fuel, dust, hydraulic fluids, cleaning chemicals or contaminated materials to the affected worker, contractor or area.</p>
+          </article>
+
+          <article class="card action-result-card" id="environmental-handling-guidance-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Handling Guidance</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Handling guidance requested. Confirm substance identity, PPE, storage control, handling method and any supervisor review needed.</p>
           </article>
 
           <article class="card action-result-card" id="environmental-wildlife-concern-card" hidden>
