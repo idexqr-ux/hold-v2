@@ -3,149 +3,147 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Strata Logistics — Dispatch Confirmation</title>
+  <title>Strata Logistics - Dispatch Confirmed</title>
   <meta
     name="description"
-    content="A Strata Logistics dispatch confirmation record showing outbound release, carrier logging and connected business-system sync."
+    content="A Strata Logistics final dispatch release record covering vehicle departure, load confirmation, paperwork match, exception closure and audit visibility."
   />
-  <link rel="stylesheet" href="style.css?v=24" />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
-     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
+    <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
 
     <main class="dashboard-main">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Logistics / Dispatch Confirmed / OUT-2048</p>
 
-    <div class="dashboard-header">
-      <p class="dashboard-breadcrumb">
-        Hold / Strata Logistics / Dispatch Confirmation
-      </p>
+          <header class="scan-header">
+            <h1>Dispatch Confirmed</h1>
+            <p>Final dispatch release record for departure, load confirmation, paperwork match and audit visibility.</p>
+            <span class="status-pill status-active">Dispatched</span>
+          </header>
 
-      <div class="dashboard-title-row">
-        <div>
-          <h1>Dispatch Confirmation</h1>
-          <p class="dashboard-subtitle">
-            Outbound release, carrier logging and dispatch verification record.
-          </p>
-        </div>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Vehicle Departure</h2>
+                <span class="status-pill status-active">08:34</span>
+              </div>
+              <p>DHL Freight departed Bay C03 for Birmingham DC under dispatch reference OUT-2048.</p>
+            </article>
 
-        <span class="dashboard-status-pill">
-          Dispatched
-        </span>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Load Confirmation</h2>
+              </div>
+              <p>Outbound pallet count and load identity were confirmed against the dispatch scan before release.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Paperwork Match</h2>
+                <span class="status-pill status-active">Matched</span>
+              </div>
+              <p>Carrier paperwork, customer order and delivery note matched the physical load at release.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Exception Closure</h2>
+              </div>
+              <p>No open damage, mismatch or route obstruction remained attached to this dispatch at departure.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Audit Visibility</h2>
+              </div>
+              <p>Hold links vehicle departure, load confirmation, release decision and connected system updates for review.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Release Actions</h2>
+              </div>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="confirmed-release">Confirm dispatch release</button>
+                <button type="button" class="quiet-button" data-action="confirmed-exception">Reopen exception</button>
+                <button type="button" class="quiet-button" data-action="confirmed-mismatch">Report mismatch</button>
+                <button type="button" class="quiet-button" data-action="confirmed-supervisor">Request supervisor</button>
+                <button type="button" class="quiet-button secondary" data-action="confirmed-other">Other logistics issue</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Human Judgement</h2>
+              </div>
+              <p>If a late discrepancy appears after release, reopen the dispatch record rather than hiding the operational decision.</p>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="confirmed-release-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-active">Release Confirmed</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Dispatch release reconfirmed for OUT-2048 with departure, paperwork and load confirmation attached.</p>
+          </article>
+
+          <article class="card action-result-card" id="confirmed-exception-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Exception Reopened</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Exception review reopened against the confirmed dispatch so the late issue remains visible in the audit record.</p>
+          </article>
+
+          <article class="card action-result-card" id="confirmed-mismatch-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Mismatch Reported</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Post-release mismatch recorded for review against the confirmed dispatch and connected stock movement.</p>
+          </article>
+
+          <article class="card action-result-card" id="confirmed-supervisor-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Supervisor Requested</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Supervisor request raised with departure, carrier, load and audit context attached.</p>
+          </article>
+
+          <article class="card action-result-card" id="confirmed-other-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Other Logistics Issue</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Capture a late dispatch concern that affects release confidence, customer communication or audit trace.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the confirmed dispatch issue or decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Dispatch confirmation held against outbound consignment OUT-2048</p>
+            <p>Vehicle departure, paperwork match and exception closure remain visible for audit</p>
+            <a href="strata-logistics-goods-out.html">Return to Goods Out workflow</a>
+          </footer>
+        </section>
       </div>
-    </div>
+    </main>
+  </div>
 
-    <section class="dashboard-card operational-overview">
-      <p class="section-kicker">Dispatch record</p>
-      <h2>Outbound consignment OUT-2048</h2>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-      <div class="overview-inline">
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
+  <script>
+    document.querySelectorAll("[data-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = document.getElementById(`${button.dataset.action}-card`);
+        if (!card) return;
+        card.hidden = false;
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
 
-        <div class="overview-item">
-          <span class="overview-label">Customer</span>
-          <span class="overview-value">Core Retail Group</span>
-        </div>
-
-        <div class="overview-item">
-          <span class="overview-label">Carrier</span>
-          <span class="overview-value">DHL Freight</span>
-        </div>
-
-        <div class="overview-item">
-          <span class="overview-label">Destination</span>
-          <span class="overview-value">Birmingham DC</span>
-        </div>
-
-        <div class="overview-item">
-          <span class="overview-label">Dispatch Time</span>
-          <span class="overview-value">08:34</span>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="dashboard-card">
-      <p class="section-kicker">Workflow progress</p>
-      <h2>Outbound processing status</h2>
-
-      <div class="attention-item">
-        <h3>1. Dispatch confirmed</h3>
-        <p>
-          Consignment released and verified against outbound dispatch record.
-        </p>
-      </div>
-
-      <div class="attention-item">
-        <h3>2. Inventory updated</h3>
-        <p>
-          Warehouse inventory reduced following confirmed outbound movement.
-        </p>
-      </div>
-
-      <div class="attention-item">
-        <h3>3. Carrier logging</h3>
-        <p>
-          DHL Freight collection recorded and linked to dispatch reference.
-        </p>
-      </div>
-
-      <div class="attention-item">
-        <h3>4. Business systems sync</h3>
-        <p>
-          ERP and finance systems updated following dispatch completion.
-        </p>
-      </div>
-    </section>
-
-    <section class="dashboard-card">
-      <p class="section-kicker">Integration status</p>
-      <h2>Connected records</h2>
-
-      <div class="overview-inline">
-
-        <div class="overview-item">
-          <span class="overview-label">Inventory</span>
-          <span class="overview-value">Reduced</span>
-        </div>
-
-        <div class="overview-item">
-          <span class="overview-label">Dispatch Record</span>
-          <span class="overview-value">Updated</span>
-        </div>
-
-        <div class="overview-item">
-          <span class="overview-label">Finance System</span>
-          <span class="overview-value">Synced</span>
-        </div>
-
-        <div class="overview-item">
-          <span class="overview-label">Carrier Status</span>
-          <span class="overview-value">Collection Logged</span>
-        </div>
-      </div>
-    </section>
-
-   </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+    document.querySelectorAll(".card-close").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest(".action-result-card").hidden = true;
+      });
+    });
+  </script>
 </body>
 </html>

@@ -3,133 +3,154 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Strata Logistics — Inbound Pallet Scan</title>
+  <title>Strata Logistics - Inbound Pallet Scan</title>
   <meta
     name="description"
-    content="A Strata Logistics inbound pallet scan record for delivery verification, intake confirmation and issue escalation."
+    content="A Strata Logistics pallet-level scan for label match, damage, quantity, condition, hold decision and supervisor escalation."
   />
-  <link rel="stylesheet" href="style.css?v=24" />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
-     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
+    <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
 
     <main class="dashboard-main">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Logistics / DEL-1042 / NW-0428-A</p>
 
-    <div class="dashboard-header">
-      <p class="dashboard-breadcrumb">
-        Hold / Strata Logistics / Inbound Pallet Scan
-      </p>
+          <header class="scan-header">
+            <h1>Inbound Pallet Scan</h1>
+            <p>Pallet-level scan for label match, quantity, condition, hold decision and supervisor escalation.</p>
+            <span class="status-pill status-pending">Awaiting Acceptance</span>
+          </header>
 
-      <div class="dashboard-title-row">
-        <div>
-          <h1>Inbound Pallet Scan</h1>
-          <p class="dashboard-subtitle">
-            Delivery verification before pallet acceptance and warehouse intake.
-          </p>
-        </div>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Label Match</h2>
+                <span class="status-pill status-review">Scan point</span>
+              </div>
+              <p>Confirm pallet label NW-0428-A matches delivery DEL-1042 and supplier Alpha Components Ltd.</p>
+            </article>
 
-        <span class="dashboard-status-pill">
-          Awaiting Acceptance
-        </span>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Quantity Check</h2>
+              </div>
+              <p>Expected quantity is 48 units. Stop and report if count, SKU or visible label data does not match.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Condition Check</h2>
+              </div>
+              <p>Check wrapping, stability, moisture, impact marks and handling condition before acceptance.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Hold Decision</h2>
+                <span class="status-pill status-pending">Human review</span>
+              </div>
+              <p>Route damaged, short, unstable or disputed stock to Hold Area B instead of normal storage.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Storage Route</h2>
+              </div>
+              <p>If accepted, route the pallet to zone B12 and keep robotic movement or manual transfer visible in Hold.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Pallet Actions</h2>
+              </div>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="pallet-damage">Report damage</button>
+                <button type="button" class="quiet-button" data-action="pallet-mismatch">Report mismatch</button>
+                <button type="button" class="quiet-button" data-action="pallet-supervisor">Request supervisor</button>
+                <button type="button" class="quiet-button" data-action="pallet-hold-area">Move to Hold Area B</button>
+                <button type="button" class="quiet-button" data-action="pallet-accepted">Confirm accepted</button>
+                <button type="button" class="quiet-button secondary" data-action="pallet-other">Other logistics issue</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Human Judgement</h2>
+              </div>
+              <p>A clean scan should never override visible damage, uncertainty or a mismatch raised by the person at the pallet.</p>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="pallet-damage-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Damage Reported</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Damage report opened for pallet NW-0428-A. Photograph condition and pause acceptance until reviewed.</p>
+          </article>
+
+          <article class="card action-result-card" id="pallet-mismatch-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Mismatch Reported</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Mismatch recorded against label, quantity or delivery reference. Keep the pallet out of normal stock flow.</p>
+          </article>
+
+          <article class="card action-result-card" id="pallet-supervisor-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Supervisor Requested</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Supervisor request raised with pallet, supplier, quantity and condition checks attached.</p>
+          </article>
+
+          <article class="card action-result-card" id="pallet-hold-area-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Hold Area B Move</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Hold Area B movement prepared for pallet NW-0428-A. Apply hold label and record the reason before moving.</p>
+          </article>
+
+          <article class="card action-result-card" id="pallet-accepted-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-active">Pallet Accepted</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Acceptance prepared for pallet NW-0428-A with label, quantity, condition and storage route checks attached.</p>
+            <a class="quiet-button" href="strata-logistics-pallet-accepted.html">Open accepted pallet record</a>
+          </article>
+
+          <article class="card action-result-card" id="pallet-other-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Other Logistics Issue</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Capture a pallet condition, instruction or uncertainty that does not fit the standard scan choices.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the pallet issue or decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Pallet scan held against DEL-1042 and pallet NW-0428-A</p>
+            <p>Acceptance depends on label, count, condition and movement decision alignment</p>
+            <a href="strata-logistics-goods-in.html">Return to Goods In workflow</a>
+          </footer>
+        </section>
       </div>
-    </div>
+    </main>
+  </div>
 
-    <section class="dashboard-card operational-overview">
-      <p class="section-kicker">Scanned pallet</p>
-      <h2>Pallet NW-0428-A</h2>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-      <div class="overview-inline">
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
+  <script>
+    document.querySelectorAll("[data-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = document.getElementById(`${button.dataset.action}-card`);
+        if (!card) return;
+        card.hidden = false;
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
 
-        <div class="overview-item">
-          <span class="overview-label">Delivery Ref</span>
-          <span class="overview-value">DEL-1042</span>
-        </div>
-
-        <div class="overview-item">
-          <span class="overview-label">Supplier</span>
-          <span class="overview-value">Alpha Components Ltd</span>
-        </div>
-
-        <div class="overview-item">
-          <span class="overview-label">Quantity</span>
-          <span class="overview-value">48 Units</span>
-        </div>
-
-        <div class="overview-item">
-          <span class="overview-label">Assigned Zone</span>
-          <span class="overview-value">B12</span>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="dashboard-card">
-      <p class="section-kicker">Delivery verification</p>
-      <h2>Inbound delivery details</h2>
-
-      <div class="attention-item">
-        <h3>Supplier record</h3>
-        <p>
-          Delivery record matched to Alpha Components Ltd and linked inbound reference DEL-1042.
-        </p>
-      </div>
-
-      <div class="attention-item">
-        <h3>Contents</h3>
-        <p>
-          Electrical components verified against expected inbound manifest.
-        </p>
-      </div>
-
-      <div class="attention-item">
-        <h3>Weight and routing</h3>
-        <p>
-          Pallet weight recorded at 620kg with routing assigned to storage zone B12.
-        </p>
-      </div>
-    </section>
-
-    <section class="dashboard-card soft-panel">
-      <p class="section-kicker">Workflow note</p>
-      <h2>Next operational step</h2>
-
-      <p class="section-intro">
-        Once accepted, this pallet will move into robotic collection, warehouse routing and connected business-system sync.
-      </p>
-
-      <div class="button-row">
-        <a class="quiet-button" href="strata-logistics-pallet-accepted.html">
-          Accept pallet
-        </a>
-
-        <a class="quiet-button" href="strata-logistics-goods-in.html">
-          Flag intake issue
-        </a>
-      </div>
-    </section>
-
-     </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+    document.querySelectorAll(".card-close").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest(".action-result-card").hidden = true;
+      });
+    });
+  </script>
 </body>
 </html>

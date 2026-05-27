@@ -3,134 +3,182 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Strata Logistics — Inbound Pallet Scan</title>
+  <title>Strata Logistics - Dispatch Scan</title>
   <meta
     name="description"
-    content="A Strata Logistics inbound pallet scan record for delivery verification, intake confirmation and issue escalation."
+    content="A Strata Logistics outbound dispatch scan for confirming vehicle, load, paperwork, route readiness and Bay C03 release checks."
   />
- <link rel="stylesheet" href="style.css?v=24" />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
-     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
+    <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
 
     <main class="dashboard-main">
-    <div class="dashboard-header">
-      <p class="dashboard-breadcrumb">
-        Hold / Strata Logistics / Inbound Pallet Scan
-      </p>
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Logistics / OUT-2048</p>
 
-      <div class="dashboard-title-row">
-        <div>
-          <h1>Inbound Pallet Scan</h1>
-          <p class="dashboard-subtitle">
-            Delivery verification before pallet acceptance and warehouse intake.
-          </p>
-        </div>
+          <header class="scan-header">
+            <h1>Dispatch Scan</h1>
+            <p>Outbound dispatch check for vehicle, load, paperwork and Bay C03 release readiness.</p>
+            <span class="status-pill status-pending">Release Checks Active</span>
+          </header>
 
-        <span class="dashboard-status-pill">
-          Awaiting Acceptance
-        </span>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Vehicle Check</h2>
+                <span class="status-pill status-review">Confirm identity</span>
+              </div>
+              <p>Confirm vehicle registration, carrier name and driver collection reference before any load release is recorded.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Load Match</h2>
+                <span class="status-pill status-pending">Scan required</span>
+              </div>
+              <p>Scan outbound pallet labels and match pallet count, customer order and dispatch reference OUT-2048.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Paperwork Match</h2>
+              </div>
+              <p>Confirm delivery note, carrier paperwork and release instruction match the physical load before departure.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Route Readiness</h2>
+              </div>
+              <p>Check Bay C03 route condition, forklift movement and emergency access. Do not release through an obstructed route.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Bay C03 Status</h2>
+                <span class="status-pill status-active">Dispatch bay</span>
+              </div>
+              <p>Bay C03 is the active outbound point. Pause release if bay instruction, load position or marshal direction is unclear.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Dispatch Actions</h2>
+              </div>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="dispatch-damage">Report damage</button>
+                <button type="button" class="quiet-button" data-action="dispatch-mismatch">Report mismatch</button>
+                <button type="button" class="quiet-button" data-action="dispatch-supervisor">Request supervisor</button>
+                <button type="button" class="quiet-button" data-action="dispatch-hold-area">Move to Hold Area B</button>
+                <button type="button" class="quiet-button" data-action="dispatch-release">Confirm dispatch release</button>
+                <button type="button" class="quiet-button" data-action="dispatch-obstruction">Report route obstruction</button>
+                <button type="button" class="quiet-button secondary" data-action="dispatch-other">Other logistics issue</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Human Judgement</h2>
+              </div>
+              <p>If the vehicle, paperwork, route or load condition does not match what Hold expects, raise the issue before release.</p>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="dispatch-damage-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Damage Reported</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Damage report opened against OUT-2048. Keep the affected pallet visible and pause dispatch release until reviewed.</p>
+          </article>
+
+          <article class="card action-result-card" id="dispatch-mismatch-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Mismatch Reported</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Mismatch recorded for vehicle, paperwork or pallet count. Confirm the correct outbound reference before loading continues.</p>
+          </article>
+
+          <article class="card action-result-card" id="dispatch-supervisor-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Supervisor Requested</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Supervisor request raised with Bay C03 status, route readiness and dispatch scan context attached.</p>
+          </article>
+
+          <article class="card action-result-card" id="dispatch-hold-area-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Hold Area B Move</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Hold Area B movement prepared. Keep load identity, exception reason and route instruction visible until transfer is complete.</p>
+          </article>
+
+          <article class="card action-result-card" id="dispatch-release-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-active">Dispatch Release</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Dispatch release confirmation prepared for OUT-2048 with vehicle, load, paperwork and route checks attached.</p>
+            <a class="quiet-button" href="strata-logistics-dispatch-confirmed.html">Open dispatch confirmation</a>
+          </article>
+
+          <article class="card action-result-card" id="dispatch-obstruction-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-overdue">Route Obstruction</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Route obstruction reported for Bay C03. Hold release until the obstruction is cleared and supervisor direction is visible.</p>
+          </article>
+
+          <article class="card action-result-card" id="dispatch-other-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Logistics Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Capture a dispatch concern that does not fit the standard release checks.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the dispatch issue or decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Dispatch scan held against outbound consignment OUT-2048</p>
+            <p>Release confidence depends on vehicle, paperwork, load and route alignment</p>
+            <a href="strata-logistics-goods-out.html">Return to Goods Out workflow</a>
+          </footer>
+        </section>
       </div>
-    </div>
+    </main>
+  </div>
 
-    <section class="dashboard-card operational-overview">
-      <p class="section-kicker">Scanned pallet</p>
-      <h2>Scanned pallet record</h2>
-<p class="dashboard-subtitle">
-  Pallet NW-0428-A
-</p>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-      <div class="overview-inline">
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
+  <script>
+    document.querySelectorAll("[data-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = document.getElementById(`${button.dataset.action}-card`);
+        if (!card) return;
+        card.hidden = false;
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
 
-        <div class="overview-item">
-          <span class="overview-label">Delivery Ref</span>
-          <span class="overview-value">DEL-1042</span>
-        </div>
-
-        <div class="overview-item">
-          <span class="overview-label">Supplier</span>
-          <span class="overview-value">Alpha Components Ltd</span>
-        </div>
-
-        <div class="overview-item">
-          <span class="overview-label">Quantity</span>
-          <span class="overview-value">48 Units</span>
-        </div>
-
-        <div class="overview-item">
-          <span class="overview-label">Assigned Zone</span>
-          <span class="overview-value">B12</span>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="dashboard-card">
-      <p class="section-kicker">Delivery verification</p>
-      <h2>Inbound delivery details</h2>
-
-      <div class="attention-item">
-        <h3>Supplier record</h3>
-        <p>
-          Delivery record matched to Alpha Components Ltd and linked inbound reference DEL-1042.
-        </p>
-      </div>
-
-      <div class="attention-item">
-        <h3>Contents</h3>
-        <p>
-          Electrical components verified against expected inbound manifest.
-        </p>
-      </div>
-
-      <div class="attention-item">
-        <h3>Weight and routing</h3>
-        <p>
-          Pallet weight recorded at 620kg with routing assigned to storage zone B12.
-        </p>
-      </div>
-    </section>
-
-    <section class="dashboard-card soft-panel">
-      <p class="section-kicker">Workflow note</p>
-      <h2>Next operational step</h2>
-
-      <p class="section-intro">
-        Once accepted, this pallet will move into robotic collection, warehouse routing and connected business-system sync.
-      </p>
-
-      <div class="button-row">
-        <a class="quiet-button" href="strata-logistics-pallet-accepted.html">
-          Accept delivery
-        </a>
-
-        <a class="quiet-button" href="strata-logistics-goods-in.html">
-          Report issue
-        </a>
-      </div>
-    </section>
-  </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+    document.querySelectorAll(".card-close").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest(".action-result-card").hidden = true;
+      });
+    });
+  </script>
 </body>
 </html>

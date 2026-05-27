@@ -3,152 +3,148 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Strata Logistics — Goods In Workflow</title>
+  <title>Strata Logistics - Goods In Workflow</title>
   <meta
     name="description"
-    content="A Strata Logistics goods-in workflow for inbound delivery checks, pallet verification and intake guidance."
+    content="A Strata Logistics goods-in workflow for inbound arrival, paperwork, pallet condition, Bay A12 validation and exception routing."
   />
-  <link rel="stylesheet" href="style.css?v=24" />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
-     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
+    <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
 
     <main class="dashboard-main">
-    <div class="dashboard-header">
-      <p class="dashboard-breadcrumb">
-        Hold / Strata Logistics / Goods In Workflow
-      </p>
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Logistics / Goods In</p>
 
-      <div class="dashboard-title-row">
-        <div>
-          <h1>Goods In Workflow</h1>
-          <p class="dashboard-subtitle">
-            Inbound delivery checks, pallet verification and intake guidance.
-          </p>
-        </div>
+          <header class="scan-header">
+            <h1>Goods In Workflow</h1>
+            <p>Inbound delivery workflow for arrival, paperwork, pallet condition, Bay A12 validation and exceptions.</p>
+            <span class="status-pill status-active">Inbound Active</span>
+          </header>
 
-        <span class="dashboard-status-pill">
-          Operational Workflow
-        </span>
-      </div>
-    </div>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Arrival Check</h2>
+                <span class="status-pill status-pending">12 awaiting</span>
+              </div>
+              <p>Confirm delivery reference, supplier, booked slot and driver instruction before unloading at Bay A12.</p>
+            </article>
 
-    <section class="dashboard-card operational-overview">
-      <p class="section-kicker">Goods in status</p>
-      <h2>Inbound activity</h2>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Paperwork Review</h2>
+              </div>
+              <p>Match delivery note, purchase order and pallet count before goods are accepted into the intake queue.</p>
+            </article>
 
-      <div class="overview-inline">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Pallet Condition</h2>
+                <span class="status-pill status-review">Visible check</span>
+              </div>
+              <p>Check wrapping, stability, labels and visible damage. Photograph exceptions before movement.</p>
+            </article>
 
-        <div class="overview-item">
-          <span class="overview-label">Awaiting Receipt</span>
-          <span class="overview-value">12</span>
-        </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Bay A12 Validation</h2>
+              </div>
+              <p>Use Bay A12 as the intake control point. Keep the delivery in queue order unless supervisor priority changes.</p>
+            </article>
 
-        <div class="overview-item">
-          <span class="overview-label">Accepted Today</span>
-          <span class="overview-value">38</span>
-        </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Movement Decision</h2>
+              </div>
+              <p>Accepted pallets move to stock routing. Damaged, short or disputed pallets move to Hold Area B for review.</p>
+            </article>
 
-        <div class="overview-item">
-          <span class="overview-label">Issues Flagged</span>
-          <span class="overview-value">2</span>
-        </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Goods In Actions</h2>
+              </div>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-logistics-pallet-scan.html">Start pallet scan</a>
+                <button type="button" class="quiet-button" data-action="goods-in-damage">Report damage</button>
+                <button type="button" class="quiet-button" data-action="goods-in-mismatch">Report mismatch</button>
+                <button type="button" class="quiet-button" data-action="goods-in-supervisor">Request supervisor</button>
+                <button type="button" class="quiet-button" data-action="goods-in-hold-area">Move to Hold Area B</button>
+                <button type="button" class="quiet-button secondary" data-action="goods-in-other">Other logistics issue</button>
+              </div>
+            </article>
 
-        <div class="overview-item">
-          <span class="overview-label">Robotic Queue</span>
-          <span class="overview-value">5</span>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="dashboard-card">
-      <p class="section-kicker">Inbound deliveries</p>
-      <h2>Active deliveries</h2>
-
-      <p class="section-intro">
-        Deliveries awaiting receipt, pallet scan or intake confirmation.
-      </p>
-
-      <div class="delivery-list">
-
-        <article class="delivery-card">
-          <div>
-            <strong>DEL-1042</strong><br>
-            Alpha Components Ltd
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Human Judgement</h2>
+              </div>
+              <p>Do not force a clean intake record where the delivery, paperwork or pallet condition needs a human decision.</p>
+            </article>
           </div>
-          <a class="quiet-button" href="strata-logistics-pallet-scan.html">
-            Start pallet scan
-          </a>
-        </article>
 
-        <article class="delivery-card">
-          <div>
-            <strong>DEL-1043</strong><br>
-            Nexa Logistics
-          </div>
-          <span class="status-pill status-pending">Due Next</span>
-        </article>
+          <article class="card action-result-card" id="goods-in-damage-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Damage Reported</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Damage report opened for the inbound delivery. Keep the pallet visible and attach photos before routing continues.</p>
+          </article>
 
-        <article class="delivery-card">
-          <div>
-            <strong>DEL-1044</strong><br>
-            Core Supply Group
-          </div>
-          <span class="status-pill status-pending">Due Later</span>
-        </article>
+          <article class="card action-result-card" id="goods-in-mismatch-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Mismatch Reported</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Mismatch recorded between paperwork, delivery reference or pallet count. Supervisor review is required before acceptance.</p>
+          </article>
 
+          <article class="card action-result-card" id="goods-in-supervisor-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Supervisor Requested</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Supervisor request raised with delivery, Bay A12 and intake context attached.</p>
+          </article>
+
+          <article class="card action-result-card" id="goods-in-hold-area-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Hold Area B Move</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Hold Area B movement prepared for the inbound exception. Apply hold label before leaving the pallet.</p>
+          </article>
+
+          <article class="card action-result-card" id="goods-in-other-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Other Logistics Issue</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Capture an intake condition or delivery instruction that is outside the standard goods-in checks.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the goods-in issue or decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Goods In controls delivery arrival, validation and first movement decision</p>
+            <p>Bay A12 intake issues remain visible until accepted or routed to Hold Area B</p>
+            <a href="strata-logistics-bay-a12.html">Open Bay A12 record</a>
+          </footer>
+        </section>
       </div>
-    </section>
-
-    <section class="dashboard-card">
-      <p class="section-kicker">Workflow sequence</p>
-      <h2>Goods in process</h2>
-
-      <div class="attention-item">
-        <h3>1. Delivery arrives</h3>
-        <p>
-          Confirm delivery reference, supplier and expected intake location before unloading.
-        </p>
-      </div>
-
-      <div class="attention-item">
-        <h3>2. Pallet verification</h3>
-        <p>
-          Scan inbound pallet labels and confirm they match the delivery record.
-        </p>
-      </div>
-
-      <div class="attention-item">
-        <h3>3. Acceptance record</h3>
-        <p>
-          Accepted pallets move into the intake record and downstream storage workflow.
-        </p>
-      </div>
-    </section>
-
     </main>
+  </div>
 
-</div>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-<footer class="footer">
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
+  <script>
+    document.querySelectorAll("[data-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = document.getElementById(`${button.dataset.action}-card`);
+        if (!card) return;
+        card.hidden = false;
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
 
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+    document.querySelectorAll(".card-close").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest(".action-result-card").hidden = true;
+      });
+    });
+  </script>
 </body>
 </html>
