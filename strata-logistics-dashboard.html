@@ -3,440 +3,266 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hold Dashboard — Strata Logistics</title>
-  <link rel="stylesheet" href="style.css?v=42" />
-  <link rel="stylesheet" href="sidebar.css" />
+  <title>Hold Dashboard - Strata Logistics</title>
+  <meta
+    name="description"
+    content="Calm operational snapshot for Strata Logistics, connecting goods in, dispatch, bays, hold exceptions, equipment, QR governance, emergency readiness and review queue visibility."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
-  <div class="dashboard-layout">      
+  <div class="dashboard-layout">
     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
-  
+
     <main class="dashboard-main">
-
       <div class="dashboard-header">
-
-  <p class="dashboard-breadcrumb">
-    Hold / Group Dashboard / Strata Logistics
-  </p>
-
-  <div class="dashboard-title-row">
-    <div>
-      <h1>Strata Logistics</h1>
-<p class="dashboard-subtitle">
-  Shift flow, dispatch recovery and warehouse movement under governed operational control.
-</p>
-    </div>
-
-    <span class="dashboard-status-pill">
-      Operations Hub
-    </span>
-  </div>
-
-</div>
-      
-<section class="alert-grid">
-
-  <article class="dashboard-card alert-card amber-alerts">
-
-  <p class="section-kicker alert-kicker amber-kicker">
-    Amber Alerts
-  </p>
-
-  <span class="alert-title-pill">
-    Site Items Raised
-  </span>
-
-  <span class="alert-pill amber-pill">
-    2 Active
-  </span>
-
-  <p class="section-intro">
-    Conditions affecting warehouse flow, dispatch capacity or route availability during the current shift.
-  </p>
-
-  <div id="amberAlerts">
-
-    <p>
-      <strong>South Dispatch Area</strong>
-<span> : Surface water build-up slowing outbound vehicle movement.</span>
-    </p>
-
-    <p>
-      <strong>Bay C03</strong>
-      <span> : Forklift 03 operating under temporary restriction during dispatch recovery.</span>
-    </p>
-
-  </div>
-
-</article>
-
-<article class="dashboard-card alert-card red-alerts">
-
-  <p class="section-kicker alert-kicker red-kicker">
-    Red Alerts
-  </p>
-
-  <span class="alert-title-pill red-title-pill">
-    Shift Items Escalated
-  </span>
-
-  <span class="alert-pill red-pill">
-    0 Active
-  </span>
-
-  <p class="section-intro">
-    Items requiring immediate operational restriction, isolation or dispatch escalation.
-  </p>
-
-  <div id="redAlerts">
-
-    <p>
-      <strong>No Active Escalations</strong>
-      <span> : No shift restrictions or emergency operational escalations currently active.</span>
-    </p>
-
-  </div>
-
-</article>
-  
-</section>
-
-            
-      <section class="dashboard-card operational-attention">
-
-  <p class="section-kicker">Start of shift</p>
-
-  <h2>Today’s operational attention</h2>
-
-  <p class="section-intro">
-    Current operational conditions, dispatch restrictions and active warehouse issues affecting today’s shift.
-  </p>
-
-  <div class="attention-item">
-
-    <h3>Surface water slowing outbound flow</h3>
-
-    <p>
-      Heavy overnight rainfall has reduced drainage flow near the South Dispatch Lane,
-      causing standing surface water and slower outbound vehicle movement during early loading activity.
-    </p>
-
-    <p class="next-action">
-      <strong>Next action:</strong> Estates inspection due this morning before peak outbound movement.
-    </p>
-
-  </div>
-
-  <div class="attention-item">
-
-    <h3>Forklift 03 operating under temporary restriction</h3>
-
-    <p>
-      Hydraulic inspection pending. Temporary routing adjustments remain active
-      around Bay C03 during peak outbound loading.
-    </p>
-
-    <p class="next-action">
-      <strong>Shift focus:</strong> Maintain dispatch continuity during restricted forklift availability.
-    </p>
-
-  </div>
-
-  <div class="attention-item">
-
-    <h3>Dispatch route adjustment active</h3>
-
-    <p>
-      Bay C03 operating reduced dispatch volume during shutter maintenance activity.
-      Temporary diversion routing remains active via the North Recovery Route.
-    </p>
-
-  </div>
-
-</section>
-
-  <section class="dashboard-card shift-flow">
-
-  <p class="section-kicker">Warehouse flow</p>
-
-  <h2>Current shift flow</h2>
-
-  <p class="section-intro">
-    Live operational movement, recovery activity and dispatch flow during the current shift.
-  </p>
-
-  <div class="flow-item">
-
-    <h3>Inbound movement</h3>
-
-    <p>
-      Morning intake running steadily across inbound bays.
-      Peak aggregate arrivals expected between 10:00–11:30.
-    </p>
-
-  </div>
-
-  <div class="flow-item">
-
-    <h3>Outbound dispatch</h3>
-
-    <p>
-      Recovery loading continuing through early shift following overnight backlog reduction.
-      Four delayed consignments remain active for morning dispatch sequencing.
-    </p>
-
-  </div>
-
-  <div class="flow-item">
-
-    <h3>Yard routing</h3>
-
-    <p>
-      Temporary one-way routing remains active around Bay C03 during shutter maintenance works.
-      Minor outbound slowing expected during peak vehicle movement periods.
-    </p>
-
-  </div>
-
-  <div class="flow-item">
-
-    <h3>Shift continuity</h3>
-
-    <p>
-      Night shift reduced delayed outbound backlog from 14 loads to 4 following
-      extended overnight recovery loading across dispatch lanes.
-    </p>
-
-    <p class="next-action">
-      <strong>Day shift focus:</strong> Prioritise remaining consignments before midday intake peak begins.
-    </p>
-
-  </div>
-
-</section> 
-
-<section class="dashboard-card expected-movements">
-
-  <p class="section-kicker">Operational workload</p>
-
-  <h2>Today’s expected movements</h2>
-
-  <p class="section-intro">
-    Planned inbound intake, dispatch recovery and warehouse movement expected during the current shift.
-  </p>
-
-  <div class="movement-table">
-
-    <div class="movement-row">
-      <span class="movement-time">07:00–09:00</span>
-
-      <span class="movement-detail">
-        Recovery loading continuing across dispatch lanes following overnight backlog reduction.
-      </span>
-    </div>
-
-    <div class="movement-row">
-      <span class="movement-time">10:00–11:30</span>
-
-      <span class="movement-detail">
-        Peak aggregate intake expected across inbound bays and weighbridge routes.
-      </span>
-    </div>
-
-    <div class="movement-row">
-      <span class="movement-time">11:30–13:00</span>
-
-      <span class="movement-detail">
-        Increased outbound dispatch sequencing expected following completion of morning intake activity.
-      </span>
-    </div>
-
-    <div class="movement-row">
-      <span class="movement-time">Afternoon</span>
-
-      <span class="movement-detail">
-        Reduced yard congestion expected following completion of peak loading and recovery activity.
-      </span>
-    </div>
-
-  </div>
-
-</section>
-
-<!-- SHIFT OPERATIONAL CAPABILITY -->
-
-<section class="dashboard-card operational-capability">
-  <p class="section-kicker">Shift capability</p>
-  <h2>Current operational capability</h2>
-  <p class="section-intro">
-    Workforce, equipment and operational support currently available to sustain today’s shift.
-  </p>
-
-  <div class="capability-grid">
-
-    <!-- WORKFORCE -->
-
-    <div class="capability-card">
-      <h3>Workforce</h3>
-
-      <ul>
-        <li>Supervisor cover confirmed for early shift</li>
-        <li>Reduced forklift-certified availability until 09:30</li>
-        <li>Agency induction completed for two temporary operatives</li>
-      </ul>
-    </div>
-
-    <!-- EQUIPMENT -->
-
-    <div class="capability-card">
-      <h3>Equipment & vehicles</h3>
-
-      <ul>
-        <li>Forklift 03 operating under temporary restriction</li>
-        <li>Temporary forklift hire under review</li>
-        <li>Outbound recovery planning under active operational review</li>
-        <li>Yard marshal vehicle unavailable pending maintenance review</li>
-      </ul>
-    </div>
-
-    <!-- SUPPORT -->
-
-    <div class="capability-card">
-      <h3>Operational support</h3>
-
-      <ul>
-        <li>Maintenance lead on-site from 08:15</li>
-        <li>Estates inspection pending (time TBC)</li>
-        <li>Drainage review to determine temporary ground reinforcement needs</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-       
-<section class="dashboard-card operational-overview">
-  <p class="section-kicker">Overview</p>
-  <h2>Current logistics position</h2>
-
-  <div class="overview-inline">
-
-    <div class="overview-item">
-      <span class="overview-label">Operational Points</span>
-      <span class="overview-value">10 Active</span>
-    </div>
-
-    <div class="overview-item">
-      <span class="overview-label">QR Deployments</span>
-      <span class="overview-value">10 / 10 Live</span>
-    </div>
-
-    <div class="overview-item">
-      <span class="overview-label">Scheduled Updates</span>
-      <span class="overview-value">2 Pending</span>
-    </div>
-
-    <div class="overview-item">
-      <span class="overview-label">Review Queue</span>
-      <span class="overview-value">3 Due This Week</span>
-    </div>
-
-  </div>
-</section>
-        
+        <p class="dashboard-breadcrumb">Hold / Strata Logistics</p>
+
+        <div class="dashboard-title-row">
+          <div>
+            <h1>Strata Logistics Operational Snapshot</h1>
+            <p class="dashboard-subtitle">
+              A calm front door for warehouse movement, dispatch flow, exceptions, equipment readiness and governance visibility.
+            </p>
+          </div>
+
+          <span class="dashboard-status-pill">Operations Hub</span>
+        </div>
+      </div>
+
+      <section class="dashboard-layer">
+        <div class="operational-window-grid">
+          <article class="dashboard-card operational-window">
+            <div class="operational-window-header">
+              <h2>Goods In Status</h2>
+              <span class="status-pill status-active">Inbound active</span>
+            </div>
+            <p>Inbound intake is running through Bay A12 with pallet validation, paperwork checks and exception routing visible.</p>
+          </article>
+
+          <article class="dashboard-card operational-window">
+            <div class="operational-window-header">
+              <h2>Goods Out / Dispatch Flow</h2>
+              <span class="status-pill status-review">Dispatch watch</span>
+            </div>
+            <p>Outbound preparation, dispatch scan and release confirmation stay connected through Bay C03 and the review queue.</p>
+          </article>
+
+          <article class="dashboard-card operational-window">
+            <div class="operational-window-header">
+              <h2>Bay A12 Visibility</h2>
+              <span class="status-pill status-active">Receiving</span>
+            </div>
+            <p>Bay A12 shows arrival, paperwork, pallet condition and movement decisions before stock enters normal flow.</p>
+          </article>
+
+          <article class="dashboard-card operational-window">
+            <div class="operational-window-header">
+              <h2>Bay C03 Visibility</h2>
+              <span class="status-pill status-active">Dispatch bay</span>
+            </div>
+            <p>Bay C03 keeps vehicle confirmation, pallet count, route readiness, restrictions and release checks visible.</p>
+          </article>
+
+          <article class="dashboard-card operational-window">
+            <div class="operational-window-header">
+              <h2>Hold Area B Exceptions</h2>
+              <span class="status-pill status-review">Decision area</span>
+            </div>
+            <p>Damaged, mismatched, unclear or quarantined loads remain governed until evidence, decision and destination are clear.</p>
+          </article>
+
+          <article class="dashboard-card operational-window">
+            <div class="operational-window-header">
+              <h2>Forklift / Equipment Readiness</h2>
+              <span class="status-pill status-pending">Inspection aware</span>
+            </div>
+            <p>Forklift status, charging safety, defects, maintenance and route restrictions stay attached to equipment records.</p>
+          </article>
+
+          <article class="dashboard-card operational-window">
+            <div class="operational-window-header">
+              <h2>QR Governance</h2>
+              <span class="status-pill status-review">Auditable</span>
+            </div>
+            <p>QR points keep role-based visibility, temporary access, replacement awareness and verification routes connected.</p>
+          </article>
+
+          <article class="dashboard-card operational-window">
+            <div class="operational-window-header">
+              <h2>Emergency Readiness</h2>
+              <span class="status-pill status-active">Visible</span>
+            </div>
+            <p>Emergency routes, first aid, fire exits, spill response, contacts and live restrictions stay available before pressure rises.</p>
+          </article>
+
+          <article class="dashboard-card operational-window">
+            <div class="operational-window-header">
+              <h2>Operational Review Queue</h2>
+              <span class="status-pill status-pending">Open items</span>
+            </div>
+            <p>Unresolved mismatches, damaged loads, blocked routes, escalations and audit follow-up remain visible through closure.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="dashboard-layer">
+        <section class="dashboard-card">
+          <p class="section-kicker">Key routes</p>
+          <h2>Open the area that needs attention</h2>
+          <p class="section-intro">
+            Use these routes to move from the snapshot into the operational area, workflow or governance surface that owns the next decision.
+          </p>
+
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Goods In Workflow</h2>
+                <span class="status-pill status-active">Bay A12</span>
+              </div>
+              <p>Inbound delivery checks, pallet condition and movement to stock or Hold Area B.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-logistics-goods-in.html">Open Goods In</a>
+                <a class="quiet-button secondary" href="strata-logistics-bay-a12.html">Open Bay A12</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Goods Out Workflow</h2>
+                <span class="status-pill status-review">Bay C03</span>
+              </div>
+              <p>Picking, pallet readiness, dispatch bay allocation and outbound release checks.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-logistics-goods-out.html">Open Goods Out</a>
+                <a class="quiet-button secondary" href="strata-logistics-bay-c03.html">Open Bay C03</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Hold Area B</h2>
+                <span class="status-pill status-pending">Exceptions</span>
+              </div>
+              <p>Controlled review for damaged, unclear, mismatched or pending-decision loads.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-logistics-hold-area-b.html">Open Hold Area B</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Equipment Readiness</h2>
+                <span class="status-pill status-review">Forklifts</span>
+              </div>
+              <p>Forklift state, charging bay safety, defects, handover and maintenance escalation.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-logistics-forklift-04.html">Open Forklift 04</a>
+                <a class="quiet-button secondary" href="strata-logistics-forklift-charging.html">Open Charging</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Governance</h2>
+                <span class="status-pill status-review">Live layer</span>
+              </div>
+              <p>Personnel, competency, QR status and operational exceptions that need ownership or sign-off.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-logistics-operational-review-queue.html">Open Review Queue</a>
+                <a class="quiet-button secondary" href="strata-logistics-qr-management.html">Open QR Management</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Emergency Readiness</h2>
+                <span class="status-pill status-active">Response</span>
+              </div>
+              <p>Emergency response, site safety map, fire exit and first aid station visibility.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-logistics-emergency-response-pack.html">Open Response Pack</a>
+                <a class="quiet-button secondary" href="strata-logistics-site-safety-map.html">Open Safety Map</a>
+              </div>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="dashboard-layer">
+        <section class="dashboard-card">
+          <p class="section-kicker">Principle</p>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Movement made visible</h2>
+                <span class="status-pill status-active">Hold principle</span>
+              </div>
+              <p>Hold connects goods, people, equipment, exceptions and responsibility so logistics teams can understand how one issue affects the wider operation.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Snapshot Actions</h2>
+              </div>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="dashboard-review">Review open exceptions</button>
+                <button type="button" class="quiet-button" data-action="dashboard-equipment">Check equipment readiness</button>
+                <button type="button" class="quiet-button" data-action="dashboard-emergency">Check emergency readiness</button>
+                <button type="button" class="quiet-button secondary" data-action="dashboard-other">Other dashboard issue</button>
+              </div>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="dashboard-review-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Open Exceptions</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Open exception review selected. Check Hold Area B and the operational review queue before closing the loop.</p>
+          </article>
+
+          <article class="card action-result-card" id="dashboard-equipment-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Equipment Readiness</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Equipment readiness check selected. Confirm forklift state, charging safety, defects and route restrictions.</p>
+          </article>
+
+          <article class="card action-result-card" id="dashboard-emergency-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-active">Emergency Readiness</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Emergency readiness check selected. Confirm response pack, safety map, fire exit and first aid visibility.</p>
+          </article>
+
+          <article class="card action-result-card" id="dashboard-other-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Other Dashboard Issue</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Capture an operational snapshot issue that needs human judgement before it fits a specific workflow.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the dashboard issue, affected area and decision needed..."></textarea>
+          </article>
+        </section>
+      </section>
     </main>
   </div>
- 
-<script>
-function escalateForklift() {
-  const amber = document.getElementById("amberAlerts");
-  const red = document.getElementById("redAlerts");
 
-  amber.innerHTML = `
-  <p>
-    <strong>Outbound Route</strong>
-    <span> : Surface water build-up reported — estates inspection pending.</span>
-  </p>
-`;
-  
- red.innerHTML = `
-  <p>
-    <strong>Forklift 03</strong>
-    <span> : Breakdown reported — outbound dispatch capacity reduced. Temporary hire decision required.</span>
-  </p>
-`;
-}
-</script>
-   
- <script>
-  function updateAlertCounts() {
-    const amber = document.getElementById("amberAlerts");
-    const red = document.getElementById("redAlerts");
-
-    const amberCount = document.querySelector(".amber-pill");
-    const redCount = document.querySelector(".red-pill");
-
-    if (amber && amberCount) {
-      const amberAlerts = amber.querySelectorAll("p:not(.live-note)");
-      amberCount.textContent = `${amberAlerts.length} Active`;
-    }
-
-    if (red && redCount) {
-      const redAlerts = red.querySelectorAll("p:not(.live-note)");
-      redCount.textContent = `${redAlerts.length} Active`;
-    }
-  }
-
-  updateAlertCounts();
-
-  setTimeout(() => {
-    const amber = document.getElementById("amberAlerts");
-
-    amber.innerHTML += `
-      <p>
-        <strong>Dispatch queue pressure rising.</strong>
-        Bay C03 outbound flow affected by delayed vehicle turnaround.
-        Monitor before midday peak.
-      </p>
-
-      <p class="live-note">
-        Updated just now from Dispatch Queue
-      </p>
-    `;
-
-    updateAlertCounts();
-  }, 5000);
-
-  setTimeout(() => {
-    const red = document.getElementById("redAlerts");
-
-    red.innerHTML = `
-      <p>
-        <strong>Battery leakage reported.</strong>
-        Forklift Charging Station isolated pending Facilities response.
-      </p>
-
-      <p class="live-note">
-        Updated just now from Equipment Governance
-      </p>
-    `;
-
-    updateAlertCounts();
-  }, 9000);
-</script>
-
-<p class="footer-return">
-  <a href="https://idexqr.com/">Back to IdexQR</a>
-</p>
-  
   <footer class="footer">
-    Powered by IdexQR<sup>®</sup>
-    <p class="footer-sub">
-    IdexQR® concepts, demonstrations and platform designs © 2026 IdexQR. All rights reserved.
-  </p>
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
   </footer>
 
   <script src="sidebar.js?v=7"></script>
   <script src="clock.js?v=4"></script>
+  <script>
+    document.querySelectorAll("[data-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = document.getElementById(`${button.dataset.action}-card`);
+        if (!card) return;
+        card.hidden = false;
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
+
+    document.querySelectorAll(".card-close").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest(".action-result-card").hidden = true;
+      });
+    });
+  </script>
 </body>
 </html>
