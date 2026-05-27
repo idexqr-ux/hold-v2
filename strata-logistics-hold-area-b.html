@@ -3,189 +3,196 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Strata Logistics — Hold Area B</title>
-<meta
-  name="description"
-  content="A Strata Logistics governed hold and review area record for inbound and outbound exceptions, including quarantine routing, release decisions and audit-ready control."
-/>
-<link rel="stylesheet" href="style.css?v=26" />
+  <title>Strata Logistics - Hold Area B</title>
+  <meta
+    name="description"
+    content="A Strata Logistics controlled exception area record for damaged, unclear, mismatched, quarantined or pending-decision loads."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
-     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
+    <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
 
     <main class="dashboard-main">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Logistics / Hold Area B</p>
 
-    <div class="dashboard-header">
-      <p class="eyebrow">Hold / Strata Logistics</p>
-      <h1>Hold Area B</h1>
-      <p class="dashboard-subtitle">
-        Shared governed containment area for inbound and outbound stock removed
-        from normal workflow pending review, release, rejection or escalation.
-      </p>
-    </div>
-      
-      <div class="button-row">
-        <span class="status-pill status-active">Active</span>
-        <span class="status-pill status-pending">Exception Area</span>
-        <span class="status-pill status-review">Audit Enabled</span>
-      </div>
-    </section>
+          <header class="scan-header">
+            <h1>Hold Area B</h1>
+            <p>Controlled exception area for damaged, unclear, mismatched, quarantined or pending-decision loads.</p>
+            <span class="status-pill status-review">Exception Area Active</span>
+          </header>
 
-    <section class="grid">
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Current Area Status</h2>
+                <span class="status-pill status-pending">85% capacity</span>
+              </div>
+              <p>Hold Area B is active for controlled review stock. Review lead S. Malik owns release decisions this shift.</p>
+            </article>
 
-      <article class="card soft-panel">
-        <h3>Operational Snapshot</h3>
-        <div class="detail-grid">
-          <p><strong>Review Lead</strong><span class="value">S. Malik</span></p>
-          <p><strong>Shift Window</strong><span class="value">Primary Day Shift</span></p>
-          <p><strong>Area Status</strong><span class="value value-key">Active</span></p>
-          <p><strong>Capacity Used</strong><span class="value">85%</span></p>
-        </div>
-      </article>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Expected Activity</h2>
+                <span class="status-pill status-review">Open holds</span>
+              </div>
+              <p>HOLD-301, HOLD-302 and HOLD-303 are active for damage, dispatch discrepancy and packaging review.</p>
+            </article>
 
-      <article class="card">
-        <h3>Active Hold Queue</h3>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Safety Information</h2>
+              </div>
+              <p>Keep held loads labelled, stable and separated. Do not stack or move unclear stock without a visible decision.</p>
+            </article>
 
-        <div class="delivery-list">
-          <article class="delivery-card">
-            <div>
-              <strong>HOLD-301</strong><br />
-              Damaged inbound pallet<br />
-              <span class="muted-text">
-              From Bay A12 · IN-1186 / Milton Components · Awaiting supervisor review</span>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Movement Restrictions</h2>
+                <span class="status-pill status-overdue">No auto-release</span>
+              </div>
+              <p>Held items must not return to stock, dispatch, supplier return or disposal until the reviewer decision is recorded.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Operational Dependency</h2>
+              </div>
+              <p>Hold Area B depends on Bay A12 and Bay C03 keeping origin, evidence and movement reason attached.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Review Decision</h2>
+              </div>
+              <p>Release requires photographs, notes, paperwork and destination to be visible before stock leaves the hold area.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Hold Area Actions</h2>
+              </div>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="hold-area-reviewed">Mark reviewed</button>
+                <button type="button" class="quiet-button" data-action="hold-area-stock">Approve return to stock</button>
+                <button type="button" class="quiet-button" data-action="hold-area-dispatch">Approve dispatch release</button>
+                <button type="button" class="quiet-button" data-action="hold-area-supplier">Reject / return to supplier</button>
+                <button type="button" class="quiet-button" data-action="hold-area-supervisor">Request supervisor</button>
+                <button type="button" class="quiet-button" data-action="hold-area-obstruction">Report route obstruction</button>
+                <a class="quiet-button secondary" href="strata-logistics-hold-area-b-map.html">View area map</a>
+                <button type="button" class="quiet-button secondary" data-action="hold-area-other">Other logistics issue</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Audit Visibility</h2>
+              </div>
+              <p>Hold records persist across shifts with origin bay, evidence, decision, destination and closure state visible.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Human Judgement</h2>
+              </div>
+              <p>If the correct decision is not available, keep the load held and record the uncertainty rather than forcing release.</p>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="hold-area-reviewed-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Review Marked</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
             </div>
-            <span class="status-pill status-review">In Review</span>
+            <p>Review action opened. Confirm evidence, origin bay, decision owner and next movement before closing the hold.</p>
           </article>
 
-          <article class="delivery-card">
-            <div>
-              <strong>HOLD-302</strong><br />
-              Dispatch quantity discrepancy<br />
-              <span class="muted-text">From Bay C03 · Supervisor decision required</span>
+          <article class="card action-result-card" id="hold-area-stock-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-active">Return to Stock</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
             </div>
-            <span class="status-pill status-pending">Decision Needed</span>
+            <p>Return-to-stock decision prepared. Update the label and destination before the load leaves Hold Area B.</p>
           </article>
 
-          <article class="delivery-card">
-            <div>
-              <strong>HOLD-303</strong><br />
-              Packaging integrity check<br />
-              <span class="muted-text">Supplier: Ashwell Packaging · Photo evidence attached</span>
+          <article class="card action-result-card" id="hold-area-dispatch-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-active">Dispatch Release</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
             </div>
-            <span class="status-pill status-active">Action Logged</span>
+            <p>Dispatch release decision prepared. Confirm Bay C03 route readiness and attach the release note before movement.</p>
           </article>
-        </div>
-      </article>
 
-      <article class="card">
-        <h3>Hold Documentation Status</h3>
-        <ul class="workflow-list">
-        <li><strong>HOLD-301:</strong> Bay A12 intake discrepancy logged at 08:57. Damage photos and delivery note attached.</li>
-          <li><strong>HOLD-302:</strong> Dispatch paperwork retained pending review.</li>
-          <li><strong>HOLD-303:</strong> Supplier discrepancy evidence awaiting supervisor note.</li>
-        </ul>
-      </article>
+          <article class="card action-result-card" id="hold-area-supplier-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Supplier Return</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Supplier return or rejection route opened. Keep evidence, packaging condition and supplier reference attached.</p>
+          </article>
 
-      <article class="card">
-        <h3>Hold Area Guidance</h3>
-        <ul class="workflow-list">
-          <li>Place items in Hold Area B only where stock is damaged, disputed, unstable, incomplete or awaiting operational decision.</li>
-          <li>Apply the correct hold label before leaving goods in the area.</li>
-          <li>Record the hold reference in Hold before stock leaves the originating bay.</li>
-          <li>Do not return goods to normal workflow until a release decision has been recorded.</li>
-        </ul>
+          <article class="card action-result-card" id="hold-area-supervisor-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Supervisor Requested</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Supervisor request raised with hold reference, origin bay, evidence and current capacity context attached.</p>
+          </article>
 
-        <div class="button-row">
-          <a class="quiet-button secondary" href="strata-logistics-hold-area-b-map.html">View Hold Area Map</a>
-        </div>
-      </article>
+          <article class="card action-result-card" id="hold-area-obstruction-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-overdue">Route Obstruction</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Route obstruction reported for Hold Area B. Pause movement until the route and destination are confirmed clear.</p>
+          </article>
 
-      <article class="card">
-        <h3>Review Actions</h3>
-        <p>
-          Use these actions to progress held items and preserve the audit trail.
-        </p>
+          <article class="card action-result-card" id="hold-area-other-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Logistics Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Capture a hold-area concern that does not fit the standard review or release routes.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the Hold Area B issue or decision needed..."></textarea>
+          </article>
 
-        <div class="button-row">
-          <a class="quiet-button" href="#">Mark Reviewed</a>
-          <a class="quiet-button" href="#">Approve Return to Stock</a>
-          <a class="quiet-button" href="#">Approve Dispatch Release</a>
-          <a class="quiet-button" href="#">Reject / Return to Supplier</a>
-          <a class="quiet-button" href="#">Escalate for Management Review</a>
-          <a class="quiet-button secondary" href="#">Other Hold Issue</a>
-        </div>
-      </article>
-
-      <article class="card soft-panel">
-        <h3>Temporary Notice</h3>
-        <p>
-          <strong>Hold Area B at 85% Capacity.</strong>
-          Overflow Area C is active for approved low-risk review stock.
-          View the area map before moving goods.
-        </p>
-
-        <div class="button-row">
-          <a class="quiet-button secondary" href="strata-logistics-hold-area-b-map.html">View Hold Area Map</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h3>Release Criteria</h3>
-        <ul class="workflow-list">
-          <li>Reviewer decision recorded in Hold.</li>
-          <li>Required photographs, notes or paperwork attached where applicable.</li>
-          <li>Stock label updated before movement out of Hold Area B.</li>
-          <li>Destination confirmed: stock, dispatch, supplier return, disposal or further review.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <h3>Workflow Notes</h3>
-        <ul class="workflow-list">
-  <li>Items placed in Hold Area B remain visible in the central operational queue until resolved.</li>
-  <li>Open hold items persist across shifts and require formal closure.</li>
-  <li>Updates and comments should be visible to relevant staff.</li>
-  <li>Items must not be released without an authorised review decision.</li>
-  <li>Resolved hold records remain available for audit and review.</li>
-  <li>Increased outbound pressure may extend hold review times during active dispatch recovery periods.</li>
-        
-</ul>
-      </article>
-     
-      <article class="card">
-        <h3>Record Control</h3>
-        <div class="detail-grid">
-          <p><strong>Owner</strong><span class="value">Warehouse Operations Manager</span></p>
-          <p><strong>Record Version</strong><span class="value">1.0</span></p>
-          <p><strong>Last Reviewed</strong><span class="value">3 May 2026</span></p>
-          <p><strong>Next Review</strong><span class="value">3 August 2026</span></p>
-        </div>
-      </article>
-
+          <footer class="scan-footer">
+            <p>Hold Area B controls exception visibility, review decisions and release confidence</p>
+            <p>Held loads remain governed until evidence, decision and destination are clear</p>
+            <a href="strata-logistics-operational-review-queue.html">Open operational review queue</a>
+          </footer>
         </section>
+      </div>
+    </main>
+  </div>
 
-   </main>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-</div>
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
+  <script>
+    document.querySelectorAll("[data-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = document.getElementById(`${button.dataset.action}-card`);
+        if (!card) return;
+        card.hidden = false;
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
 
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+    document.querySelectorAll(".card-close").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest(".action-result-card").hidden = true;
+      });
+    });
+  </script>
 </body>
 </html>

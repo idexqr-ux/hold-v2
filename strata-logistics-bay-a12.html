@@ -3,223 +3,189 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bay A12 — Hold</title>
+  <title>Strata Logistics - Bay A12</title>
   <meta
-  name="description"
-  content="A Strata Logistics goods received and delivery intake record for Bay A12, including intake checks, discrepancy reporting, quarantine routing and audit-ready control."
-/>
-<link rel="stylesheet" href="style.css?v=25" />
+    name="description"
+    content="A Strata Logistics goods-in intake area record for inbound deliveries, pallet validation, paperwork checks, damage reporting, supervisor escalation and movement decisions."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
 
     <main class="dashboard-main">
-    
-    <div class="dashboard-header">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Logistics / Bay A12</p>
 
-  <p class="dashboard-breadcrumb">
-    Strata Logistics / Bay A12
-  </p>
+          <header class="scan-header">
+            <h1>Bay A12</h1>
+            <p>Goods-in intake area for inbound deliveries, pallet validation, paperwork checks and movement decisions.</p>
+            <span class="status-pill status-active">Receiving Active</span>
+          </header>
 
-  <div class="dashboard-title-row">
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Current Area Status</h2>
+                <span class="status-pill status-active">Receiving Active</span>
+              </div>
+              <p>Bay A12 is open for inbound intake. Supervisor L. Bennett is covering the 06:00 to 14:00 shift window.</p>
+            </article>
 
-    <div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Expected Activity</h2>
+                <span class="status-pill status-pending">Inbound queue</span>
+              </div>
+              <p>IN-1186 is unloading, IN-1187 is waiting for intake check and IN-1188 is expected later this morning.</p>
+            </article>
 
-      <h1>Bay A12</h1>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Paperwork Checks</h2>
+              </div>
+              <p>Confirm delivery note, supplier reference, pallet count and visible labels before stock enters normal workflow.</p>
+            </article>
 
-      <p class="dashboard-subtitle">
-        Goods received intake point for inbound deliveries, delivery checks, discrepancy reporting, quarantine routing and audit-ready intake control.
-      </p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Safety Information</h2>
+                <span class="status-pill status-review">Damage visible</span>
+              </div>
+              <p>Damage has been observed on one outer pallet wrap. Photograph damage before further unloading or movement.</p>
+            </article>
 
-    </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Movement Restrictions</h2>
+              </div>
+              <p>Damaged, short, unstable or disputed stock must not be booked into inventory until the review decision is visible.</p>
+            </article>
 
-    <span class="dashboard-status-pill">
-      Receiving Active
-    </span>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Operational Dependency</h2>
+              </div>
+              <p>Bay A12 depends on clear access to Hold Area B and downstream stock routing before accepted pallets move on.</p>
+            </article>
 
-  </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Bay A12 Actions</h2>
+              </div>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-logistics-pallet-scan.html">Start pallet scan</a>
+                <button type="button" class="quiet-button" data-action="bay-a12-damage">Report damage</button>
+                <button type="button" class="quiet-button" data-action="bay-a12-mismatch">Report mismatch</button>
+                <button type="button" class="quiet-button" data-action="bay-a12-supervisor">Request supervisor</button>
+                <button type="button" class="quiet-button" data-action="bay-a12-hold-area">Move to Hold Area B</button>
+                <button type="button" class="quiet-button" data-action="bay-a12-accepted">Confirm accepted</button>
+                <a class="quiet-button secondary" href="strata-logistics-bay-a12-map.html">View area map</a>
+                <button type="button" class="quiet-button secondary" data-action="bay-a12-other">Other logistics issue</button>
+              </div>
+            </article>
 
-</div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Audit Visibility</h2>
+              </div>
+              <p>Intake checks, damage evidence, supervisor decisions and movement routes remain visible across shifts.</p>
+            </article>
 
-    <section class="grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Human Judgement</h2>
+              </div>
+              <p>If the delivery condition, paperwork or routing instruction is unclear, pause intake and record the decision needed.</p>
+            </article>
+          </div>
 
-     <article class="card soft-panel">
-  <h3>Operational Snapshot</h3>
-  <div class="detail-grid">
-    <p><strong>Supervisor</strong><span class="value">L. Bennett - "Cooper"</span></p>
-    <p><strong>Shift Window</strong><span class="value">06:00 – 14:00</span></p>
-    <p><strong>Bay Status</strong><span class="value value-key">Receiving Active</span></p>
-    <p><strong>Last Updated</strong><span class="value">08:25</span></p>
-  </div>
-</article>
+          <article class="card action-result-card" id="bay-a12-damage-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Damage Reported</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Damage report opened from Bay A12. Keep the pallet visible, attach photos and prevent normal stock booking until reviewed.</p>
+          </article>
 
-<article class="card">
-  <h3>Active Inbound Queue</h3>
+          <article class="card action-result-card" id="bay-a12-mismatch-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Mismatch Reported</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Mismatch recorded for delivery reference, paperwork, pallet count or visible label details.</p>
+          </article>
 
-  <div class="delivery-list">
+          <article class="card action-result-card" id="bay-a12-supervisor-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Supervisor Requested</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Supervisor request raised with Bay A12 intake status, delivery queue and movement context attached.</p>
+          </article>
 
-    <article class="delivery-card">
-      <div>
-        <strong>IN-1186</strong><br />
-        Milton Components<br />
-        <span class="muted-text">Status: Unloading · Delivery note received</span>
-        <p class="muted-text">Damage observed on outer pallet wrap during intake inspection. Temporary equipment allocation changes may affect unloading coordination near Bay A12 intake lanes.</p>
+          <article class="card action-result-card" id="bay-a12-hold-area-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Hold Area B Move</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Hold Area B movement prepared from Bay A12. Apply hold label and keep the delivery reference attached.</p>
+          </article>
+
+          <article class="card action-result-card" id="bay-a12-accepted-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-active">Accepted</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Acceptance prepared for the inbound pallet with paperwork, condition and stock movement checks attached.</p>
+            <a class="quiet-button" href="strata-logistics-pallet-accepted.html">Open accepted pallet record</a>
+          </article>
+
+          <article class="card action-result-card" id="bay-a12-other-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Logistics Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Capture an intake issue that does not fit the standard Bay A12 actions.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the Bay A12 issue or decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Bay A12 controls inbound intake, validation and first movement decision</p>
+            <p>Damaged or unclear stock stays visible until accepted or moved to Hold Area B</p>
+            <a href="strata-logistics-goods-in.html">Open Goods In workflow</a>
+          </footer>
+        </section>
       </div>
-      <span class="status-pill status-active">In Progress</span>
-    </article>
-
-    <article class="delivery-card">
-      <div>
-        <strong>IN-1187</strong><br />
-        Ashwell Packaging<br />
-        <span class="muted-text">Status: Awaiting intake check</span>
-      </div>
-      <span class="status-pill status-pending">Waiting</span>
-    </article>
-
-   <article class="delivery-card">
-  <div>
-    <strong>IN-1188</strong><br />
-    Vale Industrial Supplies<br />
-    <span class="muted-text">Status: Due 11:00 · Vehicle not arrived</span>
+    </main>
   </div>
 
-  <span class="status-pill status-review">Expected</span>
-</article>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-</div>
-</article>
-        
-      <article class="card">
-        <h3>Inbound Documentation Status</h3>
-        <ul class="workflow-list">
-          <li><strong>IN-1186:</strong> Delivery note received — held at Goods In Desk Printer Intermittent.
-          Temporary handwritten intake labels may be required until replacement stock is issued from the warehouse office.</li>
-          <li><strong>IN-1187:</strong> Supplier paperwork awaiting check.</li>
-          <li><strong>IN-1188:</strong> Delivery documentation not yet received.</li>
-          <li>HOLD-301 generated for supervisor review and controlled movement to Hold Area B.</li>
-        </ul>
-      </article>
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
+  <script>
+    document.querySelectorAll("[data-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = document.getElementById(`${button.dataset.action}-card`);
+        if (!card) return;
+        card.hidden = false;
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
 
-         <article class="card">
-        <h3>Intake Guidance</h3>
-        <ul class="workflow-list">
-          <li>Receive goods in the inbound queue order shown in Hold unless supervisor priority is updated.</li>
-          <li>Manually verify delivery reference, pallet count and visible condition before selecting <strong>Intake Checked / Ready</strong>.</li>
-          <li>Photograph visible damage before goods are moved into normal workflow.</li>
-          <li>Do not book damaged, short, unstable or disputed stock into inventory until resolved.</li>
-        </ul>
-       </article>
-
-      <article class="card">
-        <h3>Goods In Actions</h3>
-        <p>
-          Use these actions to update the operational queue and create an audit trail.
-        </p>
-
-        <div class="button-row">
-          <a class="quiet-button" href="#">Intake Checked / Ready</a>
-          <a class="quiet-button" href="#">Goods Accepted</a>
-          <a class="quiet-button" href="#">Report Intake Issue</a>
-          <a class="quiet-button" href="#">Move to Quarantine</a>
-          <a class="quiet-button" href="#">Supplier / Carrier Discrepancy</a>
-          <a class="quiet-button" href="#">Request Supervisor</a>
-          <a class="quiet-button secondary" href="#">Other Operational Issue</a>
-        </div>
-      </article>
-
-      <article class="card warning-card">
-        <h3>Damage &amp; Discrepancy Handling</h3>
-        <p>
-          If goods arrive damaged, short, unstable or different from the manifest,
-          record the issue before the stock enters normal workflow.
-        </p>
-        <ul class="workflow-list">
-          <li>Photograph damaged or suspect goods before unloading further.</li>
-          <li>Move affected goods to <strong>Intake Hold Area B</strong>.</li>
-          <li>Apply a <strong>Damaged / Pending Review</strong> label.</li>
-          <li>Log the issue against the delivery reference using <strong>Report Intake Issue</strong>.</li>
-          <li>Do not book stock into inventory until the discrepancy is resolved.</li>
-        </ul>
-
-        <div class="button-row">
-          <a class="quiet-button secondary" href="strata-logistics-bay-a12-map.html">View Goods In Area Map</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h3>Acceptance Criteria</h3>
-        <ul class="workflow-list">
-          <li>Packaging intact and free from visible water damage.</li>
-          <li>Pallet stable and safe to move.</li>
-          <li>Correct quantity received against manifest or delivery note.</li>
-          <li>No signs of tampering or broken seal where applicable.</li>
-        </ul>
-      </article>
-
-      <article class="card soft-panel">
-
- <h3>Temporary Notice</h3>
-<p>
-  <strong>Inbound staging area nearing capacity.</strong>
-  Temporary pallet holding may be required near Intake Hold Area B during periods of increased intake movement.
-</p>
-  <div class="button-row">
-    <a class="quiet-button secondary" href="strata-logistics-bay-a12-map.html">
-      View Goods In Area Map
-    </a>
-  </div>
-
-</article>
-
-      <article class="card">
-        <h3>Workflow Notes</h3>
-        <ul class="workflow-list">
-          <li>Issues raised from Bay A12 appear in the central operational queue.</li>
-          <li>Peak intake congestion may affect unloading sequencing during periods of increased vehicle arrivals.</li>
-          <li>Open intake issues persist across shifts until formally resolved.</li>
-          <li>Updates and comments should be visible to relevant staff.</li>
-          <li>Goods should be marked as Accepted once intake checks are complete and stock can enter normal workflow.</li>
-          <li>Resolved items remain available for audit and review.</li>
-          <li>Active intake discrepancies remain visible in the operational audit trail until formally resolved.</li>
-        </ul>
-      </article>
-     
-      <article class="card">
-        <h3>Record Control</h3>
-        <div class="detail-grid">
-          <p><strong>Owner</strong><span class="value">Goods In Operations Supervisor</span></p>
-          <p><strong>Record Version</strong><span class="value">2.2</span></p>
-          <p><strong>Last Reviewed</strong><span class="value">3 May 2026</span></p>
-          <p><strong>Next Review</strong><span class="value">21 July 2026</span></p>
-        </div>
-      </article>
-
-    </section>
-
-        </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+    document.querySelectorAll(".card-close").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest(".action-result-card").hidden = true;
+      });
+    });
+  </script>
 </body>
-</html>
 </html>
