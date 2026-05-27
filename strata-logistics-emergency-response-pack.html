@@ -27,6 +27,19 @@
             <span class="status-pill status-pending">Immediate Response</span>
           </header>
 
+          <section class="scan-section muted-section" aria-labelledby="logistics-emergency-language-heading">
+            <h2 id="logistics-emergency-language-heading">Language support</h2>
+            <p>Key operational guidance can be provided in approved workplace languages so staff, contractors and visitors can understand instructions at the point of need.</p>
+            <p><strong>Safety note:</strong> Safety-critical wording should be controlled and approved before use.</p>
+            <div class="button-row" aria-label="Language support options">
+              <button type="button" class="quiet-button" data-action="logistics-emergency-language">English</button>
+              <button type="button" class="quiet-button" data-action="logistics-emergency-language">Polish</button>
+              <button type="button" class="quiet-button" data-action="logistics-emergency-language">Romanian</button>
+              <button type="button" class="quiet-button" data-action="logistics-emergency-language">Portuguese</button>
+              <button type="button" class="quiet-button" data-action="logistics-emergency-language">Urdu</button>
+            </div>
+          </section>
+
           <details class="scan-section muted-section driver-map-details">
             <summary>Site Safety &amp; Evacuation Map</summary>
             <p class="muted-text">Open this map to view evacuation routes, hazard zones, muster arrangements and emergency access before taking action.</p>
@@ -169,6 +182,11 @@
             <div class="action-result-header"><span class="status-pill status-review">Other Emergency Issue</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
             <p>Capture emergency context that does not fit the standard response routes.</p>
             <textarea class="hold-textarea" rows="4" placeholder="Describe the emergency issue, location and decision needed..."></textarea>
+          </article>
+
+          <article class="card action-result-card" id="logistics-emergency-language-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Language Support</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Language support placeholder. Approved translated guidance would appear here in a live Hold deployment.</p>
           </article>
 
           <footer class="scan-footer">
