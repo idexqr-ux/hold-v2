@@ -3,14 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hold — The Strata Group Dashboard</title>
-  <link rel="stylesheet" href="style.css?v=43" />
-  <link rel="stylesheet" href="sidebar.css" />
+  <title>Hold - The Strata Group Dashboard</title>
+  <meta
+    name="description"
+    content="Group-level Hold dashboard for operational awareness and orchestration across Strata Logistics, Aggregates and Estates."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
     <aside class="sidebar">
       <div class="sidebar-brand">
         <p class="sidebar-eyebrow">Hold</p>
@@ -20,397 +23,441 @@
 
       <nav class="sidebar-nav">
         <div class="sidebar-group">
-  <p class="sidebar-label">Group View</p>
-
-  <a href="strata-group-dashboard.html" class="active">Group Dashboard</a>
-
-  <a href="strata-aggregates-dashboard.html">Aggregates</a>
-
-  <a href="strata-estates-dashboard.html">Estates</a>
-
-  <a href="strata-logistics-dashboard.html">Logistics</a>
-</div>
-
-        <div class="sidebar-group">
-  <p class="sidebar-label">Group Oversight</p>
-
-  <a href="strata-aggregates-operational-audit.html">
-    Aggregates Audit
-  </a>
-
-  <a href="strata-estates-operational-audit.html">
-    Estates Audit
-  </a>
-
-  <a href="strata-logistics-operational-audit.html">
-    Logistics Audit
-  </a>
+          <p class="sidebar-label">Group View</p>
+          <a href="strata-group-dashboard.html" class="active">Group Dashboard</a>
+          <a href="strata-aggregates-dashboard.html">Aggregates</a>
+          <a href="strata-estates-dashboard.html">Estates</a>
+          <a href="strata-logistics-dashboard.html">Logistics</a>
         </div>
 
-   <div>
+        <div class="sidebar-group">
+          <p class="sidebar-label">Group Oversight</p>
+          <a href="strata-aggregates-operational-audit.html">Aggregates Audit</a>
+          <a href="strata-estates-operational-audit.html">Estates Audit</a>
+          <a href="strata-logistics-operational-audit.html">Logistics Audit</a>
+        </div>
 
-     <div class="sidebar-group">
-  <p class="sidebar-label">PLATFORM</p>
-  <span class="sidebar-disabled">
-  Alerts & Risks — In Development
-</span>
-
-<span class="sidebar-disabled">
-  Reports — In Development
-</span>
-
-<span class="sidebar-disabled">
-  Settings — In Development
-</span>
-
-<span class="sidebar-disabled">
-  Hold Signal — In Development
-</span>
-
-</div>
+        <div class="sidebar-group">
+          <p class="sidebar-label">Platform</p>
+          <span class="sidebar-disabled">Alerts &amp; Risks - In Development</span>
+          <span class="sidebar-disabled">Reports - In Development</span>
+          <span class="sidebar-disabled">Settings - In Development</span>
+          <span class="sidebar-disabled">Hold Signal - In Development</span>
+        </div>
       </nav>
 
       <div class="sidebar-operational-time">
         <p class="sidebar-time-label">Operational time</p>
-        <p id="currentTime">Loading current time…</p>
+        <p id="currentTime">Loading current time...</p>
       </div>
     </aside>
 
     <main class="dashboard-main">
-
       <div class="dashboard-header">
-        <p class="dashboard-breadcrumb">
-          Hold / The Strata Group
-        </p>
+        <p class="dashboard-breadcrumb">Hold / The Strata Group</p>
 
         <div class="dashboard-title-row">
           <div>
-            <h1>The Strata Group Dashboard</h1>
+            <h1>The Strata Group Operational Dashboard</h1>
             <p class="dashboard-subtitle">
-              Group-level visibility across operational entities without removing local control.
+              Group-level awareness across Logistics, Aggregates and Estates, showing how local conditions affect movement, access, environment, governance and response.
             </p>
           </div>
 
-          <span class="dashboard-status-pill">
-            Group Oversight
-          </span>
+          <span class="dashboard-status-pill">Group Orchestration</span>
         </div>
       </div>
 
-      <section class="alert-grid">
-
-       <article class="dashboard-card alert-card amber-alerts">
-
-  <p class="section-kicker alert-kicker amber-kicker">
-    Amber Alerts
-  </p>
-
-  <span class="alert-title-pill amber-title-pill">
-    Group Operational Watch
-  </span>
-
-  <span class="alert-pill amber-pill">
-    3 Active
-  </span>
-
-  <p class="section-intro">
-    Items affecting one or more Strata entities that require awareness or follow-up.
-  </p>
-
-  <div id="amberAlerts">
-
-    <p>
-      <strong>Strata Aggregates</strong>
-      <span> : Lower stockyard surface advisory active pending inspection.</span>
-    </p>
-
-    <p>
-      <strong>Strata Estates</strong>
-      <span> : East service lane drainage survey affecting visitor parking.</span>
-    </p>
-
-    <p>
-      <strong>Strata Logistics</strong>
-      <span> : Dispatch queue pressure being monitored before midday peak.</span>
-    </p>
-
-  </div>
-
-</article>
-
-   <article class="dashboard-card alert-card red-alerts">
-
-  <p class="section-kicker alert-kicker red-kicker">
-    Red Alerts
-  </p>
-
-  <span class="alert-title-pill red-title-pill">
-    Immediate Group Attention
-  </span>
-
-  <span class="alert-pill red-pill">
-    0 Active
-  </span>
-
-  <p class="section-intro">
-    Items requiring urgent leadership awareness or immediate operational response.
-  </p>
-
-  <div id="redAlerts">
-
-    <p>
-      <strong>No Active Escalations</strong>
-      <span> : No group-level operational escalations currently active.</span>
-    </p>
-
-  </div>
-
-</article>   
-
-      </section>
-
-      <section class="signal-strip signal-ai">
-  <strong>Hold Signal:</strong>
-  Repeated drainage-related operational pressure now visible across Estates and Aggregates environments.
-</section>
-
       <section class="dashboard-layer">
-        <div class="top-shift-grid">
-
-          <section class="dashboard-card operational-attention">
-            <p class="section-kicker">Group picture</p>
-            <h2>Current group priorities</h2>
-
-            <p class="section-intro">
-              Current operational conditions across Strata entities requiring oversight, coordination or governance awareness.
-            </p>
-                         
-            <div class="attention-item">
-              <h3>Aggregates — stockyard conditions</h3>
-              <p>
-                Overnight rainfall is affecting lower stockyard routes.
-                Designated plant movement remains in place pending ground inspection.
-              </p>
+        <p class="section-kicker">Group operational snapshot</p>
+        <div class="operational-window-grid">
+          <article class="dashboard-card operational-window">
+            <div class="operational-window-header">
+              <h2>Logistics</h2>
+              <span class="status-pill status-review">Dispatch watch</span>
             </div>
+            <p>Inbound flow, Bay A12 intake, Bay C03 dispatch and Hold Area B exceptions are visible where movement decisions affect wider group activity.</p>
+          </article>
 
-            <div class="attention-item">
-  <h3>Estates — infrastructure review</h3>
-  <p>
-    Ongoing drainage and buried-services review continues at Oakfield Depot following recurring ground saturation observations.
-  </p>
-</div>
-
-             <div class="attention-item">
-              <h3>Logistics — dispatch recovery</h3>
-              <p>
-                Outbound recovery continues following overnight backlog reduction.
-                Dispatch pressure remains visible but managed locally.
-              </p>
+          <article class="dashboard-card operational-window">
+            <div class="operational-window-header">
+              <h2>Aggregates</h2>
+              <span class="status-pill status-pending">Weather aware</span>
             </div>
-          </section>
-                    
-          <section class="dashboard-card shift-flow">
-            <p class="section-kicker">Cross-entity flow</p>
-            <h2>Current group flow</h2>
+            <p>Crusher activity, stockyard condition, weighbridge flow, fuel controls and environmental monitoring are tracked as live operational dependencies.</p>
+          </article>
 
-            <p class="section-intro">
-              A high-level operational view across active Strata entities and managed environments.
-            </p>
-            
-            <div class="flow-item">
-              <h3>Strata Aggregates</h3>
-              <p>
-                Quarry activity continuing with stockyard condition monitoring and environmental checks pending.
-              </p>
+          <article class="dashboard-card operational-window">
+            <div class="operational-window-header">
+              <h2>Estates</h2>
+              <span class="status-pill status-review">Contractor active</span>
             </div>
-           
-            <div class="flow-item">
-              <h3>Strata Estates</h3>
-              <p>
-                Portfolio activity active across contractor works, access coordination and compliance reviews.
-              </p>
+            <p>Utility isolation, contractor works, shared access, drainage and inherited site knowledge remain visible before local decisions affect operations elsewhere.</p>
+          </article>
+
+          <article class="dashboard-card operational-window">
+            <div class="operational-window-header">
+              <h2>Emergency Readiness</h2>
+              <span class="status-pill status-active">Visible</span>
             </div>
+            <p>Response packs, safety maps, access routes, first aid, fire exits and escalation contacts stay connected across sites and operational environments.</p>
+          </article>
 
-            <div class="flow-item">
-              <h3>Strata Logistics</h3>
-              <p>
-                Warehouse flow active with dispatch recovery and temporary routing awareness.
-              </p>
+          <article class="dashboard-card operational-window">
+            <div class="operational-window-header">
+              <h2>Environmental Watch</h2>
+              <span class="status-pill status-pending">Wet weather</span>
             </div>
+            <p>Rainfall, runoff, fuel handling, dust, drainage and route conditions are reviewed where they may affect access, stockyard movement or contractor safety.</p>
+          </article>
 
-            <div class="flow-item">
-              <h3>Group continuity</h3>
-              <p>
-                No group-wide operational stoppage reported. Local managers retain control of live site decisions.
-              </p>
+          <article class="dashboard-card operational-window">
+            <div class="operational-window-header">
+              <h2>Governance &amp; Review</h2>
+              <span class="status-pill status-review">Open decisions</span>
             </div>
-          </section>
-                    
-      <section class="dashboard-card operational-capability">
-        <p class="section-kicker">Group capability</p>
-        <h2>Current governance pressure</h2>
-
-        <p class="section-intro">
-          Group-level indicators showing where operational capacity, compliance or governance attention is currently concentrated.
-        </p>
-
-        <div class="capability-grid">
-
-          <div class="capability-card">
-            <h3>Operational capacity</h3>
-            <ul>
-              <li>Local management cover confirmed across all entities</li>
-              <li>Aggregates plant support active pending inspection follow-up</li>
-              <li>Logistics dispatch recovery remains locally managed</li>
-            </ul>
-          </div>
-
-          <div class="capability-card">
-            <h3>Compliance pressure</h3>
-            <ul>
-               <li>Aggregates environmental monitoring awaiting update</li>
-              <li>Estates water hygiene inspection pending</li>
-              <li>Logistics review queue contains active follow-up items</li>
-            </ul>
-          </div>
-
-          <div class="capability-card">
-            <h3>Leadership context</h3>
-            <ul>
-              <li>No immediate group-wide intervention required</li>
-              <li>Amber items visible for trend awareness</li>
-              <li>Entity dashboards remain source of operational detail</li>
-            </ul>
-          </div>
-
+            <p>Operational exceptions, supervisor decisions, audit follow-up and judgement routes are held at group level without removing local ownership.</p>
+          </article>
         </div>
       </section>
 
-      <section class="dashboard-card operational-overview">
-        <p class="section-kicker">Group overview</p>
-        <h2>Portfolio overview</h2>
+      <section class="dashboard-layer">
+        <section class="dashboard-card">
+          <p class="section-kicker">Cross-operational awareness</p>
+          <h2>How conditions affect the wider group</h2>
+          <p class="section-intro">
+            Operational conditions in one area may affect movement, access, environmental response, staffing, dispatch or contractor activity elsewhere across the group.
+          </p>
 
-        <div class="overview-inline">
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Heavy Rain Damage</h2>
+                <span class="status-pill status-pending">Route impact</span>
+              </div>
+              <p>Heavy rain can damage stockyard surfaces, restrict forklift routes, expose drainage weakness and change whether dispatch or contractor access remains suitable.</p>
+            </article>
 
-          <div class="overview-item">
-            <span class="overview-label">Managed Entities</span>
-            <span class="overview-value">3 Active</span>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Crusher Hire Extension</h2>
+                <span class="status-pill status-active">Weather improving</span>
+              </div>
+              <p>Improved weather may allow extended hired crusher activity, but stockyard capacity, fuel handling, noise, dust and weighbridge flow must remain aligned.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Utility Isolation</h2>
+                <span class="status-pill status-review">Contractor dependency</span>
+              </div>
+              <p>Contractor utility isolation at an estate site can affect access, emergency readiness, tenant movement and the availability of operational areas.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Dispatch Restrictions</h2>
+                <span class="status-pill status-pending">Vehicle movement</span>
+              </div>
+              <p>Dispatch restrictions can create vehicle queue pressure, route conflicts, driver welfare concerns and knock-on effects for weighbridge or yard movement.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Environmental Concern</h2>
+                <span class="status-pill status-review">Access or routing</span>
+              </div>
+              <p>Fuel residue, runoff, dust or drainage concerns may change permitted routes, stockyard movement, contractor access and emergency response posture.</p>
+            </article>
           </div>
-
-          <div class="overview-item">
-            <span class="overview-label">Estate Sites</span>
-            <span class="overview-value">4 Managed</span>
-          </div>
-
-          <div class="overview-item">
-            <span class="overview-label">Operational Reviews</span>
-            <span class="overview-value">12 Open</span>
-          </div>
-
-          <div class="overview-item">
-            <span class="overview-label">Governed QR Points</span>
-            <span class="overview-value">Active</span>
-          </div>
+        </section>
       </section>
-          
-        <section class="content-grid">
 
-  <article class="panel">
-    <p class="eyebrow">Explore Hold in Practice</p>
-    <h3>Contractor Arrival Journey</h3>
+      <section class="dashboard-layer">
+        <section class="dashboard-card">
+          <p class="section-kicker">Human review &amp; escalation</p>
+          <h2>Group issues requiring judgement</h2>
+          <p class="section-intro">
+            Use these routes when an operational condition needs visibility across more than one environment or a named decision before work continues.
+          </p>
 
-    <p>
-      Follow how one QR point delivers different guidance to visitors,
-      contractors and tenants across a shared estate environment.
-    </p>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Unresolved Operational Issues</h2>
+                <span class="status-pill status-review">Review needed</span>
+              </div>
+              <p>Open exceptions from logistics, estates or aggregates should show owner, source record, dependency and next action.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="group-unresolved-issues">Review unresolved issues</button>
+              </div>
+            </article>
 
-    <div class="workflow-list">
-     <a href="strata-estates-millbrook-yard-access-views.html"
-   class="workflow-item workflow-link">
-        <strong>Start Journey</strong>
-        <span>Role-aware access and governed visibility</span>
-      </a>
-    </div>
-  </article>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Pending Supervisor Decisions</h2>
+                <span class="status-pill status-pending">Human decision</span>
+              </div>
+              <p>Supervisor decisions should remain visible where movement, access, isolation, plant activity or release checks depend on judgement.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="group-supervisor-decisions">Review supervisor decisions</button>
+              </div>
+            </article>
 
-  <article class="panel">
-    <p class="eyebrow">Operational Response</p>
-    <h3>Warehouse Incident Journey</h3>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Environmental Concerns</h2>
+                <span class="status-pill status-review">Containment aware</span>
+              </div>
+              <p>Environmental concerns should identify affected site, route, control, escalation owner and whether work can continue.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="group-environmental-concerns">Review environmental concerns</button>
+              </div>
+            </article>
 
-    <p>
-      Explore how Hold connects operational oversight,
-      emergency response and governance during a live warehouse incident.
-    </p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Access Conflicts</h2>
+                <span class="status-pill status-pending">Route conflict</span>
+              </div>
+              <p>Shared routes, dispatch bays, contractor zones, tenant access and emergency routes need a clear operating decision when they conflict.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="group-access-conflicts">Review access conflicts</button>
+              </div>
+            </article>
 
-    <div class="workflow-list">
-      <a href="strata-logistics-emergency-response-pack.html"
-   class="workflow-item workflow-link">
-        <strong>Start Journey</strong>
-        <span>Operational coordination under pressure</span>
-      </a>
-    </div>
-  </article>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Emergency Follow-Up</h2>
+                <span class="status-pill status-active">Response visible</span>
+              </div>
+              <p>Emergency readiness should show response pack status, route clearance, follow-up actions and live operational restrictions.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="group-emergency-follow-up">Check emergency follow-up</button>
+              </div>
+            </article>
 
-</section>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Audit Visibility</h2>
+                <span class="status-pill status-review">Traceable</span>
+              </div>
+              <p>Audit visibility should connect the issue, evidence, owner, decision and closure reason across local and group views.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="group-audit-visibility">Review audit visibility</button>
+              </div>
+            </article>
 
-<section class="content-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Operational Exceptions</h2>
+                <span class="status-pill status-review">Judgement route</span>
+              </div>
+              <p>Use this route when the issue is real, cross-operational and not yet captured by a single local category.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button secondary" data-action="group-operational-exception">Other operational exception</button>
+              </div>
+            </article>
+          </div>
 
-  <article class="panel">
-    <p class="eyebrow">Emergency Orientation</p>
-    <h3>Quarry Emergency Journey</h3>
+          <article class="card action-result-card" id="group-unresolved-issues-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Unresolved Issues</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Unresolved issue review opened. Check the source environment, owner, dependency and next action before closing the loop.</p>
+          </article>
 
-    <p>
-      View the emergency response orientation layer used during
-      a live quarry incident scenario.
-    </p>
+          <article class="card action-result-card" id="group-supervisor-decisions-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Supervisor Decisions</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Supervisor decision review opened. Confirm the affected movement, access, plant, isolation or release dependency.</p>
+          </article>
 
-    <div class="workflow-list">
-      <a href="strata-aggregates-operational-audit.html"
-        class="workflow-item workflow-link">
-        <strong>Start Journey</strong>
-        <span>Responder access, hazards and spill response</span>
-      </a>
-    </div>
-  </article>
+          <article class="card action-result-card" id="group-environmental-concerns-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Environmental Concerns</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Environmental concern review opened. Confirm containment, affected route, operational restriction and escalation owner.</p>
+          </article>
 
-  <article class="panel">
-    <p class="eyebrow">Governance Continuity</p>
-    <h3>Operational Memory Journey</h3>
+          <article class="card action-result-card" id="group-access-conflicts-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Access Conflicts</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Access conflict review opened. Check route availability, emergency clearance, contractor zones and vehicle movement impact.</p>
+          </article>
 
-    <p>
-      See how Hold turns inherited operational knowledge
-      into governed, usable operational records.
-    </p>
+          <article class="card action-result-card" id="group-emergency-follow-up-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-active">Emergency Follow-Up</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Emergency follow-up opened. Confirm response pack status, route clearance, first aid visibility and live restrictions.</p>
+          </article>
 
-    <div class="workflow-list">
-      <a href="strata-estates-old-works-unit-7.html"
-   class="workflow-item workflow-link">
-        <strong>Start Journey</strong>
-        <span>From informal memory to managed record</span>
-      </a>
-    </div>
-  </article>
+          <article class="card action-result-card" id="group-audit-visibility-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Audit Visibility</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Audit visibility review opened. Connect evidence, owner, decision, closure reason and affected environments.</p>
+          </article>
 
-</section>
+          <article class="card action-result-card" id="group-operational-exception-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Operational Exception</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Cross-operational exception opened. Capture the condition, affected environments, immediate restriction and judgement needed.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the group-level exception and decision needed..."></textarea>
+          </article>
+        </section>
+      </section>
 
+      <section class="dashboard-layer">
+        <section class="dashboard-card">
+          <p class="section-kicker">Operational environments</p>
+          <h2>Open the local environment that owns the detail</h2>
+          <p class="section-intro">
+            Group orchestration should reveal dependencies, then return each operational decision to the environment that owns it.
+          </p>
+
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Strata Logistics</h2>
+                <span class="status-pill status-review">Movement</span>
+              </div>
+              <p>Goods in, goods out, dispatch, hold exceptions, equipment readiness and warehouse emergency routes.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-logistics-dashboard.html">Open Logistics</a>
+                <a class="quiet-button secondary" href="strata-logistics-operational-review-queue.html">Open Review Queue</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Strata Aggregates</h2>
+                <span class="status-pill status-pending">Plant and environment</span>
+              </div>
+              <p>Crusher activity, weighbridge, stockyard movement, fuel controls, environmental monitoring and emergency response.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-aggregates-dashboard.html">Open Aggregates</a>
+                <a class="quiet-button secondary" href="strata-aggregates-environmental-monitoring.html">Open Environmental Watch</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Strata Estates</h2>
+                <span class="status-pill status-review">Places and access</span>
+              </div>
+              <p>Managed sites, shared access, utilities, contractor works, isolation points, stewardship and inherited knowledge.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-estates-dashboard.html">Open Estates</a>
+                <a class="quiet-button secondary" href="strata-estates-operational-stewardship.html">Open Stewardship</a>
+              </div>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="dashboard-layer">
+        <section class="dashboard-card">
+          <p class="section-kicker">Suggested walkthroughs</p>
+          <h2>Follow how one issue moves through Hold</h2>
+
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Inbound Logistics Issue</h2>
+                <span class="status-pill status-review">Goods In</span>
+              </div>
+              <p>Follow an inbound mismatch from Bay A12 through pallet scan, Hold Area B and the logistics review queue.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-logistics-goods-in.html">Follow Inbound Issue</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Contractor Isolation Workflow</h2>
+                <span class="status-pill status-pending">Before works</span>
+              </div>
+              <p>Follow contractor guidance, utility isolation and operational stewardship before work affects access or readiness.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-estates-oakfield-qr-utility-isolation.html">Follow Isolation Workflow</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Environmental Escalation</h2>
+                <span class="status-pill status-review">Runoff and controls</span>
+              </div>
+              <p>Follow how runoff, dust, spill risk or mud transfer becomes visible through Aggregates environmental monitoring.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-aggregates-environmental-monitoring.html">Follow Environmental Escalation</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Emergency Readiness Across Sites</h2>
+                <span class="status-pill status-active">Response layer</span>
+              </div>
+              <p>Follow emergency readiness through logistics response, quarry emergency controls and estate isolation awareness.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-logistics-emergency-response-pack.html">Open Logistics Response</a>
+                <a class="quiet-button secondary" href="strata-aggregates-emergency-response.html">Open Aggregates Response</a>
+              </div>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="dashboard-layer">
+        <section class="dashboard-card">
+          <p class="section-kicker">Hold principle</p>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>One operational environment</h2>
+                <span class="status-pill status-active">Group principle</span>
+              </div>
+              <p>Hold connects movement, infrastructure, environment, governance and human judgement so operational teams can understand how one issue affects the wider organisation.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Group Dashboard Actions</h2>
+                <span class="status-pill status-review">Orchestration</span>
+              </div>
+              <p>Use the dashboard to surface dependencies, then move into the local record that owns the next decision.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="group-review-dependencies">Review dependencies</button>
+                <button type="button" class="quiet-button" data-action="group-check-readiness">Check readiness</button>
+                <button type="button" class="quiet-button secondary" data-action="group-other-awareness">Other group awareness issue</button>
+              </div>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="group-review-dependencies-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Dependency Review</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Dependency review opened. Check how movement, infrastructure, environment, governance and judgement are connected before assigning the next action.</p>
+          </article>
+
+          <article class="card action-result-card" id="group-check-readiness-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-active">Readiness Check</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Readiness check opened. Confirm logistics movement, aggregates controls, estates access and emergency response are aligned.</p>
+          </article>
+
+          <article class="card action-result-card" id="group-other-awareness-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Group Awareness Issue</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Group awareness issue opened. Capture the affected environments, operational impact and decision route.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the cross-operational awareness issue..."></textarea>
+          </article>
+        </section>
+      </section>
     </main>
   </div>
 
-<p class="footer-return">
-  <a href="https://idexqr.com/">Back to IdexQR</a>
-</p>
-        
-  <footer class="footer">
-    Powered by IdexQR<sup>®</sup>
-    <p class="footer-sub">
-    IdexQR® concepts, demonstrations and platform designs © 2026 IdexQR. All rights reserved.
+  <p class="footer-return">
+    <a href="https://idexqr.com/">Back to IdexQR</a>
   </p>
+
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
   </footer>
 
   <script>
     function updateOperationalTime() {
       const now = new Date();
-
       const formatted = now.toLocaleString("en-GB", {
         weekday: "long",
         day: "numeric",
@@ -427,29 +474,40 @@
     setInterval(updateOperationalTime, 60000);
   </script>
 
-<script>
-  const sidebar = document.querySelector('.sidebar');
+  <script>
+    const sidebar = document.querySelector(".sidebar");
 
-  if (sidebar) {
+    if (sidebar) {
+      const savedSidebarScroll = localStorage.getItem("holdSidebarScroll");
 
-    const savedSidebarScroll =
-      localStorage.getItem('holdSidebarScroll');
+      if (savedSidebarScroll !== null) {
+        sidebar.scrollTop = savedSidebarScroll;
+      }
 
-    if (savedSidebarScroll !== null) {
-      sidebar.scrollTop = savedSidebarScroll;
+      sidebar.addEventListener("scroll", () => {
+        localStorage.setItem("holdSidebarScroll", sidebar.scrollTop);
+      });
     }
+  </script>
 
-    sidebar.addEventListener('scroll', () => {
-      localStorage.setItem(
-        'holdSidebarScroll',
-        sidebar.scrollTop
-      );
+  <script>
+    document.querySelectorAll("[data-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = document.getElementById(`${button.dataset.action}-card`);
+        if (!card) return;
+        card.hidden = false;
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
     });
 
-  }
-</script>
+    document.querySelectorAll(".card-close").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest(".action-result-card").hidden = true;
+      });
+    });
+  </script>
+
   <script src="sidebar.js?v=8"></script>
-  <script src="clock.js?v=2"></script>
+  <script src="clock.js?v=4"></script>
 </body>
 </html>
-
