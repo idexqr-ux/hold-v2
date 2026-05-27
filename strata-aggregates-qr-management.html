@@ -3,309 +3,265 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hold — Strata Aggregates QR Management</title>
-  <link rel="stylesheet" href="style.css?v=24" />
+  <title>Strata Aggregates - Security &amp; Access Governance</title>
+  <meta
+    name="description"
+    content="QR-led security and access governance for Strata Aggregates, showing role-based visibility, vehicle recognition, access controls, movement alerts, environmental response and escalation routes."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
     <div id="hold-sidebar" data-sidebar="sidebar-aggregates.html"></div>
+
     <main class="dashboard-main">
-      <div class="dashboard-header">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Aggregates / Security &amp; Access</p>
 
-  <p class="dashboard-breadcrumb">
-    Strata Aggregates / QR Management
-  </p>
+          <header class="scan-header">
+            <h1>Security &amp; Access Governance</h1>
+            <p>Security in Hold is not just gates and barriers. It is controlled operational visibility: who should be here, what they should see, what activity is expected, what needs reporting, and how concerns escalate.</p>
+            <span class="status-pill status-review">QR-led governance</span>
+          </header>
 
-  <div class="dashboard-title-row">
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Authorised Access Levels</h2>
+                <span class="status-pill status-review">Role based</span>
+              </div>
+              <p>QR scans should show only the guidance needed by staff, supervisors, contractors, visitors or emergency responders.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="security-access-issue">Report access issue</button>
+              </div>
+            </article>
 
-    <div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>QR Visibility Controls</h2>
+              </div>
+              <p>Role-based visibility keeps asset context, emergency guidance, environmental response and verification aligned to the scan session.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="security-access-issue">Report access issue</button>
+              </div>
+            </article>
 
-      <h1>QR Management</h1>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Vehicle Recognition</h2>
+                <span class="status-pill status-active">Live checks</span>
+              </div>
+              <p>Registration plates, fleet IDs, company branding, expected deliveries, scheduled contractors and known maintenance visits should match the movement record.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="security-vehicle-mismatch">Report vehicle mismatch</button>
+              </div>
+            </article>
 
-      <p class="dashboard-subtitle">
-        QR deployment, condition monitoring and replacement tracking across quarry operational points.
-      </p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Temporary / Shift-Limited Access</h2>
+                <span class="status-pill status-pending">Expires today</span>
+              </div>
+              <p>Contractor access, temporary access and shift-limited access should expire when the job, visit or active shift ends.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="security-access-issue">Report access issue</button>
+                <button type="button" class="quiet-button" data-action="security-escort-request">Request escort</button>
+              </div>
+            </article>
 
-    </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Expected Activity</h2>
+              </div>
+              <p>Scans should make expected deliveries, planned loading, contractor works, maintenance visits and unusual activity easy to verify.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="security-supervisor-request">Request supervisor</button>
+              </div>
+            </article>
 
-    <span class="dashboard-status-pill">
-      QR Governance
-    </span>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Fuel Security</h2>
+                <span class="status-pill status-review">Controlled area</span>
+              </div>
+              <p>Fuel transfer activity, access logs, delivery notes, level changes and spill readiness should stay connected to the fuel-store record.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="security-fuel-concern">Report fuel security concern</button>
+              </div>
+            </article>
 
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Asset Security</h2>
+              </div>
+              <p>Asset context should confirm assigned plant, known users, permitted work, isolation state and whether the asset is being misused.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="security-asset-misuse">Report asset misuse</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Site Access Controls</h2>
+              </div>
+              <p>Gate, weighbridge, stockyard, workshop and visitor routes should show who can enter, who needs escort and who must be stopped.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="security-access-issue">Report access issue</button>
+                <button type="button" class="quiet-button" data-action="security-escort-request">Request escort</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Environmental Security</h2>
+                <span class="status-pill status-pending">Escalate quickly</span>
+              </div>
+              <p>Environmental response should be visible for spills, dust, runoff, habitat disturbance and uncontrolled material movement.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="security-public-safety">Report public safety concern</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Operational Technology</h2>
+              </div>
+              <p>QR verification, recognised sessions, device context and access changes should be traceable where operational systems affect decisions.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="security-supervisor-request">Request supervisor</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Public Safety</h2>
+                <span class="status-pill status-pending">Protect boundary</span>
+              </div>
+              <p>Visitors, neighbours, public roads, emergency diversions and pedestrian exposure need clear guidance during changing site conditions.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="security-public-safety">Report public safety concern</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Traffic &amp; Movement Alerts</h2>
+                <span class="status-pill status-review">Route active</span>
+              </div>
+              <p>Temporary route closures, restricted access areas, heavy plant movement warnings, fuel transfer activity and emergency diversions should be scan-visible.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="security-public-safety">Report public safety concern</button>
+                <button type="button" class="quiet-button" data-action="security-escort-request">Request escort</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Key &amp; Isolation Governance</h2>
+              </div>
+              <p>Keys, lockouts, isolations, permits and supervisor release should stay connected to the asset, area and person responsible.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="security-asset-misuse">Report asset misuse</button>
+                <button type="button" class="quiet-button" data-action="security-supervisor-request">Request supervisor</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Incident Escalation Contacts</h2>
+                <span class="status-pill status-active">Human judgement</span>
+              </div>
+              <p>Operational escalation should route access, vehicle, fuel, asset, public safety and other security concerns to the right person.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button secondary" data-action="security-other-issue">Other security or access issue</button>
+              </div>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="security-access-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Access Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Access issue recorded. Confirm the person, role, QR visibility, contractor status, temporary access and shift limit before allowing further movement.</p>
+          </article>
+
+          <article class="card action-result-card" id="security-vehicle-mismatch-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Vehicle Mismatch</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Vehicle mismatch logged. Check registration plate, fleet ID, company branding, delivery schedule, contractor booking and known maintenance visit records.</p>
+          </article>
+
+          <article class="card action-result-card" id="security-fuel-concern-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Fuel Security</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Fuel security concern opened. Review fuel transfer activity, authorised access, delivery notes, unusual level movement and environmental response readiness.</p>
+          </article>
+
+          <article class="card action-result-card" id="security-asset-misuse-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Asset Misuse</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Asset misuse report started. Connect the asset, operator, expected activity, isolation state, key control and supervisor decision needed.</p>
+          </article>
+
+          <article class="card action-result-card" id="security-public-safety-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Public Safety</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Public safety concern recorded. Check route closures, restricted access areas, heavy plant warnings, emergency diversions and boundary exposure.</p>
+          </article>
+
+          <article class="card action-result-card" id="security-escort-request-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Escort Requested</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Escort requested. Keep the person or vehicle at the agreed hold point until a supervisor, host or authorised guide confirms movement.</p>
+          </article>
+
+          <article class="card action-result-card" id="security-supervisor-request-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Supervisor Requested</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Supervisor requested. Use this route where verification, expected activity, operational technology or access judgement needs a named decision.</p>
+          </article>
+
+          <article class="card action-result-card" id="security-other-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Security Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Other security or access issue recorded. Capture what was seen, who was involved, what visibility was missing and what escalation is needed.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the security or access issue, location, people, vehicle, asset or decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Operational view held against Strata Aggregates security and access governance</p>
+            <p>Access, QR visibility, vehicle recognition, expected activity, movement alerts and escalation remain connected</p>
+            <a href="strata-aggregates-dashboard.html">Open Aggregates dashboard</a>
+          </footer>
+        </section>
+      </div>
+    </main>
   </div>
 
-</div>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-      <section class="stats-grid">
-        <div class="stat-card">
-          <h3>Active QR Points</h3>
-          <p>18</p>
-        </div>
-
-        <div class="stat-card">
-  <h3>Offline-Capable</h3>
-  <p>6 Points</p>
-</div>
-
-        <div class="stat-card">
-          <h3>Replacement Due</h3>
-          <p>3 Tags</p>
-        </div>
-
-        <div class="stat-card">
-          <h3>Last Audit</h3>
-          <p>Today 08:40</p>
-        </div>
-      </section>
-      
-      <section class="content-grid">
-
-        <article class="panel">
-          <p class="eyebrow">Governed QR Estate</p>
-<h3>Active Deployment Points</h3>
-
-          <p>
-  Each QR code is linked to a managed operational entity within Hold.
-  Codes can be reviewed, reissued or retired as part of the site governance workflow.
-</p>
-
-          <ul class="activity-list">
-            <li>
-  <strong>QR-AGG-001 — Weighbridge Station</strong>
-  <span>
-    Offline enabled · Last scan 09:31 · Condition good
-  </span>
-  
-</li>
-            <li>
-              <strong>QR-AGG-002 — Crusher Plant</strong>
-              <span>Restricted access · Last scan 08:12 · Dust check required</span>
-            </li>
-            <li>
-              <strong>QR-AGG-003 — Aggregate Stockyard</strong>
-             <span>Outdoor deployment · Weather exposure visible · Replacement due</span>
-            </li>
-            <li>
-              <strong>QR-AGG-004 — Fuel & Hazard Store</strong>
-              <span>Restricted access · Last scan 07:58 · Condition good</span>
-            </li>
-          </ul>
-        </article>
-
-        <article class="panel">
-          <p class="eyebrow">Attention Required</p>
-          <h3>QR Condition Alerts</h3>
-
-          <ul class="activity-list">
-            <li>
-              <strong>Stockyard tag weathered</strong>
-              <span>Replacement label requested</span>
-            </li>
-            <li>
-              <strong>Crusher Plant scan reliability reduced</strong>
-              <span>Dust obscuration reported during morning inspection</span>
-            </li>
-            <li>
-              <strong>North monitoring point inactive</strong>
-              <span>No scan activity recorded in 7 days</span>
-            </li>
-          </ul>
-        </article>
-
-      </section>
-
-      <section class="content-grid">
-
-        <article class="panel">
-          <p class="eyebrow">Deployment Standards</p>
-          <h3>Site Tag Requirements</h3>
-
-    
-            <section class="offline-banner">
-  <strong>Terminology Note</strong><br>
-  Within site operations, QR deployment points may be referred to as Tags. Hold recognises both terms interchangeably where aligned with local operational language.
-</section>
-
-          <ol class="check-list">
-            <li>QR deployment points may be referred to locally as tags where aligned with site operational terminology</li>
-            <li>Use weather-resistant labels for exposed external areas</li>
-            <li>Fit rigid backing plates where tags are mounted on rough surfaces</li>
-            <li>Position QR tags away from direct mud, spray and aggregate dust where possible</li>
-            <li>Confirm scan readability during weekly point inspection</li>
-            <li>Replace damaged or obscured tags before operational guidance becomes unreliable</li>
-          </ol>
-        </article>
-
-        <article class="panel">
-          <p class="eyebrow">Offline Coverage</p>
-          <h3>Cached Guidance Points</h3>
-
-          <ul class="activity-list">
-            <li>
-              <strong>Weighbridge Station</strong>
-              <span>Ticketing fallback and manual upload guidance cached</span>
-            </li>
-            <li>
-              <strong>Fuel & Hazard Store</strong>
-              <span>Spill response and emergency contacts cached</span>
-            </li>
-            <li>
-              <strong>Blast Muster Point</strong>
-              <span>Evacuation and radio check guidance cached</span>
-            </li>
-          </ul>
-        </article>
-
-        <article class="panel">
-  <p class="eyebrow">Deployment Guidance</p>
-  <h3>Recommended QR Sizes</h3>
-
-  <p>
-    QR deployment size should reflect the operational setting, scan distance
-    and physical conditions at the point of use.
-  </p>
-
-  <ul class="activity-list">
-    <li>
-      <strong>Vehicle bay or loading area</strong>
-      <span>Recommended size: 140–150 mm · Typical scan distance: 2–4 metres</span>
-    </li>
-
-    <li>
-      <strong>Forklift or equipment asset</strong>
-      <span>Recommended size: 60–80 mm · Typical scan distance: under 1 metre</span>
-    </li>
-
-    <li>
-      <strong>Pedestrian guidance point</strong>
-      <span>Recommended size: 90–120 mm · Typical scan distance: 1–2 metres</span>
-    </li>
-
-    <li>
-      <strong>Outdoor or exposed site point</strong>
-      <span>Recommended size: 120–150 mm · Use weather-resistant, anti-glare material</span>
-    </li>
-  </ul>
-</article>
-
-        <article class="panel">
-  <p class="eyebrow">Security & Governance</p>
-
-  <h3>Governed Operational QR Identity</h3>
-
-  <p>
-    Hold QR deployment points form part of a managed operational environment.
-    QR replacements, reassignment and retirement actions are governed through
-    operational review and audit workflows.
-  </p>
-
-  <ul class="activity-list">
-
-    <li>
-      <strong>Operational ownership retained</strong>
-      <span>QR deployment linked to approved operational records</span>
-    </li>
-
-    <li>
-      <strong>Replacement history maintained</strong>
-      <span>Retired and superseded QR references preserved for audit review</span>
-    </li>
-
-    <li>
-      <strong>Unauthorised replacement monitoring</strong>
-      <span>Operational teams should report unrecognised or damaged QR tags immediately</span>
-    </li>
-
-    <li>
-      <strong>Session-aware operational access</strong>
-      <span>Some operational guidance may be restricted outside approved environments</span>
-    </li>
-
-  </ul>
-</article>
-
-        <article class="panel">
-  <p class="eyebrow">Operational Access</p>
-
-  <h3>Session-Aware Guidance Access</h3>
-
-  <p>
-    Hold operational guidance can be configured to reduce unmanaged access
-    persistence after staff leave approved operational environments or complete
-    active shifts.
-  </p>
-
-  <ul class="activity-list">
-
-    <li>
-      <strong>Operational session monitoring</strong>
-      <span>Some QR-linked guidance may require active operational context</span>
-    </li>
-
-    <li>
-      <strong>Shift-aware access control</strong>
-      <span>Operational guidance can expire following shift completion</span>
-    </li>
-
-    <li>
-      <strong>Offsite visibility management</strong>
-      <span>Selected operational records may be restricted outside approved environments</span>
-    </li>
-
-    <li>
-      <strong>Revalidation support</strong>
-      <span>Operational users may be required to rescan approved QR points</span>
-    </li>
-
-<li>
-  <strong>Approved operational device recognition</strong>
-  <span>
-    Selected operational guidance may be limited to recognised staff devices
-    or approved operational sessions
-  </span>
-</li>
-    
-  </ul>
-</article>
-        
-        <article class="card">
-        <h3>QR Management Actions</h3>
-        <p>
-          Use these actions to manage QR estate changes while preserving governance and audit history.
-        </p>
-
-        <div class="button-row">
-          <a class="quiet-button" href="#">Request New QR</a>
-          <a class="quiet-button" href="#">Approve QR Request</a>
-          <a class="quiet-button" href="#">Issue Replacement QR</a>
-          <a class="quiet-button" href="#">Retire QR</a>
-          <a class="quiet-button" href="#">Reassign QR</a>
-          <a class="quiet-button secondary" href="#">Other QR Issue</a>
-        </div>
-      </article>
-
-   </section>
-
-    </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
 </body>
 </html>
