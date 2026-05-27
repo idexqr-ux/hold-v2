@@ -3,146 +3,249 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Strata Aggregates — Hired Crusher</title>
-  <link rel="stylesheet" href="style.css?v=24" />
+  <title>Strata Aggregates - Hired Crusher</title>
+  <meta
+    name="description"
+    content="Operational hired crusher view for Strata Aggregates, showing hire status, authorised use, setup, service responsibility, diesel refuelling, environmental controls and return checks."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
     <div id="hold-sidebar" data-sidebar="sidebar-aggregates.html"></div>
 
     <main class="dashboard-main">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Aggregates / Temporary Crusher</p>
 
-      <div class="dashboard-header">
-  <p class="dashboard-breadcrumb">
-    Strata Aggregates / Equipment Governance
-  </p>
+          <header class="scan-header">
+            <h1>Hired Crusher</h1>
+            <p>Governed visibility for temporary crushing plant, hire responsibility, site setup and off-hire readiness.</p>
+            <span class="status-pill status-review">Temporary hire</span>
+          </header>
 
-  <div class="dashboard-title-row">
-    <div>
-      <h1>Hired Crusher</h1>
-      <p class="dashboard-subtitle">
-        Temporary crushing plant deployed to support CR-01 during the current high-throughput quarry period.
-      </p>
-    </div>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Hire Status / Ownership</h2>
+                <span class="status-pill status-active">Hire active</span>
+              </div>
+              <p>Temporary plant should remain distinct from owned assets, with hire terms and responsibility visible.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="hired-crusher-hire-status">Check hire status</button>
+              </div>
+            </article>
 
-    <span class="dashboard-status-pill">
-      Temporary Hire
-    </span>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Authorised Use</h2>
+              </div>
+              <p>Only authorised operators should start, stop, feed, clear or adjust the hired crusher.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="hired-crusher-authorised-use">Check authorised use</button>
+                <button type="button" class="quiet-button" data-action="hired-crusher-supervisor">Request supervisor</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Delivery / Setup Requirements</h2>
+                <span class="status-pill status-pending">Setup check</span>
+              </div>
+              <p>Confirm delivery condition, level ground, guarding, exclusion zone, power or fuel needs and traffic routes.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="hired-crusher-setup-check">Run setup check</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Inspection &amp; Service Responsibility</h2>
+              </div>
+              <p>Daily checks, defect records and service ownership must be clear between site team, hire company and contractor.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="hired-crusher-inspection">Record inspection issue</button>
+                <button type="button" class="quiet-button" data-action="hired-crusher-service-responsibility">Check service responsibility</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Fuel / Refuelling Awareness if Diesel</h2>
+              </div>
+              <p>If diesel powered, refuelling must align with spill controls, authorised storage and plant shutdown conditions.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="hired-crusher-refuelling">Report refuelling concern</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Environmental Controls</h2>
+              </div>
+              <p>Dust, noise, vibration, runoff, spill risk and temporary stock movements should remain visible during hire use.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="hired-crusher-environmental-controls">Report environmental control issue</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Breakdown / Maintenance Escalation</h2>
+                <span class="status-pill status-pending">Escalate early</span>
+              </div>
+              <p>Breakdowns, jams, abnormal vibration or damage should be routed before production pressure hides ownership risk.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="hired-crusher-breakdown">Report breakdown</button>
+                <button type="button" class="quiet-button" data-action="hired-crusher-maintenance-escalation">Escalate maintenance</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Return / Off-Hire Checks</h2>
+              </div>
+              <p>Clean-down, damage, hours, fuel state, attachments and documentation should be confirmed before off-hire.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="hired-crusher-off-hire-check">Start off-hire check</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Governance Visibility</h2>
+              </div>
+              <p>Hold keeps temporary plant decisions visible alongside production, stockyard, environmental and audit records.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Other Hired Crusher Issue</h2>
+                <span class="status-pill status-active">Human judgement</span>
+              </div>
+              <p>Use this route when a temporary-plant concern needs judgement before it becomes a formal defect or claim.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button secondary" data-action="hired-crusher-other-issue">Other hired crusher issue</button>
+              </div>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="hired-crusher-hire-status-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Hire Status</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Hire status check opened. Confirm owner, hire dates, responsibility split and linked contractor documents.</p>
+          </article>
+
+          <article class="card action-result-card" id="hired-crusher-authorised-use-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Authorised Use</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Authorised-use check opened. Confirm named operator competence before start, stop, feed or clearing activity.</p>
+          </article>
+
+          <article class="card action-result-card" id="hired-crusher-supervisor-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Supervisor Requested</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Supervisor request logged. Keep temporary plant activity under review until clearance is confirmed.</p>
+          </article>
+
+          <article class="card action-result-card" id="hired-crusher-setup-check-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Setup Check</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Setup check opened. Confirm ground, guarding, exclusion zone, delivery condition and route controls.</p>
+          </article>
+
+          <article class="card action-result-card" id="hired-crusher-inspection-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Inspection Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Inspection issue recorded. Link defects to hire responsibility before production continues at normal rate.</p>
+          </article>
+
+          <article class="card action-result-card" id="hired-crusher-service-responsibility-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Service Responsibility</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Service responsibility check opened. Confirm whether site, contractor or hire company owns the next action.</p>
+          </article>
+
+          <article class="card action-result-card" id="hired-crusher-refuelling-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Refuelling Concern</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Refuelling concern logged. Check diesel status, spill controls, authorised storage and shutdown condition.</p>
+          </article>
+
+          <article class="card action-result-card" id="hired-crusher-environmental-controls-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Environmental Controls</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Environmental control issue recorded. Review dust, noise, vibration, runoff, spill risk and temporary stock movement.</p>
+          </article>
+
+          <article class="card action-result-card" id="hired-crusher-breakdown-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Breakdown</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Breakdown reported. Stop feed and route the issue through the agreed hire maintenance contact.</p>
+          </article>
+
+          <article class="card action-result-card" id="hired-crusher-maintenance-escalation-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Maintenance Escalation</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Maintenance escalation raised. Keep downtime, responsibility and production impact visible.</p>
+          </article>
+
+          <article class="card action-result-card" id="hired-crusher-off-hire-check-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Off-Hire Check</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Off-hire check started. Confirm clean-down, damage, hours, fuel state, attachments and return documents.</p>
+          </article>
+
+          <article class="card action-result-card" id="hired-crusher-other-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Hired Crusher Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Other hired crusher issue recorded. Capture the condition, responsibility question and judgement needed.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the hired crusher issue, condition or decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Operational view held against the hired crusher record</p>
+            <p>Hire status, setup, service responsibility, environmental control and off-hire checks remain connected</p>
+            <a href="strata-aggregates-crusher-operational-view.html">Open Crusher operational view</a>
+          </footer>
+        </section>
+      </div>
+    </main>
   </div>
-</div>          
 
-      <section class="dashboard-card">
-        <p class="section-kicker">Operational snapshot</p>
-        <h2>Temporary crushing expansion active</h2>
-        <p class="section-intro">
-          A temporary crusher unit has been brought onto site to extend grading operations during the
-          current dry-weather production window following prolonged wet-weather disruption earlier in the month.
-        </p>
-      </section>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-      <section class="dashboard-card">
-        <p class="section-kicker">Hire governance</p>
-        <h2>Temporary asset record</h2>
-
-        <div class="capability-grid">
-          <div class="capability-card">
-            <h3>Hire status</h3>
-            <ul>
-              <li>Temporary hire active</li>
-              <li>Contractor documentation logged</li>
-              <li>Initial inspection pending confirmation</li>
-            </ul>
-          </div>
-
-          <div class="capability-card">
-            <h3>QR assignment</h3>
-            <ul>
-              <li>QR operational record assigned</li>
-              <li>Cached guidance available in low-signal areas</li>
-              <li>Linked to operational audit trail</li>
-            </ul>
-          </div>
-
-          <div class="capability-card">
-            <h3>Operational controls</h3>
-            <ul>
-              <li>Restricted authorised operators only</li>
-              <li>Daily inspection required during hire period</li>
-              <li>Temporary grading-line controls active</li>
-            </ul>
-          </div>
-      </section>
-
-      <section class="dashboard-card">
-        <p class="section-kicker">Operational impact</p>
-        <h2>Quarry areas affected</h2>
-
-        <div class="attention-item">
-          <h3>Extended grading line</h3>
-          <p>
-            The hired crusher supports additional stone grading capacity while the quarry builds stock during favourable conditions.
-          </p>
-        </div>
-
-        <div class="attention-item">
-          <h3>Stockyard movement</h3>
-          <p>
-            Stockyard movement and grading activity remain elevated during the current stock-building period, with designated plant routes remaining in use where surface conditions require control.
-          </p>
-        </div>
-
-        <div class="attention-item">
-          <h3>Environmental monitoring</h3>
-          <p>
-            Dust suppression and environmental checks remain linked to the increased processing activity.
-          </p>
-        </div>
-      </section>
-
-      <section class="dashboard-card soft-panel">
-        <p class="section-kicker">Audit trail</p>
-        <h2>Recent hire activity</h2>
-
-        <div class="timeline-list">
-          <p>
-            <strong>10:48</strong> — Temporary crusher deployment added to Aggregates operational register during active stock-building period.
-          </p>
-
-          <p>
-            <strong>10:36</strong> — QR operational record assigned pending inspection confirmation.
-          </p>
-
-          <p>
-            <strong>10:21</strong> — Contractor hire documentation logged for grading-line extension.
-          </p>
-
-          <p>
-            <strong>09:01</strong> — Temporary quarry connectivity interruption detected during synchronisation.
-          </p>
-        </div>
-      </section>
-      
-     </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
 </body>
 </html>

@@ -3,180 +3,245 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hold — Aggregate Stockyard</title>
-  <link rel="stylesheet" href="style.css?v=24" />
+  <title>Strata Aggregates - Aggregate Stockyard</title>
+  <meta
+    name="description"
+    content="Operational stockyard view for Strata Aggregates, showing stockpile status, classification, volume, movement, stability, environmental consequence and human memory."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
     <div id="hold-sidebar" data-sidebar="sidebar-aggregates.html"></div>
+
     <main class="dashboard-main">
-      <div class="dashboard-header">
-  <p class="dashboard-breadcrumb">
-    Strata Aggregates / Aggregate Stockyard
-  </p>
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Aggregates / Stockyard</p>
 
-  <div class="dashboard-title-row">
+          <header class="scan-header">
+            <h1>Aggregate Stockyard</h1>
+            <p>Governed visibility for stock condition, movement, value, stability and inherited operating knowledge.</p>
+            <span class="status-pill status-review">Commercial asset</span>
+          </header>
 
-    <div>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Current Stockpile Status</h2>
+                <span class="status-pill status-active">7 active</span>
+              </div>
+              <p>Stockpile state should be visible before production, loading, sales commitment or recovery activity changes.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="stockyard-status-review">Review stockpile status</button>
+              </div>
+            </article>
 
-      <h1>Aggregate Stockyard</h1>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Material Classification</h2>
+              </div>
+              <p>Confirm graded stone, waste stone, recycled material or restricted stock before movement or sale.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="stockyard-material-classification">Check classification</button>
+              </div>
+            </article>
 
-      <p class="dashboard-subtitle">
-  Stock visibility, valuation, surface recovery and landowner-rights governance.
-</p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Estimated Volume / Last Survey Date</h2>
+                <span class="status-pill status-review">Survey 7 days ago</span>
+              </div>
+              <p>Estimated volume is 14,850 t. Survey age and method should remain visible before valuation or variance decisions.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="stockyard-volume-survey">Review volume survey</button>
+              </div>
+            </article>
 
-    </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Moisture Sensitivity</h2>
+              </div>
+              <p>Wet material can affect loading, weight, quality, crusher feed and customer acceptance.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="stockyard-moisture-concern">Report moisture concern</button>
+              </div>
+            </article>
 
-    <span class="dashboard-status-pill">
-      Commercial Asset
-    </span>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Movement &amp; Loading Awareness</h2>
+              </div>
+              <p>Plant routes, loading zones, internal movements and weighbridge flow should align during busy stock-building periods.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="stockyard-loading-awareness">Report loading issue</button>
+                <button type="button" class="quiet-button" data-action="stockyard-weighbridge-impact">Flag weighbridge impact</button>
+              </div>
+            </article>
 
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Stockpile Stability</h2>
+                <span class="status-pill status-pending">Before access</span>
+              </div>
+              <p>Face angle, edge condition, undercutting, segregation and pedestrian exclusion need local judgement before work starts.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="stockyard-stability-risk">Report stability risk</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Environmental Consequence</h2>
+              </div>
+              <p>Dust, silt runoff, mud, drainage impact and windblown fines should remain visible during movement and storage.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="stockyard-environmental-consequence">Report environmental consequence</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Commercial Impact</h2>
+                <span class="status-pill status-review">2 variances open</span>
+              </div>
+              <p>Stock variance, restricted rights or misclassified material can affect recoverable value and customer commitments.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="stockyard-commercial-impact">Flag commercial impact</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Human Operational Memory</h2>
+                <span class="status-pill status-review">Inherited knowledge</span>
+              </div>
+              <p>Historic landowner rights, informal access and old stockpile decisions should stay visible before recovery activity.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="stockyard-human-memory">Record operational memory</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Other Stockyard Issue</h2>
+                <span class="status-pill status-active">Human judgement</span>
+              </div>
+              <p>Use this route for conditions that need review before they become formal stock, safety or commercial issues.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button secondary" data-action="stockyard-other-issue">Other stockyard issue</button>
+              </div>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="stockyard-status-review-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Stockpile Status</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Stockpile status review opened. Confirm active piles, restricted piles, movement plans and current production demand.</p>
+          </article>
+
+          <article class="card action-result-card" id="stockyard-material-classification-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Classification Check</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Material classification check opened. Confirm grade, contamination, restriction and sale suitability before movement.</p>
+          </article>
+
+          <article class="card action-result-card" id="stockyard-volume-survey-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Volume Survey</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Volume survey review opened. Use last survey date, method and tolerance before relying on tonnage or valuation.</p>
+          </article>
+
+          <article class="card action-result-card" id="stockyard-moisture-concern-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Moisture Concern</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Moisture concern logged. Check loading behaviour, weight effect, crusher feed and customer acceptance risk.</p>
+          </article>
+
+          <article class="card action-result-card" id="stockyard-loading-awareness-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Loading Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Loading issue recorded. Review plant route, exclusion zone, pile condition and dispatch priority before continuing.</p>
+          </article>
+
+          <article class="card action-result-card" id="stockyard-weighbridge-impact-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Weighbridge Impact</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Weighbridge impact flagged. Align stock movement, load timing and ticket accuracy before releasing vehicles.</p>
+          </article>
+
+          <article class="card action-result-card" id="stockyard-stability-risk-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Stability Risk</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Stockpile stability risk recorded. Keep people and plant clear until face condition and working method are reviewed.</p>
+          </article>
+
+          <article class="card action-result-card" id="stockyard-environmental-consequence-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Environmental Consequence</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Environmental consequence logged. Check dust, silt runoff, mud, drainage controls and nearby receptors.</p>
+          </article>
+
+          <article class="card action-result-card" id="stockyard-commercial-impact-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Commercial Impact</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Commercial impact flagged. Review stock variance, ownership constraints, sale commitment and recoverable value.</p>
+          </article>
+
+          <article class="card action-result-card" id="stockyard-human-memory-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Operational Memory</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Operational memory route opened. Capture inherited knowledge before stock ownership, access or recovery decisions are made.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Record the stockpile, person, historic arrangement and verification needed..."></textarea>
+          </article>
+
+          <article class="card action-result-card" id="stockyard-other-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Stockyard Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Other stockyard issue recorded. Add the condition, location and judgement needed.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the stockyard issue, pile, movement or decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Operational view held against the Aggregates stockyard</p>
+            <p>Stock status, movement, stability, environmental consequence and human memory remain connected</p>
+            <a href="strata-aggregates-dashboard.html">Open Aggregates dashboard</a>
+          </footer>
+        </section>
+      </div>
+    </main>
   </div>
 
-</div>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-      <section class="stats-grid">
-        <div class="stat-card">
-          <h3>Stockpiles</h3>
-          <p>7 Active</p>
-        </div>
-
-        <div class="stat-card">
-          <h3>Estimated Tonnage</h3>
-          <p>14,850 t</p>
-        </div>
-
-        <div class="stat-card">
-          <h3>Variance Review</h3>
-          <p>2 Open</p>
-        </div>
-
-        <div class="stat-card">
-  <h3>Surface Recovery</h3>
-  <p>1 Active</p>
-</div>
-      </section>
-
-      <section class="content-grid">
-
-       <article class="panel">
-
-  <p class="eyebrow">Stock Governance</p>
-
-  <h3>Current Position</h3>
-
-  <ul class="activity-list">
-
-    <li>
-      <strong>Stock-building period active</strong>
-      <span>
-        Additional graded stone being built during the current dry-weather production window
-      </span>
-    </li>
-
-    <li>
-      <strong>Stockpile survey completed</strong>
-      <span>
-        Latest volumetric review completed 7 days ago during increased stockyard activity
-      </span>
-    </li>
-
-    <li>
-      <strong>Variance under investigation</strong>
-      <span>
-        Dispatch and survey reconciliation currently showing 4.8% movement variance
-      </span>
-    </li>
-
-    <li>
-      <strong>Waste stone stockpile flagged</strong>
-      <span>
-        Historic landowner-rights review required before processing or recovery activity
-      </span>
-    </li>
-
-  </ul>
-
-</article>
-
-        <article class="panel">
-          <p class="eyebrow">Landowner Rights</p>
-          <h3>Lease / Agreement Visibility</h3>
-
-          <ul class="activity-list">
-            <li>
-              <strong>Waste stone stockpile subject to landowner rights</strong>
-              <span>Removal / use governed by historic lease concession</span>
-            </li>
-            <li>
-              <strong>Third-party site access permitted</strong>
-              <span>Access via adjoining estate / farm track</span>
-            </li>
-            <li>
-              <strong>Commercial impact identified</strong>
-              <span>Recoverable crush value may be restricted</span>
-            </li>
-          </ul>
-        </article>
-
-      </section>
-
-      <section class="content-grid">
-
-        <article class="panel">
-          <p class="eyebrow">Operational Controls</p>
-          <h3>Monitoring Measures</h3>
-
-          <ul class="activity-list">
-            <li>
-              <strong>Volumetric stock survey programme</strong>
-              <span>Monthly drone / survey reconciliation</span>
-            </li>
-            <li>
-              <strong>Dispatch reconciliation</strong>
-              <span>Compare stock movement to weighbridge records</span>
-            </li>
-            <li>
-  <strong>Supervisor review</strong>
-  <span>Variance and surface recovery sign-off required above tolerance</span>
-</li>
-          </ul>
-        </article>
-
-        <article class="panel">
-          <p class="eyebrow">Governance Note</p>
-          <h3>Institutional Memory Preserved</h3>
-
-          <p>
-            Historic lease concessions and informal operating arrangements can materially
-            affect stock ownership, recoverable value, and acquisition due diligence.
-            Hold preserves this context alongside operational records to reduce loss of
-            institutional knowledge through ownership or personnel change.
-          </p>
-        </article>
-
-      </section>
-
-    </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
 </body>
 </html>

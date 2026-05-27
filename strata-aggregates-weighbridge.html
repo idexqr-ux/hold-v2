@@ -3,192 +3,258 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hold — Weighbridge Station</title>
-  <link rel="stylesheet" href="style.css?v=24" />
+  <title>Strata Aggregates - Weighbridge Station</title>
+  <meta
+    name="description"
+    content="Operational weighbridge view for Strata Aggregates, showing commercial impact, calibration, vehicle weight risk, queues, environmental controls and authorised use."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
     <div id="hold-sidebar" data-sidebar="sidebar-aggregates.html"></div>
+
     <main class="dashboard-main">
-      <div class="dashboard-header">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Aggregates / WB-01</p>
 
-  <p class="dashboard-breadcrumb">
-    Strata Aggregates / Weighbridge Station
-  </p>
+          <header class="scan-header">
+            <h1>Weighbridge Station</h1>
+            <p>Governed visibility for vehicle weights, ticketing, dispatch flow and legal-for-trade controls.</p>
+            <span class="status-pill status-review">Active / monitored</span>
+          </header>
 
-  <div class="dashboard-title-row">
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Commercial Impact</h2>
+                <span class="status-pill status-review">Ticket value</span>
+              </div>
+              <p>Every weight record can affect invoicing, stock reconciliation, customer confidence and haulage cost recovery.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="weighbridge-commercial-impact">Flag commercial impact</button>
+              </div>
+            </article>
 
-    <div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Legal-for-Trade / Calibration</h2>
+                <span class="status-pill status-pending">Due in 28 days</span>
+              </div>
+              <p>Calibration status must be visible before relying on tickets for sale, supply or dispute resolution.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="weighbridge-calibration-check">Check calibration</button>
+                <button type="button" class="quiet-button" data-action="weighbridge-engineer-attendance">Request engineer</button>
+              </div>
+            </article>
 
-      <h1>Weighbridge Station</h1>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Vehicle Weight &amp; Highways Risk</h2>
+              </div>
+              <p>Gross, tare and net weights should protect road compliance before vehicles leave the quarry boundary.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="weighbridge-weight-risk">Report weight risk</button>
+              </div>
+            </article>
 
-      <p class="dashboard-subtitle">
-  Quarry vehicle movements, weighbridge operations and ticketing continuity.
-</p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Queue &amp; Dispatch Coordination</h2>
+              </div>
+              <p>Queue build-up can affect loading, customer slots, driver welfare and site traffic routes.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="weighbridge-dispatch-delay">Report dispatch delay</button>
+                <button type="button" class="quiet-button" data-action="weighbridge-queue-support">Request queue support</button>
+              </div>
+            </article>
 
-      <p class="asset-alias">
-        Operationally known on site as WB-01 / “South Bridge”
-      </p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Environmental Controls</h2>
+              </div>
+              <p>Dust, mud carry-out, idling vehicles and runoff around the bridge should remain visible during busy movements.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="weighbridge-environmental-issue">Report environmental issue</button>
+              </div>
+            </article>
 
-    </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Technology / Data Accuracy</h2>
+                <span class="status-pill status-review">3 pending sync</span>
+              </div>
+              <p>Offline tickets, duplicated records, clock drift or data gaps need review before accounts and stock records close.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="weighbridge-data-accuracy">Report data issue</button>
+                <button type="button" class="quiet-button" data-action="weighbridge-sync-status">Check sync status</button>
+              </div>
+            </article>
 
-    <span class="dashboard-status-pill">
-      Operational Point
-    </span>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Integration Gap Awareness</h2>
+              </div>
+              <p>Manual tickets should stay visible where weighbridge, stockyard, dispatch or accounts systems do not align.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="weighbridge-integration-gap">Flag integration gap</button>
+              </div>
+            </article>
 
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Competency &amp; Authorised Use</h2>
+              </div>
+              <p>Only trained operators should issue tickets, correct records, override values or release exception loads.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="weighbridge-authorised-use">Check authorised use</button>
+                <button type="button" class="quiet-button" data-action="weighbridge-supervisor-review">Request supervisor review</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Governance Visibility</h2>
+              </div>
+              <p>Hold keeps ticket exceptions, manual entries, calibration events and human decisions connected to the bridge record.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Other Weighbridge Issue</h2>
+                <span class="status-pill status-active">Human judgement</span>
+              </div>
+              <p>Use this route where the issue is real but does not yet fit a formal category.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button secondary" data-action="weighbridge-other-issue">Other weighbridge issue</button>
+              </div>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="weighbridge-commercial-impact-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Commercial Impact</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Commercial impact flagged. Review ticket value, customer record, stock movement and accounts visibility before closing the load.</p>
+          </article>
+
+          <article class="card action-result-card" id="weighbridge-calibration-check-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Calibration Check</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Calibration check opened. Confirm legal-for-trade status before relying on disputed or exception tickets.</p>
+          </article>
+
+          <article class="card action-result-card" id="weighbridge-engineer-attendance-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Engineer Requested</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Engineer attendance requested. Keep calibration risk visible until the visit and outcome are recorded.</p>
+          </article>
+
+          <article class="card action-result-card" id="weighbridge-weight-risk-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Weight Risk</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Vehicle weight risk recorded. Hold dispatch until gross, tare, net and highways compliance are reviewed.</p>
+          </article>
+
+          <article class="card action-result-card" id="weighbridge-dispatch-delay-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Dispatch Delay</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Dispatch delay logged. Check loading queue, driver waiting time, customer slot and stockyard movement impact.</p>
+          </article>
+
+          <article class="card action-result-card" id="weighbridge-queue-support-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Queue Support</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Queue support requested. Supervisor review should consider traffic routing, loading priority and safe waiting areas.</p>
+          </article>
+
+          <article class="card action-result-card" id="weighbridge-environmental-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Environmental Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Environmental issue recorded. Check dust, mud carry-out, vehicle idling and drainage controls around the bridge.</p>
+          </article>
+
+          <article class="card action-result-card" id="weighbridge-data-accuracy-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Data Accuracy</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Data accuracy issue logged. Compare ticket, timestamp, operator, vehicle and material before accepting the record.</p>
+          </article>
+
+          <article class="card action-result-card" id="weighbridge-sync-status-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Sync Status</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Sync status opened. Manual or offline tickets remain visible until upload and reconciliation are confirmed.</p>
+          </article>
+
+          <article class="card action-result-card" id="weighbridge-integration-gap-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Integration Gap</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Integration gap flagged. Keep the exception visible across weighbridge, stockyard, dispatch and accounts records.</p>
+          </article>
+
+          <article class="card action-result-card" id="weighbridge-authorised-use-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Authorised Use</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Authorised-use check opened. Confirm trained operator cover before ticket correction, override or release decisions.</p>
+          </article>
+
+          <article class="card action-result-card" id="weighbridge-supervisor-review-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Supervisor Review</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Supervisor review requested. Use human judgement before closing exceptions or releasing disputed movements.</p>
+          </article>
+
+          <article class="card action-result-card" id="weighbridge-other-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Weighbridge Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Other weighbridge issue recorded. Capture the operational context and decision needed.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the weighbridge issue, load, vehicle or decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Operational view held against Weighbridge WB-01</p>
+            <p>Weights, tickets, calibration, dispatch flow and judgement routes remain connected</p>
+            <a href="strata-aggregates-dashboard.html">Open Aggregates dashboard</a>
+          </footer>
+        </section>
+      </div>
+    </main>
   </div>
 
-</div>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-      <section class="stats-grid">
-        <div class="stat-card">
-          <h3>Status</h3>
-          <p>Active</p>
-        </div>
-
-        <div class="stat-card">
-          <h3>Calibration</h3>
-          <p>Due in 28 Days</p>
-        </div>
-
-        <div class="stat-card">
-          <h3>Manual Tickets Pending</h3>
-          <p>3 Awaiting Upload</p>
-        </div>
-
-        <div class="stat-card">
-          <h3>Operator Cover</h3>
-          <p>1 Backup Required</p>
-        </div>
-      </section>
-
-      <section class="offline-banner">
-        <strong>Offline Mode Active</strong><br>
-        Signal intermittent at the weighbridge — tickets are stored locally and synced automatically when connection returns.
-      </section>
-
-      <section class="content-grid">
-        <article class="panel">
-          <p class="eyebrow">Offline Workflow</p>
-          <h3>Pending Synchronisation</h3>
-
-          <ul class="activity-list">
-            <li>
-              <strong>WB-1050</strong>
-              <span>Stored locally pending sync — 09:31</span>
-            </li>
-             <li>
-              <strong>WB-1049</strong>
-              <span>Stored locally — 09:27</span>
-            </li>
-            <li>
-              <strong>WB-1048</strong>
-              <span>Stored locally — 09:14</span>
-            </li>         
-            
-          </ul>
-        </article>
-
-        <article class="panel">
-          <p class="eyebrow">Operational Risk</p>
-          <h3>Current Governance Notes</h3>
-
-          <ul class="activity-list">
-            <li>
-              <strong>Single trained operator dependency identified</strong>
-              <span>Backup cover below target</span>
-            </li>
-            <li>
-              <strong>Manual ticket backlog present</strong>
-              <span>3 entries pending upload</span>
-            </li>
-            <li>
-              <strong>Calibration review upcoming</strong>
-              <span>Schedule engineer attendance</span>
-            </li>
-            <li>
-  <strong>Snapshot-period movement increase</strong>
-  <span>Additional outbound and internal material movements expected during stock-building activity</span>
-</li>
-          </ul>
-        </article>
-      </section>
-
-      <section class="content-grid">
-        <article class="panel">
-          <p class="eyebrow">Authorised Operators</p>
-          <h3>Current Access List</h3>
-
-          <ul class="activity-list">
-            <li>
-              <strong>Primary Operator</strong>
-              <span>Certified — Active</span>
-            </li>
-            <li>
-              <strong>Deputy Operator</strong>
-              <span>Training Required</span>
-            </li>
-          </ul>
-        </article>
-
-        <article class="panel">
-          <p class="eyebrow">Fallback Procedure</p>
-          <h3>Manual Ticket Process</h3>
-
-          <ol class="check-list">
-            <li>Record vehicle registration</li>
-            <li>Record customer / supplier</li>
-            <li>Record material / load type</li>
-            <li>Record gross, tare and net weight where available</li>
-            <li>Mark ticket as manual pending upload</li>
-            <li>Retain local timestamp until synchronisation confirmed</li>
-            <li>Notify site manager and central accounts</li>
-          </ol>
-        </article>
-      </section>
-
-      <section class="content-grid">
-        <article class="panel">
-          <p class="eyebrow">Accounts Visibility</p>
-          <h3>Ticket Upload Status</h3>
-
-          <ul class="activity-list">
-            <li>
-              <strong>Uploaded Today</strong>
-              <span>47 Tickets</span>
-            </li>
-            <li>
-              <strong>Pending Manual Upload</strong>
-              <span>3 Tickets</span>
-            </li>
-            <li>
-              <strong>Exceptions Requiring Review</strong>
-              <span>1 Weight Variance</span>
-            </li>
-          </ul>
-        </article>
-     </section>
-
-    </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
 </body>
 </html>
