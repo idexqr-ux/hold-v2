@@ -3,298 +3,255 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hold — Strata Aggregates Emergency Response Orientation Map</title>
-
-  <link rel="stylesheet" href="style.css?v=30" />
-  <link rel="stylesheet" href="sidebar.css?v=3" />
+  <title>Strata Aggregates - Emergency Response Pack</title>
+  <meta
+    name="description"
+    content="Point-of-need emergency response pack for Strata Aggregates, showing alarm raising, evacuation, muster points, fire, spill, injury, plant, environmental, access, escalation and live restriction windows."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
     <div id="hold-sidebar" data-sidebar="sidebar-aggregates.html"></div>
 
     <main class="dashboard-main">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Aggregates / Emergency Response</p>
 
-      <div class="dashboard-header">
+          <header class="scan-header">
+            <h1>Emergency Response Pack</h1>
+            <p>Point-of-need incident response for alarm raising, evacuation, access, escalation and live controls during serious site incidents.</p>
+            <span class="status-pill status-pending">Immediate response</span>
+          </header>
 
-  <p class="dashboard-breadcrumb">
-    Hold / Strata Aggregates / Emergency
-  </p>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Raise the Alarm</h2>
+                <span class="status-pill status-pending">First action</span>
+              </div>
+              <p>Make the incident visible quickly. Confirm location, incident type, immediate danger and whether emergency services are required.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="emergency-raise-alarm">Raise alarm</button>
+              </div>
+            </article>
 
-  <div class="dashboard-title-row">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Evacuation Routes</h2>
+                <span class="status-pill status-review">Keep clear</span>
+              </div>
+              <p>Escape routes, emergency exits and site routes should remain clear, direct and available for immediate use.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="emergency-blocked-route">Report blocked route</button>
+              </div>
+            </article>
 
-    <div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Muster Point / Safe Area</h2>
+                <span class="status-pill status-active">Confirm direction</span>
+              </div>
+              <p>Confirm the correct muster point or safe area depending on incident type, wind direction, spill path, traffic movement and site conditions.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="emergency-raise-alarm">Raise alarm</button>
+                <button type="button" class="quiet-button" data-action="emergency-emergency-access">Request emergency access support</button>
+              </div>
+            </article>
 
-      <p class="section-kicker">Emergency Response</p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Fire / Explosion Response</h2>
+                <span class="status-pill status-pending">Escalate now</span>
+              </div>
+              <p>Fire, explosion risk, fuel ignition or hot works incidents require immediate escalation and clear separation from fuel, plant and public access areas.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="emergency-raise-alarm">Raise alarm</button>
+                <button type="button" class="quiet-button" data-action="emergency-emergency-access">Request emergency access support</button>
+              </div>
+            </article>
 
-      <h1>Emergency Response Pack</h1>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Spill / Leak Response</h2>
+                <span class="status-pill status-pending">Contain if safe</span>
+              </div>
+              <p>Fuel, oil, hydraulic fluid or chemical spills should be reported quickly. Contain only if safe and if trained to do so.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="emergency-spill-leak">Report spill or leak</button>
+                <button type="button" class="quiet-button" data-action="emergency-environmental-response">Request environmental response</button>
+              </div>
+            </article>
 
-      <p class="dashboard-subtitle">
-        Critical site information for attending emergency responders during active incident response.
-      </p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>First Aid / Injury Response</h2>
+                <span class="status-pill status-pending">Casualty priority</span>
+              </div>
+              <p>Confirm casualty location, injury type, access route and whether first aiders or emergency services are required.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="emergency-first-aider">Request first aider</button>
+                <button type="button" class="quiet-button" data-action="emergency-emergency-access">Request emergency access support</button>
+              </div>
+            </article>
 
-    </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Plant / Vehicle Incident</h2>
+                <span class="status-pill status-pending">Plant movement</span>
+              </div>
+              <p>Heavy plant movement, vehicle collision, overturned equipment or trapped access routes should be escalated with location and access details.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="emergency-plant-incident">Report plant incident</button>
+                <button type="button" class="quiet-button" data-action="emergency-blocked-route">Report blocked route</button>
+              </div>
+            </article>
 
-    <div class="button-row">
-      <span class="status-pill status-active">Emergency Access</span>
-      <span class="status-pill status-review">Response Pack</span>
-    </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Environmental Protection</h2>
+                <span class="status-pill status-review">Protect pathways</span>
+              </div>
+              <p>Waterways, drains, runoff routes, protected habitats and spill pathways may need immediate protection during emergency response.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="emergency-environmental-response">Request environmental response</button>
+                <button type="button" class="quiet-button" data-action="emergency-spill-leak">Report spill or leak</button>
+              </div>
+            </article>
 
-  </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Emergency Access</h2>
+                <span class="status-pill status-active">Keep open</span>
+              </div>
+              <p>Keep access clear for emergency services. Include gate, barrier, route, escort and contact visibility where relevant.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="emergency-emergency-access">Request emergency access support</button>
+                <button type="button" class="quiet-button" data-action="emergency-blocked-route">Report blocked route</button>
+              </div>
+            </article>
 
-</div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Incident Escalation Contacts</h2>
+                <span class="status-pill status-review">Response chain</span>
+              </div>
+              <p>Show who needs to be contacted for site control, environmental response, maintenance, first aid, security and operational management.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="emergency-raise-alarm">Raise alarm</button>
+                <button type="button" class="quiet-button" data-action="emergency-first-aider">Request first aider</button>
+                <button type="button" class="quiet-button" data-action="emergency-environmental-response">Request environmental response</button>
+              </div>
+            </article>
 
-      <section class="stats-grid">
-        <div class="stat-card">
-          <h3>Emergency Access</h3>
-          <p>2 Routes</p>
-        </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Live Operational Restrictions</h2>
+                <span class="status-pill status-pending">Visible during response</span>
+              </div>
+              <p>Temporary route closures, restricted areas, heavy plant warnings, fuel transfer activity and emergency diversions should be visible during response.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="emergency-blocked-route">Report blocked route</button>
+                <button type="button" class="quiet-button" data-action="emergency-plant-incident">Report plant incident</button>
+              </div>
+            </article>
 
-        <div class="stat-card">
-          <h3>Hazard Zones</h3>
-          <p>5 Identified</p>
-        </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Human Judgement / Other Emergency Issue</h2>
+                <span class="status-pill status-active">Human judgement</span>
+              </div>
+              <p>Emergency situations do not always match the plan. Keep a clear route for reporting what the system did not predict.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button secondary" data-action="emergency-other-issue">Other emergency issue</button>
+              </div>
+            </article>
+          </div>
 
-        <div class="stat-card">
-          <h3>Spill Response</h3>
-          <p>3 Points</p>
-        </div>
+          <article class="card action-result-card" id="emergency-raise-alarm-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Alarm Raised</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Alarm route opened. Confirm exact location, incident type, immediate danger, people affected and whether emergency services are required.</p>
+          </article>
 
-        <div class="stat-card">
-          <h3>Review Status</h3>
-          <p>Current</p>
-        </div>
-      </section>
+          <article class="card action-result-card" id="emergency-first-aider-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">First Aider Requested</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>First-aider request opened. Confirm casualty location, injury type, safe access route and whether emergency services are also needed.</p>
+          </article>
 
-      <section class="offline-banner">
-        <strong>Emergency Resilience</strong><br>
-        Critical emergency guidance is cached locally for use during connectivity loss or infrastructure disruption.
-      </section>
+          <article class="card action-result-card" id="emergency-spill-leak-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Spill or Leak</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Spill or leak report opened. Identify material, source, pathway, drains or water exposure, and contain only if safe and trained.</p>
+          </article>
 
-      <section class="panel qr-map-panel">
-        <h3>Strata Aggregates — Emergency Response Orientation Map</h3>
+          <article class="card action-result-card" id="emergency-blocked-route-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Blocked Route</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Blocked-route report opened. Capture the route, blockage type, affected evacuation or access path and any diversion needed.</p>
+          </article>
 
-        <figure class="map-card">
-          <img
-            class="safety-map"
-            src="images/strata-aggregates-emergency-response-map.png"
-            alt="Strata Aggregates emergency response orientation map showing emergency access routes, hazard zones, spill response points, first aid and welfare, fuel compound, plant shutdown point and emergency rendezvous location."
-          />
+          <article class="card action-result-card" id="emergency-emergency-access-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-active">Emergency Access Support</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Emergency access support requested. Confirm gate, barrier, route, escort, contact point and responder rendezvous visibility.</p>
+          </article>
 
-          <figcaption>
-            Emergency orientation layer showing responder access, hazard awareness, spill response and assembly locations.
-          </figcaption>
-        </figure>
-      </section>
+          <article class="card action-result-card" id="emergency-plant-incident-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Plant Incident</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Plant incident report opened. Confirm asset, location, collision or overturn risk, trapped route, isolation need and safe access details.</p>
+          </article>
 
-      <section class="content-grid">
+          <article class="card action-result-card" id="emergency-environmental-response-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Environmental Response</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Environmental response requested. Check waterways, drains, runoff routes, protected habitats, spill pathways and immediate protection needs.</p>
+          </article>
 
-        <article class="panel">
-          <p class="eyebrow">Immediate Response</p>
-          <h3>Critical Incident Actions</h3>
+          <article class="card action-result-card" id="emergency-other-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Emergency Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Other emergency issue opened. Capture what the response plan did not predict and the judgement, support or escalation needed now.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the emergency issue, location, affected people or routes, and the immediate decision needed..."></textarea>
+          </article>
 
-          <ol class="check-list">
-            <li>Raise site alarm and notify emergency services if required</li>
-            <li>Direct all personnel to the emergency assembly point</li>
-            <li>Confirm plant shutdown or isolation where safe to do so</li>
-            <li>Establish incident lead and control point</li>
-            <li>Provide responder pack and orientation map to attending services</li>
-          </ol>
-        </article>
-
-        <article class="panel">
-          <p class="eyebrow">Responder Access</p>
-          <h3>Emergency Access Routes</h3>
-
-          <ul class="activity-list">
-            <li>
-              <strong>Primary Access</strong>
-              <span>North Gate via quarry access road</span>
-            </li>
-
-            <li>
-              <strong>Secondary Access</strong>
-              <span>East Gate emergency access route</span>
-            </li>
-
-            <li>
-              <strong>Emergency Rendezvous</strong>
-              <span>Main assembly area unless unsafe or redirected by incident lead</span>
-            </li>
-
-            <li>
-              <strong>Restricted Hazard Zone</strong>
-              <span>No access unless authorised by site incident control</span>
-            </li>
-          </ul>
-        </article>
-
-      </section>
-
-      <section class="content-grid">
-
-        <article class="panel">
-          <p class="eyebrow">Hazard / Restricted Areas</p>
-          <h3>Known Emergency Risks</h3>
-
-          <ul class="activity-list">
-            <li>
-              <strong>Fuel & Environmental Compound</strong>
-              <span>Hazardous materials storage and spill risk</span>
-            </li>
-
-            <li>
-              <strong>Crushing Plant</strong>
-              <span>Mechanical entrapment, stored energy and shutdown requirements</span>
-            </li>
-
-            <li>
-              <strong>Restricted Hazard Zone</strong>
-              <span>No access during active restriction or unstable ground condition</span>
-            </li>
-
-            <li>
-              <strong>Environmental Control Pond</strong>
-              <span>Spill containment resource, deep water and unstable edge risk</span>
-            </li>
-          </ul>
-        </article>
-
-        <article class="panel">
-          <p class="eyebrow">Emergency Equipment</p>
-          <h3>Response Support Points</h3>
-
-          <ul class="activity-list">
-            <li>
-              <strong>Spill Kit Point SK-01</strong>
-              <span>Located near wash-down / western site route</span>
-            </li>
-
-            <li>
-              <strong>First Aid / Welfare</strong>
-              <span>Located in site office building</span>
-            </li>
-
-            <li>
-              <strong>Plant Shutdown Point</strong>
-              <span>Crushing plant shutdown reference shown on emergency map</span>
-            </li>
-
-            <li>
-              <strong>Weighbridge Operations</strong>
-              <span>Maintain access for emergency coordination and site accounting</span>
-            </li>
-          </ul>
-        </article>
-
-      </section>
-
-      <section class="content-grid">
-
-        <article class="panel">
-          <p class="eyebrow">Operational Context</p>
-          <h3>Live Site Status</h3>
-
-          <ul class="activity-list">
-            <li>
-              <strong>Crusher Plant</strong>
-              <span>Operational status to be confirmed by plant lead before approach</span>
-            </li>
-
-            <li>
-              <strong>Aggregate Loading Area</strong>
-              <span>Keep clear for emergency access unless directed otherwise</span>
-            </li>
-
-            <li>
-              <strong>Fuel Delivery</strong>
-              <span>Elevated hazard controls if delivery vehicle is on site</span>
-            </li>
-
-            <li>
-              <strong>Haul Routes</strong>
-              <span>Use designated emergency access routes only during incident response</span>
-            </li>
-          </ul>
-        </article>
-
-        <article class="panel">
-          <p class="eyebrow">Emergency Contacts</p>
-          <h3>Primary Response Chain</h3>
-
-          <ul class="activity-list">
-            <li>
-              <strong>Site Supervisor</strong>
-              <span>Primary incident lead</span>
-            </li>
-
-            <li>
-              <strong>Aggregates Operations Manager</strong>
-              <span>Escalation / group oversight</span>
-            </li>
-
-            <li>
-              <strong>Environmental Lead</strong>
-              <span>Spill, runoff and regulatory contact</span>
-            </li>
-
-            <li>
-              <strong>Plant Maintenance Lead</strong>
-              <span>Shutdown, isolation and equipment support</span>
-            </li>
-          </ul>
-        </article>
-
-      </section>
-
-      <section class="content-grid">
-
-        <article class="panel">
-          <p class="eyebrow">Document Control</p>
-          <h3>Emergency Layer Review</h3>
-
-          <ul class="activity-list">
-            <li>
-              <strong>Map Last Updated</strong>
-              <span>22 April 2026</span>
-            </li>
-
-            <li>
-              <strong>Review Date</strong>
-              <span>22 April 2027</span>
-            </li>
-
-            <li>
-              <strong>Document Owner</strong>
-              <span>Site Supervisor — Aggregates Division</span>
-            </li>
-
-            <li>
-              <strong>Governance Note</strong>
-              <span>Emergency response orientation is maintained separately from operational oversight mapping.</span>
-            </li>
-          </ul>
-        </article>
-
-      </section>
-
+          <footer class="scan-footer">
+            <p>Operational view held against Strata Aggregates emergency response pack</p>
+            <p>Alarm, evacuation, spill, injury, plant, access, environmental response and escalation remain connected</p>
+            <a href="strata-aggregates-dashboard.html">Open Aggregates dashboard</a>
+          </footer>
+        </section>
+      </div>
     </main>
-
   </div>
 
   <footer class="footer">
-    <p>
-      Powered by IdexQR<sup>®</sup>
-    </p>
-
-    <p class="footer-sub">
-      Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-    </p>
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
   </footer>
 
-  <script src="sidebar.js?v=8"></script>
+  <script src="sidebar.js?v=6"></script>
   <script src="clock.js?v=4"></script>
-
 </body>
 </html>
