@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hold - Strata Aggregates Security &amp; Access Governance</title>
+  <link rel="stylesheet" href="style.css?v=29" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
+</head>
+
+<body>
+  <div class="dashboard-layout">
+    <div id="hold-sidebar" data-sidebar="sidebar-aggregates.html"></div>
+
+    <main class="dashboard-main">
+      <div class="dashboard-header">
+        <p class="dashboard-breadcrumb">
+          Strata Aggregates / Security &amp; Access Governance
+        </p>
+
+        <div class="dashboard-title-row">
+          <div>
+            <h1>Security &amp; Access Governance</h1>
+            <p class="dashboard-subtitle">
+              Static QR points, vehicle scans and equipment scans connected into one controlled operational awareness layer.
+            </p>
+          </div>
+
+          <span class="dashboard-status-pill">
+            Responsible Awareness
+          </span>
+        </div>
+      </div>
+
+      <section class="stats-grid">
+        <div class="stat-card">
+          <h3>Governed Signals</h3>
+          <p>Static + Vehicle</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Access Context</h3>
+          <p>Role Limited</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Escalation</h3>
+          <p>At Point of Scan</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Judgement Route</h3>
+          <p>Always Available</p>
+        </div>
+      </section>
+
+      <section class="offline-banner">
+        <strong>Security is operational awareness</strong><br>
+        Hold keeps reporting, context and escalation close to the person noticing the issue, without turning every scan into a barrier.
+      </section>
+
+      <section class="dashboard-card">
+        <p class="section-kicker">Security and access windows</p>
+        <h2>Low-friction responsible awareness</h2>
+        <p class="section-intro">
+          Each window gives the scanner enough context to act, ask for help or escalate a concern before it becomes harder to manage.
+        </p>
+
+        <div class="operational-window-grid">
+          <article class="operational-window">
+            <div class="operational-window-header">
+              <h2>Fuel Security</h2>
+              <span class="status-pill status-pending">Controlled</span>
+            </div>
+            <p>
+              Diesel theft, fuel contamination and unauthorised refuelling can affect safety, cost, environmental risk and operational continuity.
+            </p>
+            <div class="button-row">
+              <button class="quiet-button" type="button" data-action="fuel-concern">Report fuel concern</button>
+              <button class="quiet-button" type="button" data-action="supervisor-request">Request supervisor</button>
+              <button class="quiet-button" type="button" data-action="spill-response">View spill response</button>
+              <button class="quiet-button" type="button" data-action="other-security-issue">Other security or access issue</button>
+            </div>
+          </article>
+
+          <article class="operational-window">
+            <div class="operational-window-header">
+              <h2>Asset Security</h2>
+              <span class="status-pill status-pending">Tracked</span>
+            </div>
+            <p>
+              Heavy equipment misuse, after-hours access, key control and tracking gaps should remain visible before they become operational incidents.
+            </p>
+            <div class="button-row">
+              <button class="quiet-button" type="button" data-action="asset-misuse">Report asset misuse</button>
+              <button class="quiet-button" type="button" data-action="key-control">Check key control</button>
+              <button class="quiet-button" type="button" data-action="maintenance-contact">Request maintenance contact</button>
+              <button class="quiet-button" type="button" data-action="other-security-issue">Other security or access issue</button>
+            </div>
+          </article>
+
+          <article class="operational-window">
+            <div class="operational-window-header">
+              <h2>Site Access</h2>
+              <span class="status-pill status-pending">Role Aware</span>
+            </div>
+            <p>
+              Contractors, delivery drivers, escorts and visitors may need temporary or limited access depending on role, location and expected activity.
+            </p>
+            <div class="button-row">
+              <button class="quiet-button" type="button" data-action="expected-visit">Check expected visit</button>
+              <button class="quiet-button" type="button" data-action="escort-request">Request escort</button>
+              <button class="quiet-button" type="button" data-action="access-issue">Report access issue</button>
+              <button class="quiet-button" type="button" data-action="other-security-issue">Other security or access issue</button>
+            </div>
+          </article>
+
+          <article class="operational-window">
+            <div class="operational-window-header">
+              <h2>Environmental Security</h2>
+              <span class="status-pill status-pending">Response Ready</span>
+            </div>
+            <p>
+              Spill prevention, illegal dumping and waterway contamination need quick reporting routes so responsible awareness is easy, not burdensome.
+            </p>
+            <div class="button-row">
+              <button class="quiet-button" type="button" data-action="spill-risk">Report spill risk</button>
+              <button class="quiet-button" type="button" data-action="illegal-dumping">Report illegal dumping</button>
+              <button class="quiet-button" type="button" data-action="environmental-response">View environmental response</button>
+              <button class="quiet-button" type="button" data-action="other-security-issue">Other security or access issue</button>
+            </div>
+          </article>
+
+          <article class="operational-window">
+            <div class="operational-window-header">
+              <h2>Operational Technology</h2>
+              <span class="status-pill status-pending">Escalatable</span>
+            </div>
+            <p>
+              Weighbridge systems, telemetry, site cameras and access systems depend on accurate data and clear escalation when something appears wrong.
+            </p>
+            <div class="button-row">
+              <button class="quiet-button" type="button" data-action="system-issue">Report system issue</button>
+              <button class="quiet-button" type="button" data-action="telemetry-status">Check telemetry status</button>
+              <button class="quiet-button" type="button" data-action="support-request">Request support</button>
+              <button class="quiet-button" type="button" data-action="other-security-issue">Other security or access issue</button>
+            </div>
+          </article>
+
+          <article class="operational-window">
+            <div class="operational-window-header">
+              <h2>Public Safety</h2>
+              <span class="status-pill status-pending">Visible</span>
+            </div>
+            <p>
+              Unauthorised entry, children entering sites, plant hazards and unstable ground require visible escalation routes without slowing normal operations.
+            </p>
+            <div class="button-row">
+              <button class="quiet-button" type="button" data-action="public-safety">Report public safety concern</button>
+              <button class="quiet-button" type="button" data-action="emergency-guidance">View emergency guidance</button>
+              <button class="quiet-button" type="button" data-action="site-supervisor">Request site supervisor</button>
+              <button class="quiet-button" type="button" data-action="other-security-issue">Other security or access issue</button>
+            </div>
+          </article>
+        </div>
+
+        <article class="panel action-result-card" id="fuel-concern-card" hidden>
+          <div class="action-result-header">
+            <p class="eyebrow">Fuel concern route</p>
+            <button class="card-close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <h3>Fuel concern captured</h3>
+          <p>Hold would attach the scan point, fuel asset context, time and optional photo notes to a supervisor review route.</p>
+        </article>
+
+        <article class="panel action-result-card" id="supervisor-request-card" hidden>
+          <div class="action-result-header">
+            <p class="eyebrow">Supervisor request</p>
+            <button class="card-close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <h3>Supervisor escalation opened</h3>
+          <p>The request keeps the location, QR source and active shift context visible so a supervisor knows where the concern began.</p>
+        </article>
+
+        <article class="panel action-result-card" id="spill-response-card" hidden>
+          <div class="action-result-header">
+            <p class="eyebrow">Spill response</p>
+            <button class="card-close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <h3>Spill response guidance available</h3>
+          <p>Immediate guidance links the scan to containment steps, drain protection, the spill kit location and emergency response pack.</p>
+        </article>
+
+        <article class="panel action-result-card" id="asset-misuse-card" hidden>
+          <div class="action-result-header">
+            <p class="eyebrow">Asset misuse route</p>
+            <button class="card-close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <h3>Asset concern ready for review</h3>
+          <p>The asset identity, expected operator context and scan location can be passed into maintenance or operational review.</p>
+        </article>
+
+        <article class="panel action-result-card" id="key-control-card" hidden>
+          <div class="action-result-header">
+            <p class="eyebrow">Key control</p>
+            <button class="card-close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <h3>Key control context shown</h3>
+          <p>Hold can show who is expected to hold equipment access, whether the asset is in use and which route to escalate exceptions through.</p>
+        </article>
+
+        <article class="panel action-result-card" id="maintenance-contact-card" hidden>
+          <div class="action-result-header">
+            <p class="eyebrow">Maintenance contact</p>
+            <button class="card-close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <h3>Maintenance contact request prepared</h3>
+          <p>The request can include the asset record, observed condition and last inspection status without asking the scanner to search manually.</p>
+        </article>
+
+        <article class="panel action-result-card" id="expected-visit-card" hidden>
+          <div class="action-result-header">
+            <p class="eyebrow">Expected visit</p>
+            <button class="card-close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <h3>Visit context checked</h3>
+          <p>Expected company, vehicle, escort need, access window and permitted activity can be surfaced at the point of scan.</p>
+        </article>
+
+        <article class="panel action-result-card" id="escort-request-card" hidden>
+          <div class="action-result-header">
+            <p class="eyebrow">Escort request</p>
+            <button class="card-close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <h3>Escort route opened</h3>
+          <p>Hold can route the request to the site supervisor or nominated escort while keeping the access location visible.</p>
+        </article>
+
+        <article class="panel action-result-card" id="access-issue-card" hidden>
+          <div class="action-result-header">
+            <p class="eyebrow">Access issue</p>
+            <button class="card-close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <h3>Access concern captured</h3>
+          <p>The report preserves role, location, QR source and expected movement context for operational follow-up.</p>
+        </article>
+
+        <article class="panel action-result-card" id="spill-risk-card" hidden>
+          <div class="action-result-header">
+            <p class="eyebrow">Spill risk</p>
+            <button class="card-close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <h3>Spill risk report opened</h3>
+          <p>Environmental context, nearby drains, fuel assets and active response guidance can be linked to the observation.</p>
+        </article>
+
+        <article class="panel action-result-card" id="illegal-dumping-card" hidden>
+          <div class="action-result-header">
+            <p class="eyebrow">Illegal dumping</p>
+            <button class="card-close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <h3>Dumping report route ready</h3>
+          <p>The scanner can record location, material type, photos and immediate environmental concern without needing a separate form.</p>
+        </article>
+
+        <article class="panel action-result-card" id="environmental-response-card" hidden>
+          <div class="action-result-header">
+            <p class="eyebrow">Environmental response</p>
+            <button class="card-close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <h3>Environmental response guidance shown</h3>
+          <p>Hold can show the relevant containment, reporting and escalation route for the scanned area.</p>
+        </article>
+
+        <article class="panel action-result-card" id="system-issue-card" hidden>
+          <div class="action-result-header">
+            <p class="eyebrow">System issue</p>
+            <button class="card-close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <h3>Operational technology issue logged</h3>
+          <p>The report can link the affected system, scan point, current operational dependency and support escalation route.</p>
+        </article>
+
+        <article class="panel action-result-card" id="telemetry-status-card" hidden>
+          <div class="action-result-header">
+            <p class="eyebrow">Telemetry status</p>
+            <button class="card-close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <h3>Telemetry status context shown</h3>
+          <p>Hold can surface last known feed time, expected device state and whether the signal is delayed or requires support.</p>
+        </article>
+
+        <article class="panel action-result-card" id="support-request-card" hidden>
+          <div class="action-result-header">
+            <p class="eyebrow">Support request</p>
+            <button class="card-close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <h3>Support route opened</h3>
+          <p>The scanner can escalate with system, location and operational impact already attached.</p>
+        </article>
+
+        <article class="panel action-result-card" id="public-safety-card" hidden>
+          <div class="action-result-header">
+            <p class="eyebrow">Public safety</p>
+            <button class="card-close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <h3>Public safety concern captured</h3>
+          <p>The route prioritises location, immediate hazard, supervisor notification and whether emergency guidance is needed.</p>
+        </article>
+
+        <article class="panel action-result-card" id="emergency-guidance-card" hidden>
+          <div class="action-result-header">
+            <p class="eyebrow">Emergency guidance</p>
+            <button class="card-close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <h3>Emergency guidance available</h3>
+          <p>Hold can show local muster, isolation and emergency response information for the scanned point.</p>
+        </article>
+
+        <article class="panel action-result-card" id="site-supervisor-card" hidden>
+          <div class="action-result-header">
+            <p class="eyebrow">Site supervisor</p>
+            <button class="card-close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <h3>Supervisor request prepared</h3>
+          <p>The request carries scan location, active route context and any reported hazard notes into the supervisor queue.</p>
+        </article>
+
+        <article class="panel action-result-card" id="other-security-issue-card" hidden>
+          <div class="action-result-header">
+            <p class="eyebrow">Human judgement</p>
+            <button class="card-close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <h3>Other security or access issue</h3>
+          <p>Hold keeps a judgement route available for anything that does not fit the preset categories but still needs responsible awareness.</p>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel">
+          <p class="eyebrow">QR Visibility Governance</p>
+          <h3>Controlled visibility at the point of need</h3>
+          <p>
+            Hold links QR visibility to role, contractor access, temporary access, shift-limited access, expected activity, operational escalation, environmental response, emergency guidance, asset context and verification.
+          </p>
+        </article>
+
+        <article class="panel">
+          <p class="eyebrow">Vehicle Recognition</p>
+          <h3>Movement context for site access</h3>
+          <p>
+            Vehicle QR and recognition logic may use registration plates, fleet IDs and company branding to help confirm expected movement and access context.
+          </p>
+        </article>
+
+        <article class="panel">
+          <p class="eyebrow">Traffic &amp; Movement Alerts</p>
+          <h3>Route awareness where scans happen</h3>
+          <p>
+            Temporary route closures, restricted access areas, heavy plant movement, fuel transfer activity and emergency diversions should be visible at the point of scan.
+          </p>
+        </article>
+      </section>
+
+      <section class="notice-panel">
+        <p class="eyebrow">Lowering the friction of responsible awareness</p>
+        <h3>Lowering the friction of responsible awareness</h3>
+        <p>
+          Hold should make it easier for people to report what they notice, understand what matters and escalate concerns before small gaps become larger failures.
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <p>
+      Powered by IdexQR<sup>&reg;</sup>
+    </p>
+
+    <p class="footer-sub">
+      Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.
+    </p>
+  </footer>
+
+  <script src="sidebar.js?v=4"></script>
+  <script src="clock.js?v=4"></script>
+</body>
+</html>
