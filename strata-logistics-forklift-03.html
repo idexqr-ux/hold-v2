@@ -3,197 +3,167 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Forklift 03 — Hold</title>
+  <title>Strata Logistics - Forklift 03</title>
   <meta
     name="description"
-    content="A Strata Logistics equipment governance record for Forklift 03, powered by Hold."
+    content="A Strata Logistics equipment record for Forklift 03, showing equipment state, inspection status, assigned area, route restrictions, shared-use handover and maintenance escalation."
   />
-  <link rel="stylesheet" href="style.css?v=24" />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
-     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
+    <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
 
     <main class="dashboard-main">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Logistics / FLT-03</p>
 
-   <div class="dashboard-header">
+          <header class="scan-header">
+            <h1>Forklift 03</h1>
+            <p>Equipment visibility for inspection status, assigned area, route restrictions, shared-use handover and defects.</p>
+            <span class="status-pill status-review">Controlled Use</span>
+          </header>
 
-  <p class="dashboard-breadcrumb">
-    Hold / Strata Logistics
-  </p>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Equipment State</h2>
+                <span class="status-pill status-review">Available with review</span>
+              </div>
+              <p>Forklift 03 remains available for controlled use while maintenance follow-up and dispatch pressure are reviewed.</p>
+            </article>
 
-  <div class="dashboard-title-row">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Inspection Status</h2>
+                <span class="status-pill status-active">Pre-use complete</span>
+              </div>
+              <p>Tyres, forks, mast, hydraulics, lights, horn, beacon and battery condition were checked during early shift.</p>
+            </article>
 
-    <div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Assigned Area</h2>
+              </div>
+              <p>Primary assignment is warehouse floor support, with dispatch flexibility reduced during the current review period.</p>
+            </article>
 
-      <p class="section-kicker">Equipment Governance</p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Route Restrictions</h2>
+                <span class="status-pill status-pending">Dispatch pressure</span>
+              </div>
+              <p>Check Bay C03 loading routes, Bay A12 intake movement and Hold Area B transfers before entering shared areas.</p>
+            </article>
 
-      <h1>Forklift 03</h1>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Shared-Use Handover</h2>
+              </div>
+              <p>Record location, battery state, attachments, route limits and open defects before another operator takes control.</p>
+            </article>
 
-      <p class="dashboard-subtitle">
-        Equipment governance record for daily pre-use checks, fault reporting,
-        maintenance visibility and out-of-service control.
-      </p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Forklift 03 Actions</h2>
+              </div>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="forklift-03-inspection">Confirm inspection</button>
+                <button type="button" class="quiet-button" data-action="forklift-03-defect">Report defect</button>
+                <button type="button" class="quiet-button" data-action="forklift-03-restrict">Report route restriction</button>
+                <button type="button" class="quiet-button" data-action="forklift-03-handover">Start handover</button>
+                <button type="button" class="quiet-button" data-action="forklift-03-maintenance">Request maintenance</button>
+                <button type="button" class="quiet-button" data-action="forklift-03-supervisor">Request supervisor</button>
+                <button type="button" class="quiet-button secondary" data-action="forklift-03-other">Other forklift issue</button>
+              </div>
+            </article>
 
-    </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Audit Visibility</h2>
+              </div>
+              <p>Hold keeps pre-use checks, defects, maintenance actions, restrictions and handovers connected to the asset record.</p>
+            </article>
 
-    <span class="dashboard-status-pill status-overdue">
-      Restricted
-    </span>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Human Judgement</h2>
+              </div>
+              <p>If the forklift feels unsafe, behaves abnormally or route conditions are unclear, stop use and make the concern visible.</p>
+            </article>
+          </div>
 
+          <article class="card action-result-card" id="forklift-03-inspection-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-active">Inspection Confirmed</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Pre-use inspection confirmation opened for Forklift 03 with current assigned area and route context attached.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-03-defect-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Defect Reported</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Defect report opened. Stop use if the issue affects safe movement, load handling or warning systems.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-03-restrict-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Route Restriction</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Route restriction recorded for Forklift 03. Confirm shared routes before further movement.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-03-handover-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Handover Started</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Shared-use handover started. Record condition, location, battery state, restrictions and open issues.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-03-maintenance-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Maintenance Requested</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Maintenance escalation raised with Forklift 03 condition, review status and operational dependency attached.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-03-supervisor-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Supervisor Requested</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Supervisor request raised for equipment state, assigned area or route restriction decision.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-03-other-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Other Forklift Issue</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Capture a forklift concern that does not fit the standard inspection, route or defect actions.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the Forklift 03 issue or decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Forklift 03 record connects equipment state, inspection, route limits and maintenance decisions</p>
+            <p>Unsafe or unclear conditions remain visible until supervisor or maintenance release is recorded</p>
+            <a href="strata-logistics-forklift-charging.html">Open forklift charging record</a>
+          </footer>
+        </section>
+      </div>
+    </main>
   </div>
 
-</div>
-      
-      <div class="button-row">
-        <span class="status-pill status-active">Active</span>
-        <span class="status-pill status-pending">Equipment</span>
-        <span class="status-pill status-review">Audit Enabled</span>
-      </div>
-    </section>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-    <section class="grid">
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
+  <script>
+    document.querySelectorAll("[data-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = document.getElementById(`${button.dataset.action}-card`);
+        if (!card) return;
+        card.hidden = false;
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
 
-      <article class="card soft-panel">
-        <h3>Operational Snapshot</h3>
-        <div class="detail-grid">
-          <p><strong>Status</strong><span class="value value-key">Available for Use</span></p>
-          <p><strong>Assigned Area</strong><span class="value">Warehouse Floor</span></p>
-          <p><strong>Last Pre-Use Check</strong><span class="value">Today · Early Shift</span></p>
-          <p><strong>Next Service Due</strong><span class="value">18 May 2026</span></p>
-        </div>
-      </article>
-
-      <article class="card">
-        <h3>Pre-Use Inspection Status</h3>
-        <ul class="workflow-list">
-          <li>Tyres and wheels checked.</li>
-          <li>Forks, mast and carriage inspected.</li>
-          <li>Hydraulics checked for visible leaks.</li>
-          <li>Lights, horn and warning beacon tested.</li>
-          <li>Battery level and charging condition checked.</li>
-        </ul>
-      </article>
-
-      <article class="card soft-panel">
-  <h3>Current Advisory</h3>
-  <p>
-    <strong>Temporary operational review active.</strong>
-    Forklift 03 remains available for controlled use pending maintenance follow-up and dispatch pressure assessment.
-  </p>
-
-  <ul class="workflow-list">
-    <li>Outbound dispatch flexibility reduced during active review period.</li>
-    <li>Temporary routing adjustments remain active across dispatch and loading areas.</li>
-  </ul>
-</article>
-
-      <article class="card">
-        <h3>Equipment Actions</h3>
-        <p>
-          Use these actions to update equipment status and preserve the audit trail.
-        </p>
-
-        <div class="button-row">
-          <a class="quiet-button" href="#">Confirm Pre-Use Check Complete</a>
-          <a class="quiet-button" href="#">Report Fault / Damage</a>
-          <a class="quiet-button" href="#">Mark Out of Service</a>
-          <a class="quiet-button" href="#">Request Maintenance Review</a>
-          <a class="quiet-button" href="#">Escalate Safety Concern</a>
-          <a class="quiet-button secondary" href="#">Other Equipment Issue</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h3>Maintenance History</h3>
-        <div class="delivery-list">
-          <article class="delivery-card">
-            <div>
-              <strong>03 May 2026</strong><br />
-              Battery charging guidance reviewed<br />
-              <span class="muted-text">Updated after charging bay inspection</span>
-            </div>
-            <span class="status-pill status-review">Updated</span>
-          </article>
-
-          <article class="delivery-card">
-            <div>
-              <strong>21 April 2026</strong><br />
-              Routine inspection completed<br />
-              <span class="muted-text">No safety-critical defect recorded</span>
-            </div>
-            <span class="status-pill status-active">Complete</span>
-          </article>
-
-          <article class="delivery-card">
-            <div>
-              <strong>05 April 2026</strong><br />
-              Rear warning beacon replaced<br />
-              <span class="muted-text">Maintenance action closed</span>
-            </div>
-            <span class="status-pill status-active">Closed</span>
-          </article>
-        </div>
-      </article>
-
-      <article class="card warning-card">
-        <h3>Out-of-Service Control</h3>
-        <p>
-          If Forklift 03 is unsafe, damaged or showing a safety-critical fault,
-          mark it out of service before further use.
-        </p>
-        <ul class="workflow-list">
-          <li>Stop using the forklift immediately.</li>
-          <li>Apply an <strong>Out of Service</strong> tag where visible.</li>
-          <li>Use <strong>Mark Out of Service</strong> to update Hold.</li>
-          <li>Notify maintenance or the warehouse supervisor.</li>
-          <li>Do not return equipment to use until release has been recorded.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <h3>Workflow Notes</h3>
-        <ul class="workflow-list">
-          <li>Faults raised from Forklift 03 appear in the central operational review queue.</li>
-          <li>Out-of-service status remains visible until formally resolved.</li>
-          <li>Maintenance updates should be added to preserve the equipment audit trail.</li>
-          <li>Equipment must not be returned to service without authorised release.</li>
-        </ul>
-      </article>
-     
-      <article class="card">
-        <h3>Record Control</h3>
-        <div class="detail-grid">
-          <p><strong>Owner</strong><span class="value">Warehouse Maintenance Lead</span></p>
-          <p><strong>Asset Type</strong><span class="value">Forklift Truck</span></p>
-          <p><strong>Record Version</strong><span class="value">1.0</span></p>
-          <p><strong>Audit Status</strong><span class="value">Enabled</span></p>
-        </div>
-      </article>
-
-    </section>
-
-        </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+    document.querySelectorAll(".card-close").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest(".action-result-card").hidden = true;
+      });
+    });
+  </script>
 </body>
 </html>

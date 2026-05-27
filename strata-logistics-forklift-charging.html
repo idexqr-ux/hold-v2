@@ -3,179 +3,161 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Strata Logistics — Forklift Charging Station</title>
+  <title>Strata Logistics - Forklift Charging Station</title>
   <meta
     name="description"
-    content="A Strata Logistics operational record for the Forklift Charging Station, including charging guidance, fault reporting and equipment governance."
+    content="A Strata Logistics charging bay record for authorised charging, cable hazards, battery safety, fire response, defects and charging issues."
   />
-  <link rel="stylesheet" href="style.css?v=24" />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
-     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
+    <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
 
     <main class="dashboard-main">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Logistics / Charging Bay 2</p>
 
-    <div class="dashboard-header">
-      <p class="dashboard-breadcrumb">
-        Hold / Strata Logistics / Forklift Charging Station
-      </p>
+          <header class="scan-header">
+            <h1>Forklift Charging Station</h1>
+            <p>Charging bay visibility for authorised charging, cable hazards, battery safety, fire response and defects.</p>
+            <span class="status-pill status-active">Charging Bay Active</span>
+          </header>
 
-      <div class="dashboard-title-row">
-        <div>
-          <h1>Forklift Charging Station</h1>
-          <p class="dashboard-subtitle">
-            Safe charging, fault reporting and battery-handling guidance for the Strata Logistics charging bay.
-          </p>
-        </div>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Charging Bay Status</h2>
+                <span class="status-pill status-active">EQ-07 active</span>
+              </div>
+              <p>Charging Bay 2 is available. Keep the marked bay clear of packaging, pallets and loose equipment.</p>
+            </article>
 
-        <span class="dashboard-status-pill">
-          EQ-07 / Active
-        </span>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Authorised Charging</h2>
+              </div>
+              <p>Only authorised operators should connect chargers, isolate equipment or handle battery connections.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Cable / Trip Hazards</h2>
+                <span class="status-pill status-review">Keep clear</span>
+              </div>
+              <p>Check charger lead, plug, cable route and floor condition before connecting or leaving the bay.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Battery Safety</h2>
+              </div>
+              <p>Do not charge equipment with leakage, swelling, damaged connectors, exposed wiring or uncertain indicator status.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Fire Response</h2>
+                <span class="status-pill status-pending">Escalate fast</span>
+              </div>
+              <p>Battery heat, smoke, burning smell or electrical fault requires immediate isolation if safe and urgent escalation.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Charging Actions</h2>
+              </div>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="charging-authorised">Confirm authorised charging</button>
+                <button type="button" class="quiet-button" data-action="charging-cable">Report cable hazard</button>
+                <button type="button" class="quiet-button" data-action="charging-battery">Report battery concern</button>
+                <button type="button" class="quiet-button" data-action="charging-defect">Report charger defect</button>
+                <button type="button" class="quiet-button" data-action="charging-fire">Escalate fire response</button>
+                <button type="button" class="quiet-button secondary" data-action="charging-other">Other charging issue</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Audit Visibility</h2>
+              </div>
+              <p>Charging status, defects, battery concerns, fire escalation and authorisation checks stay linked to the equipment record.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Human Judgement</h2>
+              </div>
+              <p>If charger behaviour, battery condition or bay safety feels wrong, stop use and record the issue before leaving.</p>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="charging-authorised-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-active">Authorised Charging</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Authorised charging confirmation opened with charging bay, operator and equipment context attached.</p>
+          </article>
+
+          <article class="card action-result-card" id="charging-cable-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Cable Hazard</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Cable or trip hazard recorded. Keep the bay clear and prevent use if the charger lead is unsafe.</p>
+          </article>
+
+          <article class="card action-result-card" id="charging-battery-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Battery Concern</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Battery concern raised. Isolate if safe and prevent the affected forklift returning to use until reviewed.</p>
+          </article>
+
+          <article class="card action-result-card" id="charging-defect-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Charger Defect</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Charger defect report opened for exposed wiring, damaged plug, uncertain indicator status or bay equipment fault.</p>
+          </article>
+
+          <article class="card action-result-card" id="charging-fire-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-overdue">Fire Response</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Fire response escalation opened. Raise alarm, clear the charging bay and call Facilities on extension 4421 if safe.</p>
+          </article>
+
+          <article class="card action-result-card" id="charging-other-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Other Charging Issue</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Capture a charging concern that does not fit the standard battery, cable, defect or fire routes.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the charging issue or decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Charging bay record connects authorised charging, battery safety, defects and emergency escalation</p>
+            <p>Unsafe charging conditions remain visible until equipment or bay release is recorded</p>
+            <a href="strata-logistics-forklift-04.html">Open Forklift 04 record</a>
+          </footer>
+        </section>
       </div>
-    </div>
+    </main>
+  </div>
 
-    <section class="dashboard-card">
-      <p class="section-kicker">Operational record</p>
-      <h2>Charging procedure</h2>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-      <p class="section-intro">
-        Standard operating steps for safe forklift charging and equipment handover.
-      </p>
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
+  <script>
+    document.querySelectorAll("[data-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = document.getElementById(`${button.dataset.action}-card`);
+        if (!card) return;
+        card.hidden = false;
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
 
-      <ol class="check-list">
-        <li>Park forklift fully within the marked charging bay.</li>
-        <li>Lower forks to ground level and engage the parking brake.</li>
-        <li>Turn ignition off before disconnecting the battery.</li>
-        <li>Inspect the charging cable for visible damage before use.</li>
-        <li>Connect charger lead securely to the charging port.</li>
-        <li>Confirm the charging indicator displays green.</li>
-        <li>Record any fault immediately before leaving the bay.</li>
-      </ol>
-    </section>
-
-    <section class="dashboard-card">
-      <p class="section-kicker">Safety controls</p>
-      <h2>Before charging</h2>
-
-      <div class="attention-item">
-        <h3>Battery handling</h3>
-        <p>
-          Safety gloves must be worn when handling battery connections.
-          Do not charge forklifts showing signs of battery leakage.
-        </p>
-      </div>
-
-      <div class="attention-item">
-        <h3>Charging bay condition</h3>
-        <p>
-          The charging bay must remain clear of packaging, combustible materials and loose operational equipment.
-        </p>
-      </div>
-
-      <div class="attention-item">
-        <h3>Damaged equipment</h3>
-        <p>
-          Chargers with exposed wiring, damaged plugs or uncertain indicator status must not be used.
-        </p>
-      </div>
-    </section>
-
-    <section class="dashboard-card alert-card amber-alerts">
-      <p class="section-kicker">Fault reporting</p>
-      <h2>Escalation steps</h2>
-
-      <p class="section-intro">
-        If battery damage, leakage or charger fault is identified, follow the steps below before the equipment is returned to use.
-      </p>
-
-      <div class="attention-item">
-        <h3>1. Stop use</h3>
-        <p>Stop use immediately and isolate the equipment where safe to do so.</p>
-      </div>
-
-      <div class="attention-item">
-        <h3>2. Mark unavailable</h3>
-        <p>Attach an “Out of Service” tag to the affected charger or vehicle.</p>
-      </div>
-
-      <div class="attention-item">
-        <h3>3. Report fault</h3>
-        <p>Use the action below to log the maintenance fault for review.</p>
-      </div>
-
-      <div class="attention-item">
-        <h3>4. Notify urgent concern</h3>
-        <p>Notify Facilities on extension <strong>4421</strong> for urgent safety concerns.</p>
-      </div>
-
-      <div class="button-row">
-        <a class="quiet-button" href="#">Report an Issue</a>
-        <a class="quiet-button" href="#">Request Amendment</a>
-      </div>
-    </section>
-
-    <section class="dashboard-card">
-      <p class="section-kicker">Record control</p>
-      <h2>Governance information</h2>
-
-      <div class="overview-inline">
-
-        <div class="overview-item">
-          <span class="overview-label">Owner</span>
-          <span class="overview-value">Facilities Operations Manager</span>
-        </div>
-
-        <div class="overview-item">
-          <span class="overview-label">Location</span>
-          <span class="overview-value">Equipment Zone — Charging Bay 2</span>
-        </div>
-
-        <div class="overview-item">
-          <span class="overview-label">Last Reviewed</span>
-          <span class="overview-value">14 April 2026</span>
-        </div>
-
-        <div class="overview-item">
-          <span class="overview-label">Next Review</span>
-          <span class="overview-value">14 July 2026</span>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="dashboard-card">
-      <p class="section-kicker">Linked records</p>
-      <h2>Related operational documents</h2>
-
-      <ul class="governance-list">
-        <li>Forklift maintenance schedule</li>
-        <li>Battery handling SOP</li>
-        <li>Equipment inspection log</li>
-      </ul>
-    </section>
-
-       </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+    document.querySelectorAll(".card-close").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest(".action-result-card").hidden = true;
+      });
+    });
+  </script>
 </body>
 </html>

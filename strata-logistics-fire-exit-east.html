@@ -3,186 +3,162 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fire Exit East — Hold</title>
+  <title>Strata Logistics - Fire Exit East</title>
   <meta
     name="description"
-    content="A Strata Logistics safety and compliance record for Fire Exit East, powered by Hold."
+    content="A Strata Logistics safety record for Fire Exit East, covering exit status, obstruction reporting, emergency route visibility, inspection history and escalation."
   />
- <link rel="stylesheet" href="style.css?v=42" />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
-     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
+    <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
 
     <main class="dashboard-main">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Logistics / Fire Exit East</p>
 
-    <div class="dashboard-header">
-  <p class="dashboard-breadcrumb">
-    Hold / Strata Logistics
-  </p>
+          <header class="scan-header">
+            <h1>Fire Exit East</h1>
+            <p>Safety point for exit status, obstruction reporting, emergency route visibility and escalation.</p>
+            <span class="status-pill status-active">Clear for Use</span>
+          </header>
 
-  <div class="dashboard-title-row">
-    <div>
-      <p class="section-kicker">Safety Point</p>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Exit Status</h2>
+                <span class="status-pill status-active">Compliant</span>
+              </div>
+              <p>Fire Exit East is clear, usable and available for emergency egress during the current operational window.</p>
+            </article>
 
-      <h1>Fire Exit East</h1>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Obstruction Reporting</h2>
+                <span class="status-pill status-review">Keep clear</span>
+              </div>
+              <p>Report pallets, packaging, equipment, door faults, signage damage or anything blocking emergency movement.</p>
+            </article>
 
-      <p class="dashboard-subtitle">
-        Safety and compliance record for inspection, obstruction reporting,
-        emergency route governance and temporary access restrictions.
-      </p>
-    </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Emergency Route Visibility</h2>
+              </div>
+              <p>Emergency routes and alternate guidance must remain visible if the exit is restricted or unavailable.</p>
+            </article>
 
-    <div class="button-row">
-      <span class="status-pill status-active">Compliant</span>
-      <span class="status-pill status-pending">Safety Point</span>
-      <span class="status-pill status-review">Audit Enabled</span>
-    </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Inspection History</h2>
+              </div>
+              <p>Daily inspection completed today. Previous pallet obstruction and signage replacement remain available for audit.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Escalation Contact</h2>
+                <span class="status-pill status-pending">Facilities</span>
+              </div>
+              <p>Escalate blocked, defective or restricted emergency egress to the Facilities Operations Manager immediately.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Fire Exit Actions</h2>
+              </div>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="fire-exit-inspection">Confirm inspection</button>
+                <button type="button" class="quiet-button" data-action="fire-exit-obstruction">Report obstruction</button>
+                <button type="button" class="quiet-button" data-action="fire-exit-defect">Report defect</button>
+                <button type="button" class="quiet-button" data-action="fire-exit-restrict">Mark restricted</button>
+                <button type="button" class="quiet-button" data-action="fire-exit-escalate">Escalate safety concern</button>
+                <a class="quiet-button secondary" href="strata-logistics-site-safety-map.html">View safety map</a>
+                <button type="button" class="quiet-button secondary" data-action="fire-exit-other">Other fire exit issue</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Audit Visibility</h2>
+              </div>
+              <p>Inspection completion, restrictions, obstruction removal and alternate-route decisions remain visible in Hold.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Human Judgement</h2>
+              </div>
+              <p>If egress looks compromised, report it even when the checklist appears complete.</p>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="fire-exit-inspection-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-active">Inspection Confirmed</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Inspection confirmation opened for Fire Exit East with route, door, signage, lighting and call-point checks attached.</p>
+          </article>
+
+          <article class="card action-result-card" id="fire-exit-obstruction-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-overdue">Obstruction Reported</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Obstruction report opened. Clear the route if safe and keep alternate route guidance visible until resolved.</p>
+          </article>
+
+          <article class="card action-result-card" id="fire-exit-defect-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Defect Reported</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Fire exit defect recorded for door operation, signage, lighting, alarm access or route condition.</p>
+          </article>
+
+          <article class="card action-result-card" id="fire-exit-restrict-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Restriction Marked</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Temporary restriction opened. Add alternate route guidance and keep the restriction visible until cleared.</p>
+          </article>
+
+          <article class="card action-result-card" id="fire-exit-escalate-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Safety Escalation</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Safety concern escalated to Facilities for emergency route, obstruction or compliance review.</p>
+          </article>
+
+          <article class="card action-result-card" id="fire-exit-other-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Other Fire Exit Issue</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Capture a fire-exit concern that does not fit the standard inspection, obstruction or defect routes.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the Fire Exit East issue or decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Fire Exit East record connects inspection, route visibility, restrictions and escalation</p>
+            <p>Emergency egress concerns remain visible until resolved and reviewed</p>
+            <a href="strata-logistics-site-safety-map.html">Open site safety map</a>
+          </footer>
+        </section>
+      </div>
+    </main>
   </div>
-</div>
 
-    <section class="grid">
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-      <article class="card soft-panel">
-        <h3>Operational Snapshot</h3>
-        <div class="detail-grid">
-          <p><strong>Status</strong><span class="value value-key">Clear for Use</span></p>
-          <p><strong>Responsible Lead</strong><span class="value">Facilities Coordinator</span></p>
-          <p><strong>Last Inspection</strong><span class="value">Today · Early Shift</span></p>
-          <p><strong>Next Inspection Due</strong><span class="value">Next Scheduled Inspection · Tomorrow</span></p>
-        </div>
-      </article>
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
+  <script>
+    document.querySelectorAll("[data-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = document.getElementById(`${button.dataset.action}-card`);
+        if (!card) return;
+        card.hidden = false;
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
 
-      <article class="card">
-        <h3>Compliance Checklist</h3>
-        <ul class="workflow-list">
-          <li>Exit route clear and unobstructed.</li>
-          <li>Door opens freely and closes correctly.</li>
-          <li>Emergency signage visible and undamaged.</li>
-          <li>Emergency lighting operational.</li>
-          <li>Alarm call point unobstructed.</li>
-        </ul>
-      </article>
-
-      <article class="card soft-panel">
-        <h3>Current Advisory</h3>
-        <p>
-          <strong>No active restriction recorded.</strong>
-          Emergency egress route remains fully available for operational use.
-        </p>
-      </article>
-
-      <article class="card">
-        <h3>Safety Actions</h3>
-        <p>
-          Use these actions to record inspections and escalate safety concerns.
-        </p>
-
-        <div class="button-row">
-          <a class="quiet-button" href="#">Confirm Inspection Complete</a>
-          <a class="quiet-button" href="#">Report Obstruction</a>
-          <a class="quiet-button" href="#">Report Defect</a>
-          <a class="quiet-button" href="#">Mark Temporarily Restricted</a>
-          <a class="quiet-button" href="#">Escalate Safety Concern</a>
-          <a class="quiet-button secondary" href="#">Other Safety Issue</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h3>Inspection History</h3>
-        <div class="delivery-list">
-
-          <article class="delivery-card">
-            <div>
-              <strong>03 May 2026</strong><br />
-              Daily inspection completed<br />
-              <span class="muted-text">No issue identified</span>
-            </div>
-            <span class="status-pill status-active">Complete</span>
-          </article>
-
-          <article class="delivery-card">
-            <div>
-              <strong>28 April 2026</strong><br />
-              Temporary pallet obstruction removed<br />
-              <span class="muted-text">Issue closed by Warehouse Lead</span>
-            </div>
-            <span class="status-pill status-active">Resolved</span>
-          </article>
-
-          <article class="delivery-card">
-            <div>
-              <strong>15 April 2026</strong><br />
-              Signage replaced<br />
-              <span class="muted-text">Faded directional sign updated</span>
-            </div>
-            <span class="status-pill status-review">Updated</span>
-          </article>
-
-        </div>
-      </article>
-
-      <article class="card warning-card">
-        <h3>Restriction Procedure</h3>
-        <p>
-          If Fire Exit East is obstructed, defective or temporarily unavailable,
-          update Hold immediately and provide alternate route guidance.
-        </p>
-        <ul class="workflow-list">
-          <li>Report the restriction before leaving the area.</li>
-          <li>Apply temporary physical signage/barriers where required.</li>
-          <li>Communicate alternate route if emergency egress is affected.</li>
-          <li>Safety restrictions remain visible until formally removed through the operational review workflow.</li>
-        </ul>
-
-        <div class="button-row">
-          <a class="quiet-button secondary" href="#">View Emergency Route Map</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h3>Workflow Notes</h3>
-        <ul class="workflow-list">
-          <li>Safety issues raised here appear in the operational review queue.</li>
-          <li>Restrictions remain visible until formally removed.</li>
-          <li>Inspection completion is retained for compliance audit purposes.</li>
-          <li>Temporary restrictions require alternate route guidance where applicable.</li>
-        </ul>
-      </article>
-     
-      <article class="card">
-        <h3>Record Control</h3>
-        <div class="detail-grid">
-          <p><strong>Owner</strong><span class="value">Facilities Operations Manager</span></p>
-          <p><strong>Point Type</strong><span class="value">Safety / Compliance</span></p>
-          <p><strong>Record Version</strong><span class="value">1.0</span></p>
-          <p><strong>Audit Status</strong><span class="value">Enabled</span></p>
-        </div>
-      </article>
-
-    </section>
-
-     </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+    document.querySelectorAll(".card-close").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest(".action-result-card").hidden = true;
+      });
+    });
+  </script>
 </body>
 </html>

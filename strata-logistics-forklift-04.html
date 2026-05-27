@@ -3,136 +3,162 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Forklift 04 — Strata Logistics — Hold</title>
-  <meta name="description" content="A Hold asset record for Forklift 04 at Strata Logistics." />
-  <link rel="stylesheet" href="style.css?v=24" />
+  <title>Strata Logistics - Forklift 04</title>
+  <meta
+    name="description"
+    content="A Strata Logistics equipment record for Forklift 04, showing equipment state, movement role, shared-use visibility, inspection, defects, route restrictions and supervisor escalation."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
-     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
+    <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
 
     <main class="dashboard-main">
-    <div class="dashboard-header">
-      <p class="eyebrow">Hold / Strata Logistics / Equipment</p>
-      <h1>Forklift 04</h1>
-      <p class="dashboard-subtitle">
-        Newly commissioned electric counterbalance forklift with QR-linked asset record, service tracking, authorised operators and bedding-in review history.
-      </p>
-    </div>
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Logistics / FLT-04</p>
 
-    <section class="grid">
+          <header class="scan-header">
+            <h1>Forklift 04</h1>
+            <p>Equipment record for current movement role, shared-use visibility, inspection, defects and route restrictions.</p>
+            <span class="status-pill status-review">Inspection Due</span>
+          </header>
 
-      <article class="card">
-        <span class="status-pill">Active</span>
-        <h3>Asset Details</h3>
-        <p><strong>Asset Type:</strong> Electric Counterbalance Forklift</p>
-        <p><strong>Model:</strong> Toyota Traigo 48</p>
-        <p><strong>Operational State:</strong> Newly Commissioned</p>
-        <p><strong>Primary Area:</strong> Bay C Dispatch Support</p>
-      </article>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Equipment State</h2>
+                <span class="status-pill status-review">Newly commissioned</span>
+              </div>
+              <p>Forklift 04 is active in its bedding-in period. Monitor battery behaviour, handling feedback and visible condition.</p>
+            </article>
 
-      <article class="card">
-        <span class="status-pill">Service</span>
-        <h3>Hours & Maintenance</h3>
-        <p><strong>Current Hours:</strong> 126</p>
-        <p><strong>Next Service Due:</strong> 250 hours or 30 Sep 2026</p>
-        <p><strong>First 90-Day Review:</strong> 20 Jul 2026</p>
-        <p><strong>Battery Performance:</strong> Monitor during bedding-in period</p>
-      </article>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Current Movement Role</h2>
+                <span class="status-pill status-active">Bay C03 support</span>
+              </div>
+              <p>Primary role is dispatch support between Bay C03, Hold Area B and shared outbound movement routes.</p>
+            </article>
 
-      <article class="card">
-        <span class="status-pill">Owner</span>
-        <h3>Record Control</h3>
-        <p><strong>Owner:</strong> L Bennett (“Cooper”), Operations Manager</p>
-        <p><strong>Review Frequency:</strong> Monthly during first 90 days</p>
-        <p><strong>Last Updated:</strong> 5 May 2026</p>
-      </article>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Shared-Use Visibility</h2>
+              </div>
+              <p>Keep operator, load, handover, route and charge state visible when the forklift changes task or operator.</p>
+            </article>
 
-    </section>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Inspection / Defects</h2>
+                <span class="status-pill status-pending">Check before movement</span>
+              </div>
+              <p>Confirm tyres, forks, mast, controls, warning systems and battery condition before the next active movement.</p>
+            </article>
 
-    <section class="panel">
-      <h2>Authorised Operators</h2>
-      <p>
-        Forklift 04 may only be operated by authorised staff who have completed familiarisation
-        for this asset and hold the required competency record.
-      </p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Route Restrictions</h2>
+              </div>
+              <p>Mixed intake and dispatch traffic may affect Bay A12, Bay C03, Hold Area B and charging access routes.</p>
+            </article>
 
-      <div class="record-list">
-        <article class="record-row">
-          <strong>M Khan</strong>
-          <span>Authorised — familiarisation completed</span>
-        </article>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Forklift 04 Actions</h2>
+              </div>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-logistics-forklift-04-cab-scan-view.html">Open cab scan</a>
+                <button type="button" class="quiet-button" data-action="forklift-04-inspection">Confirm inspection</button>
+                <button type="button" class="quiet-button" data-action="forklift-04-defect">Report defect</button>
+                <button type="button" class="quiet-button" data-action="forklift-04-restrict">Report route restriction</button>
+                <button type="button" class="quiet-button" data-action="forklift-04-handover">Start handover</button>
+                <button type="button" class="quiet-button" data-action="forklift-04-supervisor-record">Request supervisor</button>
+                <button type="button" class="quiet-button secondary" data-action="forklift-04-record-other">Other forklift issue</button>
+              </div>
+            </article>
 
-        <article class="record-row">
-          <strong>J Porter</strong>
-          <span>Authorised — familiarisation completed</span>
-        </article>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Audit Visibility</h2>
+              </div>
+              <p>Commissioning history, operator familiarisation, defects, battery performance and handovers stay attached to the record.</p>
+            </article>
 
-        <article class="record-row">
-          <strong>E Davies</strong>
-          <span>Pending familiarisation</span>
-        </article>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Human Judgement</h2>
+              </div>
+              <p>If the scan view, route, operator handover or asset behaviour does not match reality, pause and report before movement.</p>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="forklift-04-inspection-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-active">Inspection Confirmed</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Inspection confirmation opened for Forklift 04 with bedding-in, battery and movement role context attached.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-04-defect-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Defect Reported</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Defect report opened. Keep Forklift 04 out of active movement if safe use is uncertain.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-04-restrict-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Route Restriction</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Route restriction recorded for Forklift 04 across shared logistics movement areas.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-04-handover-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Handover Started</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Shared-use handover started. Confirm operator, task, load, route, charge state and open issues.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-04-supervisor-record-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Supervisor Requested</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Supervisor request raised for Forklift 04 movement role, route restriction or defect decision.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-04-record-other-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Other Forklift Issue</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Capture a Forklift 04 concern that sits outside the standard equipment actions.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the Forklift 04 issue or decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Forklift 04 record connects movement role, handover, charge state and bedding-in review</p>
+            <p>Route or defect uncertainty should remain visible before dispatch support continues</p>
+            <a href="strata-logistics-forklift-charging.html">Open forklift charging record</a>
+          </footer>
+        </section>
       </div>
-    </section>
+    </main>
+  </div>
 
-    <section class="panel soft-panel">
-      <h2>Commissioning History</h2>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-      <div class="record-list">
-        <article class="record-row">
-          <strong>18 Apr 2026</strong>
-          <span>Delivered to Strata Logistics site</span>
-        </article>
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
+  <script>
+    document.querySelectorAll("[data-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = document.getElementById(`${button.dataset.action}-card`);
+        if (!card) return;
+        card.hidden = false;
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
 
-        <article class="record-row">
-          <strong>19 Apr 2026</strong>
-          <span>Commissioning inspection completed</span>
-        </article>
-
-        <article class="record-row">
-          <strong>20 Apr 2026</strong>
-          <span>QR assigned and Hold asset record activated</span>
-        </article>
-
-        <article class="record-row">
-          <strong>22 Apr 2026</strong>
-          <span>Operator familiarisation completed for initial authorised users</span>
-        </article>
-      </div>
-    </section>
-
-    <section class="panel">
-      <h2>Operational Notes</h2>
-      <p>
-        Forklift 04 is allocated primarily to Bay C dispatch support while the asset completes
-        its bedding-in period. Battery performance, charging behaviour, and operator feedback
-        should be monitored during the first 90 days of service.
-      </p>
-
-     
-    </section>
-
-       </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+    document.querySelectorAll(".card-close").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest(".action-result-card").hidden = true;
+      });
+    });
+  </script>
 </body>
 </html>
