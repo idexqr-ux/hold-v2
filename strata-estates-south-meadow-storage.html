@@ -3,233 +3,297 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hold — South Meadow Storage</title>
-  <link rel="stylesheet" href="style.css?v=24" />
+  <title>Hold - South Meadow Storage</title>
+  <meta
+    name="description"
+    content="Managed operational estate view for South Meadow Storage, showing boundary awareness, shared access, temporary storage, environmental constraints and inherited site knowledge."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
     <div id="hold-sidebar" data-sidebar="sidebar-estates.html"></div>
 
     <main class="dashboard-main">
-      
-<div class="dashboard-header">
-  <p class="dashboard-breadcrumb">
-    Hold / Group Dashboard / Strata Estates / South Meadow Storage
-  </p>
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Estates / Managed Sites / South Meadow Storage</p>
 
-  <div class="dashboard-title-row">
-    <div>
-      <p class="section-kicker">Portfolio Site</p>
+          <header class="scan-header">
+            <h1>South Meadow Storage</h1>
+            <p>Outdoor storage and operational holding area with evolving boundaries, informal storage history and shared access constraints.</p>
+            <span class="status-pill status-review">Managed site</span>
+          </header>
 
-      <h1>South Meadow Storage</h1>
+          <section class="signal-strip signal-info">
+            <strong>Operational Note:</strong>
+            Historic storage arrangements and informal boundary use may differ from older site drawings retained in archive records.
+          </section>
 
-      <p class="dashboard-subtitle">
-        Outdoor storage and operational holding area with evolving boundaries,
-        informal storage history and shared access constraints.
-      </p>
-    </div>
+          <details class="map-details">
+            <summary>View South Meadow Storage operational map</summary>
+            <figure class="map-card">
+              <img
+                class="safety-map"
+                src="images/strata-estates-south-meadow-storage-map.svg"
+                alt="Illustrative South Meadow Storage map showing historic fence line, operational markers, neighbour access track and QR operational points."
+              />
+              <figcaption>
+                Operational map showing evolving storage boundaries, shared access routes and governed QR operational points.
+              </figcaption>
+            </figure>
+          </details>
 
-    <span class="dashboard-status-pill">
-      Managed Site
-    </span>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <h3>Storage Areas</h3>
+              <p>7 Active</p>
+            </div>
+            <div class="stat-card">
+              <h3>Boundary Reviews</h3>
+              <p>2 Ongoing</p>
+            </div>
+            <div class="stat-card">
+              <h3>Shared Access Gates</h3>
+              <p>3 Controlled</p>
+            </div>
+            <div class="stat-card">
+              <h3>Temporary Storage</h3>
+              <p>Under Review</p>
+            </div>
+          </div>
+
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Site Responsibility</h2>
+                <span class="status-pill status-review">Storage estate</span>
+              </div>
+              <p>Container placement, gate controls, storage limits and neighbour access decisions need a clear estate responsibility route.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="southmeadow-site-responsibility">Review responsibility</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Lease / Tenancy / Occupancy Awareness</h2>
+                <span class="status-pill status-review">Temporary storage</span>
+              </div>
+              <p>Storage users, temporary holding areas and legacy occupation assumptions should be checked before containers or materials are moved.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="southmeadow-occupancy-awareness">Check occupancy awareness</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Boundary &amp; Access</h2>
+                <span class="status-pill status-pending">Boundary review</span>
+              </div>
+              <p>Historic fence lines, overgrown edges, storage markers and the neighbour access track need review before operational changes.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="southmeadow-boundary-access">Review boundary and access</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Contractor Activity</h2>
+                <span class="status-pill status-review">Gate coordination</span>
+              </div>
+              <p>Delivery access, contractor attendance, temporary markers and material moves should be coordinated before shared gates become blocked.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="southmeadow-contractor-activity">Review contractor activity</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Environmental Constraints</h2>
+                <span class="status-pill status-active">Seasonal edge</span>
+              </div>
+              <p>Soft ground, overgrown boundaries, runoff risk and wet-weather vehicle positioning can affect storage, access and neighbour impact.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="southmeadow-environmental-constraints">Report environmental constraint</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Public / Shared Access</h2>
+                <span class="status-pill status-pending">Neighbour track</span>
+              </div>
+              <p>The Willows neighbour access track, shared gates and delivery movements should remain clear and role-appropriate guidance should be issued.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="southmeadow-shared-access">Review shared access</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Infrastructure Condition</h2>
+                <span class="status-pill status-review">Markers and gates</span>
+              </div>
+              <p>Fence lines, storage markers, gates, surfacing and map references should be checked where physical conditions no longer match archived drawings.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="southmeadow-infrastructure-condition">Log condition note</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Emergency Access</h2>
+                <span class="status-pill status-pending">Gates controlled</span>
+              </div>
+              <p>Shared gates, container positions and temporary storage should be checked so emergency access can be maintained without relying on informal memory.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="southmeadow-emergency-access">Check emergency access</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Inherited Site Knowledge</h2>
+                <span class="status-pill status-review">Historic use</span>
+              </div>
+              <p>Local memory about old fence lines, storage creep, informal gate use and neighbour arrangements should be preserved against the site record.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="southmeadow-inherited-knowledge">Record inherited knowledge</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Other Site Issue</h2>
+                <span class="status-pill status-active">Human judgement</span>
+              </div>
+              <p>Use this route for storage, access, boundary or neighbour issues that need estates judgement before a formal action is chosen.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button secondary" data-action="southmeadow-other-site-issue">Other site issue</button>
+              </div>
+            </article>
+          </div>
+
+          <section class="scan-section muted-section">
+            <h2>Operational Visibility</h2>
+            <div class="workflow-list">
+              <div class="workflow-item">
+                <strong>Estate management view</strong>
+                <span>Full operational map including historic boundary references and review areas.</span>
+              </div>
+              <div class="workflow-item">
+                <strong>Tenant / storage user view</strong>
+                <span>Current storage markers, shared access guidance and operational restrictions only.</span>
+              </div>
+              <div class="workflow-item">
+                <strong>Contractor view</strong>
+                <span>Access routes, turning guidance and temporary operational restrictions linked to approved works.</span>
+              </div>
+            </div>
+          </section>
+
+          <article class="card action-result-card" id="southmeadow-site-responsibility-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Site Responsibility</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Responsibility review opened. Confirm estate contact, storage owner, gate control, neighbour interface and decision route.</p>
+          </article>
+
+          <article class="card action-result-card" id="southmeadow-occupancy-awareness-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Occupancy Awareness</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Occupancy check opened. Review storage user, permitted area, temporary holding period, container location and inherited assumptions.</p>
+          </article>
+
+          <article class="card action-result-card" id="southmeadow-boundary-access-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Boundary &amp; Access</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Boundary and access review opened. Check fence line confidence, storage markers, overgrown edge, shared gates and neighbour access.</p>
+          </article>
+
+          <article class="card action-result-card" id="southmeadow-contractor-activity-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Contractor Activity</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Contractor activity review opened. Confirm delivery timing, gate use, temporary marker position, access route and affected storage users.</p>
+          </article>
+
+          <article class="card action-result-card" id="southmeadow-environmental-constraints-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Environmental Constraints</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Environmental constraint recorded. Check soft ground, runoff, overgrown boundary, seasonal access and neighbour impact.</p>
+          </article>
+
+          <article class="card action-result-card" id="southmeadow-shared-access-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Shared Access</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Shared access review opened. Confirm The Willows track, gate availability, delivery overlap and role-appropriate guidance.</p>
+          </article>
+
+          <article class="card action-result-card" id="southmeadow-infrastructure-condition-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Infrastructure Condition</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Condition note opened. Capture fence, gate, marker, surfacing or map mismatch and the verification action needed.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Record the storage-area condition, location and action needed..."></textarea>
+          </article>
+
+          <article class="card action-result-card" id="southmeadow-emergency-access-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Emergency Access</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Emergency access check opened. Confirm gate route, container clearance, keyholder route and who can move temporary storage.</p>
+          </article>
+
+          <article class="card action-result-card" id="southmeadow-inherited-knowledge-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Inherited Knowledge</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Inherited knowledge route opened. Capture old fence assumptions, storage history, neighbour arrangement and verification needed.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Record the person, historic use, location and verification needed..."></textarea>
+          </article>
+
+          <article class="card action-result-card" id="southmeadow-other-site-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Site Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Other site issue opened. Use this for storage or boundary concerns that need human judgement before escalation.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the site issue, location and decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Operational view held against South Meadow Storage</p>
+            <p>Responsibility, occupancy, boundary, shared access, environment, emergency access and site memory remain connected</p>
+            <a href="strata-estates-dashboard.html">Open Strata Estates dashboard</a>
+          </footer>
+        </section>
+      </div>
+    </main>
   </div>
-</div>
-      
-<section class="signal-strip signal-info">
-  <strong>Operational Note:</strong>
-  Historic storage arrangements and informal boundary use may differ from older site drawings retained in archive records.
-</section>
 
- <details class="map-details">
-  <summary>View South Meadow Storage operational map</summary>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-  <figure class="map-card">
-    <img class="safety-map"
-         src="images/strata-estates-south-meadow-storage-map.svg"
-         alt="Illustrative South Meadow Storage map showing historic fence line, operational markers, neighbour access track and QR operational points." />
-
-    <figcaption>
-      Operational map showing evolving storage boundaries,
-      shared access routes and governed QR operational points.
-    </figcaption>
-  </figure>
-</details>     
-
-<section class="stats-grid">
-
-  <div class="stat-card">
-    <h3>Storage Areas</h3>
-    <p>7 Active</p>
-  </div>
-
-  <div class="stat-card">
-    <h3>Boundary Reviews</h3>
-    <p>2 Ongoing</p>
-  </div>
-
-  <div class="stat-card">
-    <h3>Shared Access Gates</h3>
-    <p>3 Controlled</p>
-  </div>
-
-  <div class="stat-card">
-    <h3>Temporary Storage</h3>
-    <p>Under Review</p>
-  </div>
-
-</section>
-
-      <section class="content-grid">
-
-  <details class="panel collapsible-panel" open>
-  <summary>
-    <p class="eyebrow">Site Context</p>
-    <h3>Storage Area Overview</h3>
-  </summary>
-
-    <ul class="activity-list">
-      <li>
-        <strong>Outdoor operational storage</strong>
-        <span>Containers, materials and temporary holding areas developed gradually over multiple occupancy periods</span>
-      </li>
-
-      <li>
-        <strong>Mixed boundary history</strong>
-        <span>Fencing, storage extents and access arrangements evolved over time with partial historic records</span>
-      </li>
-
-      <li>
-        <strong>Shared access environment</strong>
-        <span>Operational vehicles, deliveries and neighbouring access require coordinated movement management</span>
-      </li>
-    </ul>
-  </details>
-
-  <details class="panel collapsible-panel" open>
-  <summary>
-    <p class="eyebrow">Operational Reality</p>
-    <h3>Current Friction Points</h3>
-  </summary>
-
-    <ul class="activity-list">
-      <li>
-        <strong>Temporary storage creep</strong>
-        <span>Historic temporary holding areas remain partially occupied beyond original intended use</span>
-      </li>
-
-      <li>
-        <strong>Boundary interpretation</strong>
-        <span>Historic fence lines and storage assumptions require clarification during operational changes</span>
-      </li>
-
-      <li>
-        <strong>Shared gate coordination</strong>
-        <span>Delivery access and contractor attendance occasionally overlap during peak activity periods</span>
-      </li>
-
-      <li>
-        <strong>Seasonal ground conditions</strong>
-        <span>Soft ground and overgrown edges affect temporary vehicle positioning during wet weather</span>
-      </li>
-    </ul>
-  </details>
-
-      <section class="content-grid">
-
-  <details class="panel collapsible-panel">
-  <summary>
-    <p class="eyebrow">Boundary Governance</p>
-    <h3>Site Edges & Neighbouring Access</h3>
-  </summary>
-    
-    <ul class="activity-list">
-      <li>
-        <strong>Historic fence line</strong>
-        <span>Physical fence does not fully confirm operational boundary responsibility</span>
-      </li>
-      <li>
-  <strong>Neighbour access track</strong>
-  <span class="asset-alias">Operationally known on site as “The Willows”</span>
-  <span>Shared access must remain clear for neighbouring land use</span>
-</li>
-      <li>
-        <strong>Overgrown edge</strong>
-        <span>Boundary visibility reduced seasonally and requires periodic check</span>
-      </li>
-      <li>
-        <strong>Storage limit markers</strong>
-        <span>Temporary markers used until boundary position is confirmed</span>
-      </li>
-    </ul>
-  </details>
-
-  <details class="panel collapsible-panel" open>
-  <summary>
-    <p class="eyebrow">Storage Controls</p>
-    <h3>Outdoor Storage Rules</h3>
-  </summary>
-
-    <ol class="check-list">
-      <li>Record container location before placement</li>
-      <li>Confirm storage area does not obstruct shared access</li>
-      <li>Review temporary storage monthly where still occupied</li>
-      <li>Photograph and log unclear boundary edges</li>
-      <li>Escalate neighbour access concerns before moving materials</li>
-    </ol>
-  </details>
-
-        <details class="panel collapsible-panel">
-  <summary>
-  <p class="eyebrow">Operational Visibility</p>
-  <h3>Map Access Guidance</h3>
-  </summary>
-
-  <ul class="activity-list">
-    <li>
-      <strong>Estate management view</strong>
-      <span>Full operational map including historic boundary references and review areas</span>
-    </li>
-
-    <li>
-      <strong>Tenant / storage user view</strong>
-      <span>Current storage markers, shared access guidance and operational restrictions only</span>
-    </li>
-
-    <li>
-      <strong>Contractor view</strong>
-      <span>Access routes, turning guidance and temporary operational restrictions linked to approved works</span>
-    </li>
-
-    <li>
-      <strong>Neighbour access coordination</strong>
-      <span>Relevant gate and track restrictions shared only where operationally required</span>
-    </li>
-  </ul>
-        </details>
-
-</section>
-
-       </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+  <script src="sidebar.js?v=8"></script>
+  <script src="clock.js?v=4"></script>
 </body>
 </html>

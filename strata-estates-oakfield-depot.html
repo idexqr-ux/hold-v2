@@ -3,324 +3,296 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hold — Oakfield Depot</title>
-  <link rel="stylesheet" href="style.css?v=24" />
+  <title>Hold - Oakfield Depot</title>
+  <meta
+    name="description"
+    content="Managed operational estate view for Oakfield Depot, showing site responsibility, access, utilities, contractor activity, environmental constraints and inherited knowledge."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
     <div id="hold-sidebar" data-sidebar="sidebar-estates.html"></div>
 
     <main class="dashboard-main">
-      
-<div class="dashboard-header">
-  <p class="dashboard-breadcrumb">
-    Hold / Group Dashboard / Strata Estates / South Meadow Storage
-  </p>
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Estates / Managed Sites / Oakfield Depot</p>
 
-  <div class="dashboard-title-row">
-    <div>
-      <p class="section-kicker">Portfolio Site</p>
-      
-  <h1>Oakfield Depot</h1>
-      
-  <p class="dashboard-subtitle">
-    Semi-rural operational depot with shared access routes,
-    buried infrastructure and evolving land-use controls.
-  </p>
- </div>
+          <header class="scan-header">
+            <h1>Oakfield Depot</h1>
+            <p>Semi-rural operational depot with shared access routes, buried infrastructure and evolving land-use controls.</p>
+            <span class="status-pill status-review">Managed site</span>
+          </header>
 
-    <span class="dashboard-status-pill">
-      Managed Site
-    </span>
+          <details class="map-details">
+            <summary>View Oakfield Depot operational map</summary>
+            <figure class="map-card">
+              <img
+                class="safety-map"
+                src="images/strata-estates-oakfield-depot-site-map.png"
+                alt="Illustrative Oakfield Depot map showing buildings, drainage areas, utility zones, access routes and operational QR points."
+              />
+              <figcaption>
+                Operational infrastructure layer showing access routes, drainage concerns, buried utility areas and governed QR operational points.
+              </figcaption>
+            </figure>
+          </details>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <h3>Operational Buildings</h3>
+              <p>3 Active</p>
+            </div>
+            <div class="stat-card">
+              <h3>Shared Access Routes</h3>
+              <p>2 Recorded</p>
+            </div>
+            <div class="stat-card">
+              <h3>Buried Services</h3>
+              <p>Verification Ongoing</p>
+            </div>
+            <div class="stat-card">
+              <h3>Drainage Alerts</h3>
+              <p>Seasonal Monitoring</p>
+            </div>
+          </div>
+
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Site Responsibility</h2>
+                <span class="status-pill status-active">Estate owned</span>
+              </div>
+              <p>Storage buildings, utility areas, access tracks and drainage controls require a single visible estate responsibility route before work or occupancy changes are approved.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="oakfield-site-responsibility">Review responsibility</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Lease / Tenancy / Occupancy Awareness</h2>
+                <span class="status-pill status-review">Before change</span>
+              </div>
+              <p>Depot users and storage arrangements should be checked against permitted use, yard allocation and any temporary occupancy assumptions.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="oakfield-occupancy-awareness">Check occupancy awareness</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Boundary &amp; Access</h2>
+                <span class="status-pill status-pending">Shared route</span>
+              </div>
+              <p>The Willows access, eastern track, low-loader route and restricted turning area need review before deliveries, contractor attendance or neighbour access conflict.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="oakfield-boundary-access">Review access constraints</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Utilities &amp; Isolation</h2>
+                <span class="status-pill status-pending">Before groundworks</span>
+              </div>
+              <p>Historic water routes, partial electrical ducting records and the entrance isolation cabinet must be visible before excavation or service interruption.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="oakfield-utility-isolation">Open utility guidance</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Contractor Activity</h2>
+                <span class="status-pill status-review">Permit controlled</span>
+              </div>
+              <p>Groundworks, drainage inspection, deliveries and temporary exclusion zones should be matched to the latest marked-up operational plan.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="oakfield-contractor-activity">Review contractor activity</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Environmental Constraints</h2>
+                <span class="status-pill status-active">Weather affected</span>
+              </div>
+              <p>Standing water, soft verges, drainage edge risk and seasonal ground conditions may change access, excavation and vehicle movement decisions.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="oakfield-environmental-constraints">Report environmental constraint</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Infrastructure Condition</h2>
+                <span class="status-pill status-review">Partial records</span>
+              </div>
+              <p>Legacy pipe routes, drainage observations, utility compound access and older marked-up plans should remain connected until verified surveys replace local notes.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="oakfield-infrastructure-condition">Log condition note</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Emergency Access</h2>
+                <span class="status-pill status-pending">Keep clear</span>
+              </div>
+              <p>Entrance cabinet access, low-loader turning space, shared route movement and drainage-edge restrictions need a clear emergency route decision.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="oakfield-emergency-access">Check emergency access</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Inherited Site Knowledge</h2>
+                <span class="status-pill status-review">Human memory</span>
+              </div>
+              <p>Local knowledge about old utility routes, saturation patterns and access arrangements should be captured before it becomes unavailable.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="oakfield-inherited-knowledge">Record inherited knowledge</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Other Site Issue</h2>
+                <span class="status-pill status-active">Human judgement</span>
+              </div>
+              <p>Use this route where the depot issue needs estates judgement before it fits a formal access, utility, contractor or environmental category.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button secondary" data-action="oakfield-other-site-issue">Other site issue</button>
+              </div>
+            </article>
+          </div>
+
+          <section class="scan-section muted-section">
+            <h2>Governed QR Points</h2>
+            <div class="workflow-list">
+              <a href="strata-estates-oakfield-qr-contractor-works.html" class="workflow-item workflow-link">
+                <strong>QR1 - Contractor Works</strong>
+                <span>Latest marked-up operational plan and contractor guidance.</span>
+              </a>
+              <a href="strata-estates-oakfield-qr-utility-isolation.html" class="workflow-item workflow-link">
+                <strong>QR2 - Utility Isolation</strong>
+                <span>Isolation controls, buried service notes and emergency guidance.</span>
+              </a>
+              <a href="strata-estates-oakfield-qr-drainage-inspection.html" class="workflow-item workflow-link">
+                <strong>QR3 - Drainage Inspection</strong>
+                <span>Seasonal drainage checks and standing water observations.</span>
+              </a>
+              <a href="strata-estates-oakfield-qr-access-guidance.html" class="workflow-item workflow-link">
+                <strong>QR4 - Access Guidance</strong>
+                <span>Vehicle routing, low-loader access and turning restrictions.</span>
+              </a>
+            </div>
+          </section>
+
+          <article class="card action-result-card" id="oakfield-site-responsibility-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Site Responsibility</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Responsibility review opened. Confirm estate owner, site contact, active users, storage areas and decision route before authorising activity.</p>
+          </article>
+
+          <article class="card action-result-card" id="oakfield-occupancy-awareness-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Occupancy Awareness</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Occupancy check opened. Review permitted use, temporary storage, active occupiers and any inherited arrangement before changing the site state.</p>
+          </article>
+
+          <article class="card action-result-card" id="oakfield-boundary-access-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Boundary &amp; Access</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Access review opened. Check The Willows, eastern track, low-loader route, neighbour use and temporary movement controls.</p>
+          </article>
+
+          <article class="card action-result-card" id="oakfield-utility-isolation-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Utility Isolation</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Utility guidance opened. Verify service scan need, marked exclusion zones, isolation cabinet access and emergency route before groundworks.</p>
+          </article>
+
+          <article class="card action-result-card" id="oakfield-contractor-activity-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Contractor Activity</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Contractor review opened. Match RAMS, permit conditions, delivery route, exclusion areas and current marked-up plan.</p>
+          </article>
+
+          <article class="card action-result-card" id="oakfield-environmental-constraints-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Environmental Constraints</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Environmental constraint recorded. Check drainage, standing water, soft verge protection, runoff and weather-triggered access limits.</p>
+          </article>
+
+          <article class="card action-result-card" id="oakfield-infrastructure-condition-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Infrastructure Condition</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Condition note opened. Capture the asset, known issue, confidence level, photo reference and verification action needed.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Record the infrastructure condition or verification needed..."></textarea>
+          </article>
+
+          <article class="card action-result-card" id="oakfield-emergency-access-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Emergency Access</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Emergency access check opened. Confirm route clearance, isolation cabinet access, turning space and who can remove obstructions.</p>
+          </article>
+
+          <article class="card action-result-card" id="oakfield-inherited-knowledge-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Inherited Knowledge</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Inherited knowledge route opened. Capture who knows the issue, where it applies, what has changed and how it should be verified.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Record the person, place, operational detail and verification needed..."></textarea>
+          </article>
+
+          <article class="card action-result-card" id="oakfield-other-site-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Site Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Other site issue opened. Use this for depot conditions that need human judgement before a formal action is chosen.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the site issue, location and decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Operational view held against Oakfield Depot</p>
+            <p>Responsibility, occupancy, access, utilities, contractors, environment and site memory remain connected</p>
+            <a href="strata-estates-dashboard.html">Open Strata Estates dashboard</a>
+          </footer>
+        </section>
+      </div>
+    </main>
   </div>
-</div>
 
-  <details class="map-details">
-  <summary>View Oakfield Depot operational map</summary>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-  <figure class="map-card">
-    <img class="safety-map"
-         src="images/strata-estates-oakfield-depot-site-map.png"
-         alt="Illustrative Oakfield Depot map showing buildings, drainage areas, utility zones, access routes and operational QR points." />
-    <figcaption>
-      Operational infrastructure layer showing access routes, drainage concerns,
-      buried utility areas and governed QR operational points.
-    </figcaption>
-  </figure>
-</details>    
-
-<section class="stats-grid">
-
-  <div class="stat-card">
-    <h3>Operational Buildings</h3>
-    <p>3 Active</p>
-  </div>
-
-  <div class="stat-card">
-    <h3>Shared Access Routes</h3>
-    <p>2 Recorded</p>
-  </div>
-
-  <div class="stat-card">
-    <h3>Buried Services</h3>
-    <p>Verification Ongoing</p>
-  </div>
-
-  <div class="stat-card">
-    <h3>Drainage Alerts</h3>
-    <p>Seasonal Monitoring</p>
-  </div>
-
-</section>
-
-      <section class="content-grid">
-
-  <details class="panel collapsible-panel" open>
-  <summary>
-    <p class="eyebrow">Site Context</p>
-    <h3>Estate Overview</h3>
-  </summary>
-
-    <ul class="activity-list">
-      <li>
-        <strong>Semi-rural operational depot</strong>
-        <span>Storage buildings, utility areas and access routes developed gradually over time</span>
-      </li>
-
-      <li>
-        <strong>Mixed infrastructure history</strong>
-        <span>Drainage, buried services and access tracks altered across multiple operational periods</span>
-      </li>
-
-      <li>
-        <strong>Shared access environment</strong>
-        <span>Operational traffic, neighbouring land access and contractor attendance require coordinated site management</span>
-      </li>
-    </ul>
-  </details>
-
-  <details class="panel collapsible-panel">
-  <summary>
-    <p class="eyebrow">Operational Reality</p>
-    <h3>Current Friction Points</h3>
-  </summary>
-    
-    <ul class="activity-list">
-      <li>
-        <strong>Buried service uncertainty</strong>
-        <span>Historic utility routes require ongoing verification before excavation works</span>
-      </li>
-
-      <li>
-        <strong>Seasonal drainage issues</strong>
-        <span>Standing water reported near eastern access route after prolonged rainfall</span>
-      </li>
-
-      <li>
-  <strong>Shared access route</strong>
-
-  <p class="asset-alias">
-    Operationally referred to as “The Willows”
-  </p>
-
-  <span>
-    Operational traffic and neighbouring land access require coordinated movement planning
-  </span>
-</li>
-
-      <li>
-        <strong>Restricted turning area</strong>
-        <span>Large vehicle manoeuvring limited near utility compound entrance</span>
-      </li>
-    </ul>
-  </details>
-
-</section>
-
-      <section class="content-grid">
-
-  <details class="panel collapsible-panel" open>
-  <summary>
-    <p class="eyebrow">Infrastructure Governance</p>
-    <h3>Buried Services & Utility Routes</h3>
-  </summary>
-    
-    <ul class="activity-list">
-      <li>
-        <strong>Legacy water route</strong>
-        <span>Historic pipe route believed to cross eastern yard edge — verification required before groundworks</span>
-      </li>
-      <li>
-        <strong>Electrical ducting</strong>
-        <span>Partial record only; contractor excavation requires service scan and marked exclusion zone</span>
-      </li>
-      <li>
-        <strong>Utility isolation point</strong>
-        <span>Main isolation cabinet located near depot entrance; access must remain clear</span>
-      </li>
-      <li>
-        <strong>Record confidence</strong>
-        <span>Older infrastructure notes retained until verified survey replaces local knowledge</span>
-      </li>
-    </ul>
-  </details>
-
-  <details class="panel collapsible-panel">
-  <summary>
-    <p class="eyebrow">Groundworks Controls</p>
-    <h3>Before Digging / Trenching</h3>
-  </summary>
-
-    <ol class="check-list">
-      <li>Check Hold utility record and latest marked-up plan</li>
-      <li>Confirm whether service scan is required</li>
-      <li>Review historic notes before issuing permit</li>
-      <li>Mark exclusion zones before work starts</li>
-      <li>Record any newly confirmed service route after works</li>
-    </ol>
-  </details>
-      </section>
-
-    <section class="content-grid">
-
-  <details class="panel collapsible-panel" open>
-  <summary>
-    <p class="eyebrow">Access Constraints</p>
-    <h3>Vehicle & Equipment Movement</h3>
-  </summary>
-
-    <ul class="activity-list">
-      <li>
-        <strong>Low-loader access</strong>
-        <span>Heavy equipment deliveries require advance route and turning-area review</span>
-      </li>
-
-      <li>
-        <strong>Seasonal ground conditions</strong>
-        <span>Soft verge areas may require temporary matting during prolonged wet weather</span>
-      </li>
-
-      <li>
-        <strong>Restricted manoeuvring area</strong>
-        <span>Large vehicle turning limited near utility compound and drainage edge</span>
-      </li>
-
-      <li>
-        <strong>Shared access route</strong>
-        <span>Operational traffic and neighbouring land access require coordinated movement planning</span>
-      </li>
-    </ul>
-  </details>
-
-  <details class="panel collapsible-panel">
-  <summary>
-    <p class="eyebrow">Operational Controls</p>
-    <h3>Before Contractor Arrival</h3>
-  </summary>
-
-    <ol class="check-list">
-      <li>Review latest marked-up operational plan</li>
-      <li>Confirm delivery vehicle suitability for site access</li>
-      <li>Check ground conditions before heavy equipment attendance</li>
-      <li>Issue temporary access restrictions where required</li>
-      <li>Record newly identified route or infrastructure risks after works</li>
-    </ol>
-  </details>
-
-</section>    
-
-<section class="content-grid">
-
-  <details class="panel collapsible-panel">
-  <summary>
-    <p class="eyebrow">Operational Mapping</p>
-    <h3>Live Works & Marked-Up Plans</h3>
-  </summary>
-
-    <ul class="activity-list">
-      <li>
-        <strong>Latest marked-up contractor plan</strong>
-        <span>Operational excavation and access notes issued before drainage inspection works</span>
-      </li>
-
-      <li>
-        <strong>Temporary exclusion area</strong>
-        <span>Utility route uncertainty flagged near eastern service corridor</span>
-      </li>
-
-      <li>
-        <strong>Low-loader access route</strong>
-        <span>Turning guidance and verge protection requirements attached to current works plan</span>
-      </li>
-
-      <li>
-        <strong>Drainage advisory overlay</strong>
-        <span>Standing water risk highlighted following recent rainfall conditions</span>
-      </li>
-    </ul>
-  </details>
-
-  <details class="panel collapsible-panel">
-  <summary>
-    <p class="eyebrow">QR Governance</p>
-    <h3>Operational QR Points</h3>
-  </summary>
-
-    <ul class="activity-list">
-      <li>
-        <strong>Contractor works QR</strong>
-        <span>Linked to latest marked-up operational plan and access guidance</span>
-      </li>
-      <li>
-  <strong>Recurring saturation pattern</strong>
-  <span>Ground conditions historically worsen during prolonged rainfall despite earlier drainage works</span>
-</li>
-
-   <a> class="workflow-item workflow-link">
-  <strong>QR1 — Contractor Works</strong>
-  <span>Latest marked-up operational plan and contractor guidance</span>
-</a>
-
-<a> class="workflow-item workflow-link">
-  <strong>QR2 — Utility Isolation</strong>
-  <span>Isolation controls, buried service notes and emergency guidance</span>
-</a>
-<a>
- class="workflow-item workflow-link">
-  <strong>QR3 — Drainage Inspection</strong>
-  <span>Seasonal drainage checks and standing water observations</span>
-</a>
-
-<a> class="workflow-item workflow-link">
-  <strong>QR4 — Access Guidance</strong>
-  <span>Vehicle routing, low-loader access and turning restrictions</span>
-</a>
-    </ul>
-  </details>
-
-</section>
-
-        </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+  <script src="sidebar.js?v=8"></script>
+  <script src="clock.js?v=4"></script>
 </body>
 </html>
