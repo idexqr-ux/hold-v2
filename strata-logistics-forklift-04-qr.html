@@ -3,183 +3,162 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>QR-LOG-014-V1 — Forklift 04</title>
-
-  <link rel="stylesheet" href="style.css?v=42" />
+  <title>Strata Logistics - Forklift 04 QR</title>
+  <meta
+    name="description"
+    content="Governed QR identity for Forklift 04 operator guidance, inspection awareness, restricted operation, defect escalation and maintenance visibility."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
 
     <main class="dashboard-main">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Logistics / QR-LOG-014-V1</p>
 
-      <div class="dashboard-header">
+          <header class="scan-header">
+            <h1>Forklift 04 QR</h1>
+            <p>Governed equipment QR for operator guidance, inspection awareness, defects and maintenance visibility.</p>
+            <span class="status-pill status-active">QR Active</span>
+          </header>
 
-  <p class="dashboard-breadcrumb">
-    Strata Logistics / QR Management / Forklift 04
-  </p>
+          <details class="scan-section muted-section">
+            <summary>View QR print preview</summary>
+            <div class="qr-print-preview">
+              <img
+                class="qr-code-image"
+                src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&amp;data=https%3A%2F%2Fidexqr-ux.github.io%2Fqr-hold%2Fstrata-logistics-forklift-04.html"
+                alt="QR code for Forklift 04 operational record"
+              />
+              <p><strong>Forklift 04</strong></p>
+              <p class="muted-text">QR-LOG-014-V1<br />Governed Hold Equipment Access Point<br />Scan for Forklift 04 operational guidance</p>
+            </div>
+          </details>
 
-  <div class="dashboard-title-row">
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Forklift QR Visibility</h2>
+                <span class="status-pill status-active">Managed</span>
+              </div>
+              <p>QR-LOG-014-V1 should be visible from the operator entry position and match the QR register.</p>
+            </article>
 
-    <div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Operator Guidance</h2>
+              </div>
+              <p>This QR opens Forklift 04 guidance for movement role, route context, handover and charging awareness.</p>
+            </article>
 
-      <p class="section-kicker">Equipment QR</p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Inspection Awareness</h2>
+                <span class="status-pill status-review">Check before use</span>
+              </div>
+              <p>Operators should confirm visible condition, controls, warning systems and battery state before movement.</p>
+            </article>
 
-      <h1>Forklift 04 QR</h1>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Restricted Operation</h2>
+              </div>
+              <p>QR guidance should show route restrictions, shared-use handover and any supervisor limits on operation.</p>
+            </article>
 
-      <p class="dashboard-subtitle">
-        Governed operational QR identity linked to Forklift 04 equipment records,
-        inspection workflows and operational guidance.
-      </p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Maintenance Visibility</h2>
+              </div>
+              <p>Defect reports, maintenance escalation and bedding-in review notes should stay linked to the equipment QR.</p>
+            </article>
 
-    </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Forklift QR Actions</h2>
+              </div>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-logistics-forklift-04.html">Open Forklift 04 record</a>
+                <a class="quiet-button" href="strata-logistics-forklift-04-cab-scan-view.html">Open cab scan</a>
+                <button type="button" class="quiet-button" data-action="forklift-04-qr-condition">Report QR condition</button>
+                <button type="button" class="quiet-button" data-action="forklift-04-qr-defect">Report defect</button>
+                <button type="button" class="quiet-button" data-action="forklift-04-qr-maintenance">Request maintenance</button>
+                <button type="button" class="quiet-button" data-action="forklift-04-qr-restrict">Report restricted operation</button>
+                <button type="button" class="quiet-button secondary" data-action="forklift-04-qr-other">Other forklift QR issue</button>
+              </div>
+            </article>
 
-    <span class="dashboard-status-pill">
-      QR Active
-    </span>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Audit Visibility</h2>
+              </div>
+              <p>QR condition, defect escalation, maintenance visibility and replacement history remain attached to QR-LOG-014-V1.</p>
+            </article>
+          </div>
 
+          <article class="card action-result-card" id="forklift-04-qr-condition-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">QR Condition</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Forklift 04 QR condition issue recorded. Check label placement, scan reliability and equipment identity.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-04-qr-defect-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Defect Reported</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Defect report opened from the equipment QR with Forklift 04 identity attached.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-04-qr-maintenance-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Maintenance Requested</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Maintenance request opened with QR identity, equipment record and current operating context attached.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-04-qr-restrict-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-overdue">Restricted Operation</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Restricted operation reported. Keep Forklift 04 out of unclear movement until supervisor or maintenance review.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-04-qr-other-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Other Forklift QR Issue</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Capture a Forklift 04 QR issue that does not fit condition, defect, maintenance or restriction routes.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the Forklift 04 QR issue or decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Forklift 04 QR held as QR-LOG-014-V1</p>
+            <p>Operator guidance, inspection awareness and maintenance visibility remain connected</p>
+            <a href="strata-logistics-qr-management.html">Open QR Management</a>
+          </footer>
+        </section>
+      </div>
+    </main>
   </div>
 
-</div>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-      <section class="grid">
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
+  <script>
+    document.querySelectorAll("[data-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = document.getElementById(`${button.dataset.action}-card`);
+        if (!card) return;
+        card.hidden = false;
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
 
-        <article class="card soft-panel">
-
-          <p class="section-kicker">Governed QR Identity</p>
-
-          <h3>QR-LOG-014-V1</h3>
-
-          <p>
-            This QR code forms part of the managed operational equipment estate
-            within Hold and links directly to the Forklift 04 operational record.
-          </p>
-
-          <div class="detail-grid">
-            <p><strong>Linked record</strong><span class="value">Forklift 04</span></p>
-            <p><strong>QR status</strong><span class="value value-key">Active</span></p>
-            <p><strong>Deployment type</strong><span class="value">Equipment asset</span></p>
-            <p><strong>Governance state</strong><span class="value">Managed</span></p>
-          </div>
-
-        </article>
-
-        <article class="card">
-
-          <p class="section-kicker">QR Destination</p>
-
-          <h3>Scan Destination</h3>
-
-          <p>
-            This QR opens the live Forklift 04 operational record:
-          </p>
-
-          <p class="muted-text">
-            https://idexqr-ux.github.io/qr-hold/strata-logistics-forklift-04.html
-          </p>
-
-          <div class="button-row">
-            <a class="quiet-button" href="strata-logistics-forklift-04.html">
-              Open Forklift 04 Record
-            </a>
-          </div>
-
-        </article>
-
-        <article class="card">
-
-          <p class="section-kicker">Print Layout</p>
-
-          <h3>Forklift 04</h3>
-
-          <div class="qr-print-preview">
-
-            <img
-  class="qr-code-image"
-  src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fidexqr-ux.github.io%2Fqr-hold%2Fstrata-logistics-forklift-04.html"
-  alt="QR code for Forklift 04 operational record"
-/>
-
-           <p><strong>Forklift 04</strong></p>
-
-<p class="muted-text">
-  QR-LOG-014-V1<br />
-  Governed Hold Equipment Access Point<br />
-  Scan for Forklift 04 operational guidance
-</p>
-
-          </div>
-
-        </article>
-
-        <article class="card">
-
-          <p class="section-kicker">Deployment Guidance</p>
-
-          <h3>Recommended Use</h3>
-
-          <ul class="workflow-list">
-            <li><strong>Recommended size:</strong> 60–80 mm</li>
-            <li><strong>Typical scan distance:</strong> under 1 metre</li>
-            <li><strong>Placement:</strong> visible from operator entry position</li>
-            <li><strong>Material:</strong> oil-resistant, wipe-clean industrial label</li>
-          </ul>
-
-        </article>
-
-        <article class="card">
-
-          <p class="section-kicker">Operational Access</p>
-
-          <h3>Session-Aware Guidance Access</h3>
-
-          <ul class="workflow-list">
-            <li>Selected operational guidance may require recognised operational sessions.</li>
-            <li>Operational equipment guidance may be restricted outside approved environments.</li>
-            <li>Operational users may be required to revalidate access through approved QR points.</li>
-            <li>Approved operational device recognition may apply to selected workflows.</li>
-          </ul>
-
-        </article>
-
-        <article class="card">
-
-          <p class="section-kicker">Security &amp; Governance</p>
-
-          <h3>Operational Trust</h3>
-
-          <ul class="workflow-list">
-            <li>Visible QR identity code should match the Hold QR register.</li>
-            <li>Damaged, missing or unrecognised equipment labels should be reported immediately.</li>
-            <li>Replacement QR labels should be issued through QR Management.</li>
-            <li>Retired QR references remain preserved within operational audit history.</li>
-          </ul>
-
-        </article>
-
-      </section>
-
-     </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+    document.querySelectorAll(".card-close").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest(".action-result-card").hidden = true;
+      });
+    });
+  </script>
 </body>
 </html>

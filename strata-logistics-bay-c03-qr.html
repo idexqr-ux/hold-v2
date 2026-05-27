@@ -3,143 +3,156 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>QR-LOG-003-V1 — Bay C03 Dispatch</title>
-
-  <link rel="stylesheet" href="style.css?v=42" />
+  <title>Strata Logistics - Bay C03 Dispatch QR</title>
+  <meta
+    name="description"
+    content="Governed QR identity for Bay C03 dispatch guidance, vehicle confirmation, route readiness, loading restrictions and escalation."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
 
     <main class="dashboard-main">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Logistics / QR-LOG-003-V1</p>
 
-      <div class="dashboard-header">
-        <p class="dashboard-breadcrumb">
-          Strata Logistics / QR Management / Bay C03
-        </p>
-
-        <div class="dashboard-title-row">
-          <div>
+          <header class="scan-header">
             <h1>Bay C03 Dispatch QR</h1>
+            <p>Governed dispatch QR for outbound guidance, vehicle confirmation, route readiness and escalation.</p>
+            <span class="status-pill status-active">QR Active</span>
+          </header>
 
-            <p class="dashboard-subtitle">
-              Governed operational QR identity for Bay C03 dispatch guidance and controlled outbound dispatch movement.
-            </p>
+          <details class="scan-section muted-section">
+            <summary>View QR print preview</summary>
+            <div class="qr-print-preview">
+              <img
+                class="qr-code-image"
+                src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&amp;data=https%3A%2F%2Fidexqr-ux.github.io%2Fqr-hold%2Fstrata-logistics-bay-c03.html"
+                alt="QR code for Bay C03 Dispatch operational record"
+              />
+              <p><strong>Bay C03 Dispatch</strong></p>
+              <p class="muted-text">QR-LOG-003-V1<br />Governed Hold Operational Point<br />Scan for dispatch guidance, loading checks and outbound movement workflows</p>
+            </div>
+          </details>
+
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Dispatch QR Visibility</h2>
+                <span class="status-pill status-active">Managed</span>
+              </div>
+              <p>QR-LOG-003-V1 should be visible from the dispatch approach lane and match the Hold QR register.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Outbound Workflow Guidance</h2>
+              </div>
+              <p>This QR routes users to Bay C03 dispatch guidance for loading checks and outbound movement decisions.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Vehicle Confirmation</h2>
+              </div>
+              <p>Drivers and staff should confirm vehicle, carrier reference, pallet count and dispatch paperwork before release.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Route Readiness</h2>
+                <span class="status-pill status-review">Bay C03 route</span>
+              </div>
+              <p>Scan guidance should show whether the dispatch route, forklift lane and emergency access are clear.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Restricted Loading Awareness</h2>
+              </div>
+              <p>Temporary lane restrictions, held stock or unclear loading decisions should remain visible at the QR point.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Dispatch QR Actions</h2>
+              </div>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-logistics-bay-c03.html">Open Bay C03 record</a>
+                <a class="quiet-button" href="strata-logistics-dispatch-scan.html">Open dispatch scan</a>
+                <button type="button" class="quiet-button" data-action="bay-c03-qr-condition">Report QR condition</button>
+                <button type="button" class="quiet-button" data-action="bay-c03-qr-route">Report route issue</button>
+                <button type="button" class="quiet-button" data-action="bay-c03-qr-escalate">Dispatch escalation</button>
+                <button type="button" class="quiet-button secondary" data-action="bay-c03-qr-other">Other dispatch QR issue</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Audit Visibility</h2>
+              </div>
+              <p>Replacement, reassignment, damaged-label reports and dispatch access decisions stay linked to QR-LOG-003-V1.</p>
+            </article>
           </div>
 
-          <span class="dashboard-status-pill">
-            QR Active
-          </span>
-        </div>
+          <article class="card action-result-card" id="bay-c03-qr-condition-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">QR Condition</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Bay C03 QR condition issue recorded. Check label visibility, scan reliability and register identity.</p>
+          </article>
+
+          <article class="card action-result-card" id="bay-c03-qr-route-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Route Issue</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Dispatch route issue opened from the QR point. Confirm Bay C03, forklift lane and emergency access status.</p>
+          </article>
+
+          <article class="card action-result-card" id="bay-c03-qr-escalate-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Dispatch Escalation</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Dispatch escalation raised with QR identity, loading context and route readiness attached.</p>
+          </article>
+
+          <article class="card action-result-card" id="bay-c03-qr-other-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Other Dispatch QR Issue</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Capture a dispatch QR issue that does not fit condition, route or escalation actions.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the Bay C03 QR issue or decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Bay C03 Dispatch QR held as QR-LOG-003-V1</p>
+            <p>Dispatch guidance, route readiness and QR identity stay connected</p>
+            <a href="strata-logistics-qr-management.html">Open QR Management</a>
+          </footer>
+        </section>
       </div>
+    </main>
+  </div>
 
-      <section class="grid">
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-        <article class="card soft-panel">
-          <p class="section-kicker">Governed QR Identity</p>
-          <h3>QR-LOG-003-V1</h3>
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
+  <script>
+    document.querySelectorAll("[data-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = document.getElementById(`${button.dataset.action}-card`);
+        if (!card) return;
+        card.hidden = false;
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
 
-          <p>
-            This QR code is linked to a managed operational entity within Hold.
-            Replacement, reassignment and retirement actions are controlled through
-            the QR Management workflow.
-          </p>
-
-          <div class="detail-grid">
-            <p><strong>Linked record</strong><span class="value">Bay C03 Dispatch</span></p>
-            <p><strong>QR status</strong><span class="value value-key">Active</span></p>
-            <p><strong>Deployment type</strong><span class="value">Vehicle bay / loading area</span></p>
-            <p><strong>Governance state</strong><span class="value">Managed</span></p>
-          </div>
-        </article>
-
-        <article class="card">
-          <p class="section-kicker">QR Destination</p>
-          <h3>Scan Destination</h3>
-
-          <p>
-            This QR opens the live Bay C03 operational record:
-          </p>
-
-          <p class="muted-text">
-            https://idexqr-ux.github.io/qr-hold/strata-logistics-bay-c03.html
-          </p>
-
-          <div class="button-row">
-            <a class="quiet-button" href="strata-logistics-bay-c03.html">
-              Open Bay C03 Record
-            </a>
-          </div>
-        </article>
-
-        <article class="card">
-          <p class="section-kicker">Print Layout</p>
-          <h3>Bay C03 Dispatch</h3>
-
-          <div class="qr-print-preview">
-           <img
-  class="qr-code-image"
-  src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fidexqr-ux.github.io%2Fqr-hold%2Fstrata-logistics-bay-c03.html"
-  alt="QR code for Bay C03 Dispatch operational record"
-/>
-
-<p><strong>Bay C03 Dispatch</strong></p>
-
-<p class="muted-text">
-  QR-LOG-003-V1<br />
-  Governed Hold Operational Point<br />
- Scan for dispatch guidance, loading checks and outbound movement workflows
-</p>
-          </div>
-        </article>
-
-        <article class="card">
-          <p class="section-kicker">Deployment Guidance</p>
-          <h3>Recommended Use</h3>
-
-          <ul class="workflow-list">
-            <li><strong>Recommended size:</strong> 140–150 mm</li>
-            <li><strong>Typical scan distance:</strong> 2–4 metres</li>
-            <li><strong>Placement:</strong> visible from dispatch approach lane</li>
-            <li><strong>Material:</strong> rigid-mounted, wipeable operational signage</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <p class="section-kicker">Security &amp; Governance</p>
-          <h3>Operational Trust</h3>
-
-          <ul class="workflow-list">
-            <li>Visible QR identity code should match the Hold QR register.</li>
-            <li>Damaged, obscured or unfamiliar QR labels should be reported.</li>
-            <li>Replacement QR codes should be issued through QR Management.</li>
-            <li>Retired QR references remain available for audit history.</li>
-          </ul>
-        </article>
-
-      </section>
-
-   </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+    document.querySelectorAll(".card-close").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest(".action-result-card").hidden = true;
+      });
+    });
+  </script>
 </body>
 </html>

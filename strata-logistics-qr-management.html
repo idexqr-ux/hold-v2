@@ -3,326 +3,188 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>QR Management — Hold</title>
+  <title>Strata Logistics - QR Management</title>
   <meta
     name="description"
-    content="A Strata Logistics QR registry and governance page for managing operational QR points through Hold."
+    content="A Strata Logistics QR governance view for role-based visibility, operational QR status, temporary access, contractor visibility, verification and replacement awareness."
   />
-  <link rel="stylesheet" href="style.css?v=24" />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
-     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
+    <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
 
     <main class="dashboard-main">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Logistics / QR Governance</p>
 
-   <div class="dashboard-header">
+          <header class="scan-header">
+            <h1>QR Management</h1>
+            <p>QR-led governance for role visibility, operational access, verification, replacement and escalation routes.</p>
+            <span class="status-pill status-review">QR Audit Enabled</span>
+          </header>
 
-  <p class="dashboard-breadcrumb">
-    Hold / Platform Governance
-  </p>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Role-Based Visibility</h2>
+                <span class="status-pill status-review">Session aware</span>
+              </div>
+              <p>QR scans should show only the guidance needed by staff, supervisors, contractors, drivers or emergency responders.</p>
+            </article>
 
-  <div class="dashboard-title-row">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Operational QR Status</h2>
+                <span class="status-pill status-active">10 live QRs</span>
+              </div>
+              <p>Bay A12, Bay C03, Hold Area B, Forklift 03 and First Aid Station are live operational scan points.</p>
+            </article>
 
-    <div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Temporary Access</h2>
+                <span class="status-pill status-pending">2 requests</span>
+              </div>
+              <p>Temporary or shift-limited access should expire when the job, visit, delivery or active shift ends.</p>
+            </article>
 
-      <p class="section-kicker">QR Governance</p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Contractor Visibility</h2>
+              </div>
+              <p>Contractor QR access should show induction state, permitted area, task owner, escort need and time limit.</p>
+            </article>
 
-      <h1>QR Management</h1>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Expected Activity</h2>
+              </div>
+              <p>QR context should make expected deliveries, dispatch activity, equipment use and maintenance visits easy to verify.</p>
+            </article>
 
-      <p class="dashboard-subtitle">
-        Registry and governance view for operational QR points, including live status,
-        assigned records, physical locations, replacement requests and audit control.
-      </p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Verification</h2>
+              </div>
+              <p>Visible QR identity should match the Hold register before staff rely on the operational guidance shown.</p>
+            </article>
 
-    </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>QR Management Actions</h2>
+              </div>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="qr-new">Request new QR</button>
+                <button type="button" class="quiet-button" data-action="qr-approve">Approve QR request</button>
+                <button type="button" class="quiet-button" data-action="qr-replacement">Issue replacement QR</button>
+                <button type="button" class="quiet-button" data-action="qr-retire">Retire QR</button>
+                <button type="button" class="quiet-button" data-action="qr-reassign">Reassign QR</button>
+                <button type="button" class="quiet-button" data-action="qr-condition">Report QR condition issue</button>
+                <button type="button" class="quiet-button" data-action="qr-escalate">Escalate access concern</button>
+                <button type="button" class="quiet-button secondary" data-action="qr-other">Other QR issue</button>
+              </div>
+            </article>
 
-    <div class="button-row">
-      <span class="status-pill status-active">10 Live QRs</span>
-      <span class="status-pill status-pending">2 Requests Pending</span>
-      <span class="status-pill status-review">QR Audit Enabled</span>
-    </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>QR Condition / Replacement</h2>
+                <span class="status-pill status-review">1 reprint needed</span>
+              </div>
+              <p>Damaged, missing, worn or unreliable QR labels should be reported immediately and replaced through the register.</p>
+            </article>
 
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Audit Visibility</h2>
+              </div>
+              <p>New, replaced, retired and reassigned QR records remain visible with deployment reason and approval trail.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Human Judgement</h2>
+              </div>
+              <p>If a physical QR, scan destination or access context feels wrong, stop relying on it and report the issue.</p>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="qr-new-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">New QR Request</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>New QR request opened. Confirm operational point, owner, role visibility and deployment conditions.</p>
+          </article>
+
+          <article class="card action-result-card" id="qr-approve-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-active">QR Approval</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>QR approval route opened. Check record link, placement, access rules and audit owner before release.</p>
+          </article>
+
+          <article class="card action-result-card" id="qr-replacement-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Replacement QR</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Replacement QR route opened. Preserve record identity unless reassignment is formally approved.</p>
+          </article>
+
+          <article class="card action-result-card" id="qr-retire-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">QR Retirement</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>QR retirement route opened. Retain the retired reference for audit history and prevent unmanaged reuse.</p>
+          </article>
+
+          <article class="card action-result-card" id="qr-reassign-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">QR Reassignment</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>QR reassignment route opened. Confirm old record, new record, physical location and supervisor approval.</p>
+          </article>
+
+          <article class="card action-result-card" id="qr-condition-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">QR Condition Issue</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>QR condition issue recorded for damaged, obscured, worn or unreliable physical label.</p>
+          </article>
+
+          <article class="card action-result-card" id="qr-escalate-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Access Concern</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Access concern escalated for role visibility, contractor access, temporary session or unexpected QR behaviour.</p>
+          </article>
+
+          <article class="card action-result-card" id="qr-other-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Other QR Issue</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Capture a QR governance issue that does not fit the standard register actions.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the QR issue, scan point and decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>QR governance connects physical scan points, access context, replacement control and audit history</p>
+            <p>Unexpected QR behaviour stays visible until verified or corrected</p>
+            <a href="strata-logistics-operational-review-queue.html">Open operational review queue</a>
+          </footer>
+        </section>
+      </div>
+    </main>
   </div>
 
-</div>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-    <section class="grid">
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
+  <script>
+    document.querySelectorAll("[data-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = document.getElementById(`${button.dataset.action}-card`);
+        if (!card) return;
+        card.hidden = false;
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
 
-      <article class="card soft-panel">
-        <h3>QR Estate Snapshot</h3>
-        <div class="detail-grid">
-          <p><strong>Live QRs</strong><span class="value value-key">10</span></p>
-          <p><strong>Pending Requests</strong><span class="value">2</span></p>
-          <p><strong>Reprints Needed</strong><span class="value">1</span></p>
-          <p><strong>Retired QRs</strong><span class="value">3</span></p>
-        </div>
-      </article>
-
-      <article class="card">
-        <h3>Active QR Registry</h3>
-
-        <div class="delivery-list">
-
-          <article class="delivery-card">
-            <div>
-              <strong>QR-GI-01</strong><br />
-              Bay A12 — Goods In Operational Record<br />
-              <span class="muted-text">Location: Goods In · Status: Live · Updated 08:25</span>
-            </div>
-            <span class="status-pill status-active">Live</span>
-          </article>
-
-          <article class="delivery-card">
-            <div>
-              <strong>QR-EX-02</strong><br />
-              Hold Area B — Exception Governance Record<br />
-              <span class="muted-text">Location: Shared Hold Area · Status: Live · Updated 09:40</span>
-            </div>
-            <span class="status-pill status-active">Live</span>
-          </article>
-
-          <article class="delivery-card">
-            <div>
-              <strong>QR-DO-01</strong><br />
-              Bay C03 — Dispatch Operational Record<br />
-              <span class="muted-text">Location: Dispatch Zone · Status: Live · Updated 08:42</span>
-            </div>
-            <span class="status-pill status-active">Live</span>
-          </article>
-
-          <article class="delivery-card">
-            <div>
-              <strong>QR-EQ-03</strong><br />
-              Forklift 03 — Equipment Governance Record<br />
-              <span class="muted-text">Location: Warehouse Floor · Status: Live · Updated 06:14</span>
-            </div>
-            <span class="status-pill status-active">Live</span>
-          </article>
-
-          <article class="delivery-card">
-            <div>
-              <strong>QR-HS-01</strong><br />
-              First Aid Station — Health &amp; Safety Record<br />
-              <span class="muted-text">Location: Welfare Corridor · Status: Live · Updated 07:25</span>
-            </div>
-            <span class="status-pill status-active">Live</span>
-          </article>
-
-        </div>
-      </article>
-
-      <article class="card">
-        <h3>QR Requests</h3>
-
-        <div class="delivery-list">
-
-          <article class="delivery-card">
-            <div>
-              <strong>REQ-014</strong><br />
-              New QR requested for PPE Issue Point<br />
-              <span class="muted-text">Requested by: Warehouse Supervisor · Awaiting approval</span>
-            </div>
-            <span class="status-pill status-pending">Pending</span>
-          </article>
-
-          <article class="delivery-card">
-            <div>
-              <strong>REQ-015</strong><br />
-              Replacement QR requested for Fire Exit East<br />
-              <span class="muted-text">Reason: label worn / scan reliability reduced</span>
-            </div>
-            <span class="status-pill status-review">Review</span>
-          </article>
-
-        </div>
-      </article>
-
-      <article class="panel">
-  <p class="eyebrow">Deployment Guidance</p>
-  <h3>Recommended QR Sizes</h3>
-
-  <p>
-    QR deployment size should reflect the operational setting, scan distance
-    and physical conditions at the point of use.
-  </p>
-
-  <ul class="activity-list">
-    <li>
-      <strong>Vehicle bay or loading area</strong>
-      <span>Recommended size: 140–150 mm · Typical scan distance: 2–4 metres</span>
-    </li>
-
-    <li>
-      <strong>Forklift or equipment asset</strong>
-      <span>Recommended size: 60–80 mm · Typical scan distance: under 1 metre</span>
-    </li>
-
-    <li>
-      <strong>Pedestrian guidance point</strong>
-      <span>Recommended size: 90–120 mm · Typical scan distance: 1–2 metres</span>
-    </li>
-
-    <li>
-      <strong>Outdoor or exposed site point</strong>
-      <span>Recommended size: 120–150 mm · Use weather-resistant, anti-glare material</span>
-    </li>
-  </ul>
-</article>
-
-      <article class="panel">
-  <p class="eyebrow">Security & Governance</p>
-
-  <h3>Governed Operational QR Identity</h3>
-
-  <p>
-    Hold QR deployment points form part of a managed operational environment.
-    QR replacements, reassignment and retirement actions are governed through
-    operational review and audit workflows.
-  </p>
-
-  <ul class="activity-list">
-
-    <li>
-      <strong>Operational ownership retained</strong>
-      <span>QR deployment linked to approved operational records</span>
-    </li>
-
-    <li>
-      <strong>Replacement history maintained</strong>
-      <span>Retired and superseded QR references preserved for audit review</span>
-    </li>
-
-    <li>
-      <strong>Unauthorised replacement monitoring</strong>
-      <span>Operational teams should report unrecognised or damaged QR tags immediately</span>
-    </li>
-
-    <li>
-      <strong>Session-aware operational access</strong>
-      <span>Some operational guidance may be restricted outside approved environments</span>
-    </li>
-
-  </ul>
-</article>
-
-      <article class="panel">
-  <p class="eyebrow">Operational Access</p>
-
-  <h3>Session-Aware Guidance Access</h3>
-
-  <p>
-    Hold operational guidance can be configured to reduce unmanaged access
-    persistence after staff leave approved operational environments or complete
-    active shifts.
-  </p>
-
-  <ul class="activity-list">
-
-    <li>
-      <strong>Operational session monitoring</strong>
-      <span>Some QR-linked guidance may require active operational context</span>
-    </li>
-
-    <li>
-      <strong>Shift-aware access control</strong>
-      <span>Operational guidance can expire following shift completion</span>
-    </li>
-
-    <li>
-      <strong>Offsite visibility management</strong>
-      <span>Selected operational records may be restricted outside approved environments</span>
-    </li>
-
-    <li>
-      <strong>Revalidation support</strong>
-      <span>Operational users may be required to rescan approved QR points</span>
-    </li>
-
-    <li>
-  <strong>Approved operational device recognition</strong>
-  <span>
-    Selected operational guidance may be limited to recognised staff devices
-    or approved operational sessions
-  </span>
-</li>
-
-  </ul>
-</article>
-
-      <article class="card">
-        <h3>QR Management Actions</h3>
-        <p>
-          Use these actions to manage QR estate changes while preserving governance and audit history.
-        </p>
-
-        <div class="button-row">
-          <a class="quiet-button" href="#">Request New QR</a>
-          <a class="quiet-button" href="#">Approve QR Request</a>
-          <a class="quiet-button" href="#">Issue Replacement QR</a>
-          <a class="quiet-button" href="#">Retire QR</a>
-          <a class="quiet-button" href="#">Reassign QR</a>
-          <a class="quiet-button secondary" href="#">Other QR Governance Action</a>
-        </div>
-      </article>
-
-      <article class="card warning-card">
-        <h3>QR Control Rules</h3>
-        <p>
-          Operational QR points should not be moved, copied or replaced without
-          an approved Hold record update.
-        </p>
-        <ul class="workflow-list">
-          <li>New QR requests require approval before deployment.</li>
-          <li>Replacement QRs should preserve the same record link unless formally reassigned.</li>
-          <li>Retired QR codes remain visible in audit history.</li>
-          <li>Damaged, missing or unreliable QR labels should be reported immediately.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <h3>Workflow Notes</h3>
-        <ul class="workflow-list">
-          <li>QR requests can be raised from operational pages where staff identify missing point-of-need guidance.</li>
-          <li>Approved QR changes update the registry and remain visible for audit.</li>
-          <li>QR estate management supports continuity when labels are damaged, relocated or retired.</li>
-          <li>QR governance helps ensure physical scan points remain aligned with current operational records.</li>
-        </ul>
-      </article>
-      
-      <article class="card">
-        <h3>Record Control</h3>
-        <div class="detail-grid">
-          <p><strong>Owner</strong><span class="value">Operations Administrator</span></p>
-          <p><strong>View Type</strong><span class="value">Platform Governance</span></p>
-          <p><strong>Last Updated</strong><span class="value">10:35</span></p>
-          <p><strong>Audit Status</strong><span class="value">Enabled</span></p>
-        </div>
-      </article>
-
-    </section>
-
-  </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+    document.querySelectorAll(".card-close").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest(".action-result-card").hidden = true;
+      });
+    });
+  </script>
 </body>
 </html>

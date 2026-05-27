@@ -3,219 +3,206 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Emergency Response Pack — Strata Logistics — Hold</title>
-  <meta name="description" content="Critical emergency response information for attending responders at Strata Logistics." />
-  <link rel="stylesheet" href="style.css?v=24" />
+  <title>Strata Logistics - Emergency Response Pack</title>
+  <meta
+    name="description"
+    content="Point-of-need emergency response pack for Strata Logistics, covering alarm raising, emergency routes, first aid, spills, vehicle incidents, blocked routes, contacts and live restrictions."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
+    <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
 
-     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
+    <main class="dashboard-main">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Logistics / Emergency Response</p>
 
-    <main class="dashboard-main"> 
+          <header class="scan-header">
+            <h1>Emergency Response Pack</h1>
+            <p>Point-of-need response for alarm raising, routes, first aid, spills, vehicle incidents and live restrictions.</p>
+            <span class="status-pill status-pending">Immediate Response</span>
+          </header>
 
-    <div class="dashboard-header">
+          <details class="scan-section muted-section driver-map-details">
+            <summary>Site Safety &amp; Evacuation Map</summary>
+            <p class="muted-text">Open this map to view evacuation routes, hazard zones, muster arrangements and emergency access before taking action.</p>
+            <figure class="map-card driver-map">
+              <img
+                src="images/strata-logistics-emergency-response-map.png"
+                alt="Emergency Site Safety and Evacuation Map"
+                class="safety-map"
+              />
+              <figcaption>Emergency routes, hazard zones, muster arrangements and response access for Strata Logistics.</figcaption>
+            </figure>
+          </details>
 
-  <p class="dashboard-breadcrumb">
-    Hold / Strata Logistics / Emergency
-  </p>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Raise Alarm</h2>
+                <span class="status-pill status-pending">First action</span>
+              </div>
+              <p>Make the incident visible quickly. Confirm location, incident type, immediate danger and emergency service need.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="logistics-emergency-alarm">Raise alarm</button>
+              </div>
+            </article>
 
-  <div class="dashboard-title-row">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Emergency Routes</h2>
+                <span class="status-pill status-review">Keep clear</span>
+              </div>
+              <p>Fire exits, evacuation routes, dispatch lanes and emergency service access should remain clear and visible.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="logistics-emergency-blocked-route">Report blocked route</button>
+              </div>
+            </article>
 
-    <div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>First Aid Response</h2>
+                <span class="status-pill status-pending">Casualty priority</span>
+              </div>
+              <p>Confirm casualty location, injury type, access route and whether first aiders or emergency services are required.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="logistics-emergency-first-aid">Request first aider</button>
+              </div>
+            </article>
 
-      <p class="section-kicker">Emergency Response</p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Spill / Leak Response</h2>
+                <span class="status-pill status-pending">Contain if safe</span>
+              </div>
+              <p>Battery, chemical, oil, hydraulic or cleaning-material spills should be reported quickly and contained only if safe.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="logistics-emergency-spill">Report spill or leak</button>
+              </div>
+            </article>
 
-      <h1>Emergency Response Pack</h1>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Forklift / Vehicle Incident</h2>
+                <span class="status-pill status-pending">Mobile plant</span>
+              </div>
+              <p>Forklift collision, vehicle strike, trapped route or battery charging incident requires immediate escalation.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="logistics-emergency-vehicle">Report vehicle incident</button>
+              </div>
+            </article>
 
-      <p class="dashboard-subtitle">
-        Critical site information for attending emergency responders during active incident response.
-      </p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Emergency Contacts</h2>
+                <span class="status-pill status-active">Response chain</span>
+              </div>
+              <p>Site Responsible Person: L Bennett, operationally known as Cooper. Secondary contact: M Khan, Shift Supervisor.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="logistics-emergency-contact">Escalate to contact</button>
+              </div>
+            </article>
 
-    </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Live Operational Restrictions</h2>
+                <span class="status-pill status-review">During response</span>
+              </div>
+              <p>Temporary closures, forklift route restrictions, battery charging hazards and dispatch diversions should remain visible.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="logistics-emergency-restriction">Report live restriction</button>
+              </div>
+            </article>
 
-    <div class="button-row">
-      <span class="status-pill status-active">Emergency Access</span>
-      <span class="status-pill status-review">Response Pack</span>
-    </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Human Judgement / Other Emergency Issue</h2>
+                <span class="status-pill status-active">Human judgement</span>
+              </div>
+              <p>Emergency situations do not always match the plan. Keep a route for reporting what the system did not predict.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button secondary" data-action="logistics-emergency-other">Other emergency issue</button>
+              </div>
+            </article>
+          </div>
 
-  </div>
+          <article class="card action-result-card" id="logistics-emergency-alarm-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Alarm Raised</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Alarm route opened. Confirm incident location, type, immediate danger, evacuation need and emergency service requirement.</p>
+          </article>
 
-</div>
+          <article class="card action-result-card" id="logistics-emergency-blocked-route-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-overdue">Blocked Route</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Blocked route reported. Identify affected exit, dispatch lane, emergency access point or alternate route.</p>
+          </article>
 
-    <section class="panel">
-      <h2>Primary Site Hazards</h2>
-      <div class="record-list">
+          <article class="card action-result-card" id="logistics-emergency-first-aid-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">First Aider Requested</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>First aid response opened. Confirm casualty location, injury type and access route.</p>
+          </article>
 
-        <article class="record-row">
-          <strong>Battery Charging Area</strong>
-          <span>Electrical / thermal hazard</span>
-        </article>
+          <article class="card action-result-card" id="logistics-emergency-spill-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Spill / Leak</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Spill or leak response opened. Contain only if safe and trained; protect routes and drains where relevant.</p>
+          </article>
 
-        <article class="record-row">
-          <strong>Combustible Packaging Storage</strong>
-          <span>Elevated fire load</span>
-        </article>
+          <article class="card action-result-card" id="logistics-emergency-vehicle-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Vehicle Incident</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Forklift or vehicle incident reported. Confirm plant location, operator accountability and route impact.</p>
+          </article>
 
-        <article class="record-row">
-          <strong>Cleaning Chemical Store</strong>
-          <span>Controlled COSHH materials</span>
-        </article>
+          <article class="card action-result-card" id="logistics-emergency-contact-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-active">Emergency Contact</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Emergency contact escalation opened for site responsible person, shift supervisor or attending responders.</p>
+          </article>
 
-        <article class="record-row">
-          <strong>Forklift Traffic Routes</strong>
-          <span>Mobile plant operating across warehouse floor</span>
-        </article>
+          <article class="card action-result-card" id="logistics-emergency-restriction-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Live Restriction</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Live restriction recorded. Keep the restriction visible until emergency response, route clearance or supervisor release.</p>
+          </article>
 
+          <article class="card action-result-card" id="logistics-emergency-other-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Other Emergency Issue</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Capture emergency context that does not fit the standard response routes.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the emergency issue, location and decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Emergency response pack held against Strata Logistics</p>
+            <p>Alarm, routes, first aid, spills, vehicle incidents, contacts and live restrictions remain connected</p>
+            <a href="strata-logistics-site-safety-map.html">Open site safety map</a>
+          </footer>
+        </section>
       </div>
-    </section>
-
-    <section class="panel soft-panel">
-      <h2>Emergency Controls</h2>
-      <div class="record-list">
-
-        <div class="map-panel">
-
-  <h3>Site Safety & Evacuation Map</h3>
-
-  <p>
-    Refer to evacuation routes, hazard zones and muster arrangements below.
-  </p>
-
-  <img
-    src="images/strata-logistics-emergency-response-map.png"
-    alt="Emergency Site Safety and Evacuation Map"
-    class="safety-map"
-  />
-
-</div>
-
-        <article class="record-row">
-          <strong>Main Electrical Isolation</strong>
-          <span>North Wall Service Room</span>
-        </article>
-
-        <article class="record-row">
-          <strong>Fire Alarm Panel</strong>
-          <span>Reception Entrance</span>
-        </article>
-
-        <article class="record-row">
-          <strong>Water Isolation</strong>
-          <span>Plant Room External South</span>
-        </article>
-
-      </div>
-    </section>   
-  
-    <section class="panel soft-panel">
-      <h2>Occupancy & Accountability</h2>
-      <div class="record-list">
-
-        <article class="record-row">
-          <strong>Visitor / Driver Sign-In</strong>
-          <span>Available via Gatehouse Register</span>
-        </article>
-
-        <article class="record-row">
-          <strong>Muster Verification</strong>
-          <span>Led by Operations Manager</span>
-        </article>
-
-        <article class="record-row">
-          <strong>Restricted Areas</strong>
-          <span>Identified on site map</span>
-        </article>
-
-      </div>
-    </section>
-
-    <section class="panel">
-  <h2>Mobile Plant Status</h2>
-  <p>
-    Last known operational positions sourced from integrated operational workflow data and site reporting.
-    Confirm current status with muster lead and site responsible person.
-  </p>
-
-  <div class="record-list">
-
-    <article class="record-row">
-      <strong>Forklift 03</strong>
-      <span>Last known position: Bay A12 — 09:41</span>
-    </article>
-
-    <article class="record-row">
-      <strong>Forklift 04</strong>
-      <span>Last known position: Bay C Dispatch Support — 09:38</span>
-    </article>
-
-    <article class="record-row">
-      <strong>Operator Accountability</strong>
-      <span>Confirm authorised operators are accounted for at muster point</span>
-    </article>
-
-  </div>
-</section>
-
-    <section class="panel">
-      <h2>Incident Control Contacts</h2>
-      <div class="record-list">
-
-        <article class="record-row">
-          <strong>Site Responsible Person</strong>
-          <span>L Bennett (“Cooper”), Operations Manager</span>
-        </article>
-
-        <article class="record-row">
-          <strong>Secondary Contact</strong>
-          <span>M Khan, Shift Supervisor</span>
-        </article>
-
-      </div>
-    </section>
-
-    <section class="panel soft-panel">
-      <h2>Document Control</h2>
-      <div class="record-list">
-
-        <article class="record-row">
-          <strong>Last Reviewed</strong>
-          <span>01 May 2026</span>
-        </article>
-
-        <article class="record-row">
-          <strong>Review Frequency</strong>
-          <span>Quarterly</span>
-        </article>
-
-        <article class="record-row">
-          <strong>Document Owner</strong>
-          <span>L Bennett (“Cooper”)</span>
-        </article>
-      </div>
-      
-    </section>
-
     </main>
+  </div>
 
-</div>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-<footer class="footer">
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
+  <script>
+    document.querySelectorAll("[data-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = document.getElementById(`${button.dataset.action}-card`);
+        if (!card) return;
+        card.hidden = false;
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
 
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+    document.querySelectorAll(".card-close").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest(".action-result-card").hidden = true;
+      });
+    });
+  </script>
 </body>
 </html>

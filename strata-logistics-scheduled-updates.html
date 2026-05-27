@@ -3,116 +3,174 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Scheduled Updates — Hold</title>
-  <link rel="stylesheet" href="style.css?v=24" />
+  <title>Strata Logistics - Scheduled Updates</title>
+  <meta
+    name="description"
+    content="A Strata Logistics governance view for planned operational changes, inspections, maintenance windows, route restrictions, training refreshers and temporary constraints."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
-     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
+    <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
 
     <main class="dashboard-main">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Logistics / Scheduled Updates</p>
 
-      <div class="dashboard-header">
+          <header class="scan-header">
+            <h1>Scheduled Updates</h1>
+            <p>Planned operational changes, review windows, temporary constraints and governance reminders.</p>
+            <span class="status-pill status-review">3 Due This Week</span>
+          </header>
 
-  <p class="dashboard-breadcrumb">
-    Strata Logistics / Scheduled Updates
-  </p>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Planned Operational Changes</h2>
+                <span class="status-pill status-pending">2 pending</span>
+              </div>
+              <p>Forklift support assessment and loading bay procedure review are queued for operational validation.</p>
+            </article>
 
-  <div class="dashboard-title-row">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Inspection Due Dates</h2>
+              </div>
+              <p>Bay A12 validation and safety-linked checks should be completed before updates go live across QR points.</p>
+            </article>
 
-    <div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Maintenance Windows</h2>
+                <span class="status-pill status-overdue">Forklift 03</span>
+              </div>
+              <p>Forklift 03 maintenance revision remains overdue and may affect outbound support planning.</p>
+            </article>
 
-      <p class="section-kicker">Operational Governance</p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Route Restrictions</h2>
+              </div>
+              <p>Overflow Area C temporary routing and dispatch pressure changes need review before staff rely on old guidance.</p>
+            </article>
 
-      <h1>Scheduled Updates</h1>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Training Refreshers</h2>
+              </div>
+              <p>Refreshers and competency changes should be scheduled before access, forklift or safety duties are affected.</p>
+            </article>
 
-      <p class="dashboard-subtitle">
-        Planned operational changes, pending reviews, governance validation and linked workflow updates.
-      </p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Temporary Constraints</h2>
+                <span class="status-pill status-review">Live governance</span>
+              </div>
+              <p>Temporary dispatch, routing, hire or workflow constraints should remain visible until validated or retired.</p>
+            </article>
 
-    </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Scheduled Update Actions</h2>
+              </div>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="scheduled-change">Add planned change</button>
+                <button type="button" class="quiet-button" data-action="scheduled-inspection">Record inspection due</button>
+                <button type="button" class="quiet-button" data-action="scheduled-maintenance">Schedule maintenance window</button>
+                <button type="button" class="quiet-button" data-action="scheduled-route">Review route restriction</button>
+                <button type="button" class="quiet-button" data-action="scheduled-training">Schedule refresher</button>
+                <button type="button" class="quiet-button" data-action="scheduled-reminder">Add governance reminder</button>
+                <button type="button" class="quiet-button secondary" data-action="scheduled-other">Other scheduled issue</button>
+              </div>
+            </article>
 
-    <div class="button-row">
-      <span class="status-pill status-active">2 Pending</span>
-      <span class="status-pill status-review">3 Due This Week</span>
-      <span class="status-pill status-overdue">1 Overdue</span>
-    </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Governance Reminders</h2>
+              </div>
+              <p>Scheduled updates prevent outdated workplace guidance remaining live after temporary changes or reviews.</p>
+            </article>
 
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Audit Visibility</h2>
+              </div>
+              <p>Drafted, validated, overdue and retired changes stay connected to the operational records they affect.</p>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="scheduled-change-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Planned Change</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Planned operational change opened. Confirm affected area, QR points, owner and go-live condition.</p>
+          </article>
+
+          <article class="card action-result-card" id="scheduled-inspection-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Inspection Due</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Inspection due-date route opened with affected record and validation owner attached.</p>
+          </article>
+
+          <article class="card action-result-card" id="scheduled-maintenance-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Maintenance Window</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Maintenance window opened. Confirm equipment, service impact, route effect and communication timing.</p>
+          </article>
+
+          <article class="card action-result-card" id="scheduled-route-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Route Restriction Review</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Route restriction review opened. Check temporary routing, map visibility and affected workflow pages.</p>
+          </article>
+
+          <article class="card action-result-card" id="scheduled-training-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-pending">Training Refresher</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Training refresher route opened. Confirm competency, due date, restriction risk and supervisor sign-off.</p>
+          </article>
+
+          <article class="card action-result-card" id="scheduled-reminder-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-active">Governance Reminder</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Governance reminder opened for review owner, due date and affected operational record.</p>
+          </article>
+
+          <article class="card action-result-card" id="scheduled-other-card" hidden>
+            <div class="action-result-header"><span class="status-pill status-review">Other Scheduled Issue</span><button class="card-close" type="button" aria-label="Close action card">&times;</button></div>
+            <p>Capture a scheduled update concern that does not fit planned changes, inspections, maintenance, routes or training.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the scheduled issue, affected record and decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Scheduled updates keep temporary constraints, reviews and operational changes visible before they go live</p>
+            <p>Outdated guidance should be validated, replaced or retired before staff rely on it</p>
+            <a href="strata-logistics-operational-review-queue.html">Open operational review queue</a>
+          </footer>
+        </section>
+      </div>
+    </main>
   </div>
 
-</div>
-     
-      <section class="dashboard-panels">
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-        <div class="panel">
-  <h3>Upcoming Scheduled Changes</h3>
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
+  <script>
+    document.querySelectorAll("[data-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = document.getElementById(`${button.dataset.action}-card`);
+        if (!card) return;
+        card.hidden = false;
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
 
-  <p>08 May — Temporary forklift support assessment added following continued outbound pressure review</p>
-
-  <p>07 May — Loading Bay 4 Dispatch Procedure Review</p>
-
-  <p>03 May — <a href="strata-logistics-forklift-03.html">Forklift 03</a> Maintenance Revision</p>
-
-  <p>01 May — Overflow Area C temporary routing review</p>
-</div>
-
-        <div class="panel">
-          <h3>Review / Validation Queue</h3>
-
-          <p>
-            <a href="strata-logistics-bay-a12.html">Bay A12</a>
-            <span class="status-pill status-pending">Validation</span>
-          </p>
-
-          <p>
-            <a href="strata-logistics-forklift-03.html">Forklift 03</a>
-            <span class="status-pill status-overdue">Overdue</span>
-          </p>
-
-          <p>
-            Loading Bay 4
-            <span class="status-pill status-review">Review Due</span>
-          </p>
-        </div>
-
-        <div class="panel">
-          <h3>Governance Notes</h3>
-          <p>Scheduled updates allow operational records to be prepared in advance.</p>
-          <p>Changes can be reviewed before going live across linked QR points.</p>
-          <p>Review queues help prevent outdated workplace information remaining in use.</p>
-          <p>Operational review decisions may trigger temporary routing, hire or workflow adjustments during sustained dispatch pressure.</p>
-        </div>
-
-        <div class="panel">
-          <h3>Recent Update Activity</h3>
-          <p>Bay A12 validated — 09:42</p>
-          <p><a href="strata-logistics-forklift-03.html">Forklift 03</a> marked for review — 08:15</p>
-          <p>Bay B04 update drafted — Yesterday</p>
-        </div>
-
-      </section>
-
-         </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+    document.querySelectorAll(".card-close").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest(".action-result-card").hidden = true;
+      });
+    });
+  </script>
 </body>
 </html>
