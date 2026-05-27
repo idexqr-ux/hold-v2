@@ -27,6 +27,19 @@
             <span class="status-pill status-overdue">Inspection review overdue</span>
           </header>
 
+          <section class="scan-section muted-section" aria-labelledby="aggregates-forklift-language-heading">
+            <h2 id="aggregates-forklift-language-heading">Language support</h2>
+            <p>Approved operational guidance may be provided in workplace languages so staff, contractors, tenants, visitors and drivers can understand key instructions at the point of need.</p>
+            <p><strong>Safety note:</strong> Safety-critical translations should be controlled and approved before use.</p>
+            <div class="button-row" aria-label="Language support options">
+              <button type="button" class="quiet-button" data-action="aggregates-forklift-language">English</button>
+              <button type="button" class="quiet-button" data-action="aggregates-forklift-language">Polish</button>
+              <button type="button" class="quiet-button" data-action="aggregates-forklift-language">Romanian</button>
+              <button type="button" class="quiet-button" data-action="aggregates-forklift-language">Portuguese</button>
+              <button type="button" class="quiet-button" data-action="aggregates-forklift-language">Urdu</button>
+            </div>
+          </section>
+
           <div class="operational-window-grid">
             <article class="operational-window">
               <div class="operational-window-header">
@@ -241,6 +254,14 @@
             <textarea class="hold-textarea" rows="4" placeholder="Describe the forklift issue, route, condition or decision needed..."></textarea>
           </article>
 
+          <article class="card action-result-card" id="aggregates-forklift-language-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Language Support</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Language support placeholder. Approved translated guidance would appear here in a live Hold deployment.</p>
+          </article>
+
           <footer class="scan-footer">
             <p>Operational view held against Forklift 08</p>
             <p>Equipment state, diesel refuelling, route control, defects and handover remain connected</p>
@@ -258,5 +279,22 @@
 
   <script src="sidebar.js?v=6"></script>
   <script src="clock.js?v=4"></script>
+
+  <script>
+    document.querySelectorAll("[data-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = document.getElementById(`${button.dataset.action}-card`);
+        if (!card) return;
+        card.hidden = false;
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
+
+    document.querySelectorAll(".card-close").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest(".action-result-card").hidden = true;
+      });
+    });
+  </script>
 </body>
 </html>

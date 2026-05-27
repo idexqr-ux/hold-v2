@@ -27,6 +27,19 @@
             <span class="status-pill status-review">Active / monitored</span>
           </header>
 
+          <section class="scan-section muted-section" aria-labelledby="aggregates-crusher-language-heading">
+            <h2 id="aggregates-crusher-language-heading">Language support</h2>
+            <p>Approved operational guidance may be provided in workplace languages so staff, contractors, tenants, visitors and drivers can understand key instructions at the point of need.</p>
+            <p><strong>Safety note:</strong> Safety-critical translations should be controlled and approved before use.</p>
+            <div class="button-row" aria-label="Language support options">
+              <button type="button" class="quiet-button" data-action="aggregates-crusher-language">English</button>
+              <button type="button" class="quiet-button" data-action="aggregates-crusher-language">Polish</button>
+              <button type="button" class="quiet-button" data-action="aggregates-crusher-language">Romanian</button>
+              <button type="button" class="quiet-button" data-action="aggregates-crusher-language">Portuguese</button>
+              <button type="button" class="quiet-button" data-action="aggregates-crusher-language">Urdu</button>
+            </div>
+          </section>
+
           <div class="operational-window-grid">
             <article class="operational-window">
               <div class="operational-window-header">
@@ -303,6 +316,14 @@
             <textarea class="hold-textarea" rows="4" placeholder="Describe the crusher issue, condition or decision needed..."></textarea>
           </article>
 
+          <article class="card action-result-card" id="aggregates-crusher-language-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Language Support</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Language support placeholder. Approved translated guidance would appear here in a live Hold deployment.</p>
+          </article>
+
           <footer class="scan-footer">
             <p>Operational view held against Crusher CR-01</p>
             <p>Machine state, safety controls, production continuity and escalation routes remain connected</p>
@@ -320,5 +341,22 @@
 
   <script src="sidebar.js?v=6"></script>
   <script src="clock.js?v=4"></script>
+
+  <script>
+    document.querySelectorAll("[data-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = document.getElementById(`${button.dataset.action}-card`);
+        if (!card) return;
+        card.hidden = false;
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
+
+    document.querySelectorAll(".card-close").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest(".action-result-card").hidden = true;
+      });
+    });
+  </script>
 </body>
 </html>
