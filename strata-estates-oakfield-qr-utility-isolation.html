@@ -3,127 +3,221 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Oakfield Depot — Utility Isolation QR</title>
-  <link rel="stylesheet" href="style.css?v=24" />
+  <title>Oakfield Depot - Utility Isolation QR</title>
+  <meta
+    name="description"
+    content="Operational QR point for Oakfield Depot utility isolation, showing isolation points, shutdown sequence, authorised isolation, inherited knowledge and emergency escalation."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
     <div id="hold-sidebar" data-sidebar="sidebar-estates.html"></div>
 
     <main class="dashboard-main">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Estates / Oakfield Depot / QR2 Utility Isolation</p>
 
-  <div class="dashboard-header">
-  <p class="dashboard-breadcrumb">
-    Hold / Strata Estates / Oakfield Depot / QR2 Utility Isolation
-  </p>
+          <header class="scan-header">
+            <h1>Oakfield Depot - Utility Isolation Point</h1>
+            <p>Point-of-need utility visibility for isolation points, shutdown sequence, authorised isolators, buried-service uncertainty and local operational memory.</p>
+            <span class="status-pill status-pending">Isolation governance</span>
+          </header>
 
-  <div class="dashboard-title-row">
-    <div>
-      <p class="section-kicker">QR2 / Utility Isolation</p>
-    <h1>Oakfield Depot — Utility Isolation Point</h1>
-      
-    <p class="dashboard-subtitle">
-   Isolation location, emergency contact route and buried service warning notes.
-</p>
-   </div>
+          <details class="scan-section muted-section driver-map-details" open>
+            <summary>View Oakfield Depot operational map</summary>
+            <figure class="map-card driver-map">
+              <div class="map-focus-wrap">
+                <img
+                  class="safety-map"
+                  src="images/strata-estates-oakfield-depot-site-map.png"
+                  alt="Oakfield Depot operational map showing QR points, access routes, drainage areas and utility zones."
+                />
+                <span class="map-focus-marker qr-est-002-marker"></span>
+              </div>
+              <figcaption>QR2 Utility Isolation highlighted on the Oakfield Depot operational map.</figcaption>
+            </figure>
+          </details>
 
-    <span class="dashboard-status-pill">
-      Operational QR
-    </span>
+          <div class="button-row">
+            <button class="quiet-button active" type="button">Highlight QR2 - Utility Isolation</button>
+          </div>
+
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Isolation Points</h2>
+                <span class="status-pill status-review">Verify location</span>
+              </div>
+              <p>Confirm the isolation cabinet, plant room access, water route and electrical ducting before any shutdown or disturbance.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="utility-location-check">Request location check</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Shutdown Sequence</h2>
+                <span class="status-pill status-pending">Sequence controlled</span>
+              </div>
+              <p>Use the agreed shutdown sequence. Confirm affected tenants, dependent equipment, restart steps and whether temporary access controls are needed.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="utility-shutdown-sequence">Open shutdown sequence</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Authorised Isolation</h2>
+                <span class="status-pill status-pending">Named person</span>
+              </div>
+              <p>Only authorised people may isolate or reinstate services. Record who instructed, who isolated and who confirmed re-energisation.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="utility-authorised-isolator">Verify authorised isolator</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Buried-Service Uncertainty</h2>
+                <span class="status-pill status-review">Historic records</span>
+              </div>
+              <p>Partial electrical ducting records and the legacy water route need service scan confirmation before excavation or intrusive work.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="utility-buried-service">Report buried-service concern</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Emergency Escalation</h2>
+                <span class="status-pill status-pending">Escalate now</span>
+              </div>
+              <p>Use emergency escalation for suspected live service damage, uncontrolled leak, exposed conductor, fire risk or unsafe access to the cabinet.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="utility-emergency-escalation">Request emergency escalation</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Inherited Knowledge</h2>
+                <span class="status-pill status-active">Human memory</span>
+              </div>
+              <p>Historic records are incomplete. Janet knows where the valve really is; capture that memory and verify it against the current site condition.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="utility-inherited-knowledge">Record inherited knowledge</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Environmental Awareness</h2>
+                <span class="status-pill status-review">Water pathway</span>
+              </div>
+              <p>Water shutoff, leaks, runoff, drain exposure and spill pathways should be visible during isolation and reinstatement.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="utility-environmental-risk">Report environmental risk</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Other Isolation Issue</h2>
+                <span class="status-pill status-review">Human judgement</span>
+              </div>
+              <p>Use this where the isolation concern does not fit the plan but needs operational judgement before work continues.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button secondary" data-action="utility-other-issue">Other isolation issue</button>
+              </div>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="utility-location-check-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Location Check</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Location check requested. Confirm cabinet, valve, plant access, route labels, map reference and any local knowledge before touching services.</p>
+          </article>
+
+          <article class="card action-result-card" id="utility-shutdown-sequence-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Shutdown Sequence</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Shutdown sequence opened. Confirm affected users, dependent equipment, safe order, communication route and restart checks.</p>
+          </article>
+
+          <article class="card action-result-card" id="utility-authorised-isolator-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Authorised Isolator</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Authorised isolator verification started. Record the named person, instruction source, isolation time and reinstatement authority.</p>
+          </article>
+
+          <article class="card action-result-card" id="utility-buried-service-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Buried-Service Concern</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Buried-service concern logged. Pause intrusive activity until records, scans, local knowledge and supervisor decision are aligned.</p>
+          </article>
+
+          <article class="card action-result-card" id="utility-emergency-escalation-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Emergency Escalation</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Emergency escalation opened. Confirm danger type, exact location, access route, people affected and whether emergency services are required.</p>
+          </article>
+
+          <article class="card action-result-card" id="utility-inherited-knowledge-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Inherited Knowledge</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Inherited knowledge note opened. Capture who knows the true valve, what they know, where it applies and how it should be verified.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Record Janet-style operational memory and verification needed..."></textarea>
+          </article>
+
+          <article class="card action-result-card" id="utility-environmental-risk-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Environmental Risk</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Environmental risk recorded. Check water pathway, drains, runoff, leak source, spill controls and downstream protection.</p>
+          </article>
+
+          <article class="card action-result-card" id="utility-other-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Isolation Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Other isolation issue opened. Capture the uncertainty, location, people affected and the decision needed before work continues.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the isolation issue or decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Operational view held against Oakfield Depot QR2 Utility Isolation</p>
+            <p>Isolation points, shutdown sequence, authorised isolation, inherited knowledge and emergency escalation remain connected</p>
+            <a href="strata-estates-oakfield-depot.html">Open Oakfield Depot</a>
+          </footer>
+        </section>
+      </div>
+    </main>
   </div>
-</div> 
-      
-  <details class="map-details" open>
-  <summary>View Oakfield Depot operational map</summary>
 
-  <figure class="map-card">
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-    <div class="map-focus-wrap">
-
-      <img
-        class="safety-map"
-        src="images/strata-estates-oakfield-depot-site-map.png"
-        alt="Oakfield Depot operational map showing QR points, access routes, drainage areas and utility zones."
-      />
-
-      <span class="map-focus-marker qr-est-002-marker"></span>
-
-    </div>
-
-    <figcaption>
-      Current operational map showing utility zones,
-      buried infrastructure concerns and QR operational points.
-    </figcaption>
-
-  </figure>
-</details>
-
-<div class="button-row">
-  <button class="quiet-button active" type="button">
-    Highlight QR2 — Utility Isolation
-  </button>
-</div>
-
-  <section class="content-grid">
-
-    <article class="panel">
-      <p class="eyebrow">Utility Controls</p>
-      <h3>Isolation Guidance</h3>
-
-      <ol class="check-list">
-        <li>Keep utility compound access clear at all times</li>
-        <li>Confirm responsible person before isolating services</li>
-        <li>Check latest service notes before contractor works</li>
-        <li>Record any isolation event in Hold</li>
-        <li>Escalate unverified infrastructure concerns before excavation</li>
-      </ol>
-    </article>
-
-    <article class="panel">
-      <p class="eyebrow">Known Infrastructure Notes</p>
-      <h3>Buried Services</h3>
-
-      <ul class="activity-list">
-        <li>
-          <strong>Electrical ducting</strong>
-          <span>Partial historic record only — service scan required before excavation</span>
-        </li>
-
-        <li>
-          <strong>Legacy water route</strong>
-          <span>Believed to cross eastern yard edge; verification ongoing</span>
-        </li>
-
-        <li>
-          <strong>Isolation cabinet</strong>
-          <span>Emergency access route must remain unobstructed during contractor attendance</span>
-        </li>
-      </ul>
-    </article>
-
-  </section>
-
-        </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+  <script src="sidebar.js?v=7"></script>
+  <script src="clock.js?v=4"></script>
 </body>
 </html>

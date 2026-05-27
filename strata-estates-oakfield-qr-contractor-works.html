@@ -3,122 +3,192 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Oakfield Depot — Contractor Works QR</title>
-  <link rel="stylesheet" href="style.css?v=24" />
+  <title>Oakfield Depot - Contractor Works QR</title>
+  <meta
+    name="description"
+    content="Operational QR point for Oakfield Depot contractor works, showing authorised activity, RAMS, permit controls, restricted areas, site risks and escalation routes."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
     <div id="hold-sidebar" data-sidebar="sidebar-estates.html"></div>
-<main class="dashboard-main">
-  
-    <div class="dashboard-header">
-  <p class="dashboard-breadcrumb">
-    Hold / Strata Estates / Oakfield Depot / QR1 Contractor Works
-  </p>
 
-  <div class="dashboard-title-row">
-    <div>
-      <p class="section-kicker">QR1 / Contractor Works</p>
+    <main class="dashboard-main">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Estates / Oakfield Depot / QR1 Contractor Works</p>
 
-      <h1>Oakfield Depot — Contractor Works Point</h1>
+          <header class="scan-header">
+            <h1>Oakfield Depot - Contractor Works Point</h1>
+            <p>Point-of-work visibility for authorised contractor activity, access restrictions, permits, inherited site risks and escalation.</p>
+            <span class="status-pill status-review">Operational QR</span>
+          </header>
 
-      <p class="dashboard-subtitle">
-        Current works guidance, access restrictions and marked-up plan reference.
-      </p>
-    </div>
+          <details class="scan-section muted-section driver-map-details" open>
+            <summary>View Oakfield Depot operational map</summary>
+            <figure class="map-card driver-map">
+              <div class="map-focus-wrap">
+                <img
+                  class="safety-map"
+                  src="images/strata-estates-oakfield-depot-site-map.png"
+                  alt="Oakfield Depot operational map showing QR points, access routes, drainage areas and utility zones."
+                />
+                <span class="map-focus-marker qr-est-001-marker"></span>
+              </div>
+              <figcaption>QR1 Contractor Works highlighted on the Oakfield Depot operational map.</figcaption>
+            </figure>
+          </details>
 
-    <span class="dashboard-status-pill">
-      Operational QR
-    </span>
+          <div class="button-row">
+            <button class="quiet-button active" type="button">Highlight QR1 - Contractor Works</button>
+          </div>
+
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Authorised Works</h2>
+                <span class="status-pill status-active">Current scope</span>
+              </div>
+              <p>Work is limited to the marked-up plan, approved contractor method and named working area. Do not extend scope without Estates approval.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="oakfield-contractor-scope">Report scope change</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>RAMS &amp; Permit Controls</h2>
+                <span class="status-pill status-pending">Before work</span>
+              </div>
+              <p>Confirm RAMS, insurance, permit status, hot works needs, isolation needs and supervisor release before unloading plant or materials.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="oakfield-contractor-permit">Request permit review</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Restricted Areas</h2>
+                <span class="status-pill status-review">Exclusion zones</span>
+              </div>
+              <p>Keep the eastern service corridor, turning area, soft verge and utility compound entrance clear unless explicitly authorised.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="oakfield-contractor-restriction">Report restriction issue</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Inherited Site Risks</h2>
+                <span class="status-pill status-review">Verify locally</span>
+              </div>
+              <p>Historic utility routes and ground conditions may not match the plan. Stop and escalate unexpected covers, ducts, services or soft ground.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="oakfield-contractor-risk">Record inherited risk</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Environmental Awareness</h2>
+                <span class="status-pill status-pending">Wet weather</span>
+              </div>
+              <p>Soft verge, standing water, silt movement and spill pathways should be visible before plant movement or ground disturbance.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="oakfield-contractor-environment">Report environmental concern</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Escalation Route</h2>
+                <span class="status-pill status-active">Named decision</span>
+              </div>
+              <p>Escalate permit doubt, access conflict, isolation uncertainty, buried-service concern or public/shared access issue before continuing.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="oakfield-contractor-supervisor">Request supervisor</button>
+                <button type="button" class="quiet-button secondary" data-action="oakfield-contractor-other">Other contractor issue</button>
+              </div>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="oakfield-contractor-scope-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Scope Change</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Scope change opened. Capture the change, location, permit impact, additional plant or materials and approval needed.</p>
+          </article>
+
+          <article class="card action-result-card" id="oakfield-contractor-permit-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Permit Review</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Permit review requested. Check RAMS, insurance, isolation requirements, hot works controls, restricted areas and supervisor release.</p>
+          </article>
+
+          <article class="card action-result-card" id="oakfield-contractor-restriction-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Restriction Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Restriction issue recorded. Confirm exclusion zone, shared route, turning area, soft verge and temporary control requirements.</p>
+          </article>
+
+          <article class="card action-result-card" id="oakfield-contractor-risk-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Inherited Risk</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Inherited risk note opened. Record the local knowledge, who supplied it, where it applies and what verification is needed.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Record inherited site risk or operational memory..."></textarea>
+          </article>
+
+          <article class="card action-result-card" id="oakfield-contractor-environment-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Environmental Concern</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Environmental concern logged. Check runoff, silt, spill path, standing water and ground condition before authorising continued work.</p>
+          </article>
+
+          <article class="card action-result-card" id="oakfield-contractor-supervisor-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Supervisor Requested</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Supervisor requested. Hold activity where permit, access, isolation, public interface or inherited risk needs a named decision.</p>
+          </article>
+
+          <article class="card action-result-card" id="oakfield-contractor-other-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Contractor Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Other contractor issue opened. Capture the concern, location, affected people or routes and the decision needed.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the contractor issue..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Operational view held against Oakfield Depot QR1 Contractor Works</p>
+            <p>Authorised works, RAMS, permits, restrictions, environmental risk and escalation remain connected</p>
+            <a href="strata-estates-oakfield-depot.html">Open Oakfield Depot</a>
+          </footer>
+        </section>
+      </div>
+    </main>
   </div>
-</div>
 
-  <details class="map-details" open>
-  <summary>View Oakfield Depot operational map</summary>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-  <figure class="map-card">
-    <div class="map-focus-wrap">
-      <img
-        class="safety-map"
-        src="images/strata-estates-oakfield-depot-site-map.png"
-        alt="Oakfield Depot operational map showing QR points, access routes, drainage areas and utility zones."
-      />
-
-      <span class="map-focus-marker qr-est-001-marker"></span>
-    </div>
-
-    <figcaption>
-      QR1 Contractor Works highlighted on the Oakfield Depot operational map.
-    </figcaption>
-  </figure>
-</details>
-
-<div class="button-row">
-  <button class="quiet-button active" type="button">
-    Highlight QR1 — Contractor Works
-  </button>
-</div>
-      
-  <section class="content-grid">
-
-    <article class="panel">
-      <p class="eyebrow">Before Work Starts</p>
-      <h3>Contractor Requirements</h3>
-
-      <ol class="check-list">
-        <li>Review latest marked-up operational plan</li>
-        <li>Confirm permit, RAMS and insurance status</li>
-        <li>Check exclusion zones before unloading plant or materials</li>
-        <li>Confirm low-loader access route if heavy equipment is arriving</li>
-        <li>Report unexpected ground or service findings before continuing</li>
-      </ol>
-    </article>
-
-    <article class="panel">
-      <p class="eyebrow">Current Works Note</p>
-      <h3>Active Site Restrictions</h3>
-
-      <ul class="activity-list">
-        <li>
-          <strong>Eastern service corridor</strong>
-          <span>Utility route uncertainty — no excavation without confirmation</span>
-        </li>
-
-        <li>
-          <strong>Turning area</strong>
-          <span>Keep clear for contractor delivery vehicle movement</span>
-        </li>
-
-        <li>
-          <strong>Soft verge</strong>
-          <span>Temporary matting may be required following wet weather</span>
-        </li>
-      </ul>
-    </article>
-
-  </section>
-
-      </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+  <script src="sidebar.js?v=7"></script>
+  <script src="clock.js?v=4"></script>
 </body>
 </html>

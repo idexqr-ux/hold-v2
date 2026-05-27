@@ -3,127 +3,211 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Oakfield Depot — Drainage Inspection QR</title>
-  <link rel="stylesheet" href="style.css?v=24" />
+  <title>Oakfield Depot - Drainage Inspection QR</title>
+  <meta
+    name="description"
+    content="Operational QR point for Oakfield Depot drainage inspection, showing runoff awareness, blockage reporting, spill risk, inspection history and seasonal weather controls."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
     <div id="hold-sidebar" data-sidebar="sidebar-estates.html"></div>
 
     <main class="dashboard-main">
-  
-    <div class="dashboard-header">
-  <p class="dashboard-breadcrumb">
-    Hold / Strata Estates / Oakfield Depot / QR3 Drainage Inspection
-  </p>
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Estates / Oakfield Depot / QR3 Drainage Inspection</p>
 
-  <div class="dashboard-title-row">
-    <div>
-      <p class="section-kicker">QR3 / Drainage Inspection</p>
-    <h1>Oakfield Depot — Drainage Inspection Point</h1>
-      
-    <p class="dashboard-subtitle">
-  Seasonal drainage checks, standing water observations and inspection history.
-</p>
-   </div>
+          <header class="scan-header">
+            <h1>Oakfield Depot - Drainage Inspection Point</h1>
+            <p>Operational visibility for runoff, blockage reporting, spill pathways, inspection history, waterway protection and weather triggers.</p>
+            <span class="status-pill status-review">Drainage governance</span>
+          </header>
 
-    <span class="dashboard-status-pill">
-      Operational QR
-    </span>
+          <details class="scan-section muted-section driver-map-details" open>
+            <summary>View Oakfield Depot operational map</summary>
+            <figure class="map-card driver-map">
+              <div class="map-focus-wrap">
+                <img
+                  class="safety-map"
+                  src="images/strata-estates-oakfield-depot-site-map.png"
+                  alt="Oakfield Depot operational map showing QR points, drainage areas, access routes and utility zones."
+                />
+                <span class="map-focus-marker qr-est-003-marker"></span>
+              </div>
+              <figcaption>QR3 Drainage Inspection highlighted on the Oakfield Depot operational map.</figcaption>
+            </figure>
+          </details>
+
+          <div class="button-row">
+            <button class="quiet-button active" type="button">Highlight QR3 - Drainage Inspection</button>
+          </div>
+
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Runoff Awareness</h2>
+                <span class="status-pill status-pending">Wet weather</span>
+              </div>
+              <p>Check runoff paths, standing water, silt movement and soft verge condition after rainfall or heavy vehicle movement.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="drainage-runoff-concern">Report runoff concern</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Blockage Reporting</h2>
+                <span class="status-pill status-review">Inspect covers</span>
+              </div>
+              <p>Report blocked drains, covered gullies, damaged covers, backed-up water or debris restricting the drainage route.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="drainage-blockage">Report blockage</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Environmental Spill Risk</h2>
+                <span class="status-pill status-pending">Protect drains</span>
+              </div>
+              <p>Fuel, oil, hydraulic fluid or contaminated runoff must be escalated quickly where drains or water pathways may be exposed.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="drainage-spill-risk">Report spill risk</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Inspection History</h2>
+                <span class="status-pill status-active">Traceable record</span>
+              </div>
+              <p>Link photos, condition notes, repeat observations and seasonal trends to the inspection point before access decisions are made.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="drainage-inspection-note">Add inspection note</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Waterway Protection</h2>
+                <span class="status-pill status-review">Downstream impact</span>
+              </div>
+              <p>Consider downstream watercourses, surface water paths, silt controls and emergency containment before flushing, clearing or disturbing drains.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="drainage-waterway-protection">Request waterway protection review</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Seasonal &amp; Weather Awareness</h2>
+                <span class="status-pill status-pending">Weather trigger</span>
+              </div>
+              <p>Recent rainfall, freezing conditions, leaf fall, heat, dust and forecast storms can change access and inspection decisions.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="drainage-weather-trigger">Record weather trigger</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Escalation Route</h2>
+                <span class="status-pill status-active">Estates review</span>
+              </div>
+              <p>Escalate if access becomes unsuitable for heavy vehicles, water is rising, a blockage repeats or pollution risk is present.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="drainage-escalation">Request Estates escalation</button>
+                <button type="button" class="quiet-button secondary" data-action="drainage-other-issue">Other drainage issue</button>
+              </div>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="drainage-runoff-concern-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Runoff Concern</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Runoff concern opened. Check rainfall, flow path, silt movement, vehicle activity, drain exposure and containment needs.</p>
+          </article>
+
+          <article class="card action-result-card" id="drainage-blockage-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Blockage Report</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Blockage report started. Capture cover, gully, drain route, debris type, backing-up water and access impact.</p>
+          </article>
+
+          <article class="card action-result-card" id="drainage-spill-risk-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Spill Risk</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Spill risk logged. Identify material, source, drain pathway, downstream exposure and immediate containment controls.</p>
+          </article>
+
+          <article class="card action-result-card" id="drainage-inspection-note-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Inspection Note</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Inspection note opened. Add photos, condition history, repeat observations, weather context and recommended follow-up.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Record drainage inspection history or observation..."></textarea>
+          </article>
+
+          <article class="card action-result-card" id="drainage-waterway-protection-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Waterway Protection</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Waterway protection review requested. Check downstream impact, containment, silt control and environmental escalation.</p>
+          </article>
+
+          <article class="card action-result-card" id="drainage-weather-trigger-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Weather Trigger</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Weather trigger recorded. Link rainfall, freeze, leaf fall, storm forecast or dry conditions to current access and inspection decisions.</p>
+          </article>
+
+          <article class="card action-result-card" id="drainage-escalation-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Estates Escalation</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Estates escalation requested. Use where blockage, runoff, pollution risk or access condition needs a named operational decision.</p>
+          </article>
+
+          <article class="card action-result-card" id="drainage-other-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Drainage Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Other drainage issue opened. Capture the condition, location, environmental risk and action needed.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the drainage issue or decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Operational view held against Oakfield Depot QR3 Drainage Inspection</p>
+            <p>Runoff, blockage, spill risk, inspection history, waterway protection and weather awareness remain connected</p>
+            <a href="strata-estates-oakfield-depot.html">Open Oakfield Depot</a>
+          </footer>
+        </section>
+      </div>
+    </main>
   </div>
-</div>
 
-  <details class="map-details" open>
-  <summary>View Oakfield Depot operational map</summary>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-  <figure class="map-card">
-
-    <div class="map-focus-wrap">
-
-      <img
-        class="safety-map"
-        src="images/strata-estates-oakfield-depot-site-map.png"
-        alt="Oakfield Depot operational map showing QR points, drainage areas, access routes and utility zones."
-      />
-
-      <span class="map-focus-marker qr-est-003-marker"></span>
-
-    </div>
-
-    <figcaption>
-      Operational map showing drainage risk areas,
-      access constraints and QR inspection points.
-    </figcaption>
-
-  </figure>
-</details>
-
-<div class="button-row">
-  <button class="quiet-button active" type="button">
-    Highlight QR3 — Drainage Inspection
-  </button>
-</div>
-
-  <section class="content-grid">
-
-    <article class="panel">
-      <p class="eyebrow">Inspection Checks</p>
-      <h3>Drainage Review</h3>
-
-      <ol class="check-list">
-        <li>Check standing water near eastern access route</li>
-        <li>Record condition after prolonged rainfall</li>
-        <li>Photograph blocked drains or soft ground areas</li>
-        <li>Escalate if access route becomes unsuitable for heavy vehicles</li>
-        <li>Review temporary access arrangements during wet conditions</li>
-      </ol>
-    </article>
-
-    <article class="panel">
-      <p class="eyebrow">Current Observation</p>
-      <h3>Seasonal Risk Notes</h3>
-
-      <ul class="activity-list">
-        <li>
-          <strong>Soft verge condition</strong>
-          <span>Ground stability variable after recent rainfall</span>
-        </li>
-
-        <li>
-          <strong>Drainage area</strong>
-          <span>Monitor before contractor access or low-loader delivery</span>
-        </li>
-
-        <li>
-          <strong>Eastern access route</strong>
-          <span>Standing water reported during previous inspection period</span>
-        </li>
-      </ul>
-    </article>
-
-  </section>
-
-     </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+  <script src="sidebar.js?v=7"></script>
+  <script src="clock.js?v=4"></script>
 </body>
 </html>

@@ -3,235 +3,240 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>East Service Lane Works — Contractor View</title>
-  <link rel="stylesheet" href="style.css?v=24" />
+  <title>East Service Lane Works - Contractor View</title>
+  <meta
+    name="description"
+    content="Contractor operational view for East Service Lane works, showing RAMS awareness, authorised works, restricted areas, isolation requirements, inherited risks and escalation routes."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
     <div id="hold-sidebar" data-sidebar="sidebar-estates.html"></div>
 
     <main class="dashboard-main">
-    <section class="scan-card">
-      <p class="scan-eyebrow">Contractor Site View</p>
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Estates / Contractor Site View</p>
 
-      <div class="scan-header">
-        <h1>East Service Lane Works</h1>
-        <p class="dashboard-subtitle">
-          Contractor guidance for drainage survey works near the east service lane.
-        </p>
+          <header class="scan-header">
+            <h1>East Service Lane Works</h1>
+            <p>Contractor guidance for drainage survey activity near the east service lane, shared access routes and inherited site risks.</p>
+            <span class="status-pill status-review">Active works</span>
+          </header>
 
-        <span class="status-pill status-review">Active Works</span>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>RAMS Awareness</h2>
+                <span class="status-pill status-pending">Before entry</span>
+              </div>
+              <p>Confirm the latest RAMS revision, permit controls, insurance status and supervisor release before entering the working area.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="contractor-rams-check">Request RAMS check</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Authorised Works</h2>
+                <span class="status-pill status-active">Drainage survey</span>
+              </div>
+              <p>Activity is limited to the approved drainage survey boundary. Any change to scope, plant, timing or method needs Estates review.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="contractor-scope-change">Report scope change</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Restricted Areas</h2>
+                <span class="status-pill status-review">Shared route</span>
+              </div>
+              <p>Keep the east service lane, visitor diversion, neighbouring access track and any signed exclusion zones clear during the works window.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="contractor-access-issue">Report access issue</button>
+                <button type="button" class="quiet-button" data-action="contractor-restriction">Report temporary restriction</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Isolation Requirements</h2>
+                <span class="status-pill status-pending">Check first</span>
+              </div>
+              <p>Do not disturb drains, covers, ducts or services until isolation need, utility notes and buried-service uncertainty have been checked.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="contractor-isolation-review">Request isolation review</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Inherited Site Risks</h2>
+                <span class="status-pill status-review">Local knowledge</span>
+              </div>
+              <p>The access track is still known locally as "The Willows". Historic drainage changes and soft ground may not match the drawing.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="contractor-inherited-risk">Record inherited risk</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Public &amp; Shared Access</h2>
+                <span class="status-pill status-active">Keep open</span>
+              </div>
+              <p>Visitor parking is redirected to the north compound. Keep pedestrian movement, neighbouring access and emergency routes unobstructed.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="contractor-access-issue">Report access issue</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Environmental Awareness</h2>
+                <span class="status-pill status-pending">Runoff risk</span>
+              </div>
+              <p>Drainage access, standing water, silt movement, blocked covers and spill pathways should be reported before work continues.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="contractor-drainage-change">Report drainage access change</button>
+                <button type="button" class="quiet-button" data-action="contractor-environmental-concern">Report environmental concern</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Escalation Contacts</h2>
+                <span class="status-pill status-review">Estates route</span>
+              </div>
+              <p>Escalate permit doubt, access conflict, isolation uncertainty, public interface risk or unexpected ground conditions through the Estates contact.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="contractor-supervisor-request">Request Estates contact</button>
+                <button type="button" class="quiet-button secondary" data-action="contractor-other">Other contractor issue</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Works Close-Out</h2>
+                <span class="status-pill status-active">Before leaving</span>
+              </div>
+              <p>Confirm barriers, drainage covers, temporary restrictions, photographs and any follow-up notes before the work area is released.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="contractor-works-complete">Confirm works complete</button>
+              </div>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="contractor-rams-check-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">RAMS Check</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>RAMS check requested. Confirm revision, scope, permit controls, restricted areas, isolation notes and supervisor release before work starts.</p>
+          </article>
+
+          <article class="card action-result-card" id="contractor-scope-change-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Scope Change</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Scope change route opened. Capture the proposed change, affected area, plant movement, permit impact and Estates decision needed.</p>
+          </article>
+
+          <article class="card action-result-card" id="contractor-access-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Access Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Access issue recorded. Check shared routes, visitor diversion, pedestrian exposure, neighbouring access and emergency access before movement continues.</p>
+          </article>
+
+          <article class="card action-result-card" id="contractor-restriction-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Temporary Restriction</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Temporary restriction logged. Link the barrier, parking change, drainage cover, shared route limitation and expected removal time.</p>
+          </article>
+
+          <article class="card action-result-card" id="contractor-isolation-review-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Isolation Review</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Isolation review requested. Confirm utility notes, buried-service uncertainty, authorised isolator and whether work must pause.</p>
+          </article>
+
+          <article class="card action-result-card" id="contractor-inherited-risk-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Inherited Risk</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Inherited risk note opened. Record the local name, person, place, operational detail and verification needed before it is lost.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Record the inherited site risk or local knowledge..."></textarea>
+          </article>
+
+          <article class="card action-result-card" id="contractor-drainage-change-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Drainage Access Change</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Drainage access change recorded. Capture the revised boundary, cover condition, runoff concern and any temporary access control needed.</p>
+          </article>
+
+          <article class="card action-result-card" id="contractor-environmental-concern-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Environmental Concern</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Environmental concern logged. Check silt movement, spill pathways, blocked drains, standing water and waterway protection before continuing.</p>
+          </article>
+
+          <article class="card action-result-card" id="contractor-supervisor-request-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Estates Contact Requested</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Estates contact requested. Hold the activity where RAMS, access, isolation, public interface or inherited risk needs a named decision.</p>
+          </article>
+
+          <article class="card action-result-card" id="contractor-works-complete-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-active">Works Complete</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Works close-out started. Confirm covers, barriers, photos, temporary restrictions and follow-up actions before releasing the area.</p>
+          </article>
+
+          <article class="card action-result-card" id="contractor-other-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Contractor Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Other contractor issue opened. Capture what was seen, where it is, who is affected and what decision is needed.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the contractor issue, restriction or concern..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Operational contractor view held against East Service Lane works</p>
+            <p>RAMS, permits, restricted areas, isolation, public access, environment and escalation remain connected</p>
+            <a href="strata-estates-dashboard.html">Open Strata Estates dashboard</a>
+          </footer>
+        </section>
       </div>
-
-      <section class="scan-section">
-  <h2>Access guidance</h2>
-
-  <p class="asset-alias">
-    Neighbouring landowner access track operationally referred to as “The Willows”.
-  </p>
-
-  <p>
-    Use the north compound parking area while visitor parking is temporarily redirected.
-    Follow site signage and avoid blocking shared access routes.
-  </p>
-</section>
-
-      <section class="scan-section">
-        <h2>Before work starts</h2>
-        <ul>
-          <li>Confirm RAMS approval before entering the working area.</li>
-          <li>Check current drainage survey boundary with the estates contact.</li>
-          <li>Keep the east service lane clear for authorised access.</li>
-        </ul>
-      </section>
-
-      <section class="scan-section">
-        <h2>Operational note</h2>
-        <p>
-          Any change to parking, drainage access, or temporary restrictions should be reported
-          back to the Estates dashboard.
-        </p>
-      </section>
-
-      <article class="card">
-
-  <h3>Contractor Actions</h3>
-
-  <p>
-    Use these actions to report temporary restrictions, drainage access changes
-    or operational issues back into Hold.
-  </p>
-
-  <div class="button-row">
-
-    <button type="button" class="quiet-button" data-action="access-issue">
-      Report Access Issue
-    </button>
-
-    <button type="button" class="quiet-button" data-action="temporary-restriction">
-      Report Temporary Restriction
-    </button>
-
-    <button type="button" class="quiet-button" data-action="drainage-change">
-      Report Drainage Access Change
-    </button>
-
-    <button type="button" class="quiet-button" data-action="works-complete">
-      Confirm Works Complete
-    </button>
-
-    <button type="button" class="quiet-button secondary" data-action="contractor-other">
-      Other Contractor Issue
-    </button>
-
+    </main>
   </div>
 
-</article>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-      <article class="card action-result-card" id="access-issue-card" hidden>
-
-  <div class="action-result-header">
-
-    <span class="status-pill status-review">
-      Report Access Issue
-    </span>
-
-    <button class="card-close" type="button" aria-label="Close action card">
-      ×
-    </button>
-
-  </div>
-
-  <p>
-    Report blocked access routes, vehicle conflicts or restricted entry points affecting operational movement.
-  </p>
-
-  <ul class="workflow-list">
-    <li>Routes reported through Hold remain visible to Estates review teams.</li>
-    <li>Temporary restrictions may appear within operational dashboard notices.</li>
-  </ul>
-
-</article>
-
-<article class="card action-result-card" id="temporary-restriction-card" hidden>
-
-  <div class="action-result-header">
-
-    <span class="status-pill status-review">
-      Report Temporary Restriction
-    </span>
-
-    <button class="card-close" type="button" aria-label="Close action card">
-      ×
-    </button>
-
-  </div>
-
-  <p>
-    Record temporary parking restrictions, drainage barriers or shared route limitations affecting operational access.
-  </p>
-
-</article>
-
-<article class="card action-result-card" id="drainage-change-card" hidden>
-
-  <div class="action-result-header">
-
-    <span class="status-pill status-review">
-      Report Drainage Access Change
-    </span>
-
-    <button class="card-close" type="button" aria-label="Close action card">
-      ×
-    </button>
-
-  </div>
-
-  <p>
-    Record updated drainage survey boundaries or revised operational access requirements.
-  </p>
-
-</article>
-
-<article class="card action-result-card" id="works-complete-card" hidden>
-
-  <div class="action-result-header">
-
-    <span class="status-pill status-active">
-      Confirm Works Complete
-    </span>
-
-    <button class="card-close" type="button" aria-label="Close action card">
-      ×
-    </button>
-
-  </div>
-
-  <p>
-    Confirm that drainage survey works have completed and temporary operational restrictions may be reviewed for removal.
-  </p>
-
-</article>
-
-<article class="card action-result-card" id="contractor-other-card" hidden>
-
-  <div class="action-result-header">
-
-    <span class="status-pill status-review">
-      Other Contractor Issue
-    </span>
-
-    <button class="card-close" type="button" aria-label="Close action card">
-      ×
-    </button>
-
-  </div>
-
-  <p>
-    Record operational concerns not covered by an existing contractor workflow category.
-  </p>
-
-  <label class="sr-only" for="contractorIssue">
-    Contractor issue details
-  </label>
-
-  <textarea
-    id="contractorIssue"
-    class="hold-textarea"
-    rows="5"
-    placeholder="Describe the operational issue, restriction or concern..."></textarea>
-
-  <div class="button-row">
-
-    <button type="button" class="quiet-button">
-      Submit Operational Note
-    </button>
-
-  </div>
-
-</article>
-      
-       </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+  <script src="sidebar.js?v=7"></script>
+  <script src="clock.js?v=4"></script>
 </body>
 </html>

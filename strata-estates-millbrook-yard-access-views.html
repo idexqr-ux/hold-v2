@@ -3,289 +3,285 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hold — Millbrook Yard Access Views</title>
-
-  <link rel="stylesheet" href="style.css?v=30" />
+  <title>Hold - Millbrook Yard Access Views</title>
+  <meta
+    name="description"
+    content="Role-aware operational QR view for Millbrook Yard access, showing vehicle movement, shared access, traffic separation, visibility concerns, contractor arrival guidance and emergency route awareness."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=3" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
     <div id="hold-sidebar" data-sidebar="sidebar-estates.html"></div>
 
     <main class="dashboard-main">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Estates / Millbrook Yard / Access Views</p>
 
-      <header class="dashboard-header">
-        <p class="dashboard-breadcrumb">
-          Strata Estates / Millbrook Yard / Access Views
-        </p>
+          <header class="scan-header">
+            <h1>Millbrook Yard - Access Views</h1>
+            <p>Role-aware operational access from one QR point, connecting vehicle movement, shared access, traffic separation, contractor arrival and emergency routes.</p>
+            <span class="status-pill status-review">Role-aware access</span>
+          </header>
 
-        <div class="dashboard-title-row">
-          <div>
-            <h1>Millbrook Yard — Access Views</h1>
-            <p class="dashboard-subtitle">
-              Visitor, contractor and tenant guidance from one governed QR point.
-            </p>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <h3>Access Profiles</h3>
+              <p>4 Active</p>
+            </div>
+            <div class="stat-card">
+              <h3>Linked QR Point</h3>
+              <p>MBY-QR-004</p>
+            </div>
+            <div class="stat-card">
+              <h3>Site Notices</h3>
+              <p>4 Current</p>
+            </div>
+            <div class="stat-card">
+              <h3>Last Updated</h3>
+              <p>Today 09:20</p>
+            </div>
           </div>
 
-          <span class="dashboard-status-pill">
-            Role-Aware Access
-          </span>
-        </div>
-      </header>
+          <details class="scan-section muted-section driver-map-details" open>
+            <summary>View Millbrook Yard site map</summary>
+            <figure class="map-card driver-map">
+              <img
+                class="safety-map"
+                src="images/strata-estates-millbrook-yard-access-views.png"
+                alt="Illustrative Millbrook Yard site map showing tenant units, shared parking, welfare facilities, meter cabinet, contractor entrance and left-turn-only exit."
+              />
+              <figcaption>Shared site layer supporting visitor, contractor, tenant and governance guidance.</figcaption>
+            </figure>
+          </details>
 
-      <section class="stats-grid">
-        <div class="stat-card">
-          <h3>Access Profiles</h3>
-          <p>4 Active</p>
-        </div>
+          <section class="scan-section muted-section">
+            <h2>Select Role</h2>
+            <div class="button-row">
+              <button class="quiet-button active" type="button" data-view="visitor-view">Visitor</button>
+              <button class="quiet-button" type="button" data-view="contractor-view">Contractor</button>
+              <button class="quiet-button" type="button" data-view="tenant-view">Tenant</button>
+              <button class="quiet-button" type="button" data-view="governance-view">Governance</button>
+            </div>
+          </section>
 
-        <div class="stat-card">
-          <h3>Linked QR Point</h3>
-          <p>MBY-QR-004</p>
-        </div>
+          <div class="operational-window-grid access-view" id="visitor-view">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Visitor Parking</h2>
+                <span class="status-pill status-active">Marked bays</span>
+              </div>
+              <p>Use marked visitor bays only. Do not park in shared circulation, contractor arrival space or tenant loading areas.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="millbrook-parking-issue">Report parking issue</button>
+              </div>
+            </article>
 
-        <div class="stat-card">
-          <h3>Site Notices</h3>
-          <p>4 Current</p>
-        </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Pedestrian Awareness</h2>
+                <span class="status-pill status-review">Shared yard</span>
+              </div>
+              <p>Follow host guidance, watch for vehicle movement and keep pedestrian routes clear of tenant workshops and shared entrances.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="millbrook-visibility-concern">Report visibility concern</button>
+              </div>
+            </article>
+          </div>
 
-        <div class="stat-card">
-          <h3>Last Updated</h3>
-          <p>Today 09:20</p>
-        </div>
-      </section>
+          <div class="operational-window-grid access-view" id="contractor-view" hidden>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Contractor Arrival</h2>
+                <span class="status-pill status-pending">Report first</span>
+              </div>
+              <p>Report to the estate contact before unloading. Confirm RAMS, permit status, working area and any tenant interface.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="millbrook-contractor-arrival">Confirm contractor arrival</button>
+              </div>
+            </article>
 
-      <section class="map-layout">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Vehicle Movement</h2>
+                <span class="status-pill status-review">Controlled route</span>
+              </div>
+              <p>Use the approved contractor route. Keep shared circulation passable and avoid blocking tenant workshop entrances.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="millbrook-vehicle-movement">Report vehicle movement issue</button>
+              </div>
+            </article>
 
-  <article class="panel qr-map-panel">
-    <h3>Millbrook Yard Site Map</h3>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Traffic Separation</h2>
+                <span class="status-pill status-pending">Separate people</span>
+              </div>
+              <p>Separate reversing, unloading, pedestrian movement and tenant traffic where temporary works affect normal circulation.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="millbrook-traffic-separation">Request traffic separation review</button>
+              </div>
+            </article>
+          </div>
 
-    <figure class="map-card">
-      <img
-        class="safety-map"
-        src="images/strata-estates-millbrook-yard-access-views.png"
-        alt="Illustrative Millbrook Yard site map showing tenant units, shared parking, welfare facilities, meter cabinet, contractor entrance and left-turn-only exit."
-      />
+          <div class="operational-window-grid access-view" id="tenant-view" hidden>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Shared Access</h2>
+                <span class="status-pill status-active">Keep passable</span>
+              </div>
+              <p>Keep shared circulation, visitor bays, meter access and welfare access clear during tenant activity and deliveries.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="millbrook-shared-access">Report shared access issue</button>
+              </div>
+            </article>
 
-      <figcaption>
-        Shared site layer supporting visitor, contractor, tenant and governance guidance.
-      </figcaption>
-    </figure>
-  </article>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Visibility Concerns</h2>
+                <span class="status-pill status-review">Signage and sightlines</span>
+              </div>
+              <p>Report blocked signs, poor sightlines, parked vehicles hiding movement or unclear visitor and contractor routing.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="millbrook-visibility-concern">Report visibility concern</button>
+              </div>
+            </article>
+          </div>
 
-  <div class="role-access-column">
+          <div class="operational-window-grid access-view" id="governance-view" hidden>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>QR Governance</h2>
+                <span class="status-pill status-review">MBY-QR-004</span>
+              </div>
+              <p>One QR point provides visitor, contractor, tenant and governance access views without duplicating physical infrastructure.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="millbrook-governance-note">Add governance note</button>
+              </div>
+            </article>
 
-    <article class="panel">
-      <p class="eyebrow">Access View</p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Emergency Route Awareness</h2>
+                <span class="status-pill status-pending">Keep open</span>
+              </div>
+              <p>Emergency route, left-turn-only exit, contractor entrance and tenant access must remain visible when parking or works change.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="millbrook-emergency-route">Report emergency route concern</button>
+              </div>
+            </article>
 
-<h2>One QR point. Governed by role.</h2>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Environmental Awareness</h2>
+                <span class="status-pill status-review">Yard condition</span>
+              </div>
+              <p>Surface water, mud transfer, spill risk and blocked drainage should be reported where shared access or contractor movement is affected.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="millbrook-environmental-concern">Report environmental concern</button>
+                <button type="button" class="quiet-button secondary" data-action="millbrook-other-access">Other access issue</button>
+              </div>
+            </article>
+          </div>
 
-<p class="dashboard-subtitle">
-  Visitor, contractor and tenant guidance delivered from one governed operational access point.
-</p>
-      <h3>Select Role</h3>
+          <article class="card action-result-card" id="millbrook-parking-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Parking Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Parking issue recorded. Check visitor bays, shared circulation, contractor arrival space, tenant loading and emergency route impact.</p>
+          </article>
 
-      <button
-        class="map-focus-row active"
-        type="button"
-        data-view="visitor-view"
-      >
-        <span>
-          <strong>Visitor</strong>
-          <small>Parking, movement and short-stay guidance</small>
-        </span>
-      </button>
+          <article class="card action-result-card" id="millbrook-visibility-concern-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Visibility Concern</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Visibility concern opened. Confirm sightline, signage, parked vehicle, pedestrian exposure and affected access view.</p>
+          </article>
 
-      <button
-        class="map-focus-row"
-        type="button"
-        data-view="contractor-view"
-      >
-        <span>
-          <strong>Contractor</strong>
-        </span>
-      </button>
+          <article class="card action-result-card" id="millbrook-contractor-arrival-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Contractor Arrival</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Contractor arrival check started. Confirm estate contact, RAMS, permit status, working area, unloading plan and tenant interface.</p>
+          </article>
 
-      <button
-        class="map-focus-row"
-        type="button"
-        data-view="tenant-view"
-      >
-        <span>
-          <strong>Tenant</strong>
-        </span>
-      </button>
+          <article class="card action-result-card" id="millbrook-vehicle-movement-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Vehicle Movement</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Vehicle movement issue recorded. Check route, reversing, tenant entrance, shared circulation, visibility and escort need.</p>
+          </article>
 
-      <button
-        class="map-focus-row"
-        type="button"
-        data-view="governance-view"
-      >
-        <span>
-          <strong>Governance</strong>
-        </span>
-      </button>
-    </article>
+          <article class="card action-result-card" id="millbrook-traffic-separation-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Traffic Separation</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Traffic separation review requested. Separate pedestrians, reversing vehicles, unloading activity, tenant traffic and temporary works.</p>
+          </article>
 
-    <article class="panel access-view" id="visitor-view">
-      <p class="eyebrow">Visitor View</p>
-      <h3>Short-Stay Visitor Guidance</h3>
+          <article class="card action-result-card" id="millbrook-shared-access-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Shared Access</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Shared access issue logged. Confirm circulation route, meter access, welfare access, tenant entrance and visitor bay impact.</p>
+          </article>
 
-      <ul class="activity-list">
-        <li>
-          <strong>Parking</strong>
-          <span>Use marked visitor bays only. Do not park in shared circulation or loading areas.</span>
-        </li>
+          <article class="card action-result-card" id="millbrook-governance-note-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Governance Note</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Governance note opened. Record the access view, review trigger, role visibility and operational ownership change.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Record the Millbrook access governance note..."></textarea>
+          </article>
 
-        <li>
-          <strong>Site Movement</strong>
-          <span>Follow tenant instructions and keep shared access routes clear.</span>
-        </li>
+          <article class="card action-result-card" id="millbrook-emergency-route-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Emergency Route</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Emergency route concern opened. Confirm exit, contractor entrance, obstruction, responder path and immediate route control needed.</p>
+          </article>
 
-        <li>
-          <strong>Exit Restriction</strong>
-          <span>Vehicles must leave by turning into the traffic flow. Do not cross the carriageway on exit.</span>
-        </li>
+          <article class="card action-result-card" id="millbrook-environmental-concern-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Environmental Concern</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Environmental concern recorded. Check surface water, mud transfer, spill risk, drainage blockage and access route condition.</p>
+          </article>
 
-        <li>
-          <strong>Welfare Facilities</strong>
-          <span>Visitor access only where authorised by the host tenant.</span>
-        </li>
-      </ul>
-    </article>
+          <article class="card action-result-card" id="millbrook-other-access-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Access Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Other access issue opened. Capture the role, route, vehicle or pedestrian concern and the Estates decision needed.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the Millbrook access issue..."></textarea>
+          </article>
 
-    <article class="panel access-view" id="contractor-view" hidden>
-      <p class="eyebrow">Contractor View</p>
-      <h3>Works Access Guidance</h3>
-
-      <ul class="activity-list">
-        <li>
-          <strong>Arrival</strong>
-          <span>Report to the estate contact before beginning works or unloading materials.</span>
-        </li>
-
-        <li>
-          <strong>Temporary Parking</strong>
-          <span>Contractor parking may be assigned during approved works. Shared circulation must remain passable.</span>
-        </li>
-
-        <li>
-          <strong>Access Restrictions</strong>
-          <span>Use approved contractor route only. Avoid blocking tenant workshop entrances.</span>
-        </li>
-
-        <li>
-          <strong>Approval Documents</strong>
-          <span>RAMS, insurance and permit status must be confirmed before works start.</span>
-        </li>
-      </ul>
-    </article>
-
-    <article class="panel access-view" id="tenant-view" hidden>
-      <p class="eyebrow">Tenant View</p>
-      <h3>Estate Notices & Responsibilities</h3>
-
-      <ul class="activity-list">
-        <li>
-          <strong>Visitor Parking Reminder</strong>
-          <span>Tenants should direct visitors to marked bays and avoid using the circulation area for overflow parking.</span>
-        </li>
-
-        <li>
-          <strong>Meter Access Coordination</strong>
-          <span>Unit access may be requested for sub-meter verification or reading checks.</span>
-        </li>
-
-        <li>
-          <strong>Signage Requests</strong>
-          <span>New or amended signage must be reviewed against estate standards before installation.</span>
-        </li>
-
-        <li>
-          <strong>Shared Facilities</strong>
-          <span>Report welfare, access or parking issues through the estate contact route.</span>
-        </li>
-      </ul>
-    </article>
-
-    <article class="panel access-view" id="governance-view" hidden>
-      <p class="eyebrow">Manager / Governance View</p>
-      <h3>Record Controls</h3>
-
-      <ul class="activity-list">
-        <li>
-          <strong>QR Point</strong>
-          <span>MBY-QR-004 — Visitor parking and access guidance</span>
-        </li>
-
-        <li>
-          <strong>Last Updated</strong>
-          <span>Access wording revised following recent parking complaint</span>
-        </li>
-
-        <li>
-          <strong>Review Trigger</strong>
-          <span>Update required when contractor works or parking arrangements change</span>
-        </li>
-
-        <li>
-          <strong>Governance Note</strong>
-          <span>Different access views preserve clarity without exposing unnecessary estate management detail.</span>
-        </li>
-      </ul>
-    </article>
-
-  </div>
-
-</section>         
-
-      <section class="content-grid">
-        <article class="panel">
-          <p class="eyebrow">Why It Matters</p>
-          <h3>One QR Point, Different Operational Truths</h3>
-
-          <p>
-            One physical QR point can support multiple governed operational experiences without
-            duplicating infrastructure or exposing unnecessary information. Hold keeps the access
-            point simple while controlling what each user group needs to see.
-          </p>
-        </article>
-
-        <article class="panel">
-          <p class="eyebrow">Governance Value</p>
-          <h3>Controlled Visibility</h3>
-
-          <ul class="activity-list">
-            <li>
-              <strong>Role-aware delivery</strong>
-              <span>Different users receive different guidance from the same managed point.</span>
-            </li>
-            <li>
-              <strong>Operational ownership</strong>
-              <span>Guidance remains linked to an approved operational record.</span>
-            </li>
-            <li>
-              <strong>Audit readiness</strong>
-              <span>Updates, review triggers and responsibility remain visible to managers.</span>
-            </li>
-          </ul>
-        </article>
-      </section>
-
+          <footer class="scan-footer">
+            <p>Operational view held against Millbrook Yard Access Views QR</p>
+            <p>Vehicle movement, shared access, traffic separation, visibility, contractor arrival and emergency routes remain connected</p>
+            <a href="strata-estates-millbrook-yard.html">Open Millbrook Yard</a>
+          </footer>
+        </section>
+      </div>
     </main>
-
   </div>
 
   <footer class="footer">
-    <p>
-      Powered by IdexQR<sup>®</sup>
-    </p>
-
-    <p class="footer-sub">
-      Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-    </p>
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
   </footer>
 
   <script src="sidebar.js?v=8"></script>
@@ -312,6 +308,5 @@
       });
     });
   </script>
-
 </body>
 </html>
