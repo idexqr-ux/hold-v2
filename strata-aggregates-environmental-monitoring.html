@@ -3,174 +3,191 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hold — Strata Aggregates Environmental Monitoring</title>
-  <link rel="stylesheet" href="style.css?v=24" />
+  <title>Strata Aggregates - Environmental Controls</title>
+  <meta
+    name="description"
+    content="Operational environmental controls view for Strata Aggregates, showing runoff, dust, noise, vibration, spill, habitat, mud control, reporting and traceability windows."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
     <div id="hold-sidebar" data-sidebar="sidebar-aggregates.html"></div>
+
     <main class="dashboard-main">
-      <div class="dashboard-header">
-        
-      <p class="dashboard-breadcrumb">
-        Strata Aggregates / Environmental Monitoring
-      </p>
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Aggregates / Environmental Controls</p>
 
-      <div class="dashboard-title-row">
+          <header class="scan-header">
+            <h1>Environmental Controls</h1>
+            <p>Live operational visibility for runoff, dust, noise, spill risk, habitats, mud control and environmental escalation.</p>
+            <span class="status-pill status-review">Operational node</span>
+          </header>
 
-        <div>
-          <h1>Environmental Monitoring</h1>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Water &amp; Runoff Monitoring</h2>
+                <span class="status-pill status-pending">Wet weather trigger</span>
+              </div>
+              <p>Runoff checks, drainage awareness and surface water protection should remain visible during fuel handling, stockyard movement and wet weather operations.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="environmental-runoff-concern">Report runoff concern</button>
+              </div>
+            </article>
 
-          <p class="dashboard-subtitle">
-            Environmental controls, monitoring points and compliance records across the aggregates site.
-          </p>
-        </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Dust Monitoring</h2>
+                <span class="status-pill status-review">Dry weather</span>
+              </div>
+              <p>Dry weather controls, dust suppression and airborne particulate awareness should be visible when crusher, stockyard or vehicle movement increases dust risk.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="environmental-dust-issue">Report dust issue</button>
+              </div>
+            </article>
 
-        <span class="dashboard-status-pill">
-          Compliance & Monitoring
-        </span>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Noise &amp; Vibration</h2>
+              </div>
+              <p>Operating hours, site boundary impact and ground vibration should be monitored where crushing, loading or heavy vehicle movement may affect neighbours or structures.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="environmental-noise-vibration">Report noise or vibration</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Fuel &amp; Spill Monitoring</h2>
+                <span class="status-pill status-pending">Containment</span>
+              </div>
+              <p>Refuelling observations, bowser integrity, hydraulic leaks and spill pathway awareness should be easy to report before minor issues become environmental incidents.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="environmental-spill-risk">Report spill risk</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Protected Habitat Awareness</h2>
+                <span class="status-pill status-review">Seasonal controls</span>
+              </div>
+              <p>Protected habitats, nesting birds, bats, waterways and seasonal restrictions may affect vegetation clearance, lighting, drainage and site works.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="environmental-wildlife-concern">Report wildlife concern</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Wheel Wash &amp; Mud Control</h2>
+              </div>
+              <p>Wheel wash use, mud transfer and road cleanliness controls help reduce highways impact and environmental spread beyond the site boundary.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="environmental-review-request">Request environmental review</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Environmental Reporting</h2>
+                <span class="status-pill status-pending">Escalation route</span>
+              </div>
+              <p>Environmental concerns should have clear escalation routes, including spill response, water protection, dust transfer and wildlife disturbance.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button secondary" data-action="environmental-other-issue">Other environmental issue</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Governance &amp; Traceability</h2>
+                <span class="status-pill status-active">Connected record</span>
+              </div>
+              <p>Inspection history, monitoring records, environmental assessments, recommended actions and reporting outcomes should stay connected to the relevant site area.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="environmental-review-request">Request environmental review</button>
+              </div>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="environmental-runoff-concern-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Runoff Concern</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Runoff concern opened. Check drainage route, surface water exposure, recent rainfall, fuel handling and stockyard movement before continuing.</p>
+          </article>
+
+          <article class="card action-result-card" id="environmental-dust-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Dust Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Dust issue recorded. Review crusher activity, stockyard movement, vehicle routes, dry weather controls and suppression coverage.</p>
+          </article>
+
+          <article class="card action-result-card" id="environmental-noise-vibration-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Noise or Vibration</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Noise or vibration route opened. Confirm operating hours, boundary impact, heavy movement and any structure-sensitive activity.</p>
+          </article>
+
+          <article class="card action-result-card" id="environmental-spill-risk-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Spill Risk</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Spill risk logged. Check refuelling observations, bowser integrity, hydraulic leaks, drain exposure and available response controls.</p>
+          </article>
+
+          <article class="card action-result-card" id="environmental-wildlife-concern-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Wildlife Concern</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Wildlife concern recorded. Link habitat, nesting, bat, waterway or seasonal restriction context before work is authorised.</p>
+          </article>
+
+          <article class="card action-result-card" id="environmental-review-request-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Environmental Review</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Environmental review requested. Connect wheel wash, mud transfer, inspection records, assessments, recommended actions and reporting outcomes to the relevant site area.</p>
+          </article>
+
+          <article class="card action-result-card" id="environmental-other-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Environmental Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Other environmental issue recorded. Capture the concern, location, site activity and escalation judgement needed.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the environmental concern, area, activity and immediate control needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Operational view held against Strata Aggregates environmental controls</p>
+            <p>Runoff, dust, noise, spill risk, habitats, mud control, reporting and traceability remain connected</p>
+            <a href="strata-aggregates-dashboard.html">Open Aggregates dashboard</a>
+          </footer>
+        </section>
       </div>
-      </div>
+    </main>
+  </div>
 
-          <section class="stats-grid">
-        <div class="stat-card">
-          <h3>Monitoring Points</h3>
-          <p>7 Active</p>
-        </div>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-        <div class="stat-card">
-          <h3>Checks Due</h3>
-          <p>3 Today</p>
-        </div>
-
-        <div class="stat-card">
-          <h3>Open Issues</h3>
-          <p>1</p>
-        </div>
-
-        <div class="stat-card">
-          <h3>Permit Reviews</h3>
-          <p>2 Upcoming</p>
-        </div>
-      </section>
-
-      <section class="offline-banner">
-        <strong>Environmental Governance Note</strong><br>
-        Monitoring records completed in remote areas may be captured offline and synchronised when connectivity returns.
-      </section>
-
-      <section class="content-grid">
-
-        <article class="panel">
-          <p class="eyebrow">Boundary Monitoring</p>
-          <h3>Active Monitoring Points</h3>
-
-          <ul class="activity-list">
-            <li>
-              <strong>Dust Monitoring Point North</strong>
-              <span>Weekly inspection · Community-sensitive boundary</span>
-            </li>
-            <li>
-              <strong>Noise Monitoring Boundary East</strong>
-              <span>Planning condition linked · Monthly review</span>
-            </li>
-            <li>
-              <strong>Vibration Monitoring Point South</strong>
-              <span>Blast-linked recording point</span>
-            </li>
-          </ul>
-        </article>
-
-        <article class="panel">
-          <p class="eyebrow">Water & Run-off</p>
-          <h3>Drainage / Discharge Controls</h3>
-
-          <ul class="activity-list">
-            <li>
-              <strong>Settlement Pond Inspection</strong>
-              <span>Weekly level / clarity / bund check</span>
-            </li>
-            <li>
-              <strong>Runoff Inspection Chamber</strong>
-              <span>Post-rainfall trigger inspection</span>
-            </li>
-            <li>
-              <strong>Interceptor Unit</strong>
-              <span>Service due in 21 days</span>
-            </li>
-          </ul>
-        </article>
-
-      </section>
-
-      <section class="content-grid">
-
-        <article class="panel">
-          <p class="eyebrow">Permit / Planning Controls</p>
-          <h3>External Restrictions</h3>
-
-          <ul class="activity-list">
-            <li>
-              <strong>Operating Hours Restriction</strong>
-              <span>No crushing before 07:00 or after 18:00</span>
-            </li>
-            <li>
-              <strong>Dust Suppression Requirement</strong>
-              <span>Mandatory during dry/windy conditions</span>
-            </li>
-            <li>
-              <strong>Boundary Noise Threshold</strong>
-              <span>Escalation required if exceeded</span>
-            </li>
-            <li>
-  <strong>Temporary crushing expansion</strong>
-  <span>Dust and noise monitoring linked to extended grading-line activity during dry-weather production period</span>
-</li>
-          </ul>
-        </article>
-
-        <article class="panel">
-          <p class="eyebrow">Community / Regulatory</p>
-          <h3>Linked Governance Actions</h3>
-
-          <ul class="activity-list">
-            <li>
-              <strong>Neighbour Complaint Process</strong>
-              <span>Log, investigate, link monitoring data and escalate if recurring</span>
-            </li>
-            <li>
-              <strong>Environment Agency Inspection</strong>
-              <span>Last attended 14 days ago — no findings</span>
-            </li>
-            <li>
-              <strong>Planning Authority Review</strong>
-              <span>Quarterly compliance summary due next month</span>
-            </li>
-          </ul>
-        </article>
-
-      </section>
-
-      </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
 </body>
 </html>
