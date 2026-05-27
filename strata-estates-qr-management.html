@@ -60,6 +60,17 @@
 
             <article class="operational-window">
               <div class="operational-window-header">
+                <h2>Role-Based QR Visibility</h2>
+                <span class="status-pill status-review">Least required view</span>
+              </div>
+              <p>Visitors, contractors, tenants, supervisors and governance users should see only the access guidance, restrictions and escalation routes they need.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="qr-role-visibility">Review role visibility</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
                 <h2>QR Governance</h2>
                 <span class="status-pill status-review">Managed identity</span>
               </div>
@@ -89,6 +100,17 @@
               <p>QR-linked contractor views should confirm RAMS, permit controls, authorised work, restricted areas and site contact route.</p>
               <div class="button-row">
                 <button type="button" class="quiet-button" data-action="qr-contractor-verification">Verify contractor QR</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Verification State</h2>
+                <span class="status-pill status-pending">Confirm before release</span>
+              </div>
+              <p>Before a QR point goes live, confirm label condition, link target, offline content, local map reference and responsible owner.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="qr-verification-state">Verify QR state</button>
               </div>
             </article>
 
@@ -168,6 +190,14 @@
             <p>Visibility review opened. Check role, location, expected activity, restriction, escalation and environmental reporting shown by the QR point.</p>
           </article>
 
+          <article class="card action-result-card" id="qr-role-visibility-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Role Visibility</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Role visibility review opened. Confirm what visitors, contractors, tenants, supervisors and governance users can see from this QR point.</p>
+          </article>
+
           <article class="card action-result-card" id="qr-new-request-card" hidden>
             <div class="action-result-header">
               <span class="status-pill status-review">New QR Request</span>
@@ -198,6 +228,14 @@
               <button class="card-close" type="button" aria-label="Close action card">&times;</button>
             </div>
             <p>Contractor QR verification started. Check RAMS, permit controls, authorised works, restricted areas, isolation needs and site contact.</p>
+          </article>
+
+          <article class="card action-result-card" id="qr-verification-state-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Verification State</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>QR verification opened. Check label condition, link target, offline guidance, map reference, owner and release decision before publishing.</p>
           </article>
 
           <article class="card action-result-card" id="qr-expected-activity-card" hidden>

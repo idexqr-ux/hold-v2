@@ -100,10 +100,11 @@
                 <h2>Environmental Awareness</h2>
                 <span class="status-pill status-pending">Runoff risk</span>
               </div>
-              <p>Drainage access, standing water, silt movement, blocked covers and spill pathways should be reported before work continues.</p>
+              <p>Drainage access, standing water, silt movement, blocked covers and spill pathways should be reported before work continues. Stop work and report any unsafe condition before the route is reopened.</p>
               <div class="button-row">
                 <button type="button" class="quiet-button" data-action="contractor-drainage-change">Report drainage access change</button>
                 <button type="button" class="quiet-button" data-action="contractor-environmental-concern">Report environmental concern</button>
+                <button type="button" class="quiet-button" data-action="contractor-unsafe-condition">Report unsafe condition</button>
               </div>
             </article>
 
@@ -194,6 +195,14 @@
               <button class="card-close" type="button" aria-label="Close action card">&times;</button>
             </div>
             <p>Environmental concern logged. Check silt movement, spill pathways, blocked drains, standing water and waterway protection before continuing.</p>
+          </article>
+
+          <article class="card action-result-card" id="contractor-unsafe-condition-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Unsafe Condition</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Unsafe condition report opened. Pause affected work, keep people clear, capture the location, route impact, immediate control and Estates decision needed.</p>
           </article>
 
           <article class="card action-result-card" id="contractor-supervisor-request-card" hidden>

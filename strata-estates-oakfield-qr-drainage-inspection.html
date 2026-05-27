@@ -60,6 +60,17 @@
 
             <article class="operational-window">
               <div class="operational-window-header">
+                <h2>Inspection Status</h2>
+                <span class="status-pill status-active">Point check</span>
+              </div>
+              <p>Confirm whether the inspection is routine, post-rainfall, contractor-requested or escalation-led before recording the condition.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="drainage-inspection-status">Confirm inspection status</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
                 <h2>Blockage Reporting</h2>
                 <span class="status-pill status-review">Inspect covers</span>
               </div>
@@ -132,6 +143,14 @@
               <button class="card-close" type="button" aria-label="Close action card">&times;</button>
             </div>
             <p>Runoff concern opened. Check rainfall, flow path, silt movement, vehicle activity, drain exposure and containment needs.</p>
+          </article>
+
+          <article class="card action-result-card" id="drainage-inspection-status-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-active">Inspection Status</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Inspection status opened. Confirm trigger, current weather, access condition, contractor dependency and whether escalation is already active.</p>
           </article>
 
           <article class="card action-result-card" id="drainage-blockage-card" hidden>

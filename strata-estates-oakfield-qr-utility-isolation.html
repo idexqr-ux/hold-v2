@@ -82,6 +82,17 @@
 
             <article class="operational-window">
               <div class="operational-window-header">
+                <h2>Shutdown Responsibility</h2>
+                <span class="status-pill status-review">Named owner</span>
+              </div>
+              <p>Before shutdown, confirm who owns the instruction, who communicates with affected users and who signs off reinstatement.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="utility-shutdown-responsibility">Confirm shutdown responsibility</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
                 <h2>Buried-Service Uncertainty</h2>
                 <span class="status-pill status-review">Historic records</span>
               </div>
@@ -158,6 +169,14 @@
               <button class="card-close" type="button" aria-label="Close action card">&times;</button>
             </div>
             <p>Authorised isolator verification started. Record the named person, instruction source, isolation time and reinstatement authority.</p>
+          </article>
+
+          <article class="card action-result-card" id="utility-shutdown-responsibility-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Shutdown Responsibility</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Shutdown responsibility check opened. Confirm instruction owner, affected users, communication route, reinstatement authority and completion sign-off.</p>
           </article>
 
           <article class="card action-result-card" id="utility-buried-service-card" hidden>
