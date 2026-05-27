@@ -3,347 +3,298 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hold Dashboard — Strata Aggregates</title>
-  <link rel="stylesheet" href="style.css?v=29" />
-  <link rel="stylesheet" href="sidebar.css" />
+  <title>Hold Dashboard - Strata Aggregates</title>
+  <meta
+    name="description"
+    content="Operational snapshot for Strata Aggregates, connecting production, movement, environmental risk, access control and emergency readiness."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
     <div id="hold-sidebar" data-sidebar="sidebar-aggregates.html"></div>
 
     <main class="dashboard-main">
-
       <div class="dashboard-header">
-
-        <p class="dashboard-breadcrumb">
-          Strata Aggregates Dashboard
-        </p>
+        <p class="dashboard-breadcrumb">Hold / Strata Aggregates</p>
 
         <div class="dashboard-title-row">
           <div>
-            <h1>Operational Snapshot</h1>
+            <h1>Strata Aggregates Operational Snapshot</h1>
             <p class="dashboard-subtitle">
-              Current operational conditions, environmental monitoring and governance visibility.
+              A live overview of production, movement, environmental risk, access control and emergency readiness across the aggregates site.
             </p>
           </div>
 
-                    <span class="dashboard-status-pill">
-            Operations Hub
-          </span>
+          <span class="dashboard-status-pill">Operations Hub</span>
         </div>
       </div>
 
-      <section class="alert-grid">
+      <section class="dashboard-layer">
+        <div class="operational-window-grid">
+          <article class="dashboard-card operational-window">
+            <div class="operational-window-header">
+              <h2>Production Status</h2>
+              <span class="status-pill status-active">Active</span>
+            </div>
+            <p>Primary crushing, hired capacity and stock build remain visible for shift planning.</p>
+          </article>
 
- <article class="dashboard-card alert-card amber-alerts">
+          <article class="dashboard-card operational-window">
+            <div class="operational-window-header">
+              <h2>Dispatch / Weighbridge Flow</h2>
+              <span class="status-pill status-review">Monitored</span>
+            </div>
+            <p>Outbound tickets, queue pressure and customer movement stay connected to site activity.</p>
+          </article>
 
-  <div class="alert-header centered-alert">
+          <article class="dashboard-card operational-window">
+            <div class="operational-window-header">
+              <h2>Stockyard Visibility</h2>
+              <span class="status-pill status-review">Live</span>
+            </div>
+            <p>Stockpile levels, loading routes and surface condition guide operational decisions.</p>
+          </article>
 
-    <p class="section-kicker alert-kicker amber-kicker">
-      Amber Alerts
-    </p>
+          <article class="dashboard-card operational-window">
+            <div class="operational-window-header">
+              <h2>Environmental Watch</h2>
+              <span class="status-pill status-pending">Active watch</span>
+            </div>
+            <p>Dust, runoff, mud transfer, fuel handling and spill risk remain under review.</p>
+          </article>
 
-    <span class="alert-title-pill amber-title-pill">
-      Operational Watch
-    </span>
+          <article class="dashboard-card operational-window">
+            <div class="operational-window-header">
+              <h2>Security &amp; Access</h2>
+              <span class="status-pill status-review">Governed</span>
+            </div>
+            <p>QR points support expected movement, contractor access and boundary awareness.</p>
+          </article>
 
-    <span class="alert-pill amber-pill">
-      2 Active
-    </span>
-
-  </div>
-
-  <p class="section-intro">
-    Conditions and operational items requiring awareness during the current production shift.
-  </p>
-
-  <div id="amberAlerts">
-
-    <p>
-      <strong>Lower Stockyard</strong>
-      <span> : Surface advisory active — designated plant routes remain in use during ground recovery works.</span>
-    </p>
-
-    <p>
-      <strong>Weighbridge</strong>
-      <span> : Calibration due within 3 days — monitor outbound ticketing consistency pending inspection.</span>
-    </p>
-
-  </div>
-
-</article>
-
- <article class="dashboard-card alert-card red-alerts">
-
-  <div class="alert-header centered-alert">
-
-    <p class="section-kicker alert-kicker red-kicker">
-      Red Alerts
-    </p>
-
-    <span class="alert-title-pill red-title-pill">
-      Immediate Operational Attention
-    </span>
-
-    <span class="alert-pill red-pill">
-      0 Active
-    </span>
-
-  </div>
-
-  <p class="section-intro">
-    Conditions requiring immediate operational restriction, escalation or emergency response.
-  </p>
-
-  <div id="redAlerts">
-
-    <p>
-      <strong>No</strong>
-      <span> : red-alert operational restrictions currently active.</span>
-    </p>
-
-  </div>
-
-</article> 
-
-</section>
+          <article class="dashboard-card operational-window">
+            <div class="operational-window-header">
+              <h2>Emergency Readiness</h2>
+              <span class="status-pill status-active">Visible</span>
+            </div>
+            <p>Response routes, muster points and escalation guidance stay available before incidents occur.</p>
+          </article>
+        </div>
+      </section>
 
       <section class="dashboard-layer">
-        <div class="top-shift-grid">
+        <section class="dashboard-card">
+          <p class="section-kicker">Operational nodes</p>
+          <h2>Open the relevant site view</h2>
+          <p class="section-intro">
+            Use these routes to move from the snapshot into the operational area that needs attention.
+          </p>
 
-          <section class="dashboard-card operational-attention">
-            <p class="section-kicker">Quarry Conditions During Active Production</p>
-<h2>High-throughput quarry period</h2>
-<p class="section-intro">
-  Current quarry activity remains elevated following a sustained improvement in weather conditions. 
-  Additional crushing capacity has been hired onto site to extend grading operations and support increased stock build requirements during the current production window.
-       
-            <div class="attention-item">
-              <h3>Lower stockyard surface conditions</h3>
-              <p>
-                Lower stockyard surface maintenance remains ongoing following prolonged heavy rainfall earlier in the month. 
-                Designated plant routes remain active while ground recovery and surface inspections continue across affected operational areas.
-              </p>
-              <p class="next-action">
-                <strong>Next action:</strong> Morning ground-condition inspection due before unrestricted lower-route access resumes.
-              </p>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Stockyard</h2>
+              </div>
+              <p>Review stockpile condition, loading awareness, stability and material classification.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-aggregates-stockyard.html">Open stockyard</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Weighbridge</h2>
+              </div>
+              <p>Check tickets, calibration status, dispatch flow and queue pressure.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-aggregates-weighbridge.html">Open weighbridge</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Crusher</h2>
+              </div>
+              <p>View feed, blockage, safety, production and environmental consequences.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-aggregates-crusher-operational-view.html">Open crusher</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Hired Crusher</h2>
+              </div>
+              <p>Confirm temporary plant use, hire checks and production support visibility.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-aggregates-hired-crusher.html">Open hired crusher</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Forklift 08</h2>
+              </div>
+              <p>Check equipment readiness, assigned use and stockyard support activity.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-aggregates-forklift-08.html">Open Forklift 08</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Fuel Hazard Store</h2>
+              </div>
+              <p>Review fuel, chemical storage, transfer controls and spill readiness.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-aggregates-fuel-hazard-store.html">Open fuel store</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Environmental Monitoring</h2>
+              </div>
+              <p>Track dust, runoff, mud, noise, spill risk and environmental records.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-aggregates-environmental-monitoring.html">Open environmental controls</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>QR Management / Security Access</h2>
+              </div>
+              <p>Review QR coverage, vehicle recognition, access governance and expected movement.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-aggregates-qr-management.html">Open QR governance</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Emergency Response</h2>
+              </div>
+              <p>Open routes, muster points, first response and incident escalation guidance.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="strata-aggregates-emergency-response.html">Open emergency response</a>
+              </div>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="dashboard-layer">
+        <section class="dashboard-card">
+          <p class="section-kicker">Current operational awareness</p>
+          <h2>What the snapshot is watching</h2>
+
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <p>Crusher activity may affect stockyard levels and weighbridge flow.</p>
+            </article>
+
+            <article class="operational-window">
+              <p>Wet weather may increase mud transfer, runoff and stockpile stability risk.</p>
+            </article>
+
+            <article class="operational-window">
+              <p>Fuel handling, diesel plant and hydraulic leaks remain active environmental watch points.</p>
+            </article>
+
+            <article class="operational-window">
+              <p>QR visibility supports expected vehicle movement, contractor access and emergency guidance.</p>
+            </article>
+
+            <article class="operational-window">
+              <p>Emergency response routes and muster points should remain visible before incidents occur.</p>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="dashboard-layer">
+        <article class="dashboard-card">
+          <p class="section-kicker">Hold principle</p>
+          <h2>One operational environment</h2>
+          <p class="section-intro">
+            Hold connects site areas, assets, movement, environmental risk and human judgement so teams can see how one issue affects the wider operation.
+          </p>
+
+          <div class="button-row">
+            <button type="button" class="quiet-button" data-action="snapshot-review-stockyard">Review stockyard</button>
+            <button type="button" class="quiet-button" data-action="snapshot-check-weighbridge">Check weighbridge</button>
+            <button type="button" class="quiet-button" data-action="snapshot-open-emergency-response">Open emergency response</button>
+            <button type="button" class="quiet-button" data-action="snapshot-view-environmental-controls">View environmental controls</button>
+            <button type="button" class="quiet-button" data-action="snapshot-review-qr-governance">Review QR governance</button>
+            <button type="button" class="quiet-button secondary" data-action="snapshot-other-site-issue">Other site issue</button>
+          </div>
+
+          <article class="card action-result-card" id="snapshot-review-stockyard-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Stockyard Review</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
             </div>
+            <p>Stockyard review opened. Check stockpile condition, material movement, route state and stability before changing loading plans.</p>
+          </article>
 
-            <div class="attention-item">
-  <h3>Temporary crusher hire active</h3>
-  <p>
-    A temporary crusher unit has been brought onto site to support increased grading demand and stock-building activity during the improved weather period.
-    Initial hire inspection and QR-linked operational record remain pending confirmation within the audit register.
-  </p>
-  <p class="next-action">
-    <strong>Next action:</strong> Confirm hire inspection and governed QR operational record.
-  </p>
-</div>
-          </section>
-
-          <section class="dashboard-card shift-flow">
-            <p class="section-kicker">Quarry flow</p>
-<h2>Snapshot-period flow</h2>
-<p class="section-intro">
-  Quarry movement, plant activity and material flow during the current high-throughput production period.
-</p>
-
-            <div class="flow-item">
-              <h3>Extraction face</h3>
-              <p>Primary extraction and extended grading-line feed activity.</p>
+          <article class="card action-result-card" id="snapshot-check-weighbridge-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Weighbridge Check</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
             </div>
+            <p>Weighbridge check opened. Confirm ticketing, calibration visibility, queue pressure and outbound movement before closing dispatch records.</p>
+          </article>
 
-            <div class="flow-item">
-  <h3>Extended grading line</h3>
-  <p>Hired crusher deployed to support additional stone grading and stock-building while dry-weather conditions remain favourable.</p>
-</div>
-
-            <div class="flow-item">
-              <h3>Stockyard movement</h3>
-              <p>Stockyard recovery checks and environmental monitoring follow-up.</p>
+          <article class="card action-result-card" id="snapshot-open-emergency-response-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Emergency Response</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
             </div>
+            <p>Emergency response route opened. Keep access routes, muster points, first aid and escalation guidance visible before the site state changes.</p>
+          </article>
 
-            <div class="flow-item">
-              <h3>Shift continuity</h3>
-              <p>Previous shift cached three records during intermittent signal. Two updates remain pending sync.</p>
+          <article class="card action-result-card" id="snapshot-view-environmental-controls-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Environmental Controls</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
             </div>
-          </section>
+            <p>Environmental controls opened. Review dust, runoff, mud transfer, fuel handling, hydraulic leaks and response controls together.</p>
+          </article>
 
-        <section class="dashboard-card expected-movements">
-  <section class="dashboard-card expected-movements">
-  <p class="section-kicker">Operational workload</p>
+          <article class="card action-result-card" id="snapshot-review-qr-governance-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">QR Governance</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>QR governance review opened. Confirm expected people, vehicles, assets, access points and emergency guidance remain visible.</p>
+          </article>
 
-  <h2>Today’s expected movements</h2>
-
-  <p class="section-intro">
-    Planned quarry, stockyard and outbound activity during the current production shift.
-  </p>
-
-  <div class="movement-table">
-
-    <div class="movement-row">
-      <span class="movement-time">Afternoon</span>
-      <span class="movement-detail">
-        Stockyard recovery checks and environmental monitoring follow-up.
-      </span>
-    </div>
-
-    <div class="movement-row">
-      <span class="movement-time">11:30–13:00</span>
-      <span class="movement-detail">
-        Weighbridge ticketing and outbound aggregate movements.
-      </span>
-    </div>
-
-    <div class="movement-row">
-      <span class="movement-time">09:00–11:30</span>
-      <span class="movement-detail">
-        Primary extraction and extended grading-line feed activity.
-      </span>
-    </div>
-
-    <div class="movement-row">
-      <span class="movement-time">07:00–09:00</span>
-      <span class="movement-detail">
-        Ground-condition review and designated plant-route confirmation.
-      </span>
-    </div>
-
-  </div>
-</section>
-          
-      <section class="dashboard-card operational-capability">
-
-  <p class="section-kicker">Shift capability</p>
-
-  <h2>Current operational capability</h2>
-
-  <p class="section-intro">
-    Workforce, plant availability and operational support currently sustaining the active quarry production shift.
-  </p>
-
-  <div class="capability-grid">
-
-    <div class="capability-card">
-      <h3>Workforce</h3>
-
-      <ul>
-        <li>Quarry supervisor cover confirmed</li>
-        <li>Loading shovel operator assigned to lower stockyard support</li>
-        <li>Weighbridge cover confirmed for outbound movement period</li>
-      </ul>
-    </div>
-
-    <div class="capability-card">
-      <h3>Plant & equipment</h3>
-
-      <ul>
-        <li>Primary crusher operating under normal load</li>
-        <li>Temporary crusher deployed for grading-line extension</li>
-        <li>Forklift 08 available for stockyard recovery activity</li>
-        <li>Fuel and hazard-store access operating under standard controls</li>
-      </ul>
-    </div>
-
-    <div class="capability-card">
-      <h3>Operational support</h3>
-
-      <ul>
-        <li>Ground-condition inspection due before unrestricted lower-route access resumes</li>
-        <li>Dust suppression audit scheduled during current dry-weather production period</li>
-        <li>Environmental monitoring record awaiting synchronisation from remote operational point</li>
-      </ul>
-    </div>
-
-  </div>
-
-</section>
-          
-      <section class="dashboard-card operational-overview">
-  <p class="section-kicker">Quarry record</p>
-  <h2>Operational overview</h2>
-
-  <div class="overview-inline">
-
-    <div class="overview-item">
-      <span class="overview-label">Governed QR Points</span>
-      <span class="overview-value">18 Active</span>
-    </div>
-
-    <div class="overview-item">
-      <span class="overview-label">Plant Inspections</span>
-      <span class="overview-value">4 Due This Week</span>
-    </div>
-
-    <div class="overview-item">
-      <span class="overview-label">Surface / Route Items</span>
-      <span class="overview-value">2 Open</span>
-    </div>
-
-    <div class="overview-item">
-      <span class="overview-label">Environmental Records</span>
-      <span class="overview-value">1 Awaiting Sync</span>
-    </div>
-
-  </div>
-</section>
-
+          <article class="card action-result-card" id="snapshot-other-site-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Site Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Other site issue route opened. Capture the area, activity, asset, people affected and the judgement needed before escalation.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the site issue, area, operational effect and decision needed..."></textarea>
+          </article>
+        </article>
+      </section>
     </main>
   </div>
 
-  
-  <script>
-  function updateAmberCount() {
-
-    const amber = document.getElementById("amberAlerts");
-
-    const alerts =
-      amber.querySelectorAll("p:not(.live-note)");
-
-    const amberCount =
-      document.querySelector(".amber-pill");
-
-    amberCount.textContent =
-      `${alerts.length} Active`;
-  }
-
-  updateAmberCount();
-
-  setTimeout(() => {
-
-    const amber =
-      document.getElementById("amberAlerts");
-
-    amber.innerHTML += `
-      <p>
-  <strong>Stockyard Operational Point</strong>
-  <span> : Surface condition updated — lower route remains designated-plant access only pending ground inspection.</span>
-</p>
-
-<p class="live-note">
-  Updated just now from Stockyard Operational Point
-</p>
-    `;
-
-    updateAmberCount();
-
-  }, 5000);
-</script>
-
-<p class="footer-return">
-  <a href="https://idexqr.com/">Back to IdexQR</a>
-</p>
-        
- <footer class="footer">
-  Powered by IdexQR<sup>®</sup>
-   <p class="footer-sub">
-    IdexQR® concepts, demonstrations and platform designs © 2026 IdexQR. All rights reserved.
+  <p class="footer-return">
+    <a href="https://idexqr.com/">Back to IdexQR</a>
   </p>
-</footer>
 
-<script src="sidebar.js?v=1"></script>
-<script src="clock.js?v=2"></script>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
+
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
 </body>
 </html>
