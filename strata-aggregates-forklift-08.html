@@ -3,138 +3,260 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Strata Aggregates — Forklift 08 Staff Scan View</title>
-  <link rel="stylesheet" href="style.css?v=43" />
-<link rel="stylesheet" href="sidebar.css?v=1" />
+  <title>Strata Aggregates - Forklift 08</title>
+  <meta
+    name="description"
+    content="Operational forklift view for Strata Aggregates, showing equipment state, diesel refuelling awareness, authorised operator, route controls, defects, environmental awareness and handover."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
     <div id="hold-sidebar" data-sidebar="sidebar-aggregates.html"></div>
+
     <main class="dashboard-main">
-      <div class="dashboard-header">
       <div class="scan-shell">
-        <section class="scan-card">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Aggregates / SA-FL08-041</p>
 
-      <p class="scan-eyebrow">
-  Strata Aggregates · Staff Scan View
-</p>
-      <header class="scan-header">
-        <h1>Forklift 08</h1>
-        <p>Accessed from operational QR point SA-FL08-041 · Staff Scan View</p>
-        <span class="status-pill status-overdue">Inspection Review Overdue (08:57am)</span>
-      </header>
+          <header class="scan-header">
+            <h1>Forklift 08</h1>
+            <p>Governed visibility for diesel yard movements, route restrictions, operator control and defect escalation.</p>
+            <span class="status-pill status-overdue">Inspection review overdue</span>
+          </header>
 
-      <section class="scan-section">
-        <h2>Description</h2>
-        <p>
-          Heavy-duty yard support forklift used for aggregate handling,
-          fuel compound support and outdoor operational movements
-          across designated quarry routes.
-        </p>
-      </section>
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Equipment State</h2>
+                <span class="status-pill status-review">Pre-use required</span>
+              </div>
+              <p>Confirm tyres, forks, beacon, horn, mirrors and visible condition before yard movement starts.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="forklift-equipment-state">Check equipment state</button>
+              </div>
+            </article>
 
-      <section class="scan-section">
-        <h2>Instructions / Guidance</h2>
-        <ul>
-          <li>Conduct pre-use visual inspection before operation.</li>
-          <li>Check tyres, forks and warning beacon before entering yard routes.</li>
-          <li>Refuel only from the Fuel &amp; Environmental Compound unless otherwise directed.</li>
-          <li>Use designated plant routes during wet ground or stockyard restrictions.</li>
-          <li>Report faults, leaks or impact damage immediately in Hold.</li>
-        </ul>
-      </section>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Diesel Fuel / Refuelling Awareness</h2>
+                <span class="status-pill status-pending">Diesel asset</span>
+              </div>
+              <p>Refuel only through authorised diesel controls, with spill kit, bund condition and ignition sources considered.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="forklift-refuelling-awareness">Report refuelling concern</button>
+                <button type="button" class="quiet-button" data-action="forklift-fuel-residue">Report fuel residue</button>
+              </div>
+            </article>
 
-      <section class="scan-section muted-section">
-        <h2>Supporting Notes</h2>
-        <p>
-          08:57 — Surface fuel residue reported near aggregate loading route.
-          Local operational record stored pending synchronisation.
-        </p>
-        <p>
-          Authorised operators only. Outdoor operation subject to surface conditions,
-          visibility and active site notices.
-        </p>
-      </section>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Authorised Operator</h2>
+              </div>
+              <p>Only named, competent operators should move loads, enter stockyard routes or support fuel compound activity.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="forklift-authorised-operator">Check authorised operator</button>
+                <button type="button" class="quiet-button" data-action="forklift-supervisor-review">Request supervisor review</button>
+              </div>
+            </article>
 
-      <section class="scan-section">
-        <h2>Management Information</h2>
-        <dl>
-          <div>
-            <dt>Assigned Owner</dt>
-            <dd>Fleet Supervisor</dd>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Current Movement Area</h2>
+                <span class="status-pill status-review">Yard routes</span>
+              </div>
+              <p>Confirm current work area before entering loading routes, stockyard edges, fuel compound approaches or shared zones.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="forklift-movement-area">Confirm movement area</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Route Restrictions</h2>
+              </div>
+              <p>Wet ground, loading traffic, pedestrian routes and temporary crushing activity can restrict normal forklift movement.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="forklift-route-restriction">Report route restriction</button>
+                <button type="button" class="quiet-button" data-action="forklift-traffic-conflict">Flag traffic conflict</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Maintenance / Defect Reporting</h2>
+                <span class="status-pill status-overdue">Review overdue</span>
+              </div>
+              <p>Leaks, fork damage, warning-light faults, impact marks or abnormal handling need visible escalation before reuse.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="forklift-defect-report">Report defect</button>
+                <button type="button" class="quiet-button" data-action="forklift-maintenance-request">Request maintenance</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Environmental Awareness</h2>
+              </div>
+              <p>Diesel residue, hydraulic leaks, mud carry-out and disturbed surface water should remain visible during use.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="forklift-environmental-awareness">Report environmental issue</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Shared-Use Handover</h2>
+              </div>
+              <p>Before handover, record condition, location, fuel state, attachments, restrictions and any judgement still open.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="forklift-shared-use-handover">Start handover</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Governance Visibility</h2>
+              </div>
+              <p>Hold keeps forklift checks, fuel concerns, route decisions, defects and handovers connected to the asset record.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Other Forklift Issue</h2>
+                <span class="status-pill status-active">Human judgement</span>
+              </div>
+              <p>Use this route where the concern is real but does not yet fit a formal forklift category.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button secondary" data-action="forklift-other-issue">Other forklift issue</button>
+              </div>
+            </article>
           </div>
-          <div>
-            <dt>Review Date</dt>
-            <dd>15 April 2026</dd>
-          </div>
-          <div>
-            <dt>Last Updated</dt>
-            <dd>22 April 2026</dd>
-          </div>
-          <div>
-            <dt>Last Reviewed By</dt>
-            <dd>Fleet Supervisor</dd>
-          </div>
-        </dl>
-      </section>
 
-      <section class="scan-section">
-        <h2>QR Deployment</h2>
-        <dl>
-          <div>
-            <dt>QR ID</dt>
-            <dd>SA-FL08-041</dd>
-          </div>
-          <div>
-            <dt>Deployment Status</dt>
-            <dd>Active</dd>
-          </div>
-          <div>
-            <dt>Placement Notes</dt>
-            <dd>Mounted within protected housing beside operator access step.</dd>
-          </div>
-        </dl>
-      </section>
+          <article class="card action-result-card" id="forklift-equipment-state-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Equipment State</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Equipment-state check opened. Confirm tyres, forks, beacon, horn, mirrors and visible condition before operation.</p>
+          </article>
 
-      <section class="scan-section">
-        <h2>Scheduled Changes</h2>
-        <p class="scheduled-item">
-          <strong>
-            Current Hours: 3,482<br />
-            Next Service Due: 3,750 Hours or 14 May 2026
-          </strong>
-          <br />
-          Maintenance instruction revision.
-        </p>
-      </section>
+          <article class="card action-result-card" id="forklift-refuelling-awareness-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Refuelling Awareness</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Refuelling concern recorded. Check diesel controls, spill kit readiness, bund condition and ignition separation.</p>
+          </article>
 
-      <footer class="scan-footer">
-  <p>Last updated 22 April 2026</p>
-  <p>Managed via Hold / Operations Hub</p>
-  <p id="currentTime">Loading operational time…</p>
-</footer>
+          <article class="card action-result-card" id="forklift-fuel-residue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Fuel Residue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Fuel residue report opened. Isolate the affected surface if needed and keep environmental response visible.</p>
+          </article>
 
-           </section>
+          <article class="card action-result-card" id="forklift-authorised-operator-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Authorised Operator</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Operator authorisation check opened. Confirm competency before load movement, route entry or fuel compound support.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-supervisor-review-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Supervisor Review</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Supervisor review requested. Keep forklift activity visible until authorisation or restriction is confirmed.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-movement-area-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Movement Area</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Movement area check opened. Confirm yard location, shared routes, active loading and fuel compound approaches.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-route-restriction-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Route Restriction</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Route restriction recorded. Review wet ground, loading traffic, temporary plant and pedestrian controls before entry.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-traffic-conflict-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Traffic Conflict</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Traffic conflict flagged. Coordinate with loading, stockyard and weighbridge movements before continuing.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-defect-report-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Defect Report</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Defect report opened. Record the fault, location and whether the forklift should remain out of service.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-maintenance-request-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Maintenance Request</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Maintenance request raised. Link the issue to service hours, defect evidence and supervisor clearance.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-environmental-awareness-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Environmental Awareness</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Environmental issue recorded. Check diesel residue, hydraulic leaks, mud carry-out and surface-water exposure.</p>
+          </article>
+
+          <article class="card action-result-card" id="forklift-shared-use-handover-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Shared-Use Handover</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Handover route opened. Capture location, condition, fuel state, attachments, restrictions and open decisions.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Record the handover condition, location, restriction or next operator note..."></textarea>
+          </article>
+
+          <article class="card action-result-card" id="forklift-other-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Forklift Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Other forklift issue recorded. Capture the operational context and judgement needed.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the forklift issue, route, condition or decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Operational view held against Forklift 08</p>
+            <p>Equipment state, diesel refuelling, route control, defects and handover remain connected</p>
+            <a href="strata-aggregates-dashboard.html">Open Aggregates dashboard</a>
+          </footer>
+        </section>
       </div>
-     </main>
+    </main>
+  </div>
 
-</div>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
 </body>
 </html>

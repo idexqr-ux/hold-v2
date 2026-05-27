@@ -3,194 +3,271 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hold — Fuel / Hazard Store</title>
-  <link rel="stylesheet" href="style.css?v=24" />
+  <title>Strata Aggregates - Fuel Hazard Store</title>
+  <meta
+    name="description"
+    content="Operational fuel hazard store view for Strata Aggregates, showing fuel storage status, authorised access, spill prevention, security, environmental risk, ignition awareness, refuelling controls and inspection."
+  />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
     <div id="hold-sidebar" data-sidebar="sidebar-aggregates.html"></div>
+
     <main class="dashboard-main">
-      <div class="dashboard-header">
+      <div class="scan-shell">
+        <section class="scan-card role-scan-card">
+          <p class="scan-eyebrow">Hold / Strata Aggregates / Fuel Compound</p>
 
-  <p class="dashboard-breadcrumb">
-    Strata Aggregates / Fuel & Hazard Store
-  </p>
+          <header class="scan-header">
+            <h1>Fuel Hazard Store</h1>
+            <p>Governed visibility for fuel storage, authorised access, spill controls, fire risk and inspection readiness.</p>
+            <span class="status-pill status-review">Controlled area</span>
+          </header>
 
-  <div class="dashboard-title-row">
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Fuel Storage Status</h2>
+                <span class="status-pill status-active">Active storage</span>
+              </div>
+              <p>Confirm tank condition, bund state, levels, waste-oil area and delivery status before fuel activity continues.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="fuel-store-storage-status">Check storage status</button>
+              </div>
+            </article>
 
-    <div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Authorised Access</h2>
+              </div>
+              <p>Access should stay limited to trained operators, supervisors and authorised delivery or collection personnel.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="fuel-store-authorised-access">Check authorised access</button>
+                <button type="button" class="quiet-button" data-action="fuel-store-supervisor-review">Request supervisor review</button>
+              </div>
+            </article>
 
-      <h1>Fuel & Hazard Store</h1>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Spill Prevention</h2>
+                <span class="status-pill status-review">Spill kit checked</span>
+              </div>
+              <p>Hoses, nozzles, caps, drip trays, spill kit and drain protection should be ready before handling fuel or oils.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="fuel-store-spill-prevention">Report spill-prevention issue</button>
+                <button type="button" class="quiet-button" data-action="fuel-store-spill-kit">Check spill kit</button>
+              </div>
+            </article>
 
-      <p class="dashboard-subtitle">
-        Environmental control, hazardous materials and spill-response governance.
-      </p>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Fuel Security</h2>
+              </div>
+              <p>Locks, access record, delivery notes and unusual level changes should remain visible as security controls.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="fuel-store-security">Report security concern</button>
+              </div>
+            </article>
 
-    </div>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Environmental Risk</h2>
+              </div>
+              <p>Bund water, surface residue, nearby drains, waste oil and additives can create wider environmental exposure.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="fuel-store-environmental-risk">Report environmental risk</button>
+              </div>
+            </article>
 
-    <span class="dashboard-status-pill">
-      Controlled Area
-    </span>
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Fire / Ignition Awareness</h2>
+                <span class="status-pill status-pending">Keep clear</span>
+              </div>
+              <p>Ignition sources, hot works, smoking, damaged containers and poor separation require immediate attention.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="fuel-store-ignition-awareness">Report ignition concern</button>
+              </div>
+            </article>
 
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Refuelling Controls</h2>
+              </div>
+              <p>Refuelling should be supervised through authorised routes, with plant stable, engines controlled and spill response ready.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="fuel-store-refuelling-controls">Review refuelling controls</button>
+                <button type="button" class="quiet-button" data-action="fuel-store-plant-link">Flag linked plant issue</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Emergency Response</h2>
+                <span class="status-pill status-pending">Immediate escalation</span>
+              </div>
+              <p>Spill, fire, uncontrolled release or exposure risk should trigger site emergency routes and containment actions.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="fuel-store-emergency-response">Open emergency response</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Documentation &amp; Inspection</h2>
+                <span class="status-pill status-review">Due in 6 days</span>
+              </div>
+              <p>Inspection records, delivery notes, waste transfer paperwork and defect evidence should stay with the store record.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button" data-action="fuel-store-documentation-inspection">Review documentation</button>
+                <button type="button" class="quiet-button" data-action="fuel-store-inspection-issue">Report inspection issue</button>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Other Fuel Store Issue</h2>
+                <span class="status-pill status-active">Human judgement</span>
+              </div>
+              <p>Use this route where a fuel-store concern needs judgement before it becomes a formal incident or defect.</p>
+              <div class="button-row">
+                <button type="button" class="quiet-button secondary" data-action="fuel-store-other-issue">Other fuel store issue</button>
+              </div>
+            </article>
+          </div>
+
+          <article class="card action-result-card" id="fuel-store-storage-status-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Fuel Storage Status</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Storage-status check opened. Confirm tank, bund, level, waste-oil area and recent delivery state.</p>
+          </article>
+
+          <article class="card action-result-card" id="fuel-store-authorised-access-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Authorised Access</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Authorised-access check opened. Confirm trained access before fuel handling, delivery acceptance or waste collection.</p>
+          </article>
+
+          <article class="card action-result-card" id="fuel-store-supervisor-review-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Supervisor Review</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Supervisor review requested. Keep access or fuel activity paused where control is uncertain.</p>
+          </article>
+
+          <article class="card action-result-card" id="fuel-store-spill-prevention-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Spill Prevention</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Spill-prevention issue recorded. Check hoses, nozzles, caps, drip trays and drain protection before continuing.</p>
+          </article>
+
+          <article class="card action-result-card" id="fuel-store-spill-kit-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Spill Kit</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Spill-kit check opened. Confirm absorbents, drain covers, disposal route and replacement needs.</p>
+          </article>
+
+          <article class="card action-result-card" id="fuel-store-security-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Fuel Security</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Security concern recorded. Review locks, access record, unusual levels and delivery-note alignment.</p>
+          </article>
+
+          <article class="card action-result-card" id="fuel-store-environmental-risk-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Environmental Risk</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Environmental risk logged. Check bund water, surface residue, drain exposure, waste oil and additives.</p>
+          </article>
+
+          <article class="card action-result-card" id="fuel-store-ignition-awareness-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Ignition Concern</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Ignition concern recorded. Remove or isolate ignition sources and escalate hot works, smoking or damaged storage issues.</p>
+          </article>
+
+          <article class="card action-result-card" id="fuel-store-refuelling-controls-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Refuelling Controls</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Refuelling-control review opened. Confirm authorised route, stable plant, controlled engines and spill readiness.</p>
+          </article>
+
+          <article class="card action-result-card" id="fuel-store-plant-link-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Linked Plant Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Linked plant issue flagged. Keep the relevant asset, fuel event and environmental controls connected.</p>
+          </article>
+
+          <article class="card action-result-card" id="fuel-store-emergency-response-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Emergency Response</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Emergency response route opened. Escalate spill, fire, uncontrolled release or exposure risk through the site procedure.</p>
+          </article>
+
+          <article class="card action-result-card" id="fuel-store-documentation-inspection-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Documentation</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Documentation review opened. Reconcile inspection records, delivery notes, waste transfer paperwork and defect evidence.</p>
+          </article>
+
+          <article class="card action-result-card" id="fuel-store-inspection-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-pending">Inspection Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Inspection issue recorded. Capture the store condition, document gap and next control needed.</p>
+          </article>
+
+          <article class="card action-result-card" id="fuel-store-other-issue-card" hidden>
+            <div class="action-result-header">
+              <span class="status-pill status-review">Other Fuel Store Issue</span>
+              <button class="card-close" type="button" aria-label="Close action card">&times;</button>
+            </div>
+            <p>Other fuel store issue recorded. Capture the operational context and judgement needed.</p>
+            <textarea class="hold-textarea" rows="4" placeholder="Describe the fuel store issue, material, control or decision needed..."></textarea>
+          </article>
+
+          <footer class="scan-footer">
+            <p>Operational view held against the Fuel Hazard Store</p>
+            <p>Fuel status, access, spill prevention, security, environmental risk and inspection remain connected</p>
+            <a href="strata-aggregates-forklift-08.html">Open Forklift 08</a>
+          </footer>
+        </section>
+      </div>
+    </main>
   </div>
 
-</div>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
 
-      <section class="stats-grid">
-        <div class="stat-card">
-          <h3>Status</h3>
-          <p>Active</p>
-        </div>
-
-        <div class="stat-card">
-          <h3>Spill Kit</h3>
-          <p>Checked Today</p>
-        </div>
-
-        <div class="stat-card">
-          <h3>Inspection</h3>
-          <p>Due in 6 Days</p>
-        </div>
-
-        <div class="stat-card">
-          <h3>Access</h3>
-          <p>Authorised Only</p>
-        </div>
-      </section>
-
-      <section class="notice-panel">
-  <p class="eyebrow">Connectivity Notice</p>
-  <h3>Outer yard signal may vary</h3>
-  <p>
-    Some operational updates may appear later in low-signal areas.
-    Hold will synchronise when connectivity becomes available.
-  </p>
-</section>
-
-      <section class="content-grid">
-
-        <article class="panel">
-          <p class="eyebrow">Environmental Risk</p>
-          <h3>Current Governance Notes</h3>
-
-          <ul class="activity-list">
-            <li>
-              <strong>Bund inspection scheduled</strong>
-              <span>Check containment condition and rainwater build-up</span>
-            </li>
-            <li>
-              <strong>Fuel delivery log requires review</strong>
-              <span>Reconcile delivery note against tank record</span>
-            </li>
-            <li>
-              <strong>Spill response route confirmed</strong>
-              <span>Nearest drain protection point identified</span>
-            </li>
-          </ul>
-        </article>
-          
-         <article class="panel">
-  <p class="eyebrow">Linked Refuelling Assets</p>
-  <h3>Operational Fuel Links</h3>
-
-  <ul class="activity-list">
-    <li>
-    <strong>Forklift 08</strong>
-              <span>
-    Operational — surface fuel residue reported near loading route at 08:57
-  </span>
-            </li>      
-  </ul>
-</article>
-
-        <article class="panel">
-          <p class="eyebrow">Controlled Materials</p>
-          <h3>Store Contents</h3>
-
-          <ul class="activity-list">
-            <li>
-              <strong>Diesel Tank</strong>
-              <span>Primary fuel supply — bunded storage</span>
-            </li>
-            <li>
-              <strong>Hydraulic Oil</strong>
-              <span>Plant maintenance stock</span>
-            </li>
-            <li>
-              <strong>AdBlue / Additives</strong>
-              <span>Vehicle and plant support materials</span>
-            </li>
-            <li>
-              <strong>Waste Oil Container</strong>
-              <span>Collection required when fill level reaches threshold</span>
-            </li>
-            <li>
-  <strong>Increased plant activity</strong>
-  <span>Fuel and spill-response readiness maintained during temporary crushing expansion</span>
-</li>
-          </ul>
-        </article>
-
-      </section>
-
-      <section class="content-grid">
-
-        <article class="panel">
-          <p class="eyebrow">Spill Response</p>
-          <h3>Immediate Actions</h3>
-
-          <ol class="check-list">
-            <li>Stop work if safe to do so</li>
-            <li>Isolate the source of the leak or spill</li>
-            <li>Use spill kit to contain spread</li>
-            <li>Protect nearby drains and watercourses</li>
-            <li>Notify site manager immediately</li>
-            <li>Record incident and attach photos in Hold</li>
-          </ol>
-        </article>
-
-        <article class="panel">
-          <p class="eyebrow">Access Governance</p>
-          <h3>Authorised Handling</h3>
-
-          <ul class="activity-list">
-            <li>
-              <strong>Fuel access</strong>
-              <span>Restricted to trained operators and site supervisors</span>
-            </li>
-            <li>
-              <strong>Delivery acceptance</strong>
-              <span>Delivery note must be uploaded and matched to tank record</span>
-            </li>
-            <li>
-              <strong>Waste transfer</strong>
-              <span>Collection paperwork must be retained with store record</span>
-            </li>
-          </ul>
-        </article>
-
-      </section>
-          
-    </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+  <script src="sidebar.js?v=6"></script>
+  <script src="clock.js?v=4"></script>
 </body>
 </html>
