@@ -805,10 +805,16 @@ border-left: 6px solid #9b5b55;
   border-radius: 999px;
   background: rgba(255, 244, 180, 0.9);
   border: 3px solid #c8912f;
-  box-shadow: 0 0 0 8px rgba(200, 145, 47, 0.22);
+  box-shadow: 0 0 0 8px rgba(200, 145, 47, 0.16);
+  opacity: 0.42;
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 5;
+}
+
+.map-focus-marker.active {
+  box-shadow: 0 0 0 9px rgba(200, 145, 47, 0.24);
+  opacity: 1;
 }
 
 .bay-a12-marker {
@@ -829,6 +835,11 @@ border-left: 6px solid #9b5b55;
 .forklift-03-marker {
   left: 55%;
   top: 48%;
+}
+
+.forklift-04-marker {
+  left: 61%;
+  top: 54%;
 }
 
 .status-strip {
