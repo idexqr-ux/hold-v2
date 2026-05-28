@@ -3,113 +3,100 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Strata Logistics — Operational Audit</title>
+  <title>Strata Logistics &mdash; Operational Audit</title>
   <link rel="stylesheet" href="style.css?v=24" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
-     <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
+    <div id="hold-sidebar" data-sidebar="sidebar-logistics.html"></div>
 
     <main class="dashboard-main">
+      <div class="dashboard-header">
+        <p class="dashboard-breadcrumb">Hold / Strata Logistics / Operational Audit</p>
 
-    <div class="dashboard-header">
-      <p class="dashboard-breadcrumb">
-        Hold / Strata Logistics / Operational Audit
-      </p>
+        <div class="dashboard-title-row">
+          <div>
+            <p class="section-kicker">Operational Memory</p>
+            <h1>Operational Audit</h1>
+            <p class="dashboard-subtitle">
+              A calm record of movement decisions, unresolved follow-up and review history across the logistics operation.
+            </p>
+          </div>
 
-      <div class="dashboard-title-row">
-        <div>
-          <h1>Operational Audit</h1>
-          <p class="dashboard-subtitle">
-            Governance verification across logistics operations, movement and compliance.
-          </p>
+          <span class="dashboard-status-pill">Audit Layer</span>
         </div>
-
-        <span class="dashboard-status-pill">
-          Audit Layer
-        </span>
       </div>
-    </div>
 
-    <section class="dashboard-card">
-      <p class="section-kicker">Audit focus</p>
-      <h2>Current verification areas</h2>
-
-      <ul class="governance-list">
-        <li>Forklift inspection completion checks</li>
-        <li>Dispatch scan verification</li>
-        <li>Operational QR deployment review</li>
-        <li>Emergency access visibility checks</li>
-        <li>Training and competency verification</li>
-      </ul>
-    </section>
-
-    <section class="dashboard-card">
-      <p class="section-kicker">Operational observations</p>
-      <h2>Recent audit activity</h2>
-
-      <div class="attention-item">
-        <h3>Forklift 03 inspection review</h3>
+      <section class="dashboard-card soft-panel">
+        <p class="section-kicker">Review memory</p>
+        <h2>What this audit is holding</h2>
         <p>
-          Daily inspection records confirmed across current shift activity.
+          This page keeps the operational trace that sits behind the live workflow: evidence of activity, supervisor review, route pressure, damaged goods decisions and training follow-up that should remain visible after the immediate task has moved on.
         </p>
-      </div>
+      </section>
 
-      <div class="attention-item">
-        <h3>Dispatch scan continuity</h3>
-        <p>
-  Outbound pallet scans aligned with dispatch confirmation workflow.
-  Temporary outbound delay linked to HOLD-301 review activity.
-</p>
-      </div>
-    </section>
+      <section class="dashboard-card">
+        <p class="section-kicker">Operational observations</p>
+        <h2>Current audit observations</h2>
 
- <section class="dashboard-card soft-panel">
+        <div class="operational-window-grid">
+          <article class="operational-window">
+            <div class="operational-window-header">
+              <h2>Damaged goods escalation</h2>
+              <span class="status-pill status-overdue">Escalated</span>
+            </div>
+            <p>
+              HOLD-301 remains linked to Bay A12 intake evidence and Bay C03 dispatch delay notes until supervisor outcome is confirmed.
+            </p>
+          </article>
 
-  <p class="section-kicker">Operational chronology</p>
-  <h2>Linked operational timeline</h2>
+          <article class="operational-window">
+            <div class="operational-window-header">
+              <h2>Route restriction clearance</h2>
+              <span class="status-pill status-review">Reviewed</span>
+            </div>
+            <p>
+              Temporary movement pressure around Hold Area B was reviewed against dispatch sequencing before outbound release activity resumed.
+            </p>
+          </article>
 
-  <div class="timeline-list">
+          <article class="operational-window">
+            <div class="operational-window-header">
+              <h2>Training and competency follow-up</h2>
+              <span class="status-pill status-pending">Pending</span>
+            </div>
+            <p>
+              Forklift inspection confidence remains tied to the training register so recurring defects can be checked against current operator competency records.
+            </p>
+          </article>
+        </div>
+      </section>
 
-    <p><strong>08:57</strong> — Intake discrepancy logged at Bay A12 during inbound inspection of IN-1186.</p>
+      <section class="dashboard-card soft-panel">
+        <p class="section-kicker">Operational chronology</p>
+        <h2>Linked review timeline</h2>
 
-    <p><strong>09:02</strong> — Temporary connectivity interruption detected during intake synchronisation.</p>
-
-    <p><strong>09:14</strong> — Synchronisation completed successfully. Operational record preserved.</p>
-
-    <p><strong>09:18</strong> — HOLD-301 generated for supervisor review and controlled movement to Hold Area B.</p>
-
-    <p><strong>11:24</strong> — Damage evidence and delivery documentation attached to HOLD-301.</p>
-
-    <p><strong>14:05</strong> — OUT-2049 dispatch delay linked to unresolved HOLD-301 review activity.</p>
-
-    <p><strong>14:18</strong> — Dispatch queue pressure warning activated at Bay C03.</p>
-
+        <div class="timeline-list">
+          <p><strong>08:57</strong> &mdash; Intake discrepancy logged at Bay A12 during inbound inspection of IN-1186. <span class="status-pill status-review">Reviewed</span></p>
+          <p><strong>09:18</strong> &mdash; HOLD-301 generated for supervisor review and controlled movement to Hold Area B. <span class="status-pill status-overdue">Escalated</span></p>
+          <p><strong>11:24</strong> &mdash; Damage evidence and delivery documentation attached to the operational record. <span class="status-pill status-active">Recorded</span></p>
+          <p><strong>14:05</strong> &mdash; OUT-2049 dispatch delay linked to unresolved HOLD-301 review activity. <span class="status-pill status-pending">Awaiting confirmation</span></p>
+          <p><strong>14:18</strong> &mdash; Dispatch queue pressure warning reviewed at Bay C03 and retained for governance traceability. <span class="status-pill status-review">Reviewed</span></p>
+        </div>
+      </section>
+    </main>
   </div>
 
-</section>       
-      
-     </main>
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">
+      Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.
+    </p>
+  </footer>
 
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+  <script src="sidebar.js?v=4"></script>
+  <script src="clock.js?v=4"></script>
 </body>
 </html>

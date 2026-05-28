@@ -3,91 +3,100 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Strata Estates — Operational Audit</title>
+  <title>Strata Estates &mdash; Operational Audit</title>
   <link rel="stylesheet" href="style.css?v=24" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
 <body>
   <div class="dashboard-layout">
-
     <div id="hold-sidebar" data-sidebar="sidebar-estates.html"></div>
 
     <main class="dashboard-main">
+      <div class="dashboard-header">
+        <p class="dashboard-breadcrumb">Hold / Strata Estates / Operational Audit</p>
 
-     <div class="dashboard-header">
-      <p class="dashboard-breadcrumb">
-        Hold / Strata Estates / Operational Audit
-      </p>
-
-      <div class="dashboard-title-row">
-        <div>
-           <p class="section-kicker">Portfolio Governance</p>
-           <h1 id="operationalTitle">Operational Audit</h1>
-          
+        <div class="dashboard-title-row">
+          <div>
+            <p class="section-kicker">Portfolio Governance</p>
+            <h1 id="operationalTitle">Operational Audit</h1>
             <p class="dashboard-subtitle">
-            Contractor, access and estate-governance verification across active works.
-          </p>
+              Contractor, access and estate-governance review history across active works and managed sites.
+            </p>
+          </div>
+
+          <span class="dashboard-status-pill">Audit Layer</span>
         </div>
-
-        <span class="dashboard-status-pill">
-          Audit Layer
-        </span>
       </div>
-    </div>
 
-       
-<section class="dashboard-card soft-panel">
+      <section class="dashboard-card soft-panel">
+        <p class="section-kicker">Review memory</p>
+        <h2>What this audit is holding</h2>
+        <p>
+          This page keeps the quieter evidence behind estate operations: contractor access decisions, drainage observations, utility-route checks and unresolved site confirmations that need human review before they fade into routine activity.
+        </p>
+      </section>
 
-  <p class="section-kicker">Operational chronology</p>
+      <section class="dashboard-card">
+        <p class="section-kicker">Operational observations</p>
+        <h2>Current audit observations</h2>
 
-  <h2>Contractor governance timeline</h2>
+        <div class="operational-window-grid">
+          <article class="operational-window">
+            <div class="operational-window-header">
+              <h2>Contractor works completed</h2>
+              <span class="status-pill status-review">Reviewed</span>
+            </div>
+            <p>
+              Roof-access documentation at Millbrook Yard remains linked to RAMS approval, insurance confirmation and supervisor release notes.
+            </p>
+          </article>
 
- <div class="timeline-list">
+          <article class="operational-window">
+            <div class="operational-window-header">
+              <h2>Drainage concern logged</h2>
+              <span class="status-pill status-pending">Awaiting confirmation</span>
+            </div>
+            <p>
+              Oakfield Depot ground-condition observation was retained after drainage inspection review and still needs close-out confirmation.
+            </p>
+          </article>
 
-<p><strong>10:05</strong> — Permit remains pending RAMS approval and restricted roof-access confirmation — Millbrook Yard.</p>
+          <article class="operational-window">
+            <div class="operational-window-header">
+              <h2>Shared access arrangement</h2>
+              <span class="status-pill status-active">Closed</span>
+            </div>
+            <p>
+              South Meadow storage access was reviewed against the updated allocation and left visible for cross-site awareness.
+            </p>
+          </article>
+        </div>
+      </section>
 
-<p><strong>09:16</strong> — Supervisor review requested before permit release — Millbrook Yard.</p>
+      <section class="dashboard-card soft-panel">
+        <p class="section-kicker">Operational chronology</p>
+        <h2>Contractor governance timeline</h2>
 
-<p><strong>09:03</strong> — Access route checked against current site map — Millbrook Yard.</p>
+        <div class="timeline-list">
+          <p><strong>08:12</strong> &mdash; Updated RAMS revision submitted for roof-access repair at Millbrook Yard. <span class="status-pill status-review">Reviewed</span></p>
+          <p><strong>08:24</strong> &mdash; Temporary roof-access restriction activated pending supervisor review. <span class="status-pill status-pending">Pending</span></p>
+          <p><strong>08:57</strong> &mdash; Ground-condition observation retained following Oakfield drainage inspection review. <span class="status-pill status-pending">Awaiting confirmation</span></p>
+          <p><strong>09:42</strong> &mdash; Utility-route verification note updated before scheduled contractor excavation. <span class="status-pill status-review">Reviewed</span></p>
+          <p><strong>10:05</strong> &mdash; Permit remains pending RAMS approval and restricted roof-access confirmation. <span class="status-pill status-overdue">Escalated</span></p>
+        </div>
+      </section>
+    </main>
+  </div>
 
- <p><strong>09:42</strong> — Utility-route verification note updated before scheduled contractor excavation — Oakfield Depot. </p> 
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">
+      Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.
+    </p>
+  </footer>
 
-  <p><strong>08:57</strong> — Ground-condition observation retained following drainage inspection review — Oakfield Depot.</p>
-
-<p><strong>08:41</strong> — Contractor insurance record confirmed active before scheduled roof-access works — Millbrook Yard.</p>
-
-<p><strong>09:28</strong> — Service-route verification remains incomplete following historic workshop alterations — Old Works Unit 7.</p>
-
-<p><strong>08:36</strong> — Shared access arrangement reviewed following updated storage allocation — South Meadow Storage.</p>
-
-<p><strong>08:24</strong> — Temporary roof-access restriction activated pending supervisor review — Millbrook Yard.</p>
-
-<p><strong>08:12</strong> — Updated RAMS revision submitted for roof-access repair — Millbrook Yard.</p>
-
-</div>
-
-</section>
-    
-
-        </main>
-
-</div>
-
-<footer class="footer">
-
-  <p>
-    Powered by IdexQR<sup>®</sup>
-  </p>
-
-  <p class="footer-sub">
-    Hold operational governance concepts and workflow designs © 2026 IdexQR. All rights reserved.
-  </p>
-
-</footer>
-
-<script src="sidebar.js?v=4"></script>
-<script src="clock.js?v=4"></script>
-
+  <script src="sidebar.js?v=4"></script>
+  <script src="clock.js?v=4"></script>
 </body>
 </html>
