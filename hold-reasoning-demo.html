@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hold v3 | Estates Context Check</title>
+  <link rel="stylesheet" href="hold-v3-reasoning.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="side">
+      <div class="brand"><div class="brand-mark">H</div><div>Hold v3<div class="small">Reasoning layer</div></div></div>
+      <nav class="nav" aria-label="Reasoning pages">
+        <a href="hold-v3-reasoning-hub.html">Hub <span>overview</span></a>
+        <a href="hold-reasoning-demo.html" aria-current="page">Estates <span>human-led</span></a>
+        <a href="hold-reasoning-aggregates.html">Aggregates <span>human-led</span></a>
+        <a href="hold-reasoning-logistics.html">Cooper Logistics <span>signal-led</span></a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div class="crumb">Human-led Context Check / Estates</div>
+        <div class="chips"><span class="chip">Confidence: medium-high</span><span class="chip">Sources: 5</span><span class="chip">Human review</span></div>
+      </div>
+
+      <section class="hero">
+        <div class="panel">
+          <p class="kicker">Human-led question</p>
+          <h1 class="hero-title">Why were the drainage improvement works paused?</h1>
+          <div class="question">Estate lead asks. Hold checks context.</div>
+          <p class="summary">Cautious operational understanding, not an automatic answer.</p>
+        </div>
+        <div class="panel">
+          <p class="kicker">Context Check status</p>
+          <h2>Pause appears governance-led</h2>
+          <div class="meter"><div class="metric-row"><strong>Confidence</strong><strong>Medium-high</strong></div><div class="bar"><span style="width:76%"></span></div></div>
+          <ul class="checks"><li>Permit hold</li><li>Utility conflict</li><li>Contractor note</li><li>Manager review</li></ul>
+        </div>
+      </section>
+
+      <div class="workspace">
+        <div>
+          <section class="panel">
+            <div class="section-head"><div><h2>Source Nodes</h2><p class="section-copy">Fragmented estate records checked together.</p></div><span class="chip">Traceable</span></div>
+            <div class="source-grid">
+              <button class="source-card" type="button" aria-pressed="true" data-source="permit"><span class="source-top"><span><span class="source-title">Works Permit</span><span class="source-type">Contractor permit record</span></span><span class="status">paused</span></span><ul class="checks"><li>Hold reason</li><li>Approval status</li></ul></button>
+              <button class="source-card" type="button" aria-pressed="false" data-source="utilities"><span class="source-top"><span><span class="source-title">Utility Map</span><span class="source-type">Estate infrastructure file</span></span><span class="status">conflict</span></span><ul class="checks"><li>Service route</li><li>Isolation point</li></ul></button>
+              <button class="source-card" type="button" aria-pressed="false" data-source="contractor"><span class="source-top"><span><span class="source-title">Contractor Update</span><span class="source-type">Operational text note</span></span><span class="status">waiting</span></span><ul class="checks"><li>Site condition</li><li>Access impact</li></ul></button>
+              <button class="source-card" type="button" aria-pressed="false" data-source="drainage"><span class="source-top"><span><span class="source-title">Drainage Survey</span><span class="source-type">Survey report</span></span><span class="status">review</span></span><ul class="checks"><li>Ground condition</li><li>Recommendation</li></ul></button>
+              <button class="source-card" type="button" aria-pressed="false" data-source="manager"><span class="source-top"><span><span class="source-title">Estate Manager Note</span><span class="source-type">Human workplace note</span></span><span class="status">observed</span></span><ul class="checks"><li>Local knowledge</li><li>Tenant impact</li></ul></button>
+            </div>
+          </section>
+
+          <section class="panel" style="margin-top:18px">
+            <div class="section-head"><div><h2>Relationship Flow</h2><p class="section-copy">Human question to governed context.</p></div></div>
+            <div class="flow">
+              <div class="flow-row"><div class="flow-index">1</div><div class="flow-box"><strong>Human question</strong><span>Why were works paused?</span></div></div>
+              <div class="flow-row"><div class="flow-index">2</div><div class="flow-box"><strong>Hold Context Check</strong><span>Permit + utility map + survey + notes.</span></div></div>
+              <div class="flow-row"><div class="flow-index">3</div><div class="flow-box"><strong>Cautious understanding</strong><span>Pause linked to utility risk and approval control.</span></div></div>
+              <div class="flow-row"><div class="flow-index">4</div><div class="flow-box"><strong>Human review</strong><span>Estate lead confirms next step.</span></div></div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="panel detail">
+          <div class="detail-head"><p class="kicker">Selected evidence</p><h2 id="detail-title">Works Permit</h2><div class="crumb" id="detail-type">Contractor permit record</div></div>
+          <div class="detail-body">
+            <div class="evidence-box"><h3>Hold Context Check</h3><ul id="detail-checks"><li>Hold reason reviewed.</li><li>Approval status checked.</li></ul></div>
+            <div class="evidence-box"><h3>Status update</h3><p id="detail-evidence">Permit record: Works paused pending utility confirmation.</p></div>
+            <div class="note" id="detail-note">Human review remains required.</div>
+          </div>
+        </aside>
+      </div>
+
+      <section class="panel" style="margin-top:18px">
+        <div class="section-head"><div><h2>Operational Summary</h2><p class="section-copy">Useful context, not a final instruction.</p></div><span class="chip">No automatic action</span></div>
+        <div class="signal-stack">
+          <div class="signal-line">Permit record: Works paused <span>+</span></div>
+          <div class="signal-line">Utility map: Service route conflict <span>+</span></div>
+          <div class="signal-line">Contractor note: Waiting confirmation <span>+</span></div>
+          <div class="signal-line">Manager note: Tenant impact visible <span>=</span></div>
+          <div class="signal-line">Cautious operational understanding <span></span></div>
+        </div>
+        <div class="governance-grid">
+          <div class="governance-item"><strong>Confidence</strong><span>Medium-high. Sources align.</span></div>
+          <div class="governance-item"><strong>Traceability</strong><span>Permit, map, survey and notes retained.</span></div>
+          <div class="governance-item"><strong>Human review</strong><span>Estate lead decides next action.</span></div>
+          <div class="governance-item"><strong>Control</strong><span>No automatic restart.</span></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    window.reasoningSources = {
+      permit: { title: "Works Permit", type: "Contractor permit record", checks: ["Hold reason reviewed.", "Approval status checked."], evidence: "Permit record: Works paused pending utility confirmation.", note: "Human review remains required." },
+      utilities: { title: "Utility Map", type: "Estate infrastructure file", checks: ["Service route checked.", "Isolation point reviewed."], evidence: "Utility map: Drainage route overlaps buried service corridor.", note: "Restart decision needs confirmation." },
+      contractor: { title: "Contractor Update", type: "Operational text note", checks: ["Site condition reviewed.", "Access impact checked."], evidence: "Contractor update: Team waiting for service route confirmation.", note: "Operational delay, not contractor refusal." },
+      drainage: { title: "Drainage Survey", type: "Survey report", checks: ["Ground condition reviewed.", "Recommendation checked."], evidence: "Drainage survey: Further verification recommended before excavation.", note: "Survey supports cautious pause." },
+      manager: { title: "Estate Manager Note", type: "Human workplace note", checks: ["Local knowledge reviewed.", "Tenant impact retained."], evidence: "Manager note: Pause avoids tenant access disruption during peak arrival.", note: "Human workplace knowledge stays visible." }
+    };
+  </script>
+  <script src="hold-v3-reasoning.js"></script>
+</body>
+</html>

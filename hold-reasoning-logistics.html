@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hold v3 | Cooper Logistics Investigation</title>
+  <link rel="stylesheet" href="hold-v3-reasoning.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="side">
+      <div class="brand"><div class="brand-mark">H</div><div>Hold v3<div class="small">Reasoning layer</div></div></div>
+      <nav class="nav" aria-label="Reasoning pages">
+        <a href="hold-v3-reasoning-hub.html">Hub <span>overview</span></a>
+        <a href="hold-reasoning-demo.html">Estates <span>human-led</span></a>
+        <a href="hold-reasoning-aggregates.html">Aggregates <span>human-led</span></a>
+        <a href="hold-reasoning-logistics.html" aria-current="page">Cooper Logistics <span>signal-led</span></a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div class="crumb">Hold Signal-led Investigation / Cooper Logistics</div>
+        <div class="chips">
+          <span class="chip">Signal detected</span>
+          <span class="chip" id="investigationChip">Human choice pending</span>
+          <span class="chip">No automatic decision</span>
+        </div>
+      </div>
+
+      <section class="hero">
+        <div class="panel">
+          <p class="kicker">Hold Signal</p>
+          <h1 class="hero-title">Increasing congestion identified around Bay C03.</h1>
+          <div class="question">Pattern detected across connected operational systems.</div>
+          <p class="summary">Human review recommended. Hold Signal does not decide what happens next.</p>
+          <button class="primary-action" type="button" id="investigateSignal">Investigate Signal</button>
+        </div>
+        <div class="panel">
+          <p class="kicker">Signal posture</p>
+          <h2 id="signalStatus">Investigation not yet started</h2>
+          <div class="meter"><div class="metric-row"><strong>Confidence</strong><strong>Emerging</strong></div><div class="bar"><span id="confidenceBar" style="width:42%"></span></div></div>
+          <ul class="checks"><li>Bay C03 congestion</li><li>Dispatch pressure</li><li>Human choice required</li><li>Procurement human-authorised</li></ul>
+        </div>
+      </section>
+
+      <div id="contextCheck" hidden>
+        <div class="workspace">
+          <div>
+            <section class="panel">
+              <div class="section-head"><div><h2>Source Nodes</h2><p class="section-copy">Connected workplace platforms and human notes checked together.</p></div><span class="chip">Context Check active</span></div>
+              <div class="source-grid">
+                <button class="source-card" type="button" aria-pressed="true" data-source="fleet"><span class="source-top"><span><span class="source-title">Fleet Management System</span><span class="source-type">Fleet platform</span></span><span class="status">reviewed</span></span><ul class="checks"><li>Utilisation</li><li>Availability</li></ul></button>
+                <button class="source-card" type="button" aria-pressed="false" data-source="maintenance"><span class="source-top"><span><span class="source-title">Maintenance Platform</span><span class="source-type">Maintenance system</span></span><span class="status">normal</span></span><ul class="checks"><li>Downtime</li><li>Service history</li></ul></button>
+                <button class="source-card" type="button" aria-pressed="false" data-source="dispatch"><span class="source-top"><span><span class="source-title">Dispatch Platform</span><span class="source-type">Dispatch operations system</span></span><span class="status">rising</span></span><ul class="checks"><li>Throughput</li><li>Peak demand</li></ul></button>
+                <button class="source-card" type="button" aria-pressed="false" data-source="routes"><span class="source-top"><span><span class="source-title">Warehouse Route Mapping</span><span class="source-type">Operational layout platform</span></span><span class="status">mapped</span></span><ul class="checks"><li>Congestion point</li><li>Route efficiency</li></ul></button>
+                <button class="source-card" type="button" aria-pressed="false" data-source="notes"><span class="source-top"><span><span class="source-title">Shift Supervisor Notes</span><span class="source-type">Operational text note</span></span><span class="status">flagged</span></span><ul class="checks"><li>Bay C03 note</li><li>Outbound peak</li></ul></button>
+                <button class="source-card" type="button" aria-pressed="false" data-source="charging"><span class="source-top"><span><span class="source-title">Charging Records</span><span class="source-type">Equipment charging log</span></span><span class="status">queued</span></span><ul class="checks"><li>Charging access</li><li>Queue pattern</li></ul></button>
+                <button class="source-card" type="button" aria-pressed="false" data-source="safety"><span class="source-top"><span><span class="source-title">H&amp;S Platform</span><span class="source-type">Safety and incident system</span></span><span class="status">clear</span></span><ul class="checks"><li>Incident reports</li><li>Route controls</li></ul></button>
+              </div>
+            </section>
+
+            <section class="panel" style="margin-top:18px">
+              <div class="section-head"><div><h2>Relationship Flow</h2><p class="section-copy">Signal-led investigation, human-controlled.</p></div></div>
+              <div class="flow">
+                <div class="flow-row"><div class="flow-index">1</div><div class="flow-box"><strong>Hold Signal</strong><span>Increasing congestion around Bay C03.</span></div></div>
+                <div class="flow-row"><div class="flow-index">2</div><div class="flow-box"><strong>Human chooses to investigate</strong><span>Signal does not make a decision.</span></div></div>
+                <div class="flow-row"><div class="flow-index">3</div><div class="flow-box"><strong>Hold Context Check</strong><span>Fleet + maintenance + dispatch + routes + notes + charging + H&amp;S.</span></div></div>
+                <div class="flow-row"><div class="flow-index">4</div><div class="flow-box"><strong>Governed understanding</strong><span>Routing, utilisation and charging patterns need review.</span></div></div>
+              </div>
+            </section>
+          </div>
+
+          <aside class="panel detail">
+            <div class="detail-head"><p class="kicker">Selected evidence</p><h2 id="detail-title">Fleet Management System</h2><div class="crumb" id="detail-type">Fleet platform</div></div>
+            <div class="detail-body">
+              <div class="evidence-box"><h3>Hold Context Check</h3><ul id="detail-checks"><li>Utilisation checked.</li><li>Vehicle availability checked.</li></ul></div>
+              <div class="evidence-box"><h3>Status update</h3><p id="detail-evidence">Fleet platform: Peak utilisation increasing around outbound periods.</p></div>
+              <div class="note" id="detail-note">Capacity review remains open.</div>
+            </div>
+          </aside>
+        </div>
+
+        <section class="panel" style="margin-top:18px">
+          <div class="section-head"><div><h2>Operational Summary</h2><p class="section-copy">Pattern and context only. Decisions remain human-led.</p></div><span class="chip">No automatic recommendation</span></div>
+          <div class="signal-stack">
+            <div class="signal-line">Bay C03 congestion increasing <span>+</span></div>
+            <div class="signal-line">Dispatch volume rising <span>+</span></div>
+            <div class="signal-line">Downtime within expected range <span>+</span></div>
+            <div class="signal-line">Charging queues visible <span>=</span></div>
+            <div class="signal-line">Operational review recommended <span></span></div>
+          </div>
+          <div class="evidence-box" style="margin-top:16px">
+            <p>Available records suggest that warehouse routing and Bay C03 congestion may be contributing to delays. Additional fleet capacity may require review, but route mapping, vehicle utilisation and charging patterns should be assessed before procurement decisions are made.</p>
+          </div>
+          <div class="governance-grid">
+            <div class="governance-item"><strong>Hold Signal</strong><span>Surfaces pattern only.</span></div>
+            <div class="governance-item"><strong>Human choice</strong><span>Investigation started by a person.</span></div>
+            <div class="governance-item"><strong>Procurement</strong><span>Human-authorised only.</span></div>
+            <div class="governance-item"><strong>Traceability</strong><span>Platforms and notes retained.</span></div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    window.reasoningSources = {
+      fleet: { title: "Fleet Management System", type: "Fleet platform", checks: ["Utilisation checked.", "Vehicle availability checked."], evidence: "Fleet platform: Peak utilisation increasing around outbound periods.", note: "Capacity review remains open." },
+      maintenance: { title: "Maintenance Platform", type: "Maintenance system", checks: ["Downtime pattern reviewed.", "Service history compared."], evidence: "Maintenance platform: Downtime within expected range.", note: "Maintenance does not explain the whole signal." },
+      dispatch: { title: "Dispatch Platform", type: "Dispatch operations system", checks: ["Throughput reviewed.", "Peak demand identified."], evidence: "Dispatch platform: Outbound volume rising near peak windows.", note: "Demand pressure supports review." },
+      routes: { title: "Warehouse Route Mapping", type: "Operational layout platform", checks: ["Congestion point identified.", "Route efficiency reviewed."], evidence: "Route map: Bay C03 movement conflict visible.", note: "Routing may be contributing to delay." },
+      notes: { title: "Shift Supervisor Notes", type: "Operational text note", checks: ["Bay C03 note reviewed.", "Peak outbound wording checked."], evidence: "Supervisor note: Forklift delays around Bay C03 during outbound peaks.", note: "Human workplace knowledge retained." },
+      charging: { title: "Charging Records", type: "Equipment charging log", checks: ["Charging availability reviewed.", "Queue pattern identified."], evidence: "Charging log: Queue pattern during shift change.", note: "Effective availability may be constrained." },
+      safety: { title: "H&S Platform", type: "Safety and incident system", checks: ["Incident reports checked.", "Route controls reviewed."], evidence: "H&S platform: No safety-critical incident linked to the signal.", note: "Safety context remains visible." }
+    };
+
+    const investigateButton = document.getElementById("investigateSignal");
+    const contextCheck = document.getElementById("contextCheck");
+    const signalStatus = document.getElementById("signalStatus");
+    const confidenceBar = document.getElementById("confidenceBar");
+    const investigationChip = document.getElementById("investigationChip");
+
+    investigateButton.addEventListener("click", () => {
+      contextCheck.hidden = false;
+      signalStatus.textContent = "Hold Context Check running";
+      confidenceBar.style.width = "68%";
+      investigationChip.textContent = "Investigation chosen";
+      investigateButton.textContent = "Context Check Active";
+      investigateButton.disabled = true;
+      contextCheck.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  </script>
+  <script src="hold-v3-reasoning.js"></script>
+</body>
+</html>
