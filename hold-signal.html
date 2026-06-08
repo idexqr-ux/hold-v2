@@ -8,7 +8,7 @@
     name="description"
     content="Hold Signal concept layer for emerging operational patterns, follow-on questions and human review across Hold environments."
   />
-  <link rel="stylesheet" href="style.css?v=45" />
+  <link rel="stylesheet" href="style.css?v=51" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
@@ -16,9 +16,9 @@
   <div class="dashboard-layout">
     <aside class="sidebar">
       <div class="sidebar-brand">
-        <p class="sidebar-eyebrow">Hold</p>
-        <h2>Governance Platform</h2>
-        <p class="sidebar-entity">The Strata Group</p>
+        <img class="sidebar-logo" src="images/hold-strata-logo.png" alt="Hold" />
+        <h2>Hold Signal</h2>
+        <p class="sidebar-entity">Strata Group demonstration environment</p>
       </div>
 
       <nav class="sidebar-nav" aria-label="Hold Signal navigation">
@@ -31,19 +31,36 @@
         </div>
 
         <div class="sidebar-group">
-          <p class="sidebar-label">Group Oversight</p>
-          <a href="strata-aggregates-operational-audit.html">Aggregates Audit</a>
-          <a href="strata-estates-operational-audit.html">Estates Audit</a>
-          <a href="strata-logistics-operational-audit.html">Logistics Audit</a>
+          <p class="sidebar-label">Platform</p>
+          <a href="hold-signal.html" class="active">Hold Signal <span>Emerging operational signals</span></a>
+          <a href="trust-layer.html">Trust Layer <span>Pre-reasoning evidence</span></a>
+          <a href="provenance-layer.html">Provenance Layer <span>Origin path</span></a>
+          <a href="governance-layer.html">Governance Layer <span>Accountability visibility</span></a>
         </div>
 
         <div class="sidebar-group">
-          <p class="sidebar-label">Platform</p>
-          <a href="hold-signal.html" class="active">Hold Signal <span>Emerging capability</span></a>
-          <a href="hold-v3-reasoning-hub.html">Operational Reasoning Hub <span>concept layer</span></a>
-          <span class="sidebar-disabled">Alerts &amp; Risks - In Development</span>
-          <span class="sidebar-disabled">Reports - In Development</span>
-          <span class="sidebar-disabled">Settings - In Development</span>
+          <p class="sidebar-label">Reasoning Layer</p>
+          <a href="hold-reasoning-hub.html">Overview</a>
+          <a href="operational-briefing.html">Operational Briefing <span>role-aware context</span></a>
+          <a href="what-changed.html">What Changed <span>context over time</span></a>
+          <a href="what-needs-attention.html">What Needs Attention <span>review prompts</span></a>
+          <a href="operational-questions.html">Operational Questions <span>traceable answers</span></a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Operational Understanding Examples</p>
+          <a href="hold-reasoning-logistics.html">Bay C03 Operational Understanding</a>
+          <a href="hold-reasoning-demo.html">Millbrook Yard Drainage Understanding</a>
+          <a href="hold-reasoning-aggregates.html">Stockyard C Restriction Understanding</a>
+          <a href="hold-reasoning-new-starter.html">Preparing for a New Starter</a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Governance &amp; Traceability</p>
+          <a href="audit-trail.html">Accountability Trail</a>
+          <a href="strata-aggregates-operational-audit.html">Aggregates Governance</a>
+          <a href="strata-estates-operational-audit.html">Estates Governance</a>
+          <a href="strata-logistics-operational-audit.html">Logistics Governance</a>
         </div>
       </nav>
 
@@ -55,13 +72,13 @@
 
     <main class="dashboard-main">
       <div class="dashboard-header">
-        <p class="dashboard-breadcrumb">Hold / The Strata Group / Hold Signal</p>
+        <p class="dashboard-breadcrumb">Hold / Hold Signal</p>
 
         <div class="dashboard-title-row">
           <div>
             <h1>Hold Signal</h1>
             <p class="dashboard-subtitle">
-              An emerging future operational module for noticing possible patterns, relationships and follow-on questions across Hold environments while keeping human judgement central.
+              Emerging operational signals that help people notice possible patterns, relationships and follow-on questions across Hold environments while keeping human judgement central.
             </p>
           </div>
 
@@ -70,10 +87,19 @@
       </div>
 
       <section class="dashboard-layer">
-        <p class="section-kicker">Quiet operational assistant</p>
+        <section class="dashboard-card">
+          <p class="section-kicker">Quiet operational assistant</p>
+          <h2>Signals help people ask the next useful question.</h2>
+          <p class="section-intro">
+            Hold Signal sits before investigation. It notices emerging operational patterns, then points users toward evidence and reasoning without claiming certainty or taking action.
+          </p>
 
-        <div class="operational-window-grid">
-          <section class="dashboard-card soft-panel">
+          <div class="operational-window-grid">
+          <article class="operational-window">
+            <div class="operational-window-header">
+              <h2>Hold Signal</h2>
+              <span class="status-pill status-pending">Emerging</span>
+            </div>
             <p>
               Hold Signal quietly watches for operational patterns that may deserve human attention.
             </p>
@@ -83,20 +109,53 @@
             <p>
               It is not an alarm system, not autonomous control and not a finished AI product. It is a future-facing concept for operational awareness, waiting for a human cue.
             </p>
-          </section>
+          </article>
 
-          <article class="dashboard-card operational-window">
-            <p class="section-kicker">Hold / Concept</p>
+          <article class="operational-window">
             <div class="operational-window-header">
-              <h2>Operational Reasoning Hub</h2>
+              <h2>Trust Layer</h2>
+              <span class="status-pill status-active">Evidence</span>
+            </div>
+            <p>When a signal deserves investigation, the Trust Layer shows where information came from, how current it is, and why records are connected.</p>
+            <div class="button-row">
+              <a class="quiet-button" href="trust-layer.html">View Trust Layer</a>
+            </div>
+          </article>
+
+          <article class="operational-window">
+            <div class="operational-window-header">
+              <h2>Reasoning Layer</h2>
               <span class="status-pill status-review">Context checks</span>
             </div>
             <p>Explore human-led context checks and Hold Signal-led investigations across fragmented workplace systems, records and human knowledge.</p>
             <div class="button-row">
-              <a class="quiet-button" href="hold-v3-reasoning-hub.html">Open Reasoning Hub</a>
+              <a class="quiet-button" href="hold-reasoning-hub.html">Open Reasoning Overview</a>
+            </div>
+          </article>
+
+          <article class="operational-window">
+            <div class="operational-window-header">
+              <h2>Governance Layer</h2>
+              <span class="status-pill status-review">Accountability</span>
+            </div>
+            <p>Governance shows who owns information, who reviews it and where human accountability sits when a signal needs action.</p>
+            <div class="button-row">
+              <a class="quiet-button" href="governance-layer.html">View Governance Layer</a>
+            </div>
+          </article>
+
+          <article class="operational-window">
+            <div class="operational-window-header">
+              <h2>Provenance Layer</h2>
+              <span class="status-pill status-pending">Origin path</span>
+            </div>
+            <p>Provenance shows where information originally came from before Signal, Trust or Reasoning use it as context.</p>
+            <div class="button-row">
+              <a class="quiet-button" href="provenance-layer.html">View Provenance Layer</a>
             </div>
           </article>
         </div>
+        </section>
       </section>
 
       <section class="dashboard-layer">

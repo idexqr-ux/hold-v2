@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hold | What Needs Attention</title>
+  <link rel="stylesheet" href="style.css?v=51" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
+  <link rel="stylesheet" href="hold-v3-reasoning.css?v=5">
+  <style>
+    .attention-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .attention-card {
+      display: grid;
+      gap: 18px;
+    }
+
+    .attention-card .source-grid {
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    }
+
+    .signal-card {
+      cursor: default;
+      text-align: left;
+    }
+
+    .signal-card:hover {
+      transform: none;
+    }
+
+    .attention-sections {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 12px;
+    }
+
+    .attention-note {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.72);
+      padding: 14px;
+    }
+
+    .attention-note h3 {
+      margin: 0 0 8px;
+      font-size: 13px;
+      color: var(--ink);
+    }
+
+    .attention-note p,
+    .attention-note ul {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .attention-note ul {
+      padding-left: 18px;
+    }
+
+    .review-note {
+      border-color: rgba(146, 91, 45, 0.28);
+      background: rgba(255, 248, 238, 0.84);
+    }
+
+    .follow-on {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .follow-on span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+      color: var(--muted);
+      font-size: 12px;
+      padding: 7px 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img class="sidebar-logo" src="images/hold-strata-logo.png" alt="Hold" />
+        <h2>Operational Understanding Platform</h2>
+        <p class="sidebar-entity">Strata Group demonstration environment</p>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Reasoning pages">
+        <div class="sidebar-group">
+          <p class="sidebar-label">Platform</p>
+          <a href="trust-layer.html">Trust Layer <span>Pre-reasoning evidence</span></a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Reasoning Layer</p>
+          <a href="hold-reasoning-hub.html">Overview</a>
+          <a href="operational-briefing.html">Operational Briefing <span>role-aware context</span></a>
+          <a href="what-changed.html">What Changed <span>context over time</span></a>
+          <a href="what-needs-attention.html" aria-current="page" class="active">What Needs Attention <span>review prompts</span></a>
+          <a href="operational-questions.html">Operational Questions <span>traceable answers</span></a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Operational Understanding Examples</p>
+          <a href="hold-reasoning-logistics.html">Bay C03 Operational Understanding</a>
+          <a href="hold-reasoning-demo.html">Millbrook Yard Drainage Understanding</a>
+          <a href="hold-reasoning-aggregates.html">Stockyard C Restriction Understanding</a>
+          <a href="hold-reasoning-new-starter.html">Preparing for a New Starter</a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Governance &amp; Traceability</p>
+          <a href="audit-trail.html">Accountability Trail</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div class="crumb">Reasoning Layer / What Needs Attention</div>
+        <div class="chips"><span class="chip">Review prompts</span><span class="chip">Trusted context</span><span class="chip">No automatic decisions</span></div>
+      </div>
+
+      <section class="hero">
+        <div class="panel">
+          <p class="kicker">What Needs Attention</p>
+          <h1 class="hero-title">Hold helps organisations identify areas that may deserve review.</h1>
+          <div class="question">Hold does not decide. Hold helps people see where attention may be needed.</div>
+          <p class="summary">Signals are not conclusions. They are prompts supported by trusted context, operational memory and visible evidence. Humans remain responsible for decisions and actions.</p>
+          <div class="button-row">
+            <a class="quiet-button secondary" href="operational-briefing.html">View operational briefing</a>
+            <a class="quiet-button secondary" href="what-changed.html">View what changed</a>
+            <a class="quiet-button secondary" href="operational-questions.html">View operational questions</a>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="kicker">Attention posture</p>
+          <h2>Not alerts, incidents or predictive AI</h2>
+          <div class="meter"><div class="metric-row"><strong>Decision control</strong><strong>Human-led</strong></div><div class="bar"><span style="width:100%"></span></div></div>
+          <ul class="checks"><li>Emerging signals</li><li>Trust review</li><li>Operational memory</li><li>Operational learning</li><li>Understanding strength</li><li>Understanding owner</li><li>Human review route</li></ul>
+        </div>
+      </section>
+
+      <section class="attention-list">
+        <article class="panel attention-card">
+          <div class="section-head">
+            <div>
+              <p class="kicker">Bay C03 Dispatch Route</p>
+              <h2>Why is Hold drawing attention to Bay C03?</h2>
+              <p class="section-copy">Trusted context suggests the dispatch route may benefit from local review.</p>
+            </div>
+            <span class="chip">Logistics review prompt</span>
+          </div>
+
+          <div class="source-grid">
+            <div class="source-card signal-card"><span class="source-top"><span><span class="source-title">Route observations</span><span class="source-type">Movement notes</span></span><span class="status">increased</span></span><ul class="checks"><li>Observation volume</li><li>Route pressure</li></ul></div>
+            <div class="source-card signal-card"><span class="source-top"><span><span class="source-title">Dispatch activity</span><span class="source-type">Operational record</span></span><span class="status">higher</span></span><ul class="checks"><li>Peak dispatch</li><li>Bay C03 flow</li></ul></div>
+            <div class="source-card signal-card"><span class="source-top"><span><span class="source-title">Contractor movements</span><span class="source-type">Temporary site activity</span></span><span class="status">temporary</span></span><ul class="checks"><li>Movement window</li><li>Shared route use</li></ul></div>
+            <div class="source-card signal-card"><span class="source-top"><span><span class="source-title">Near-miss reports</span><span class="source-type">Safety record</span></span><span class="status">two recent</span></span><ul class="checks"><li>Report timing</li><li>Route relationship</li></ul></div>
+          </div>
+
+          <div class="attention-sections">
+            <div class="attention-note">
+              <h3>Trust review</h3>
+              <ul><li>Multiple independent sources.</li><li>Recent observations verified.</li><li>Route records current.</li></ul>
+            </div>
+            <div class="attention-note">
+              <h3>Operational memory</h3>
+              <ul><li>Similar issue identified six months ago.</li><li>Route markings updated.</li><li>Temporary improvement recorded.</li></ul>
+            </div>
+            <div class="attention-note">
+              <h3>Operational Learning</h3>
+              <p>Route marking changes improved flow temporarily, but congestion risk can return when contractor movements overlap with peak dispatch periods.</p>
+            </div>
+            <div class="attention-note">
+              <h3>Connected Context</h3>
+              <p>Dispatch flow, forklift routes, contractor movements and pedestrian segregation.</p>
+            </div>
+            <div class="attention-note">
+              <h3>Understanding Strength</h3>
+              <p><strong>Strong.</strong> Based on recent observations, current route records, operational memory and multiple sources. Known limitation: contractor movement data covers the current short-term works period only.</p>
+            </div>
+            <div class="attention-note">
+              <h3>Understanding Owner</h3>
+              <p><strong>Bay Operations Supervisor.</strong> Supporting roles: Shift Manager, Health &amp; Safety Representative.</p>
+            </div>
+            <div class="attention-note">
+              <h3>Hold explanation</h3>
+              <p>Current conditions resemble previously observed congestion patterns. Increased activity and temporary contractor presence may warrant a local review.</p>
+            </div>
+            <div class="attention-note review-note">
+              <h3>Human review</h3>
+              <p>Review pedestrian segregation and peak dispatch traffic flow.</p>
+            </div>
+          </div>
+
+          <div class="attention-note">
+            <h3>Related questions</h3>
+            <div class="follow-on"><span>What changed in the last 30 days?</span><span>Are contractor movements increasing?</span><span>Has route utilisation changed?</span></div>
+            <div class="button-row">
+              <a class="quiet-button" href="operational-questions.html">Continue to Operational Questions</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel attention-card">
+          <div class="section-head">
+            <div>
+              <p class="kicker">Millbrook Yard Drainage Area</p>
+              <h2>Why is Hold drawing attention to this area?</h2>
+              <p class="section-copy">Repeated site observations may deserve review before future works are planned.</p>
+            </div>
+            <span class="chip">Estates review prompt</span>
+          </div>
+
+          <div class="source-grid">
+            <div class="source-card signal-card"><span class="source-top"><span><span class="source-title">Inspection notes</span><span class="source-type">Site inspection</span></span><span class="status">increased</span></span><ul class="checks"><li>Note frequency</li><li>Area condition</li></ul></div>
+            <div class="source-card signal-card"><span class="source-top"><span><span class="source-title">Drainage observations</span><span class="source-type">Operational notes</span></span><span class="status">repeated</span></span><ul class="checks"><li>Drainage area</li><li>Recurring wording</li></ul></div>
+            <div class="source-card signal-card"><span class="source-top"><span><span class="source-title">Rainfall pattern</span><span class="source-type">Seasonal context</span></span><span class="status">seasonal</span></span><ul class="checks"><li>Recent rainfall</li><li>Seasonal timing</li></ul></div>
+          </div>
+
+          <div class="attention-sections">
+            <div class="attention-note">
+              <h3>Trust review</h3>
+              <ul><li>Inspection records verified.</li><li>Site plans current.</li><li>Contractor notes available.</li></ul>
+            </div>
+            <div class="attention-note">
+              <h3>Operational memory</h3>
+              <ul><li>Previous drainage intervention.</li><li>Historic utility concern.</li></ul>
+            </div>
+            <div class="attention-note">
+              <h3>Operational Learning</h3>
+              <p>Historic site knowledge should be checked before works proceed, especially where utility records or approval routes are unclear.</p>
+            </div>
+            <div class="attention-note">
+              <h3>Connected Context</h3>
+              <p>Utility records, contractor programme, site access and approval route.</p>
+            </div>
+            <div class="attention-note">
+              <h3>Understanding Strength</h3>
+              <p><strong>Moderate.</strong> Based on inspection records, site plans and available contractor notes. Known limitation: final works impact still needs local confirmation.</p>
+            </div>
+            <div class="attention-note">
+              <h3>Understanding Owner</h3>
+              <p><strong>Estates Manager.</strong> Supporting roles: Contractor Lead, Utilities Coordinator.</p>
+            </div>
+            <div class="attention-note">
+              <h3>Hold explanation</h3>
+              <p>Repeated observations suggest conditions should be reviewed before future works are planned.</p>
+            </div>
+            <div class="attention-note review-note">
+              <h3>Human review</h3>
+              <p>Confirm current drainage condition and planned works impact.</p>
+            </div>
+          </div>
+
+          <div class="attention-note">
+            <h3>Related questions</h3>
+            <div class="follow-on"><span>What changed since last inspection?</span><span>Are restrictions increasing?</span></div>
+          </div>
+        </article>
+
+        <article class="panel attention-card">
+          <div class="section-head">
+            <div>
+              <p class="kicker">Stockyard C</p>
+              <h2>Why is Hold drawing attention to Stockyard C?</h2>
+              <p class="section-copy">Current site observations are consistent with previous restriction context.</p>
+            </div>
+            <span class="chip">Aggregates review prompt</span>
+          </div>
+
+          <div class="source-grid">
+            <div class="source-card signal-card"><span class="source-top"><span><span class="source-title">Weather restrictions</span><span class="source-type">Operational restriction</span></span><span class="status">weather-related</span></span><ul class="checks"><li>Restriction timing</li><li>Weather link</li></ul></div>
+            <div class="source-card signal-card"><span class="source-top"><span><span class="source-title">Environmental monitoring</span><span class="source-type">Site controls</span></span><span class="status">observed</span></span><ul class="checks"><li>Runoff control</li><li>Monitoring note</li></ul></div>
+            <div class="source-card signal-card"><span class="source-top"><span><span class="source-title">Route condition notes</span><span class="source-type">Loading route</span></span><span class="status">noted</span></span><ul class="checks"><li>Route surface</li><li>Vehicle movement</li></ul></div>
+          </div>
+
+          <div class="attention-sections">
+            <div class="attention-note">
+              <h3>Trust review</h3>
+              <ul><li>Survey records verified.</li><li>Inspection data current.</li><li>Environmental records available.</li></ul>
+            </div>
+            <div class="attention-note">
+              <h3>Operational memory</h3>
+              <ul><li>Previous weather-related restriction.</li><li>Similar conditions recorded.</li></ul>
+            </div>
+            <div class="attention-note">
+              <h3>Operational Learning</h3>
+              <p>Weather-related restrictions should be reviewed alongside route condition, environmental monitoring and loading plans, not treated as isolated events.</p>
+            </div>
+            <div class="attention-note">
+              <h3>Connected Context</h3>
+              <p>Loading route, environmental monitoring, weighbridge operations and crusher feed planning.</p>
+            </div>
+            <div class="attention-note">
+              <h3>Understanding Strength</h3>
+              <p><strong>Moderate.</strong> Based on inspection records, weather-related restrictions and environmental monitoring. Known limitation: route condition should be checked again after weather improves.</p>
+            </div>
+            <div class="attention-note">
+              <h3>Understanding Owner</h3>
+              <p><strong>Quarry Supervisor.</strong> Supporting roles: Environmental Lead, Weighbridge Coordinator.</p>
+            </div>
+            <div class="attention-note">
+              <h3>Hold explanation</h3>
+              <p>Current observations indicate conditions consistent with previous operational restrictions.</p>
+            </div>
+            <div class="attention-note review-note">
+              <h3>Human review</h3>
+              <p>Review loading route suitability and environmental controls.</p>
+            </div>
+          </div>
+
+          <div class="attention-note">
+            <h3>Related questions</h3>
+            <div class="follow-on"><span>What changed this month?</span><span>Is restriction scope increasing?</span></div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

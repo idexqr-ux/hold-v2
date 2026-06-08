@@ -219,7 +219,18 @@
 }
 
 .sidebar-brand {
+  padding-top: 10px;
   margin-bottom: 34px;
+  text-align: center;
+}
+
+.sidebar-logo {
+  display: block;
+  width: 92px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 18px;
+  opacity: 0.92;
 }
 
 .sidebar-eyebrow {
@@ -234,6 +245,10 @@
   margin: 0;
   font-size: 1.5rem;
   line-height: 1.15;
+}
+
+.sidebar-entity {
+  margin-top: 0.7rem;
 }
 
 .sidebar-nav {
@@ -293,7 +308,9 @@
   margin-top: 0.2rem;
   color: #8a9498;
   font-size: 0.76rem;
+  font-style: italic;
   line-height: 1.35;
+  text-align: left;
 }
 
 .sidebar-operational-time {
@@ -326,7 +343,9 @@
   margin-top: 0.28rem;
   color: #8a9498;
   font-size: 0.76rem;
+  font-style: italic;
   line-height: 1.35;
+  text-align: left;
 }
 
 .sidebar-disabled {
@@ -1298,10 +1317,13 @@ h2 {
   min-height: 92px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .feature-card.compact h3 {
   margin-bottom: 0;
+  width: 100%;
 }
 
 .grid .card {
@@ -1451,8 +1473,14 @@ h2 {
 }
 
 .section-intro {
-  max-width: 760px;
-  color: #545454;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #647074;
+  font-size: 0.94rem;
+  font-style: italic;
+  line-height: 1.45;
+  text-align: center;
 }
 
 .shift-grid,
@@ -1741,6 +1769,28 @@ h2 {
 
 .operational-window p {
   margin: 0;
+}
+
+.operational-window.guidance-window {
+  border-color: rgba(120, 135, 130, 0.18);
+  background: rgba(248, 251, 249, 0.74);
+}
+
+.operational-window.guidance-window p {
+  color: #5f6b64;
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.42;
+  text-align: center;
+}
+
+.reasoning-hub .operational-window p,
+.reasoning-hub .trust-dimension p {
+  color: #5f6b64;
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.42;
+  text-align: center;
 }
 
 .operational-window .button-row {
@@ -2270,6 +2320,106 @@ h2 {
   color: var(--muted);
 }
 
+/* ==============================
+   TRUST LAYER
+   ============================== */
+
+.trust-summary-grid,
+.trust-case-grid,
+.trust-confidence-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.trust-summary-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.trust-case-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 16px;
+}
+
+.trust-confidence-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 16px;
+}
+
+.trust-dimension,
+.trust-evidence,
+.trust-confidence,
+.trust-explanation {
+  padding: 16px;
+  border: 1px solid rgba(120, 135, 130, 0.22);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.trust-dimension h3,
+.trust-evidence h3,
+.trust-confidence h3,
+.trust-explanation h3 {
+  margin: 0 0 8px;
+  color: #435159;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.trust-evidence ul,
+.trust-explanation ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.trust-evidence li,
+.trust-explanation li {
+  margin: 0.35rem 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.trust-confidence {
+  min-height: 108px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.trust-confidence strong {
+  display: block;
+  color: #2f3e46;
+  font-size: 1.25rem;
+  line-height: 1.15;
+}
+
+.trust-explanation {
+  margin-top: 16px;
+}
+
+.trust-conclusion {
+  margin-top: 16px;
+  padding: 18px;
+  border: 1px solid rgba(123, 158, 135, 0.32);
+  border-left: 5px solid #7b9e87;
+  border-radius: 18px;
+  background: #f7fbf8;
+}
+
+.trust-conclusion p {
+  margin: 0;
+  color: #4a4a4a;
+  line-height: 1.65;
+}
+
+@media (max-width: 980px) {
+  .trust-summary-grid,
+  .trust-case-grid,
+  .trust-confidence-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
   .expected-movements {
     clear: both;
     margin-top: 1.5rem;
@@ -2351,11 +2501,13 @@ h2 {
 }
 
 .dashboard-subtitle {
-  margin: 0.25rem auto 0;
-  color: #667276;
-  font-style: italic;
+  margin: 0.18rem auto 0;
+  color: #6f7a7d;
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.35;
   text-align: center;
-  max-width: 760px; 
+  max-width: 640px; 
 }
 
 .dashboard-status-pill {

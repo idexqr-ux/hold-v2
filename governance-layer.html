@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hold - Governance Through Context</title>
+  <meta
+    name="description"
+    content="Hold Governance Layer concept page showing how ownership, review authority, approval state and escalation paths remain visible near operational records."
+  />
+  <link rel="stylesheet" href="style.css?v=51" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
+</head>
+
+<body>
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img class="sidebar-logo" src="images/hold-strata-logo.png" alt="Hold" />
+        <h2>Governance Layer</h2>
+        <p class="sidebar-entity">Strata Group demonstration environment</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-group">
+          <p class="sidebar-label">Group View</p>
+          <a href="strata-group-dashboard.html">Group Dashboard</a>
+          <a href="strata-aggregates-dashboard.html">Aggregates</a>
+          <a href="strata-estates-dashboard.html">Estates</a>
+          <a href="strata-logistics-dashboard.html">Logistics</a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Platform</p>
+          <a href="hold-signal.html">Hold Signal <span>Emerging operational signals</span></a>
+          <a href="trust-layer.html">Trust Layer <span>Pre-reasoning evidence</span></a>
+          <a href="provenance-layer.html">Provenance Layer <span>Origin path</span></a>
+          <a href="governance-layer.html" class="active">Governance Layer <span>Accountability visibility</span></a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Reasoning Layer</p>
+          <a href="hold-reasoning-hub.html">Overview</a>
+          <a href="operational-briefing.html">Operational Briefing <span>role-aware context</span></a>
+          <a href="what-changed.html">What Changed <span>context over time</span></a>
+          <a href="what-needs-attention.html">What Needs Attention <span>review prompts</span></a>
+          <a href="operational-questions.html">Operational Questions <span>traceable answers</span></a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Operational Understanding Examples</p>
+          <a href="hold-reasoning-logistics.html">Bay C03 Operational Understanding</a>
+          <a href="hold-reasoning-demo.html">Millbrook Yard Drainage Understanding</a>
+          <a href="hold-reasoning-aggregates.html">Stockyard C Restriction Understanding</a>
+          <a href="hold-reasoning-new-starter.html">Preparing for a New Starter</a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Governance &amp; Traceability</p>
+          <a href="audit-trail.html">Accountability Trail</a>
+          <a href="strata-aggregates-operational-audit.html">Aggregates Governance</a>
+          <a href="strata-estates-operational-audit.html">Estates Governance</a>
+          <a href="strata-logistics-operational-audit.html">Logistics Governance</a>
+        </div>
+      </nav>
+
+      <div class="sidebar-operational-time">
+        <p class="sidebar-time-label">Operational time</p>
+        <p id="currentTime">Loading current time...</p>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <div class="dashboard-header">
+        <p class="dashboard-breadcrumb">Hold / Governance Layer</p>
+
+        <div class="dashboard-title-row">
+          <div>
+            <h1>Governance Through Context</h1>
+            <p class="dashboard-subtitle">
+              Hold governance is not about adding another reporting layer. It is about helping people understand who owns information, who reviews it, who can approve change, and where responsibility sits.
+            </p>
+          </div>
+
+          <span class="dashboard-status-pill">Accountability visibility</span>
+        </div>
+      </div>
+
+      <section class="dashboard-layer">
+        <section class="dashboard-card">
+          <p class="section-kicker">Governance Layer concept</p>
+          <h2>Governance should remain close to the operational record being viewed.</h2>
+          <p class="section-intro">
+            The purpose is not compliance reporting. The purpose is accountability visibility.
+            Operational understanding helps people decide what to do next. Accountability trails show how the current understanding was reached, reviewed and carried forward.
+          </p>
+
+          <div class="trust-summary-grid">
+            <article class="trust-dimension">
+              <h3>Who owns this?</h3>
+              <p>Show who owns the record, asset, process, location or operational decision.</p>
+            </article>
+            <article class="trust-dimension">
+              <h3>Who reviews this?</h3>
+              <p>Show who is responsible for reviewing whether information remains valid.</p>
+            </article>
+            <article class="trust-dimension">
+              <h3>Who can change this?</h3>
+              <p>Show approval state, change authority and where human review is required.</p>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="dashboard-layer">
+        <section class="dashboard-card">
+          <p class="section-kicker">Governance Cards</p>
+          <h2>Lightweight accountability context</h2>
+          <p class="section-intro">
+            These cards are intended to sit beside operational records, signals and review notes without becoming a heavy approval workflow.
+          </p>
+
+          <div class="trust-summary-grid">
+            <article class="trust-dimension">
+              <h3>Operational Owner</h3>
+              <p class="section-kicker">Purpose</p>
+              <p>Show who owns the record, asset, process, location or operational decision.</p>
+              <p class="section-kicker">Example</p>
+              <p>Quarry Manager</p>
+            </article>
+
+            <article class="trust-dimension">
+              <h3>Review Authority</h3>
+              <p class="section-kicker">Purpose</p>
+              <p>Show who is responsible for reviewing whether information remains valid.</p>
+              <p class="section-kicker">Example</p>
+              <p>Engineering Lead</p>
+            </article>
+
+            <article class="trust-dimension">
+              <h3>Approval Status</h3>
+              <p class="section-kicker">Purpose</p>
+              <p>Show whether the information is current, under review, superseded or awaiting approval.</p>
+              <p class="section-kicker">Example</p>
+              <p>Current</p>
+            </article>
+
+            <article class="trust-dimension">
+              <h3>Escalation Path</h3>
+              <p class="section-kicker">Purpose</p>
+              <p>Show who should be contacted if the issue requires operational action.</p>
+              <p class="section-kicker">Example</p>
+              <p>Operations Manager<br />Site Director</p>
+            </article>
+
+            <article class="trust-dimension">
+              <h3>Human Review Required</h3>
+              <p class="section-kicker">Purpose</p>
+              <p>Show where AI, Signal or historic context can assist understanding but cannot authorise action.</p>
+              <p class="section-kicker">Example</p>
+              <p>Historic context identified. Current operational decision required.</p>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="dashboard-layer">
+        <section class="dashboard-card">
+          <p class="section-kicker">Example operational record</p>
+          <h2>Crusher / CR-01</h2>
+          <p class="section-intro">
+            A simple governance context pattern showing who owns the record, who reviews it, and when human review is required.
+          </p>
+
+          <div class="trust-case-grid">
+            <article class="trust-evidence">
+              <h3>Governance Context</h3>
+              <ul>
+                <li>Operational Owner: Quarry Manager</li>
+                <li>Review Authority: Engineering Lead</li>
+                <li>Approval Status: Current</li>
+                <li>Escalation Path: Operations Manager</li>
+                <li>Human Review Required: Yes, if historic restriction affects current access</li>
+              </ul>
+            </article>
+
+            <article class="trust-evidence">
+              <h3>Why this matters</h3>
+              <p>
+                The crusher record may include historic restrictions, maintenance references and local names. Governance context helps a user understand who is accountable before relying on that context for an operational decision.
+              </p>
+            </article>
+
+            <article class="trust-evidence">
+              <h3>Boundary</h3>
+              <p>
+                Governance can show responsibility and review routes. It should not imply that AI, Signal or historic context can approve current operational action.
+              </p>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="dashboard-layer">
+        <section class="dashboard-card soft-panel">
+          <p class="section-kicker">Connection to Trust Layer</p>
+          <h2>Trust shows evidence. Governance shows responsibility.</h2>
+          <p>
+            Trust shows where information came from, how current it is, and how it connects.
+          </p>
+          <p>
+            Governance shows where responsibility sits.
+          </p>
+          <p>
+            Provenance shows where the information originated.
+          </p>
+          <p>
+            Governance grows through visible accountability. It should remain calm, lightweight and close to the operational record being viewed.
+          </p>
+          <div class="button-row">
+            <a class="quiet-button" href="trust-layer.html">View Trust Layer</a>
+            <a class="quiet-button" href="provenance-layer.html">View Provenance Layer</a>
+            <a class="quiet-button secondary" href="strata-group-dashboard.html">Back to Group Dashboard</a>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <p class="footer-return">
+    <a href="strata-group-dashboard.html">Back to Group Dashboard</a>
+  </p>
+
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function updateOperationalTime() {
+      const now = new Date();
+      const formatted = now.toLocaleString("en-GB", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+
+      document.getElementById("currentTime").textContent = formatted;
+    }
+
+    updateOperationalTime();
+    setInterval(updateOperationalTime, 60000);
+  </script>
+
+  <script>
+    const sidebar = document.querySelector(".sidebar");
+
+    if (sidebar) {
+      const savedSidebarScroll = localStorage.getItem("holdSidebarScroll");
+
+      if (savedSidebarScroll !== null) {
+        sidebar.scrollTop = savedSidebarScroll;
+      }
+
+      sidebar.addEventListener("scroll", () => {
+        localStorage.setItem("holdSidebarScroll", sidebar.scrollTop);
+      });
+    }
+  </script>
+
+  <script src="sidebar.js?v=8"></script>
+  <script src="clock.js?v=4"></script>
+</body>
+</html>

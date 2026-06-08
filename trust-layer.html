@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hold - Trust Through Context</title>
+  <meta
+    name="description"
+    content="Hold Trust Layer concept page showing how source, freshness and relationship context help users decide whether information can be trusted."
+  />
+  <link rel="stylesheet" href="style.css?v=51" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
+</head>
+
+<body>
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img class="sidebar-logo" src="images/hold-strata-logo.png" alt="Hold" />
+        <h2>Trust Layer</h2>
+        <p class="sidebar-entity">Strata Group demonstration environment</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-group">
+          <p class="sidebar-label">Group View</p>
+          <a href="strata-group-dashboard.html">Group Dashboard</a>
+          <a href="strata-aggregates-dashboard.html">Aggregates</a>
+          <a href="strata-estates-dashboard.html">Estates</a>
+          <a href="strata-logistics-dashboard.html">Logistics</a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Platform</p>
+          <a href="hold-signal.html">Hold Signal <span>Emerging operational signals</span></a>
+          <a href="trust-layer.html" class="active">Trust Layer <span>Pre-reasoning evidence</span></a>
+          <a href="provenance-layer.html">Provenance Layer <span>Origin path</span></a>
+          <a href="governance-layer.html">Governance Layer <span>Accountability visibility</span></a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Reasoning Layer</p>
+          <a href="hold-reasoning-hub.html">Overview</a>
+          <a href="operational-briefing.html">Operational Briefing <span>role-aware context</span></a>
+          <a href="what-changed.html">What Changed <span>context over time</span></a>
+          <a href="what-needs-attention.html">What Needs Attention <span>review prompts</span></a>
+          <a href="operational-questions.html">Operational Questions <span>traceable answers</span></a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Operational Understanding Examples</p>
+          <a href="hold-reasoning-logistics.html">Bay C03 Operational Understanding</a>
+          <a href="hold-reasoning-demo.html">Millbrook Yard Drainage Understanding</a>
+          <a href="hold-reasoning-aggregates.html">Stockyard C Restriction Understanding</a>
+          <a href="hold-reasoning-new-starter.html">Preparing for a New Starter</a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Governance &amp; Traceability</p>
+          <a href="audit-trail.html">Accountability Trail</a>
+          <a href="strata-aggregates-operational-audit.html">Aggregates Governance</a>
+          <a href="strata-estates-operational-audit.html">Estates Governance</a>
+          <a href="strata-logistics-operational-audit.html">Logistics Governance</a>
+        </div>
+      </nav>
+
+      <div class="sidebar-operational-time">
+        <p class="sidebar-time-label">Operational time</p>
+        <p id="currentTime">Loading current time...</p>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <div class="dashboard-header">
+        <p class="dashboard-breadcrumb">Hold / Trust Layer</p>
+
+        <div class="dashboard-title-row">
+          <div>
+            <h1>Trust Through Context</h1>
+            <p class="dashboard-subtitle">
+              The purpose of the Trust Layer is to help users understand why information can be trusted.
+            </p>
+          </div>
+
+          <span class="dashboard-status-pill">Pre-reasoning evidence</span>
+        </div>
+      </div>
+
+      <section class="dashboard-layer">
+        <section class="dashboard-card">
+          <p class="section-kicker">Trust Layer concept</p>
+          <h2>Hold preserves trust by exposing operational context.</h2>
+          <p class="section-intro">
+            Hold does not create trust by scoring information. It helps users see where information came from, whether it is current, and why related records or aliases are connected.
+          </p>
+        </section>
+      </section>
+
+      <section class="dashboard-layer">
+        <section class="dashboard-card">
+          <p class="section-kicker">Reusable Trust Cards</p>
+          <h2>Three quiet context patterns</h2>
+          <p class="section-intro">
+            These cards are intended to be embedded later across Logistics, Estates, Aggregates, Signal and Governance pages without creating a separate trust dashboard.
+          </p>
+
+          <div class="trust-summary-grid">
+            <article class="trust-dimension">
+              <h3>Source Trust</h3>
+              <p class="section-kicker">Context Sources</p>
+              <ul class="check-list">
+                <li>Historic Site Note</li>
+                <li>Contractor Observation</li>
+                <li>Planning Condition</li>
+                <li>Project Record</li>
+              </ul>
+            </article>
+
+            <article class="trust-dimension">
+              <h3>Freshness Trust</h3>
+              <p class="section-kicker">Review Status</p>
+              <ul class="check-list">
+                <li>Reviewed 14 days ago</li>
+                <li>Review due in 30 days</li>
+                <li>Historic Reference</li>
+              </ul>
+            </article>
+
+            <article class="trust-dimension">
+              <h3>Relationship Trust</h3>
+              <p class="section-kicker">Related Context</p>
+              <ul class="check-list">
+                <li>Flint</li>
+                <li>CR-01</li>
+                <li>North Plant</li>
+                <li>Refurbishment 2018</li>
+              </ul>
+              <article class="trust-explanation">
+                <h3>Refurbishment 2018</h3>
+                <p class="section-kicker">Why it matters</p>
+                <p>
+                  A major refurbishment programme completed in 2018 changed the crusher feed assembly and created maintenance references still connected to the current asset record.
+                </p>
+                <p class="section-kicker">Action</p>
+                <div class="button-row">
+                  <button type="button" class="quiet-button secondary" disabled>View source record</button>
+                </div>
+              </article>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="dashboard-layer">
+        <section class="dashboard-card soft-panel">
+          <p class="section-kicker">Design principle</p>
+          <h2>Trust grows through context.</h2>
+          <p>
+            The role of the Trust Layer is to make provenance, currency and operational relationships visible when they matter.
+          </p>
+          <p>
+            It should remain calm, lightweight and close to the operational record being viewed.
+          </p>
+          <p>
+            Where a Related Context item points to a supporting record, document, project note or historic reference, Hold should be able to bring the supporting evidence forward when context matters.
+          </p>
+          <p>
+            Hold should try to answer the next obvious question, not every possible question. The Trust Layer should show not only that two things are connected, but why that connection matters.
+          </p>
+          <p>
+            Keep this calm and lightweight: small explanatory text, short "Why it matters" notes and optional source-record actions. No long document previews, no AI certainty language and no heavy dashboard treatment.
+          </p>
+          <p>
+            Signal notices something. Trust shows where the information came from. Reasoning explains the current situation. Operational Memory explains what happened before. Contextual Identity helps preserve what something was known as.
+          </p>
+          <p>
+            Governance shows where responsibility sits when context needs review, change or escalation.
+          </p>
+          <p>
+            Provenance shows the path back to the original source record or supporting evidence.
+          </p>
+          <div class="button-row">
+            <a class="quiet-button" href="hold-signal.html">Back to Hold Signal</a>
+            <a class="quiet-button" href="provenance-layer.html">View Provenance Layer</a>
+            <a class="quiet-button" href="governance-layer.html">View Governance Layer</a>
+            <a class="quiet-button secondary" href="strata-group-dashboard.html">Back to Group Dashboard</a>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <p class="footer-return">
+    <a href="strata-group-dashboard.html">Back to Group Dashboard</a>
+  </p>
+
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function updateOperationalTime() {
+      const now = new Date();
+      const formatted = now.toLocaleString("en-GB", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+
+      document.getElementById("currentTime").textContent = formatted;
+    }
+
+    updateOperationalTime();
+    setInterval(updateOperationalTime, 60000);
+  </script>
+
+  <script>
+    const sidebar = document.querySelector(".sidebar");
+
+    if (sidebar) {
+      const savedSidebarScroll = localStorage.getItem("holdSidebarScroll");
+
+      if (savedSidebarScroll !== null) {
+        sidebar.scrollTop = savedSidebarScroll;
+      }
+
+      sidebar.addEventListener("scroll", () => {
+        localStorage.setItem("holdSidebarScroll", sidebar.scrollTop);
+      });
+    }
+  </script>
+
+  <script src="sidebar.js?v=8"></script>
+  <script src="clock.js?v=4"></script>
+</body>
+</html>

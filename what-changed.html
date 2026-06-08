@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hold | What Changed</title>
+  <link rel="stylesheet" href="style.css?v=51" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
+  <link rel="stylesheet" href="hold-v3-reasoning.css?v=5">
+  <style>
+    .change-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .change-card {
+      display: grid;
+      gap: 18px;
+    }
+
+    .change-card .source-grid {
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    }
+
+    .change-source {
+      cursor: default;
+      text-align: left;
+    }
+
+    .change-source:hover {
+      transform: none;
+    }
+
+    .change-sections {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 12px;
+    }
+
+    .change-note {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.72);
+      padding: 14px;
+    }
+
+    .change-note h3 {
+      margin: 0 0 8px;
+      font-size: 13px;
+      color: var(--ink);
+    }
+
+    .change-note p,
+    .change-note ul {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .change-note ul {
+      padding-left: 18px;
+    }
+
+    .review-note {
+      border-color: rgba(146, 91, 45, 0.28);
+      background: rgba(255, 248, 238, 0.84);
+    }
+
+    .follow-on {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .follow-on span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+      color: var(--muted);
+      font-size: 12px;
+      padding: 7px 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img class="sidebar-logo" src="images/hold-strata-logo.png" alt="Hold" />
+        <h2>Operational Understanding Platform</h2>
+        <p class="sidebar-entity">Strata Group demonstration environment</p>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Reasoning pages">
+        <div class="sidebar-group">
+          <p class="sidebar-label">Platform</p>
+          <a href="trust-layer.html">Trust Layer <span>Pre-reasoning evidence</span></a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Reasoning Layer</p>
+          <a href="hold-reasoning-hub.html">Overview</a>
+          <a href="operational-briefing.html">Operational Briefing <span>role-aware context</span></a>
+          <a href="what-changed.html" aria-current="page" class="active">What Changed <span>context over time</span></a>
+          <a href="what-needs-attention.html">What Needs Attention <span>review prompts</span></a>
+          <a href="operational-questions.html">Operational Questions <span>traceable answers</span></a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Operational Understanding Examples</p>
+          <a href="hold-reasoning-logistics.html">Bay C03 Operational Understanding</a>
+          <a href="hold-reasoning-demo.html">Millbrook Yard Drainage Understanding</a>
+          <a href="hold-reasoning-aggregates.html">Stockyard C Restriction Understanding</a>
+          <a href="hold-reasoning-new-starter.html">Preparing for a New Starter</a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Governance &amp; Traceability</p>
+          <a href="audit-trail.html">Accountability Trail</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div class="crumb">Reasoning Layer / What Changed</div>
+        <div class="chips"><span class="chip">Context over time</span><span class="chip">Visible evidence</span><span class="chip">No automatic decisions</span></div>
+      </div>
+
+      <section class="hero">
+        <div class="panel">
+          <p class="kicker">What Changed</p>
+          <h1 class="hero-title">Hold helps people understand what is different since the last review, last month, or last known position.</h1>
+          <div class="question">Hold helps people understand what changed, why it may matter, and whether human review is needed.</div>
+          <p class="summary">Changes are not conclusions. They are comparisons supported by trusted context, operational memory and visible evidence. Humans remain responsible for decisions and actions.</p>
+          <div class="button-row">
+            <a class="quiet-button secondary" href="operational-briefing.html">View operational briefing</a>
+            <a class="quiet-button secondary" href="what-needs-attention.html">View attention prompts</a>
+            <a class="quiet-button secondary" href="operational-questions.html">View operational questions</a>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="kicker">Comparison posture</p>
+          <h2>Not an audit log, feed or automated decision page</h2>
+          <div class="meter"><div class="metric-row"><strong>Decision control</strong><strong>Human-led</strong></div><div class="bar"><span style="width:100%"></span></div></div>
+          <ul class="checks"><li>Recent changes</li><li>Previous context</li><li>Trust review</li><li>Operational learning</li><li>Connected context</li><li>Understanding strength</li><li>Understanding owner</li><li>Human review route</li></ul>
+        </div>
+      </section>
+
+      <section class="change-list">
+        <article class="panel change-card">
+          <div class="section-head">
+            <div>
+              <p class="kicker">Bay C03 Dispatch Route</p>
+              <h2>What changed at Bay C03 in the last 30 days?</h2>
+              <p class="section-copy">Hold compares recent route context with the last known operational position.</p>
+            </div>
+            <span class="chip">Logistics comparison</span>
+          </div>
+
+          <div class="source-grid">
+            <div class="source-card change-source"><span class="source-top"><span><span class="source-title">Dispatch activity</span><span class="source-type">Recent movement record</span></span><span class="status">increased</span></span><ul class="checks"><li>Peak dispatch</li><li>Bay C03 flow</li></ul></div>
+            <div class="source-card change-source"><span class="source-top"><span><span class="source-title">Contractor movements</span><span class="source-type">Temporary activity</span></span><span class="status">added</span></span><ul class="checks"><li>Shared route</li><li>Movement windows</li></ul></div>
+            <div class="source-card change-source"><span class="source-top"><span><span class="source-title">Route observations</span><span class="source-type">Movement notes</span></span><span class="status">increased</span></span><ul class="checks"><li>Observation count</li><li>Route comments</li></ul></div>
+            <div class="source-card change-source"><span class="source-top"><span><span class="source-title">Near-miss reports</span><span class="source-type">Safety record</span></span><span class="status">two logged</span></span><ul class="checks"><li>Report date</li><li>Route relationship</li></ul></div>
+          </div>
+
+          <div class="change-sections">
+            <div class="change-note">
+              <h3>Previous context</h3>
+              <ul><li>Route markings were updated six months ago.</li><li>Traffic flow had temporarily improved.</li><li>Contractor movement was lower.</li></ul>
+            </div>
+            <div class="change-note">
+              <h3>Trust review</h3>
+              <ul><li>Recent observations verified.</li><li>Route records current.</li><li>Multiple independent sources.</li></ul>
+            </div>
+            <div class="change-note">
+              <h3>Operational memory</h3>
+              <p>Similar congestion pattern previously led to pedestrian and vehicle interaction concerns.</p>
+            </div>
+            <div class="change-note">
+              <h3>Operational Learning</h3>
+              <p>Route marking changes improved flow temporarily, but congestion risk can return when contractor movements overlap with peak dispatch periods.</p>
+            </div>
+            <div class="change-note">
+              <h3>Connected Context</h3>
+              <p>Dispatch flow, forklift routes, contractor movements and pedestrian segregation.</p>
+            </div>
+            <div class="change-note">
+              <h3>Understanding Strength</h3>
+              <p><strong>Strong.</strong> Based on recent observations, current route records, operational memory and multiple sources. Known limitation: contractor movement data covers the current short-term works period only.</p>
+            </div>
+            <div class="change-note">
+              <h3>Understanding Owner</h3>
+              <p><strong>Bay Operations Supervisor.</strong> Supporting roles: Shift Manager, Health &amp; Safety Representative.</p>
+            </div>
+            <div class="change-note">
+              <h3>Hold explanation</h3>
+              <p>Bay C03 activity has increased while movement patterns have become more complex. The change may explain why route observations have risen.</p>
+            </div>
+            <div class="change-note review-note">
+              <h3>Human review</h3>
+              <p>Review whether current pedestrian segregation and dispatch flow remain suitable.</p>
+            </div>
+          </div>
+
+          <div class="change-note">
+            <h3>Related questions</h3>
+            <div class="follow-on"><span>Why is Hold drawing attention to Bay C03?</span><span>Are contractor movements increasing?</span><span>Has route utilisation changed?</span></div>
+            <div class="button-row">
+              <a class="quiet-button" href="what-needs-attention.html">Continue to What Needs Attention</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel change-card">
+          <div class="section-head">
+            <div>
+              <p class="kicker">Warehouse Expansion Project</p>
+              <h2>What changed since the last project review?</h2>
+              <p class="section-copy">Hold compares current project context with the assumptions used at the last review.</p>
+            </div>
+            <span class="chip">Project comparison</span>
+          </div>
+
+          <div class="source-grid">
+            <div class="source-card change-source"><span class="source-top"><span><span class="source-title">Drainage works</span><span class="source-type">Project status</span></span><span class="status">paused</span></span><ul class="checks"><li>Status change</li><li>Works area</li></ul></div>
+            <div class="source-card change-source"><span class="source-top"><span><span class="source-title">Excavation note</span><span class="source-type">Contractor record</span></span><span class="status">added</span></span><ul class="checks"><li>Site note</li><li>Constraint wording</li></ul></div>
+            <div class="source-card change-source"><span class="source-top"><span><span class="source-title">Utility concern</span><span class="source-type">Historic site context</span></span><span class="status">identified</span></span><ul class="checks"><li>Buried service</li><li>Plan relationship</li></ul></div>
+            <div class="source-card change-source"><span class="source-top"><span><span class="source-title">Programme assumption</span><span class="source-type">Planning record</span></span><span class="status">revised</span></span><ul class="checks"><li>Timing</li><li>Access assumption</li></ul></div>
+          </div>
+
+          <div class="change-sections">
+            <div class="change-note">
+              <h3>Previous context</h3>
+              <ul><li>Drainage works were expected to proceed.</li><li>Initial plans did not show the constraint clearly.</li><li>Programme timing assumed uninterrupted site access.</li></ul>
+            </div>
+            <div class="change-note">
+              <h3>Trust review</h3>
+              <ul><li>Project record current.</li><li>Marked-up site plan available.</li><li>Contractor note verified.</li></ul>
+            </div>
+            <div class="change-note">
+              <h3>Operational memory</h3>
+              <p>Previous site knowledge was incomplete. The pause was introduced to prevent work continuing without enough certainty.</p>
+            </div>
+            <div class="change-note">
+              <h3>Operational Learning</h3>
+              <p>Historic site knowledge should be checked before works proceed, especially where utility records or approval routes are unclear.</p>
+            </div>
+            <div class="change-note">
+              <h3>Connected Context</h3>
+              <p>Utility records, contractor programme, site access and approval route.</p>
+            </div>
+            <div class="change-note">
+              <h3>Understanding Strength</h3>
+              <p><strong>Moderate.</strong> Based on current project record, contractor note, marked-up plan and historic utility concern. Known limitation: final approval route still requires confirmation.</p>
+            </div>
+            <div class="change-note">
+              <h3>Understanding Owner</h3>
+              <p><strong>Estates Manager.</strong> Supporting roles: Contractor Lead, Utilities Coordinator.</p>
+            </div>
+            <div class="change-note">
+              <h3>Hold explanation</h3>
+              <p>The project remains active, but drainage and programme assumptions have changed. The main shift is from planned progress to controlled review.</p>
+            </div>
+            <div class="change-note review-note">
+              <h3>Human review</h3>
+              <p>Confirm revised programme, responsibilities, and approval route before restarting works.</p>
+            </div>
+          </div>
+
+          <div class="change-note">
+            <h3>Related questions</h3>
+            <div class="follow-on"><span>Why were drainage works paused?</span><span>What evidence triggered the pause?</span><span>Which approvals are now required?</span></div>
+          </div>
+        </article>
+
+        <article class="panel change-card">
+          <div class="section-head">
+            <div>
+              <p class="kicker">Founder / Small Business Setup</p>
+              <h2>What changed this month?</h2>
+              <p class="section-copy">Hold compares setup activity with the first signs of live operating activity.</p>
+            </div>
+            <span class="chip">Business context</span>
+          </div>
+
+          <div class="source-grid">
+            <div class="source-card change-source"><span class="source-top"><span><span class="source-title">Website status</span><span class="source-type">Public presence</span></span><span class="status">launched</span></span><ul class="checks"><li>Launch status</li><li>Current page</li></ul></div>
+            <div class="source-card change-source"><span class="source-top"><span><span class="source-title">Customer enquiries</span><span class="source-type">Early demand</span></span><span class="status">received</span></span><ul class="checks"><li>Enquiry record</li><li>Customer signal</li></ul></div>
+            <div class="source-card change-source"><span class="source-top"><span><span class="source-title">Pricing model</span><span class="source-type">Commercial decision</span></span><span class="status">revised</span></span><ul class="checks"><li>Pricing note</li><li>Decision record</li></ul></div>
+            <div class="source-card change-source"><span class="source-top"><span><span class="source-title">Governance records</span><span class="source-type">Operating support</span></span><span class="status">added</span></span><ul class="checks"><li>Accountant</li><li>Insurance document</li></ul></div>
+          </div>
+
+          <div class="change-sections">
+            <div class="change-note">
+              <h3>Previous context</h3>
+              <ul><li>Business was in setup mode.</li><li>Customer interest was informal.</li><li>Pricing had not been tested.</li><li>Financial support was not yet formalised.</li></ul>
+            </div>
+            <div class="change-note">
+              <h3>Trust review</h3>
+              <ul><li>Website status current.</li><li>Enquiry records available.</li><li>Pricing decision recorded.</li><li>Insurance document uploaded.</li></ul>
+            </div>
+            <div class="change-note">
+              <h3>Operational memory</h3>
+              <p>The business has moved from preparation into early customer engagement.</p>
+            </div>
+            <div class="change-note">
+              <h3>Operational Learning</h3>
+              <p>Once customer enquiries begin, informal setup decisions need to become repeatable processes that can be understood later.</p>
+            </div>
+            <div class="change-note">
+              <h3>Connected Context</h3>
+              <p>Website, customer enquiries, pricing, insurance and financial records.</p>
+            </div>
+            <div class="change-note">
+              <h3>Understanding Strength</h3>
+              <p><strong>Partial.</strong> Based on website launch, customer enquiries, pricing note, insurance document and accountant appointment. Known limitation: early-stage customer history is still limited.</p>
+            </div>
+            <div class="change-note">
+              <h3>Understanding Owner</h3>
+              <p><strong>Founder.</strong> Supporting roles: Accountant, External Adviser.</p>
+            </div>
+            <div class="change-note">
+              <h3>Hold explanation</h3>
+              <p>The organisation is beginning to shift from founder setup activity into live operating activity. Customer signals and governance records are now becoming more important.</p>
+            </div>
+            <div class="change-note review-note">
+              <h3>Human review</h3>
+              <p>Review whether customer handling, pricing, insurance, and financial records are ready for repeat use.</p>
+            </div>
+          </div>
+
+          <div class="change-note">
+            <h3>Related questions</h3>
+            <div class="follow-on"><span>What needs attention this month?</span><span>Which decisions should be recorded?</span><span>What should a first employee know?</span></div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

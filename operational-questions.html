@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hold | Operational Questions</title>
+  <link rel="stylesheet" href="style.css?v=51" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
+  <link rel="stylesheet" href="hold-v3-reasoning.css?v=5">
+  <style>
+    .question-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .question-card {
+      display: grid;
+      gap: 18px;
+    }
+
+    .stage-flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 8px;
+    }
+
+    .stage-flow span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--muted);
+      font-size: 11px;
+      padding: 7px 9px;
+      text-align: center;
+    }
+
+    .question-card .source-grid {
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    }
+
+    .source-card.static-source {
+      cursor: default;
+      text-align: left;
+    }
+
+    .source-card.static-source:hover {
+      transform: none;
+    }
+
+    .question-sections {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 12px;
+    }
+
+    .context-note {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.72);
+      padding: 14px;
+    }
+
+    .context-note h3 {
+      margin: 0 0 8px;
+      font-size: 13px;
+      color: var(--ink);
+    }
+
+    .context-note p,
+    .context-note ul {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .context-note ul {
+      padding-left: 18px;
+    }
+
+    .review-note {
+      border-color: rgba(146, 91, 45, 0.28);
+      background: rgba(255, 248, 238, 0.84);
+    }
+
+    .follow-on {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .follow-on span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+      color: var(--muted);
+      font-size: 12px;
+      padding: 7px 10px;
+    }
+
+    @media (max-width: 980px) {
+      .stage-flow,
+      .question-sections {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img class="sidebar-logo" src="images/hold-strata-logo.png" alt="Hold" />
+        <h2>Operational Understanding Platform</h2>
+        <p class="sidebar-entity">Strata Group demonstration environment</p>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Reasoning pages">
+        <div class="sidebar-group">
+          <p class="sidebar-label">Platform</p>
+          <a href="trust-layer.html">Trust Layer <span>Pre-reasoning evidence</span></a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Reasoning Layer</p>
+          <a href="hold-reasoning-hub.html">Overview</a>
+          <a href="operational-briefing.html">Operational Briefing <span>role-aware context</span></a>
+          <a href="what-changed.html">What Changed <span>context over time</span></a>
+          <a href="what-needs-attention.html">What Needs Attention <span>review prompts</span></a>
+          <a href="operational-questions.html" aria-current="page" class="active">Operational Questions <span>traceable answers</span></a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Operational Understanding Examples</p>
+          <a href="hold-reasoning-logistics.html">Bay C03 Operational Understanding</a>
+          <a href="hold-reasoning-demo.html">Millbrook Yard Drainage Understanding</a>
+          <a href="hold-reasoning-aggregates.html">Stockyard C Restriction Understanding</a>
+          <a href="hold-reasoning-new-starter.html">Preparing for a New Starter</a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Governance &amp; Traceability</p>
+          <a href="audit-trail.html">Accountability Trail</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div class="crumb">Reasoning Layer / Operational Questions</div>
+        <div class="chips"><span class="chip">Traceable context</span><span class="chip">Human review</span><span class="chip">No automatic decisions</span></div>
+      </div>
+
+      <section class="hero">
+        <div class="panel">
+          <p class="kicker">Operational Questions</p>
+          <h1 class="hero-title">Understanding what happened, why it happened and what may need review.</h1>
+          <div class="question">Hold explains from trusted context. People decide what happens next.</div>
+          <p class="summary">This page shows Hold moving from information display into structured operational understanding.</p>
+          <div class="button-row">
+            <a class="quiet-button secondary" href="operational-briefing.html">View operational briefing</a>
+            <a class="quiet-button secondary" href="what-changed.html">View what changed</a>
+            <a class="quiet-button secondary" href="what-needs-attention.html">View attention prompts</a>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="kicker">Reasoning posture</p>
+          <h2>Structured answers, visible evidence</h2>
+          <div class="meter"><div class="metric-row"><strong>Decision control</strong><strong>Human-led</strong></div><div class="bar"><span style="width:100%"></span></div></div>
+          <ul class="checks"><li>Sources consulted</li><li>Trust review</li><li>Operational memory</li><li>Operational learning</li><li>Understanding owner</li><li>Human review required</li></ul>
+        </div>
+      </section>
+
+      <section class="question-list">
+        <article class="panel question-card">
+          <div class="section-head">
+            <div>
+              <p class="kicker">Operational question</p>
+              <h2>Why was Forklift 07 purchased?</h2>
+              <p class="section-copy">A procurement question answered through linked operational pressure, not a standalone purchase record.</p>
+            </div>
+            <span class="chip">Logistics context</span>
+          </div>
+
+          <div class="stage-flow" aria-label="Question flow">
+            <span>Question</span><span>Sources</span><span>Trust</span><span>Operational Memory</span><span>Operational Learning</span><span>Connected Context</span><span>Understanding Strength</span><span>Understanding Owner</span><span>Hold Explanation</span><span>Human Review</span>
+          </div>
+
+          <div class="source-grid">
+            <div class="source-card static-source"><span class="source-top"><span><span class="source-title">Fleet utilisation record</span><span class="source-type">Equipment availability</span></span><span class="status">reviewed</span></span><ul class="checks"><li>Forklift 03/04 use</li><li>Peak shift demand</li></ul></div>
+            <div class="source-card static-source"><span class="source-top"><span><span class="source-title">Maintenance platform</span><span class="source-type">Service and downtime</span></span><span class="status">checked</span></span><ul class="checks"><li>Downtime trend</li><li>Repair history</li></ul></div>
+            <div class="source-card static-source"><span class="source-top"><span><span class="source-title">Dispatch records</span><span class="source-type">Warehouse movement</span></span><span class="status">rising</span></span><ul class="checks"><li>Bay C03 pressure</li><li>Outbound peaks</li></ul></div>
+            <div class="source-card static-source"><span class="source-top"><span><span class="source-title">Supervisor notes</span><span class="source-type">Human workplace note</span></span><span class="status">retained</span></span><ul class="checks"><li>Queue observations</li><li>Shift constraints</li></ul></div>
+            <div class="source-card static-source"><span class="source-top"><span><span class="source-title">Purchase approval</span><span class="source-type">Authorisation record</span></span><span class="status">recorded</span></span><ul class="checks"><li>Approver visible</li><li>Reason logged</li></ul></div>
+          </div>
+
+          <div class="question-sections">
+            <div class="context-note">
+              <h3>Sources consulted</h3>
+              <p>Hold checks fleet, maintenance, dispatch, supervisor notes and the purchase approval record together.</p>
+            </div>
+            <div class="context-note">
+              <h3>Trust review</h3>
+              <p>Fleet, maintenance and dispatch records align with supervisor notes. The purchase record is present, but Hold treats the operational pressure as the context behind it.</p>
+            </div>
+            <div class="context-note">
+              <h3>Operational memory</h3>
+              <p>Previous congestion around Bay C03, charging queue pressure and high outbound demand were already visible in Hold before the purchase was recorded.</p>
+            </div>
+            <div class="context-note">
+              <h3>Operational Learning</h3>
+              <p>Capacity decisions are easier to review when route pressure, charging access and supervisor observations remain connected to the approval record.</p>
+            </div>
+            <div class="context-note">
+              <h3>Connected Context</h3>
+              <p>Dispatch flow, forklift routes, charging access and supervisor handover.</p>
+            </div>
+            <div class="context-note">
+              <h3>Understanding Strength</h3>
+              <p><strong>Moderate.</strong> Based on fleet, dispatch and supervisor records. Known limitation: purchase rationale still depends on the recorded approval note.</p>
+            </div>
+            <div class="context-note">
+              <h3>Understanding Owner</h3>
+              <p><strong>Bay Operations Supervisor.</strong> Supporting roles: Shift Manager, Health &amp; Safety Representative.</p>
+            </div>
+            <div class="context-note">
+              <h3>Hold explanation</h3>
+              <p>Forklift 07 appears connected to repeated peak-period capacity pressure, rather than a single equipment failure.</p>
+            </div>
+            <div class="context-note review-note">
+              <h3>Human review required</h3>
+              <p>A responsible manager should review whether the context supports the recorded procurement rationale.</p>
+            </div>
+          </div>
+
+          <div class="context-note">
+            <h3>Related follow-on questions</h3>
+            <div class="follow-on"><span>Was routing reviewed before purchase?</span><span>Which shifts showed the highest pressure?</span><span>Who approved the procurement record?</span></div>
+            <div class="button-row">
+              <a class="quiet-button secondary" href="strata-logistics-bay-c03.html">Return to Bay C03 record</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel question-card">
+          <div class="section-head">
+            <div>
+              <p class="kicker">Operational question</p>
+              <h2>Why were drainage works paused?</h2>
+              <p class="section-copy">Estate works context joined across project, utility, plan and contractor records.</p>
+            </div>
+            <span class="chip">Estates context</span>
+          </div>
+
+          <div class="stage-flow" aria-label="Question flow">
+            <span>Question</span><span>Sources</span><span>Trust</span><span>Operational Memory</span><span>Operational Learning</span><span>Connected Context</span><span>Understanding Strength</span><span>Understanding Owner</span><span>Hold Explanation</span><span>Human Review</span>
+          </div>
+
+          <div class="source-grid">
+            <div class="source-card static-source"><span class="source-top"><span><span class="source-title">Project record</span><span class="source-type">Drainage improvement works</span></span><span class="status">paused</span></span><ul class="checks"><li>Project phase</li><li>Pause reason</li></ul></div>
+            <div class="source-card static-source"><span class="source-top"><span><span class="source-title">Historic utility note</span><span class="source-type">Inherited estate knowledge</span></span><span class="status">conflict</span></span><ul class="checks"><li>Buried service note</li><li>Age of record</li></ul></div>
+            <div class="source-card static-source"><span class="source-top"><span><span class="source-title">Marked-up site plan</span><span class="source-type">Local plan evidence</span></span><span class="status">marked</span></span><ul class="checks"><li>Excavation area</li><li>Service corridor</li></ul></div>
+            <div class="source-card static-source"><span class="source-top"><span><span class="source-title">Contractor excavation note</span><span class="source-type">Site observation</span></span><span class="status">caution</span></span><ul class="checks"><li>Ground condition</li><li>Stop point</li></ul></div>
+            <div class="source-card static-source"><span class="source-top"><span><span class="source-title">Approval or restriction record</span><span class="source-type">Governance control</span></span><span class="status">held</span></span><ul class="checks"><li>Restriction owner</li><li>Restart condition</li></ul></div>
+          </div>
+
+          <div class="question-sections">
+            <div class="context-note">
+              <h3>Sources consulted</h3>
+              <p>Hold checks the live project record against older utility knowledge and the marked site plan before interpreting the contractor note.</p>
+            </div>
+            <div class="context-note">
+              <h3>Trust review</h3>
+              <p>The older utility note is useful but not treated as final. The marked-up plan and restriction record strengthen the explanation.</p>
+            </div>
+            <div class="context-note">
+              <h3>Operational memory</h3>
+              <p>Inherited utility knowledge remains visible beside current project records, so older site context is not lost during works review.</p>
+            </div>
+            <div class="context-note">
+              <h3>Operational Learning</h3>
+              <p>Historic site knowledge should be checked before works proceed, especially where utility records or approval routes are unclear.</p>
+            </div>
+            <div class="context-note">
+              <h3>Connected Context</h3>
+              <p>Utility records, contractor programme, site access and approval route.</p>
+            </div>
+            <div class="context-note">
+              <h3>Understanding Strength</h3>
+              <p><strong>Moderate.</strong> Based on current project record, contractor note, marked-up plan and historic utility concern. Known limitation: final approval route still requires confirmation.</p>
+            </div>
+            <div class="context-note">
+              <h3>Understanding Owner</h3>
+              <p><strong>Estates Manager.</strong> Supporting roles: Contractor Lead, Utilities Coordinator.</p>
+            </div>
+            <div class="context-note">
+              <h3>Hold explanation</h3>
+              <p>The pause appears linked to possible buried service conflict near the excavation route.</p>
+            </div>
+            <div class="context-note review-note">
+              <h3>Human review required</h3>
+              <p>An estate manager or authorised works owner should confirm the service position before any change to works status.</p>
+            </div>
+          </div>
+
+          <div class="context-note">
+            <h3>Related follow-on questions</h3>
+            <div class="follow-on"><span>Which utility note triggered caution?</span><span>What condition supports status change?</span><span>Who owns the restriction record?</span></div>
+          </div>
+        </article>
+
+        <article class="panel question-card">
+          <div class="section-head">
+            <div>
+              <p class="kicker">Operational question</p>
+              <h2>Why is Stockyard C restricted?</h2>
+              <p class="section-copy">Aggregates restriction context connected across inspection, weather, survey and movement records.</p>
+            </div>
+            <span class="chip">Aggregates context</span>
+          </div>
+
+          <div class="stage-flow" aria-label="Question flow">
+            <span>Question</span><span>Sources</span><span>Trust</span><span>Operational Memory</span><span>Operational Learning</span><span>Connected Context</span><span>Understanding Strength</span><span>Understanding Owner</span><span>Hold Explanation</span><span>Human Review</span>
+          </div>
+
+          <div class="source-grid">
+            <div class="source-card static-source"><span class="source-top"><span><span class="source-title">Inspection note</span><span class="source-type">Surface condition</span></span><span class="status">rutting</span></span><ul class="checks"><li>Lower route</li><li>Standing water</li></ul></div>
+            <div class="source-card static-source"><span class="source-top"><span><span class="source-title">Weather record</span><span class="source-type">Site conditions log</span></span><span class="status">wet</span></span><ul class="checks"><li>Rainfall</li><li>Recovery period</li></ul></div>
+            <div class="source-card static-source"><span class="source-top"><span><span class="source-title">Drone observation</span><span class="source-type">Survey evidence</span></span><span class="status">observed</span></span><ul class="checks"><li>Pooling</li><li>Route marks</li></ul></div>
+            <div class="source-card static-source"><span class="source-top"><span><span class="source-title">Environmental monitoring</span><span class="source-type">Runoff and dust controls</span></span><span class="status">watch</span></span><ul class="checks"><li>Runoff risk</li><li>Mud transfer</li></ul></div>
+            <div class="source-card static-source"><span class="source-top"><span><span class="source-title">Loading route review</span><span class="source-type">Plant movement</span></span><span class="status">diverted</span></span><ul class="checks"><li>Loaded vehicle route</li><li>Alternative access</li></ul></div>
+          </div>
+
+          <div class="question-sections">
+            <div class="context-note">
+              <h3>Sources consulted</h3>
+              <p>Hold relates the inspection note to weather, drone observation, environmental monitoring and the loading route review.</p>
+            </div>
+            <div class="context-note">
+              <h3>Trust review</h3>
+              <p>The inspection note, weather record and survey observation point in the same direction, while the loading review shows the operational effect.</p>
+            </div>
+            <div class="context-note">
+              <h3>Operational memory</h3>
+              <p>Recent wet-weather controls and earlier lower-route rutting remain visible, so the restriction is read against prior site condition.</p>
+            </div>
+            <div class="context-note">
+              <h3>Operational Learning</h3>
+              <p>Weather-related restrictions should be reviewed alongside route condition, environmental monitoring and loading plans, not treated as isolated events.</p>
+            </div>
+            <div class="context-note">
+              <h3>Connected Context</h3>
+              <p>Loading route, environmental monitoring, weighbridge operations and crusher feed planning.</p>
+            </div>
+            <div class="context-note">
+              <h3>Understanding Strength</h3>
+              <p><strong>Moderate.</strong> Based on inspection records, weather-related restrictions and environmental monitoring. Known limitation: route condition should be checked again after weather improves.</p>
+            </div>
+            <div class="context-note">
+              <h3>Understanding Owner</h3>
+              <p><strong>Quarry Supervisor.</strong> Supporting roles: Environmental Lead, Weighbridge Coordinator.</p>
+            </div>
+            <div class="context-note">
+              <h3>Hold explanation</h3>
+              <p>Stockyard C appears restricted because wet conditions and observed surface damage may affect loaded vehicle movement and runoff control.</p>
+            </div>
+            <div class="context-note review-note">
+              <h3>Human review required</h3>
+              <p>A supervisor should confirm whether the route status should remain restricted or move to a different control.</p>
+            </div>
+          </div>
+
+          <div class="context-note">
+            <h3>Related follow-on questions</h3>
+            <div class="follow-on"><span>When was the last inspection?</span><span>Which loading route is affected?</span><span>What evidence supports a status review?</span></div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

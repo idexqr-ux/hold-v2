@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hold | Operational Briefing</title>
+  <link rel="stylesheet" href="style.css?v=51" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
+  <link rel="stylesheet" href="hold-v3-reasoning.css?v=5">
+  <style>
+    .briefing-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .briefing-card {
+      display: grid;
+      gap: 18px;
+    }
+
+    .briefing-card .source-grid {
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    }
+
+    .briefing-item {
+      cursor: default;
+      text-align: left;
+    }
+
+    .briefing-item:hover {
+      transform: none;
+    }
+
+    .briefing-sections {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 12px;
+    }
+
+    .briefing-note {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.72);
+      padding: 14px;
+    }
+
+    .briefing-note h3 {
+      margin: 0 0 8px;
+      font-size: 13px;
+      color: var(--ink);
+    }
+
+    .briefing-note p,
+    .briefing-note ul {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .briefing-note ul {
+      padding-left: 18px;
+    }
+
+    .review-note {
+      border-color: rgba(146, 91, 45, 0.28);
+      background: rgba(255, 248, 238, 0.84);
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img class="sidebar-logo" src="images/hold-strata-logo.png" alt="Hold" />
+        <h2>Operational Understanding Platform</h2>
+        <p class="sidebar-entity">Strata Group demonstration environment</p>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Reasoning pages">
+        <div class="sidebar-group">
+          <p class="sidebar-label">Platform</p>
+          <a href="trust-layer.html">Trust Layer <span>Pre-reasoning evidence</span></a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Reasoning Layer</p>
+          <a href="hold-reasoning-hub.html">Overview</a>
+          <a href="operational-briefing.html" aria-current="page" class="active">Operational Briefing <span>role-aware context</span></a>
+          <a href="what-changed.html">What Changed <span>context over time</span></a>
+          <a href="what-needs-attention.html">What Needs Attention <span>review prompts</span></a>
+          <a href="operational-questions.html">Operational Questions <span>traceable answers</span></a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Operational Understanding Examples</p>
+          <a href="hold-reasoning-logistics.html">Bay C03 Operational Understanding</a>
+          <a href="hold-reasoning-demo.html">Millbrook Yard Drainage Understanding</a>
+          <a href="hold-reasoning-aggregates.html">Stockyard C Restriction Understanding</a>
+          <a href="hold-reasoning-new-starter.html">Preparing for a New Starter</a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Governance &amp; Traceability</p>
+          <a href="audit-trail.html">Accountability Trail</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div class="crumb">Reasoning Layer / Operational Briefing</div>
+        <div class="chips"><span class="chip">Role-aware</span><span class="chip">Trusted context</span><span class="chip">No automatic decisions</span></div>
+      </div>
+
+      <section class="hero">
+        <div class="panel">
+          <p class="kicker">Operational Briefing</p>
+          <h1 class="hero-title">Hold helps people understand what they need to know now.</h1>
+          <div class="question">Briefings adapt to role, context, changes, signals and operational memory.</div>
+          <p class="summary">Briefings are not decisions, alerts or instructions. They are calm summaries built from trusted context, operational memory, changes, signals and connected context. Bay C03 shows this in a dispatch setting where people need to understand what changed, what needs attention and who owns the current review. People remain responsible for decisions and actions.</p>
+        </div>
+        <div class="panel">
+          <p class="kicker">Briefing posture</p>
+          <h2>Same area, different level of detail</h2>
+          <div class="meter"><div class="metric-row"><strong>Decision control</strong><strong>Human-led</strong></div><div class="bar"><span style="width:100%"></span></div></div>
+          <ul class="checks"><li>Role / audience</li><li>What changed</li><li>What needs attention</li><li>Operational learning</li><li>Connected context</li><li>Understanding strength</li><li>Understanding owner</li><li>Human review route</li></ul>
+        </div>
+      </section>
+
+      <section class="briefing-list">
+        <article class="panel briefing-card">
+          <div class="section-head">
+            <div>
+              <p class="kicker">Bay C03 Operational Briefing</p>
+              <h2>One briefing, role-aware context</h2>
+              <p class="section-copy">A joined view of what is happening, what context matters now and what may need review.</p>
+            </div>
+            <span class="chip">Role-aware context</span>
+          </div>
+
+          <div class="source-grid">
+            <div class="source-card briefing-item"><span class="source-top"><span><span class="source-title">Dispatch activity</span><span class="source-type">Last 30 days</span></span><span class="status">increased</span></span><ul class="checks"><li>Busy dispatch window</li><li>Peak flow</li><li>Route pressure</li></ul></div>
+            <div class="source-card briefing-item"><span class="source-top"><span><span class="source-title">Contractor movements</span><span class="source-type">Temporary access</span></span><span class="status">increased</span></span><ul class="checks"><li>Shared route</li><li>Access windows</li><li>Local route use</li></ul></div>
+            <div class="source-card briefing-item"><span class="source-top"><span><span class="source-title">Route observations</span><span class="source-type">Operational notes</span></span><span class="status">rising</span></span><ul class="checks"><li>Observation trend</li><li>Route comments</li><li>Marked routes</li></ul></div>
+            <div class="source-card briefing-item"><span class="source-top"><span><span class="source-title">Pedestrian route</span><span class="source-type">Local control</span></span><span class="status">follow marked</span></span><ul class="checks"><li>Peak periods</li><li>Segregation</li></ul></div>
+            <div class="source-card briefing-item"><span class="source-top"><span><span class="source-title">Near-miss reports</span><span class="source-type">Safety records</span></span><span class="status">two logged</span></span><ul class="checks"><li>Report timing</li><li>Route relationship</li></ul></div>
+          </div>
+
+          <div class="briefing-sections">
+            <div class="briefing-note">
+              <h3>Current Situation</h3>
+              <p>Bay C03 is busier than usual. Dispatch activity has increased, contractor movements are using shared routes and route observations are rising.</p>
+            </div>
+            <div class="briefing-note">
+              <h3>Operational Context</h3>
+              <p>Forklift routes, contractor access, pedestrian segregation and peak dispatch flow are connected. Current activity resembles previous congestion conditions.</p>
+            </div>
+            <div class="briefing-note">
+              <h3>Operational Learning</h3>
+              <p>Previous route marking changes improved flow temporarily, but congestion risk can return when contractor movements overlap with peak dispatch periods.</p>
+            </div>
+            <div class="briefing-note">
+              <h3>Role-Aware Considerations</h3>
+              <ul>
+                <li>Operational team may need to know local movement context, marked routes and pedestrian segregation controls.</li>
+                <li>Supervisors may additionally review traffic flow, signage and contractor movement controls.</li>
+                <li>Managers may need oversight context where near-miss reports, route pressure or repeated congestion patterns affect operational risk.</li>
+              </ul>
+            </div>
+            <div class="briefing-note">
+              <h3>Understanding Strength</h3>
+              <p><strong>Strong.</strong> Based on recent observations, route records, operational memory and multiple sources. Known limitation: contractor movement data covers the current short-term works period only.</p>
+            </div>
+            <div class="briefing-note">
+              <h3>Understanding Owner</h3>
+              <p><strong>Bay Operations Supervisor.</strong> Supporting roles: Shift Manager, Health &amp; Safety Representative.</p>
+            </div>
+            <div class="briefing-note">
+              <h3>What Needs Review</h3>
+              <p>Review whether local traffic flow, signage, pedestrian segregation and contractor movement controls remain suitable while Bay C03 is busier.</p>
+            </div>
+            <div class="briefing-note review-note">
+              <h3>Human Review</h3>
+              <p>Hold surfaces the briefing context. People remain responsible for deciding whether controls need to change.</p>
+            </div>
+          </div>
+
+          <div class="button-row">
+            <a class="quiet-button secondary" href="what-changed.html">What Changed</a>
+            <a class="quiet-button secondary" href="what-needs-attention.html">What Needs Attention</a>
+            <a class="quiet-button secondary" href="operational-questions.html">Operational Questions</a>
+            <a class="quiet-button secondary" href="strata-logistics-bay-c03.html">Bay C03 record</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

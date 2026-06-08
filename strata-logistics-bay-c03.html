@@ -8,7 +8,7 @@
     name="description"
     content="A Strata Logistics dispatch and loading zone record for outbound movement, vehicle confirmation, pallet count, wrapping, route readiness, loading safety and release checks."
   />
-  <link rel="stylesheet" href="style.css?v=45" />
+  <link rel="stylesheet" href="style.css?v=51" />
   <link rel="stylesheet" href="sidebar.css?v=1" />
 </head>
 
@@ -23,7 +23,7 @@
 
           <header class="scan-header">
             <h1>Bay C03 Dispatch Zone</h1>
-            <p>Dispatch and loading zone for vehicle confirmation, pallet count, wrapping, route readiness and release.</p>
+            <p>Dispatch and loading zone for vehicle confirmation, pallet count, wrapping, route readiness and release. This record brings the Bay C03 activity, recent changes, route signals, operational memory, owner and review route into one practical view.</p>
             <span class="status-pill status-active">Dispatch Active</span>
           </header>
 
@@ -79,6 +79,50 @@
                 <h2>Operational Dependency</h2>
               </div>
               <p>Dispatch release depends on clear routing between Bay C03, Bay A12, Hold Area B and forklift availability.</p>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Area Map</h2>
+              </div>
+              <p>View the Bay C03 operational area map, including local routes, related areas and movement context.</p>
+              <div class="button-row">
+                <a class="quiet-button secondary" href="strata-logistics-bay-c03-map.html">Open Bay C03 Area Map</a>
+              </div>
+            </article>
+
+            <article class="operational-window guidance-window">
+              <div class="operational-window-header">
+                <h2>Operational Understanding</h2>
+                <span class="status-pill status-review">Context route</span>
+              </div>
+              <p>Hold can help explain what has changed at this bay, what may need a local look, and which operational questions are connected to the area. It supports operational understanding; it does not make the dispatch or safety decision.</p>
+              <p><a href="operational-briefing.html">Operational Briefing</a><br />See a role-aware summary for local operative or supervisor context.</p>
+              <p><a href="what-changed.html">What Changed</a><br />Dispatch activity and contractor movements have increased in the last 30 days.</p>
+              <p><a href="what-needs-attention.html">What Needs Attention</a><br />Route observations are rising and may warrant local review.</p>
+              <p><strong>Operational Learning</strong><br />Route marking changes helped before, but peak dispatch and temporary movements can bring the risk back.</p>
+              <p><strong>Understanding Owner</strong><br />Bay Operations Supervisor. Supporting roles: Shift Manager and Health &amp; Safety Representative.</p>
+              <p><a href="operational-questions.html">Operational Questions</a><br />See connected questions that explain why an area, route or decision may need review.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="what-changed.html">Continue to What Changed</a>
+                <a class="quiet-button secondary" href="what-needs-attention.html">View Attention Prompt</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>How We Got Here</h2>
+                <span class="status-pill status-review">Prototype</span>
+              </div>
+              <p><strong>6 months ago</strong><br />Congestion concerns were observed during peak dispatch periods.</p>
+              <p><strong>Following review</strong><br />Route markings and pedestrian guidance were updated.</p>
+              <p><strong>Later</strong><br />Operational flow improved and observations reduced.</p>
+              <p><strong>Recent period</strong><br />Contractor activity increased and dispatch movements became more complex.</p>
+              <p><strong>Current understanding</strong><br />Conditions resemble a previously observed congestion pattern and may deserve local review.</p>
+              <p><strong>Operational learning</strong><br />Temporary improvements can reduce congestion, but conditions should continue to be monitored when operational complexity increases.</p>
+              <div class="button-row">
+                <a class="quiet-button secondary" href="operational-briefing.html">View briefing context</a>
+              </div>
             </article>
 
             <article class="operational-window">

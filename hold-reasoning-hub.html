@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hold - Reasoning Layer</title>
+  <meta
+    name="description"
+    content="Hold Reasoning Layer overview showing governed context checks for questions, signals and changes across operational work."
+  />
+  <link rel="stylesheet" href="style.css?v=51" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
+</head>
+
+<body>
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img class="sidebar-logo" src="images/hold-strata-logo.png" alt="Hold" />
+        <h2>Reasoning Layer</h2>
+        <p class="sidebar-entity">Strata Group demonstration environment</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-group">
+          <p class="sidebar-label">Group View</p>
+          <a href="strata-group-dashboard.html">Group Dashboard</a>
+          <a href="strata-aggregates-dashboard.html">Aggregates</a>
+          <a href="strata-estates-dashboard.html">Estates</a>
+          <a href="strata-logistics-dashboard.html">Logistics</a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Platform</p>
+          <a href="hold-signal.html">Hold Signal <span>Emerging operational signals</span></a>
+          <a href="trust-layer.html">Trust Layer <span>Pre-reasoning evidence</span></a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Reasoning Layer</p>
+          <a href="hold-reasoning-hub.html" class="active">Overview</a>
+          <a href="operational-briefing.html">Operational Briefing <span>role-aware context</span></a>
+          <a href="what-changed.html">What Changed <span>context over time</span></a>
+          <a href="what-needs-attention.html">What Needs Attention <span>review prompts</span></a>
+          <a href="operational-questions.html">Operational Questions <span>traceable answers</span></a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Operational Understanding Examples</p>
+          <a href="hold-reasoning-logistics.html">Bay C03 Operational Understanding</a>
+          <a href="hold-reasoning-demo.html">Millbrook Yard Drainage Understanding</a>
+          <a href="hold-reasoning-aggregates.html">Stockyard C Restriction Understanding</a>
+          <a href="hold-reasoning-new-starter.html">Preparing for a New Starter</a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Governance &amp; Traceability</p>
+          <a href="audit-trail.html">Accountability Trail</a>
+          <a href="strata-aggregates-operational-audit.html">Aggregates Governance</a>
+          <a href="strata-estates-operational-audit.html">Estates Governance</a>
+          <a href="strata-logistics-operational-audit.html">Logistics Governance</a>
+        </div>
+      </nav>
+
+      <div class="sidebar-operational-time">
+        <p class="sidebar-time-label">Operational time</p>
+        <p id="currentTime">Loading current time...</p>
+      </div>
+    </aside>
+
+    <main class="dashboard-main reasoning-hub">
+      <div class="dashboard-header">
+        <p class="dashboard-breadcrumb">Hold / Reasoning Layer</p>
+
+        <div class="dashboard-title-row">
+          <div>
+            <h1>Reasoning Layer</h1>
+            <p class="dashboard-subtitle">
+              Governed operational reasoning routes for questions, signals and changes, with Trust Layer evidence visible before explanations are presented.
+            </p>
+          </div>
+
+          <span class="dashboard-status-pill">Assist, do not decide</span>
+        </div>
+      </div>
+
+      <section class="dashboard-layer">
+        <section class="dashboard-card">
+          <p class="section-kicker">Pre-reasoning evidence</p>
+          <h2>Trust Layer comes first</h2>
+          <p class="section-intro">
+            Hold checks source, freshness and relationship evidence before the Reasoning Layer turns operational context into an assisted explanation.
+          </p>
+          <div class="button-row">
+            <a class="quiet-button" href="trust-layer.html">View Trust Layer</a>
+          </div>
+        </section>
+      </section>
+
+      <section class="dashboard-layer">
+        <section class="dashboard-card">
+          <p class="section-kicker">Reasoning overview</p>
+          <h2>Routes into operational understanding</h2>
+          <p class="section-intro">
+            Hold brings together trusted context, operational memory and connected information so people can better understand what is happening before deciding what to do next.
+            Bay C03 shows how Hold brings scattered operational information together so people can understand what changed, what needs attention and who owns the current review.
+            Operational memory also preserves what the organisation learned, so future reviews do not start from zero.
+            Hold also keeps responsibility visible by showing which role carries the current understanding forward before action is taken.
+          </p>
+
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Operational Briefing</h2>
+                <span class="status-pill status-active">Role-aware context</span>
+              </div>
+              <p>Show what appears relevant today for an operative, supervisor, manager or founder using trusted context and operational memory. The Bay C03 briefing carries the demo into a live dispatch area.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="operational-briefing.html">Open Briefing View</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>What Changed</h2>
+                <span class="status-pill status-review">Context over time</span>
+              </div>
+              <p>Compare trusted context across a site, project or organisation to understand what appears different since the last known position.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="what-changed.html">Open Change View</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>What Needs Attention</h2>
+                <span class="status-pill status-pending">Review prompts</span>
+              </div>
+              <p>See where trusted context and operational memory suggest human attention may be worthwhile, without treating signals as conclusions.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="what-needs-attention.html">Open Attention View</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Operational Questions</h2>
+                <span class="status-pill status-review">Traceable context</span>
+              </div>
+              <p>Ask why something happened and see the trusted sources, operational memory and human review route behind Hold's explanation.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="operational-questions.html">Open Questions</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Millbrook Yard Drainage Understanding</h2>
+                <span class="status-pill status-review">Context check</span>
+              </div>
+              <p>Manager asks why drainage works were paused. Hold checks project records, historic notes, plans, excavation notes and contractor communication.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="hold-reasoning-demo.html">Open Estates</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Stockyard C Restriction Understanding</h2>
+                <span class="status-pill status-pending">Restriction reasoning</span>
+              </div>
+              <p>Operational lead asks why Stockyard C is restricted. Hold connects weather, drone survey, inspection, route and weighbridge evidence.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="hold-reasoning-aggregates.html">Open Aggregates</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Bay C03 Operational Understanding</h2>
+                <span class="status-pill status-active">Signal investigation</span>
+              </div>
+              <p>Hold identifies a congestion pattern. A human chooses whether to investigate before Hold runs a governed context check.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="hold-reasoning-logistics.html">Start Bay C03 Demo</a>
+              </div>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="dashboard-layer">
+        <section class="dashboard-card">
+          <p class="section-kicker">Operational understanding examples</p>
+          <h2>Operational Understanding Examples</h2>
+          <p class="section-intro">
+            Examples showing how the same Hold model can support understanding across different operational situations.
+          </p>
+
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Bay C03 Operational Understanding</h2>
+                <span class="status-pill status-active">Full demo</span>
+              </div>
+              <p>A changing dispatch area where activity, observations, learning and ownership come together to support review.</p>
+              <div class="button-row">
+                <a class="quiet-button" href="operational-briefing.html">Start Full Demo</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Millbrook Yard Drainage Understanding</h2>
+                <span class="status-pill status-review">Proof point</span>
+              </div>
+              <p>Drainage, utilities, access and inherited site knowledge combine to influence operational decisions.</p>
+              <div class="button-row">
+                <a class="quiet-button secondary" href="hold-reasoning-demo.html">View Proof Point</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Stockyard C Restriction Understanding</h2>
+                <span class="status-pill status-review">Proof point</span>
+              </div>
+              <p>Weather, surface condition, route planning and environmental controls connect around a restricted operational area.</p>
+              <div class="button-row">
+                <a class="quiet-button secondary" href="hold-reasoning-aggregates.html">View Proof Point</a>
+              </div>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Preparing for a New Starter</h2>
+                <span class="status-pill status-review">Proof point</span>
+              </div>
+              <p>Readiness, handover knowledge, workplace preparation and role responsibilities come together before a new employee arrives.</p>
+              <div class="button-row">
+                <a class="quiet-button secondary" href="hold-reasoning-new-starter.html">View Proof Point</a>
+              </div>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="dashboard-layer">
+        <section class="dashboard-card">
+          <p class="section-kicker">Reasoning posture</p>
+          <h2>Assist, do not decide</h2>
+          <div class="trust-summary-grid">
+            <article class="trust-dimension">
+              <span class="status-pill status-active">Human judgement retained</span>
+              <h3>People keep decision control</h3>
+              <p>Hold offers structured context, responsible roles and cautious explanations, not automatic operational decisions.</p>
+            </article>
+            <article class="trust-dimension">
+              <span class="status-pill status-review">Fragmented systems checked</span>
+              <h3>Records and learning are brought together</h3>
+              <p>Operational platforms, notes, observations, signals and prior lessons are connected before reasoning is shown.</p>
+            </article>
+            <article class="trust-dimension">
+              <span class="status-pill status-pending">Governed context</span>
+              <h3>Evidence remains visible</h3>
+              <p>Users can see which evidence supports the assisted explanation and what still needs human confirmation.</p>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <p class="footer-return">
+    <a href="strata-group-dashboard.html">Back to Group Dashboard</a>
+  </p>
+
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function updateOperationalTime() {
+      const now = new Date();
+      const formatted = now.toLocaleString("en-GB", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+
+      document.getElementById("currentTime").textContent = formatted;
+    }
+
+    updateOperationalTime();
+    setInterval(updateOperationalTime, 60000);
+  </script>
+
+  <script>
+    const sidebar = document.querySelector(".sidebar");
+
+    if (sidebar) {
+      const savedSidebarScroll = localStorage.getItem("holdSidebarScroll");
+
+      if (savedSidebarScroll !== null) {
+        sidebar.scrollTop = savedSidebarScroll;
+      }
+
+      sidebar.addEventListener("scroll", () => {
+        localStorage.setItem("holdSidebarScroll", sidebar.scrollTop);
+      });
+    }
+  </script>
+
+  <script src="sidebar.js?v=8"></script>
+  <script src="clock.js?v=4"></script>
+</body>
+</html>
