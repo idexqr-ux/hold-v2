@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hold Context Check</title>
+  <meta
+    name="description"
+    content="Hold Context Check demonstrator for human-led pre-work review, showing connected workplace context before work begins."
+  />
+  <link rel="stylesheet" href="style.css?v=51" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
+</head>
+<body>
+  <div class="dashboard-layout">
+    <div id="hold-sidebar" data-sidebar="sidebar-hold-v4.html"></div>
+
+    <main class="dashboard-main guided-journey context-check-page">
+      <div class="dashboard-header">
+        <p class="dashboard-breadcrumb">Hold / Context Check / Bay A12 maintenance</p>
+
+        <div class="dashboard-title-row">
+          <div>
+            <h1>Hold Context Check</h1>
+            <p class="dashboard-subtitle">
+              Before work begins, Hold helps people see what may matter.
+            </p>
+          </div>
+
+          <span class="dashboard-status-pill">Pre-work review support</span>
+        </div>
+      </div>
+
+      <section class="dashboard-layer">
+        <section class="dashboard-card journey-hero-card">
+          <p class="section-kicker">Purpose</p>
+          <h2>Context Check brings connected workplace context into one human review surface.</h2>
+          <p class="section-intro">
+            Context Check brings together operational memory, current activity, site information and connected records so teams can review relevant context before making decisions.
+          </p>
+
+          <div class="context-boundary-grid">
+            <article class="operational-window guidance-window">
+              <div class="operational-window-header">
+                <h2>Hold does not approve work</h2>
+                <span class="status-pill status-review">Boundary</span>
+              </div>
+              <p>Hold does not replace risk assessment, permits, professional judgement or responsible managers.</p>
+            </article>
+            <article class="operational-window guidance-window">
+              <div class="operational-window-header">
+                <h2>Hold does not stop work</h2>
+                <span class="status-pill status-pending">Boundary</span>
+              </div>
+              <p>It surfaces relevant context so people can decide whether plans, timing or controls need review.</p>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="dashboard-layer">
+        <section class="dashboard-card">
+          <p class="section-kicker">Scenario</p>
+          <h2>Maintenance activity planned at Bay A12 during a busy inbound period.</h2>
+          <p class="section-intro">
+            A supervisor is preparing maintenance near an active goods-in area. The question is not whether Hold should approve or reject the work. The question is what connected context should be reviewed before the schedule is confirmed.
+          </p>
+
+          <div class="journey-route context-route">
+            <span>Memory</span>
+            <span>Activity</span>
+            <span>Equipment</span>
+            <span>Access</span>
+            <span>Safety</span>
+            <span>External</span>
+          </div>
+
+          <div class="button-row">
+            <button class="quiet-button" type="button" id="run-context-check">Run Context Check</button>
+            <a class="quiet-button secondary" href="strata-logistics-bay-a12.html">Open Bay A12</a>
+          </div>
+        </section>
+      </section>
+
+      <section class="dashboard-layer">
+        <section class="dashboard-card context-check-workspace" aria-live="polite">
+          <div class="operational-window-header">
+            <div>
+              <p class="section-kicker">Checking sequence</p>
+              <h2>Connected context reviewed for human attention</h2>
+            </div>
+            <span class="status-pill status-pending" id="context-check-status">Ready</span>
+          </div>
+
+          <div class="context-sequence" id="context-sequence">
+            <div class="context-step" data-check-step>
+              <span class="context-step-marker">1</span>
+              <strong>Checking operational memory</strong>
+              <p>Previous maintenance activity and known disruption patterns.</p>
+            </div>
+            <div class="context-step" data-check-step>
+              <span class="context-step-marker">2</span>
+              <strong>Reviewing current activity</strong>
+              <p>Inbound deliveries, dispatch movements and staffing pressure.</p>
+            </div>
+            <div class="context-step" data-check-step>
+              <span class="context-step-marker">3</span>
+              <strong>Checking equipment context</strong>
+              <p>Forklift availability, inspection status and competency links.</p>
+            </div>
+            <div class="context-step" data-check-step>
+              <span class="context-step-marker">4</span>
+              <strong>Reviewing access guidance</strong>
+              <p>Contractor attendance, site expectations and clarity of access guidance.</p>
+            </div>
+            <div class="context-step" data-check-step>
+              <span class="context-step-marker">5</span>
+              <strong>Checking site constraints</strong>
+              <p>Known hazards, pedestrian movement, hold areas and route constraints.</p>
+            </div>
+            <div class="context-step" data-check-step>
+              <span class="context-step-marker">6</span>
+              <strong>Preparing human review summary</strong>
+              <p>Relevant context, evidence used, completeness note and decision route.</p>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="dashboard-layer">
+        <section class="dashboard-card context-sources-card">
+          <div class="operational-window-header">
+            <div>
+              <p class="section-kicker">Information Sources Reviewed</p>
+              <h2>Connected workplace information, reviewed together.</h2>
+            </div>
+            <span class="status-pill status-active">7 connected sources reviewed</span>
+          </div>
+
+          <p class="section-intro">
+            Hold helps connect information that may already exist across emails, spreadsheets, PDFs, operational systems, workplace records and human knowledge.
+          </p>
+          <p class="source-demo-note">
+            Demonstration note: these are representative source types for the Context Check demonstrator, not a claim of live integrations.
+          </p>
+
+          <div class="source-review-grid">
+            <article class="source-review-card source-type-email">
+              <div class="source-review-icon" aria-hidden="true">📧</div>
+              <div class="source-review-top">
+                <span>Email</span>
+                <h3>Operations Planning Email</h3>
+              </div>
+              <p>Maintenance scheduling information</p>
+              <p class="source-look"><strong>Look here for:</strong> timing, approvals, changes and informal updates</p>
+            </article>
+
+            <article class="source-review-card source-type-data">
+              <div class="source-review-icon" aria-hidden="true">📊</div>
+              <div class="source-review-top">
+                <span>Spreadsheet</span>
+                <h3>Weekly Delivery Schedule</h3>
+              </div>
+              <p>Expected inbound activity</p>
+              <p class="source-look"><strong>Look here for:</strong> peak periods, delivery volume and operational pressure</p>
+            </article>
+
+            <article class="source-review-card source-type-pdf">
+              <div class="source-review-icon" aria-hidden="true">📄</div>
+              <div class="source-review-top">
+                <span>PDF / Committee Paper</span>
+                <h3>Operations Committee Minutes</h3>
+              </div>
+              <p>Previous disruption discussions and agreed actions</p>
+              <p class="source-look"><strong>Look here for:</strong> decisions, concerns, actions and unresolved issues</p>
+            </article>
+
+            <article class="source-review-card source-type-system">
+              <div class="source-review-icon" aria-hidden="true">🗄️</div>
+              <div class="source-review-top">
+                <span>Operational System</span>
+                <h3>Asset Maintenance System</h3>
+              </div>
+              <p>Forklift availability, inspection history and maintenance records</p>
+              <p class="source-look"><strong>Look here for:</strong> asset status, inspection dates and maintenance patterns</p>
+            </article>
+
+            <article class="source-review-card source-type-hold-record">
+              <div class="source-review-icon" aria-hidden="true">📋</div>
+              <div class="source-review-top">
+                <span>Hold Record</span>
+                <h3>Bay A12 Inspection Record</h3>
+              </div>
+              <p>Site observations and current bay context</p>
+              <p class="source-look"><strong>Look here for:</strong> local observations, recent checks and workplace context</p>
+            </article>
+
+            <article class="source-review-card source-type-map">
+              <div class="source-review-icon" aria-hidden="true">🗺️</div>
+              <div class="source-review-top">
+                <span>Map / Site Document</span>
+                <h3>Site Access Guidance</h3>
+              </div>
+              <p>Route, access and pedestrian movement information</p>
+              <p class="source-look"><strong>Look here for:</strong> routes, constraints, access points and movement risks</p>
+            </article>
+
+            <article class="source-review-card source-type-knowledge">
+              <div class="source-review-icon" aria-hidden="true">👥</div>
+              <div class="source-review-top">
+                <span>Workplace Knowledge</span>
+                <h3>Supervisor Handover Notes</h3>
+              </div>
+              <p>Practical context that may not exist in a formal system</p>
+              <p class="source-look"><strong>Look here for:</strong> lived experience, recent changes and things people know but systems may not show</p>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="dashboard-layer" id="context-check-result" hidden>
+        <section class="dashboard-card context-result-card">
+          <p class="section-kicker">Context Check Summary</p>
+          <h2>Hold has surfaced context for review.</h2>
+          <p class="section-intro">
+            Hold has not found a reason to stop the planned work, but it has surfaced context for review.
+          </p>
+
+          <div class="operational-window-grid">
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Items for human review</h2>
+                <span class="status-pill status-review">Supervisor review</span>
+              </div>
+              <ul>
+                <li>Similar maintenance activity previously affected inbound flow between 08:00 and 10:00.</li>
+                <li>Forklift movement and pedestrian routes overlap near Bay A12 during peak intake.</li>
+                <li>Contractor access guidance should be confirmed before arrival.</li>
+                <li>Supervisor review is recommended before scheduling is confirmed.</li>
+              </ul>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Evidence used</h2>
+                <span class="status-pill status-active">Connected records</span>
+              </div>
+              <ul>
+                <li>Bay A12 goods-in intake record and detail map.</li>
+                <li>Logistics dashboard activity and equipment readiness context.</li>
+                <li>Forklift 04 inspection and movement role record.</li>
+                <li>Operational Memory / What Changed context.</li>
+                <li>Trust and Provenance concept records.</li>
+              </ul>
+            </article>
+
+            <article class="operational-window">
+              <div class="operational-window-header">
+                <h2>Confidence / completeness note</h2>
+                <span class="status-pill status-pending">Partial context</span>
+              </div>
+              <p>Context is sufficient for a supervisor review prompt, but not complete enough to approve the work. Contractor arrival details and final staffing position should be confirmed by the responsible manager.</p>
+            </article>
+
+            <article class="operational-window guidance-window">
+              <div class="operational-window-header">
+                <h2>Human decision required</h2>
+                <span class="status-pill status-review">No automatic action</span>
+              </div>
+              <p>A responsible supervisor decides whether to adjust timing, confirm controls, request more information or proceed through the normal work approval route.</p>
+            </article>
+          </div>
+
+          <div class="button-row journey-footer-actions">
+            <a class="quiet-button secondary" href="strata-logistics-dashboard.html">Logistics Dashboard</a>
+            <a class="quiet-button secondary" href="strata-logistics-bay-a12.html">Bay A12</a>
+            <a class="quiet-button secondary" href="strata-logistics-forklift-04.html">Forklift 04</a>
+            <a class="quiet-button secondary" href="what-changed.html">Operational Memory</a>
+            <a class="quiet-button secondary" href="trust-layer.html">Trust</a>
+            <a class="quiet-button secondary" href="provenance-layer.html">Provenance</a>
+            <a class="quiet-button secondary" href="hold-v3-reasoning-hub.html">V3 Reasoning Hub</a>
+            <a class="quiet-button secondary" href="hold-v4-operational-learning.html">V4 Operational Learning</a>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const runButton = document.getElementById("run-context-check");
+    const steps = Array.from(document.querySelectorAll("[data-check-step]"));
+    const statusPill = document.getElementById("context-check-status");
+    const result = document.getElementById("context-check-result");
+
+    runButton.addEventListener("click", () => {
+      runButton.disabled = true;
+      runButton.textContent = "Running check";
+      statusPill.textContent = "Checking";
+      result.hidden = true;
+      steps.forEach((step) => step.classList.remove("is-active", "is-complete"));
+
+      steps.forEach((step, index) => {
+        window.setTimeout(() => {
+          steps[index - 1]?.classList.remove("is-active");
+          steps[index - 1]?.classList.add("is-complete");
+          step.classList.add("is-active");
+
+          if (index === steps.length - 1) {
+            window.setTimeout(() => {
+              step.classList.remove("is-active");
+              step.classList.add("is-complete");
+              statusPill.textContent = "Summary ready";
+              result.hidden = false;
+              result.scrollIntoView({ behavior: "smooth", block: "start" });
+              runButton.disabled = false;
+              runButton.textContent = "Run Context Check";
+            }, 650);
+          }
+        }, index * 650);
+      });
+    });
+  </script>
+  <script src="sidebar.js?v=8"></script>
+  <script src="clock.js?v=4"></script>
+</body>
+</html>

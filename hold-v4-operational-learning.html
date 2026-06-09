@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hold V4 — Operational Learning</title>
+  <link rel="stylesheet" href="style.css?v=51">
+  <link rel="stylesheet" href="sidebar.css?v=1">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17211b;
+      --muted: #5d6861;
+      --quiet: #7b857f;
+      --line: #d9ded8;
+      --line-strong: #bec8bf;
+      --paper: #f7f7f3;
+      --panel: #ffffff;
+      --wash: #eef2ec;
+      --leaf: #315c46;
+      --moss: #63775f;
+      --clay: #93684f;
+      --blue: #46677c;
+      --amber: #a68041;
+      --shadow: 0 18px 55px rgba(23, 33, 27, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      min-height: 100vh;
+      min-width: 0;
+    }
+
+    .shell {
+      width: min(1040px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .v4-layout {
+      min-height: 100vh;
+    }
+
+    .v4-main {
+      min-width: 0;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 247, 243, 0.9);
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line-strong);
+      background: var(--panel);
+      border-radius: 8px;
+      color: var(--leaf);
+      font-weight: 800;
+    }
+
+    .hero {
+      padding: 74px 0 44px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
+      gap: 48px;
+      align-items: end;
+    }
+
+    .kicker {
+      margin: 0 0 18px;
+      color: var(--leaf);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 800;
+    }
+
+    h1,
+    h2,
+    h3,
+    .hero-line,
+    .hero-copy,
+    .lead {
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(2.55rem, 6vw, 4.9rem);
+      line-height: 1;
+      letter-spacing: 0;
+      font-weight: 720;
+    }
+
+    .hero-line {
+      margin: 22px 0 0;
+      max-width: 680px;
+      color: var(--ink);
+      font-size: clamp(1.18rem, 2vw, 1.55rem);
+      line-height: 1.35;
+    }
+
+    .hero-copy {
+      margin: 16px 0 0;
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .review-panel {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 20px;
+    }
+
+    .review-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+      color: var(--quiet);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--amber);
+      box-shadow: 0 0 0 4px rgba(166, 128, 65, 0.15);
+      flex: 0 0 auto;
+    }
+
+    .evidence-list {
+      list-style: none;
+      margin: 18px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .evidence-list li {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfbf8;
+    }
+
+    .evidence-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--wash);
+      color: var(--leaf);
+      font-weight: 800;
+      font-size: 0.8rem;
+    }
+
+    .evidence-list strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 0.92rem;
+    }
+
+    .evidence-list span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .content-sections {
+      padding: 54px 0 72px;
+    }
+
+    section {
+      margin-top: 66px;
+    }
+
+    section:first-child {
+      margin-top: 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      margin: 0;
+      color: #26362f;
+      font-size: clamp(1.5rem, 2.35vw, 2.2rem);
+      line-height: 1.16;
+      letter-spacing: 0;
+      font-weight: 620;
+    }
+
+    .section-head p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .section-copy {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .progression {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--panel);
+    }
+
+    .stage {
+      min-height: 230px;
+      padding: 22px;
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .stage:last-child {
+      border-right: 0;
+      background: #f1f5ef;
+    }
+
+    .stage-number {
+      color: var(--quiet);
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .stage h3,
+    .card h3,
+    .memory-row h3,
+    .scenario h3 {
+      margin: 0;
+      font-size: 1.08rem;
+      letter-spacing: 0;
+    }
+
+    .stage p,
+    .card p,
+    .memory-row p,
+    .scenario p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .stage-note {
+      color: var(--leaf);
+      font-size: 0.86rem;
+      font-weight: 750;
+    }
+
+    .definition {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .definition .lead {
+      padding: 30px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      font-size: clamp(1.2rem, 2vw, 1.55rem);
+      line-height: 1.36;
+    }
+
+    .principles {
+      display: grid;
+      gap: 12px;
+    }
+
+    .principle {
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 8px;
+    }
+
+    .principle strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .principle span {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      min-height: 230px;
+    }
+
+    .card-tag {
+      display: inline-flex;
+      align-items: center;
+      height: 28px;
+      padding: 0 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--leaf);
+      background: var(--wash);
+      font-size: 0.78rem;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .signal-board {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--panel);
+    }
+
+    .signal-row {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr 0.9fr;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .signal-row:last-child {
+      border-bottom: 0;
+    }
+
+    .signal-cell {
+      padding: 18px;
+      border-right: 1px solid var(--line);
+    }
+
+    .signal-cell:last-child {
+      border-right: 0;
+    }
+
+    .signal-head {
+      background: var(--wash);
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+    }
+
+    .signal-cell strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .signal-cell span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .memory {
+      display: grid;
+      gap: 12px;
+    }
+
+    .memory-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 22px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .memory-label {
+      color: var(--leaf);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+    }
+
+    .review-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      counter-reset: review;
+    }
+
+    .review-step {
+      position: relative;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      min-height: 180px;
+    }
+
+    .review-step:before {
+      counter-increment: review;
+      content: counter(review);
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 24px;
+      border-radius: 8px;
+      background: var(--leaf);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .review-step strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .review-step span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .scenarios {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .scenario {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .scenario-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--quiet);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+    }
+
+    .scenario-line {
+      width: 34px;
+      height: 3px;
+      border-radius: 999px;
+      background: var(--leaf);
+    }
+
+    .scenario:nth-child(2) .scenario-line {
+      background: var(--blue);
+    }
+
+    .scenario:nth-child(3) .scenario-line {
+      background: var(--clay);
+    }
+
+    .scenario:nth-child(4) .scenario-line {
+      background: var(--amber);
+    }
+
+    .note {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-left: 4px solid var(--leaf);
+      background: var(--wash);
+      color: var(--muted);
+      border-radius: 0 8px 8px 0;
+      font-size: 0.94rem;
+    }
+
+    .continue-exploring {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 22px;
+    }
+
+    .continue-exploring h2 {
+      font-size: clamp(1.35rem, 2vw, 1.85rem);
+    }
+
+    .continue-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .continue-links a {
+      text-decoration: none;
+      padding: 9px 11px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfbf8;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .continue-links a:hover {
+      background: var(--wash);
+      color: var(--ink);
+    }
+
+    footer {
+      padding: 28px 0 42px;
+      border-top: 1px solid var(--line);
+      color: var(--quiet);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .definition {
+        grid-template-columns: 1fr;
+      }
+
+      .progression,
+      .cards,
+      .review-flow,
+      .scenarios {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .stage:nth-child(2) {
+        border-right: 0;
+      }
+
+      .stage:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .signal-row {
+        grid-template-columns: 1fr;
+      }
+
+      .signal-head {
+        display: none;
+      }
+
+      .signal-cell {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .signal-cell:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+        gap: 12px;
+      }
+
+      .hero {
+        padding: 52px 0 34px;
+      }
+
+      .content-sections {
+        padding: 36px 0 56px;
+      }
+
+      section {
+        margin-top: 48px;
+      }
+
+      .progression,
+      .cards,
+      .review-flow,
+      .scenarios {
+        grid-template-columns: 1fr;
+      }
+
+      .stage,
+      .stage:nth-child(2) {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+        min-height: 190px;
+      }
+
+      .stage:last-child {
+        border-bottom: 0;
+      }
+
+      .memory-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-layout v4-layout">
+    <div id="hold-sidebar" data-sidebar="sidebar-hold-v4.html"></div>
+
+    <main class="page v4-main">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <p class="kicker">Human-led learning</p>
+          <h1>Hold V4 — Operational Learning</h1>
+          <p class="hero-line">Helping organisations learn from their own operations.</p>
+          <p class="hero-copy">Hold brings together workplace context, operational memory and emerging signals to help teams understand not only what is happening, but what the organisation may be learning over time.</p>
+        </div>
+        <aside class="review-panel" aria-label="Human review summary">
+          <div class="review-label">
+            <span>Human-led review</span>
+            <span class="status-dot" aria-hidden="true"></span>
+          </div>
+          <ul class="evidence-list">
+            <li>
+              <span class="evidence-icon">01</span>
+              <span><strong>Notice a pattern</strong><span>Recurring operational signals are grouped without treating them as certainty.</span></span>
+            </li>
+            <li>
+              <span class="evidence-icon">02</span>
+              <span><strong>Show the evidence</strong><span>Teams can see the records, places and circumstances behind a suggested learning point.</span></span>
+            </li>
+            <li>
+              <span class="evidence-icon">03</span>
+              <span><strong>Ask for review</strong><span>People decide what the pattern means and whether action is needed.</span></span>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <div class="shell content-sections">
+      <section id="progression" aria-labelledby="progression-title">
+        <div class="section-head">
+          <h2 id="progression-title">Capture → Connect → Understand → Learn</h2>
+          <p>V4 builds on the earlier Hold progression. The system moves from collecting operational facts to helping teams recognise what repeated experience may be teaching them.</p>
+        </div>
+        <div class="progression">
+          <article class="stage">
+            <div>
+              <div class="stage-number">V1</div>
+              <h3>Capture</h3>
+              <p>Hold records what happens across sites, tasks, assets, visits, checks and documents.</p>
+            </div>
+            <div class="stage-note">Reliable inputs</div>
+          </article>
+          <article class="stage">
+            <div>
+              <div class="stage-number">V2</div>
+              <h3>Connect</h3>
+              <p>Hold links people, places, systems and records so operational context is not left isolated.</p>
+            </div>
+            <div class="stage-note">Shared context</div>
+          </article>
+          <article class="stage">
+            <div>
+              <div class="stage-number">V3</div>
+              <h3>Understand</h3>
+              <p>Hold explains why something may be happening by presenting related evidence and surrounding conditions.</p>
+            </div>
+            <div class="stage-note">Evidence in view</div>
+          </article>
+          <article class="stage">
+            <div>
+              <div class="stage-number">V4</div>
+              <h3>Learn</h3>
+              <p>Hold helps teams review recurring patterns and emerging signals that may point to a broader operational lesson.</p>
+            </div>
+            <div class="stage-note">Human-led learning</div>
+          </article>
+        </div>
+      </section>
+
+      <section id="meaning" aria-labelledby="meaning-title">
+        <div class="section-head">
+          <h2 id="meaning-title">What Operational Learning Means</h2>
+          <p>Operational learning is not automated decision-making. It is a structured way for organisations to notice repeated experience, inspect the context and decide what should change.</p>
+        </div>
+        <div class="definition">
+          <div class="lead">Hold helps an organisation learn from the work it has already done, the conditions it is seeing now and the evidence its teams are creating every day.</div>
+          <div class="principles">
+            <div class="principle">
+              <strong>Patterns, not verdicts</strong>
+              <span>Hold can point to repetition or change, but it does not claim certainty or replace judgement.</span>
+            </div>
+            <div class="principle">
+              <strong>Context, not shortcuts</strong>
+              <span>Signals are shown alongside time, location, workload, documents, constraints and operational history.</span>
+            </div>
+            <div class="principle">
+              <strong>Review, then action</strong>
+              <span>People remain responsible for deciding whether the evidence matters and what response is appropriate.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="context" aria-labelledby="context-title">
+        <div class="section-head">
+          <h2 id="context-title">Context Check</h2>
+          <p>Before a pattern becomes a lesson, Hold asks what else may explain it. The aim is to slow down assumptions and make review easier.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-tag">Conditions</div>
+            <h3>What was happening around the work?</h3>
+            <p>Volume, weather, access restrictions, staffing levels, asset availability and site activity can all change the meaning of a signal.</p>
+          </article>
+          <article class="card">
+            <div class="card-tag">Records</div>
+            <h3>What evidence supports the view?</h3>
+            <p>Hold brings together inspections, scans, messages, job notes, uploaded documents and system events for human review.</p>
+          </article>
+          <article class="card">
+            <div class="card-tag">Gaps</div>
+            <h3>What is missing or uncertain?</h3>
+            <p>The page should show incomplete records, thin evidence and conflicting context so teams can ask better questions.</p>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="signals-title">
+        <div class="section-head">
+          <h2 id="signals-title">Signals and Patterns</h2>
+          <p>V4 treats signals as prompts for attention. Hold notices, groups and explains them, then asks people to review what the pattern may mean.</p>
+        </div>
+        <div class="signal-board">
+          <div class="signal-row signal-head" aria-hidden="true">
+            <div class="signal-cell">Signal</div>
+            <div class="signal-cell">Context shown</div>
+            <div class="signal-cell">Review question</div>
+          </div>
+          <div class="signal-row">
+            <div class="signal-cell"><strong>Repeated misses</strong><span>Inspection, handover or check records are absent more often under a shared condition.</span></div>
+            <div class="signal-cell"><strong>Workload and timing</strong><span>Inbound volume, shift pattern, queue length, location and supervisor notes.</span></div>
+            <div class="signal-cell"><strong>Is the process resilient?</strong><span>Review whether the work design still holds during pressure.</span></div>
+          </div>
+          <div class="signal-row">
+            <div class="signal-cell"><strong>Delayed tasks</strong><span>Jobs repeatedly pause before the same dependency, handoff or information point.</span></div>
+            <div class="signal-cell"><strong>Documents and constraints</strong><span>Drawings, permits, utility data, access records and contractor updates.</span></div>
+            <div class="signal-cell"><strong>What blocks flow?</strong><span>Review whether teams need earlier information or clearer ownership.</span></div>
+          </div>
+          <div class="signal-row">
+            <div class="signal-cell"><strong>Frequent guidance scans</strong><span>People repeatedly scan the same instruction or location guidance.</span></div>
+            <div class="signal-cell"><strong>Place and audience</strong><span>Entry point, device language, visitor type, dwell time and follow-up questions.</span></div>
+            <div class="signal-cell"><strong>Is the instruction clear?</strong><span>Review whether the guidance is hard to find, hard to understand or incomplete.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="memory-title">
+        <div class="section-head">
+          <h2 id="memory-title">Operational Memory</h2>
+          <p>Hold gives teams a way to remember operational experience across time, even when the knowledge is spread across people, systems, documents and places.</p>
+        </div>
+        <div class="memory">
+          <article class="memory-row">
+            <div class="memory-label">People</div>
+            <div>
+              <h3>Local knowledge becomes easier to revisit</h3>
+              <p>Comments, approvals, handovers and review notes can be connected to later work so lessons do not depend on who happens to be present.</p>
+            </div>
+          </article>
+          <article class="memory-row">
+            <div class="memory-label">Systems</div>
+            <div>
+              <h3>Operational records become part of a wider picture</h3>
+              <p>Inspection logs, work orders, scans and status changes can be read together instead of being treated as separate fragments.</p>
+            </div>
+          </article>
+          <article class="memory-row">
+            <div class="memory-label">Places</div>
+            <div>
+              <h3>Sites carry their own history</h3>
+              <p>Restrictions, recurring issues, seasonal constraints and previous interventions can be surfaced when a team is planning or reviewing work.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="review-title">
+        <div class="section-head">
+          <h2 id="review-title">Human Review Before Action</h2>
+          <p>Hold supports learning by preparing evidence for people. It does not decide, approve, instruct or predict with certainty.</p>
+        </div>
+        <div class="review-flow">
+          <div class="review-step"><strong>Notice</strong><span>Hold highlights a recurring pattern or emerging signal that may be worth attention.</span></div>
+          <div class="review-step"><strong>Explain</strong><span>The system shows the records, context and limits behind the observation.</span></div>
+          <div class="review-step"><strong>Review</strong><span>Operational owners test the evidence against experience, priorities and risk.</span></div>
+          <div class="review-step"><strong>Act</strong><span>People decide whether to update guidance, change a process, investigate further or do nothing.</span></div>
+        </div>
+        <div class="note">V4 should feel like an operational learning surface: cautious, evidence-led and designed to help teams ask better questions before they act.</div>
+      </section>
+
+      <section id="scenarios" aria-labelledby="scenarios-title">
+        <div class="section-head">
+          <h2 id="scenarios-title">Example Scenarios</h2>
+          <p>These examples show how V4 can work across Logistics, Estates and Aggregates without presenting the system as the decision-maker.</p>
+        </div>
+        <div class="scenarios">
+          <article class="scenario">
+            <div>
+              <div class="scenario-meta"><span class="scenario-line"></span>Logistics</div>
+              <h3>Forklift inspections are missed more often during high inbound volume.</h3>
+              <p>Hold brings together missed inspection records, inbound volume, shift timing and yard activity, then asks supervisors to review whether the process needs support during peak flow.</p>
+            </div>
+            <div class="stage-note">Pattern for review</div>
+          </article>
+          <article class="scenario">
+            <div>
+              <div class="scenario-meta"><span class="scenario-line"></span>Estates</div>
+              <h3>Drainage works are delayed where utility information is incomplete.</h3>
+              <p>Hold connects delayed work orders, missing utility documents, contractor notes and location history so project teams can review information readiness before scheduling.</p>
+            </div>
+            <div class="stage-note">Evidence in context</div>
+          </article>
+          <article class="scenario">
+            <div>
+              <div class="scenario-meta"><span class="scenario-line"></span>Aggregates</div>
+              <h3>Stockyard restrictions follow repeated prolonged rainfall.</h3>
+              <p>Hold shows rainfall duration, restriction logs, stockyard status and production notes, helping teams review whether seasonal operating guidance should be updated.</p>
+            </div>
+            <div class="stage-note">Operational memory</div>
+          </article>
+          <article class="scenario">
+            <div>
+              <div class="scenario-meta"><span class="scenario-line"></span>Shared sites</div>
+              <h3>Repeated access guidance scans may indicate unclear site instructions.</h3>
+              <p>Hold groups scan frequency, entry points, visitor type and follow-up questions, then asks site owners to review whether the guidance is visible and understandable.</p>
+            </div>
+            <div class="stage-note">Learning prompt</div>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="continue-title">
+        <div class="continue-exploring">
+          <p class="kicker">Continue Exploring</p>
+          <h2 id="continue-title">Explore the surrounding context when it helps.</h2>
+          <p class="section-copy">These links support discovery after the Operational Learning narrative.</p>
+          <nav class="continue-links" aria-label="Continue exploring Hold">
+            <a href="guided-journeys.html">Guided Journeys</a>
+            <a href="hold-v3-reasoning-hub.html">V3 Reasoning Hub</a>
+          </nav>
+        </div>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <p>Powered by IdexQR<sup>&reg;</sup></p>
+      <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+    </footer>
+    <script src="sidebar.js?v=8"></script>
+    </main>
+  </div>
+</body>
+</html>
