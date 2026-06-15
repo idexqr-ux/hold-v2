@@ -1,15 +1,15 @@
 :root {
   --ink: #17201b;
   --muted: #5f6b64;
-  --line: #d9e0db;
+  --line: #d9ded8;
   --panel: #ffffff;
-  --soft: #f5f8f4;
-  --accent: #1f6f68;
+  --soft: #eef2ec;
+  --accent: #315c46;
   --accent-2: #8f5a1f;
   --signal: #164d59;
   --warn: #a46422;
   --good: #557043;
-  --shadow: 0 18px 50px rgba(23, 32, 27, .08);
+  --shadow: 0 18px 55px rgba(23, 33, 27, 0.08);
 }
 
 * {
@@ -19,7 +19,7 @@
 body {
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
-  background: #f4f7f2;
+  background: linear-gradient(180deg, #f7f7f3 0%, #f4f7f2 100%);
   color: var(--ink);
   line-height: 1.45;
 }
@@ -62,7 +62,7 @@ button {
   overflow-y: auto;
   padding: 30px 22px;
   border-right: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.74);
+  background: rgba(247, 247, 243, 0.9);
 }
 
 .brand {
@@ -171,8 +171,8 @@ button {
   padding: 6px 10px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: #fff;
-  color: #34423a;
+  background: rgba(255, 255, 255, 0.82);
+  color: #40564e;
   font-size: 12px;
   font-weight: 800;
   white-space: nowrap;
@@ -184,6 +184,7 @@ button {
   height: 7px;
   border-radius: 999px;
   background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(49, 92, 70, 0.12);
 }
 
 .hero,
@@ -242,8 +243,8 @@ button {
   padding: 7px 11px;
   border-left: 3px solid var(--accent);
   border-radius: 0 8px 8px 0;
-  background: #f2f7f5;
-  color: #59665f;
+  background: var(--soft);
+  color: #5d6861;
   font-size: 14px;
   font-weight: 450;
   line-height: 1.3;
@@ -252,7 +253,7 @@ button {
 .summary {
   max-width: 680px;
   margin: 8px 0 0;
-  color: #59665f;
+  color: #5d6861;
   font-size: 14px;
   line-height: 1.42;
 }
@@ -261,6 +262,7 @@ button {
 .summary,
 .section-copy {
   font-style: italic;
+  color: #5d6861;
 }
 
 .section-head .section-copy {
@@ -301,7 +303,7 @@ button {
 .change-sections .change-note ul,
 .briefing-sections .briefing-note p,
 .briefing-sections .briefing-note ul {
-  color: #59665f;
+  color: #5d6861;
   font-style: italic;
   line-height: 1.48;
 }
@@ -345,7 +347,7 @@ button {
   padding: 14px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
   color: var(--ink);
   text-align: left;
   cursor: pointer;
@@ -369,8 +371,9 @@ button {
   flex: 0 0 auto;
   padding: 4px 8px;
   border-radius: 999px;
-  background: #eef4ef;
-  color: #516158;
+  border: 1px solid var(--line);
+  background: #fbfbf8;
+  color: #5d6861;
   font-size: 11px;
   font-weight: 850;
   letter-spacing: .05em;
@@ -561,7 +564,7 @@ h2 {
 
 .section-copy {
   margin: 5px 0 0;
-  color: var(--muted);
+  color: #5d6861;
   font-size: 14px;
   line-height: 1.38;
 }
