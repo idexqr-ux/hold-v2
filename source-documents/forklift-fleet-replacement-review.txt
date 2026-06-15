@@ -1,0 +1,60 @@
+FORKLIFT FLEET REPLACEMENT REVIEW
+Document Reference: OPS-CAPEX-2026-014
+Prepared by: Operations Review Group
+Review Period: January 2025 – May 2026
+Version: 1.7
+Distribution:
+Operations Management
+Engineering Services
+Health & Safety
+Finance
+Procurement
+Governance Review Group
+Executive Summary
+This document provides an overview of forklift fleet performance, maintenance expenditure, operational utilisation, replacement considerations and associated governance requirements for the current fleet replacement review programme.
+The purpose of the review is to assess whether existing assets continue to provide suitable operational capability while remaining aligned with budgetary, safety and maintenance expectations.
+The review considers operational performance, maintenance records, incident history, training requirements, procurement considerations and financial implications.
+Background
+The current forklift fleet consists of seven primary operational vehicles and two reserve units deployed across warehouse, dispatch and goods receiving operations.
+Forklift 04 entered service during March 2013 and has therefore completed thirteen years of operational service.
+Routine maintenance activity has been undertaken in accordance with manufacturer recommendations, although several additional engineering interventions have been recorded during the review period.
+Maintenance Overview
+Engineering records indicate an increase in reactive maintenance requirements associated with hydraulic performance, steering reliability and battery charging systems.
+A total of 27 maintenance interventions were recorded between January 2025 and May 2026.
+This compares with 11 maintenance interventions during the preceding review period.
+The increase does not necessarily indicate immediate asset failure but does indicate an emerging reliability concern requiring ongoing monitoring.
+Operational Utilisation
+Operational usage records indicate that Forklift 04 remains one of the most frequently utilised assets within the dispatch operation.
+Average utilisation levels exceeded fleet averages during eight of the previous twelve reporting periods.
+Warehouse supervisors have reported intermittent availability issues associated with planned and unplanned maintenance activity.
+These issues have occasionally required operational workarounds involving alternative vehicle allocation.
+Health and Safety Considerations
+No reportable injuries have been associated with Forklift 04 during the review period.
+Three near miss observations have however referenced visibility concerns during reversing manoeuvres in congested loading areas.
+The observations do not directly attribute responsibility to equipment condition.
+The observations have nevertheless been recorded within the Health and Safety management system.
+Training Considerations
+Sixteen operational staff currently maintain certification for Forklift 04.
+No training compliance concerns have been identified.
+Should replacement proceed, familiarisation and conversion training may be required depending upon final procurement outcomes.
+Financial Overview
+Current estimated replacement value is £38,000 excluding VAT.
+Forecast maintenance expenditure for the next operational period is estimated at £6,800.
+The Finance Team has noted that the asset is fully depreciated.
+Capital expenditure approval thresholds will apply should replacement be approved.
+Procurement Considerations
+Market review activity has identified three potential replacement suppliers.
+Lead times currently range between 14 and 26 weeks.
+Further supplier engagement may be required before final recommendations can be confirmed.
+Governance Considerations
+Replacement activity exceeding local approval thresholds will require review through the Capital Expenditure Governance Process.
+Final approval authority will depend upon confirmed procurement values and funding arrangements.
+Recommendation
+The Review Group recommends continued monitoring while simultaneously progressing replacement planning activities.
+This recommendation reflects maintenance trends, operational utilisation patterns and anticipated future expenditure requirements.
+A final replacement decision should be revisited during Quarter 3 following completion of supplier engagement activities and updated budget forecasting.
+Appendix A – Maintenance Activity Summary
+Appendix B – Utilisation Data
+Appendix C – Near Miss Records
+Appendix D – Procurement Comparison
+Appendix E – Capital Approval Framework
