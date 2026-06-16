@@ -298,6 +298,7 @@
     const result = document.getElementById("context-check-result");
 
     runButton.addEventListener("click", () => {
+      window.HoldAnalytics?.track("context-check-run", { source: "context-check-demonstrator" });
       runButton.disabled = true;
       runButton.textContent = "Running check";
       statusPill.textContent = "Checking";
@@ -327,5 +328,7 @@
   </script>
   <script src="sidebar.js?v=8"></script>
   <script src="clock.js?v=4"></script>
+  <script src="umami-config.js?v=1"></script>
+  <script src="hold-analytics.js?v=1"></script>
 </body>
 </html>

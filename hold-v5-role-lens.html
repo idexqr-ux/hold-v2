@@ -1208,13 +1208,13 @@
         <div class="role-lens-card">
           <h2 id="ask-title">Choose a Role Lens</h2>
           <ul class="suggestions" aria-label="Role lens options">
-            <li><button class="is-active" type="button" data-role-label="Executive Assistant" data-question="If I were an Executive Assistant, what would matter most in the Forklift Fleet Replacement Review?">Executive Assistant</button></li>
-            <li><button type="button" data-role-label="Finance Manager" data-question="If I were a Finance Manager, what would matter most in the Forklift Fleet Replacement Review?">Finance Manager</button></li>
-            <li><button type="button" data-role-label="Operations Supervisor" data-question="If I were an Operations Supervisor, what would matter most in the Forklift Fleet Replacement Review?">Operations Supervisor</button></li>
-            <li><button type="button" data-role-label="Health & Safety Lead" data-question="If I were a Health & Safety Lead, what would matter most in the Forklift Fleet Replacement Review?">Health &amp; Safety Lead</button></li>
-            <li><button type="button" data-role-label="Engineering / Maintenance" data-question="If I were in Engineering / Maintenance, what would matter most in the Forklift Fleet Replacement Review?">Engineering / Maintenance</button></li>
-            <li><button type="button" data-role-label="Procurement" data-question="If I were in Procurement, what would matter most in the Forklift Fleet Replacement Review?">Procurement</button></li>
-            <li><button type="button" data-role-label="Governance Reviewer" data-question="If I were a Governance Reviewer, what would matter most in the Forklift Fleet Replacement Review?">Governance Reviewer</button></li>
+            <li><button class="is-active" type="button" data-hold-event="role-lens-click" data-role-label="Executive Assistant" data-question="If I were an Executive Assistant, what would matter most in the Forklift Fleet Replacement Review?">Executive Assistant</button></li>
+            <li><button type="button" data-hold-event="role-lens-click" data-role-label="Finance Manager" data-question="If I were a Finance Manager, what would matter most in the Forklift Fleet Replacement Review?">Finance Manager</button></li>
+            <li><button type="button" data-hold-event="role-lens-click" data-role-label="Operations Supervisor" data-question="If I were an Operations Supervisor, what would matter most in the Forklift Fleet Replacement Review?">Operations Supervisor</button></li>
+            <li><button type="button" data-hold-event="role-lens-click" data-role-label="Health & Safety Lead" data-question="If I were a Health & Safety Lead, what would matter most in the Forklift Fleet Replacement Review?">Health &amp; Safety Lead</button></li>
+            <li><button type="button" data-hold-event="role-lens-click" data-role-label="Engineering / Maintenance" data-question="If I were in Engineering / Maintenance, what would matter most in the Forklift Fleet Replacement Review?">Engineering / Maintenance</button></li>
+            <li><button type="button" data-hold-event="role-lens-click" data-role-label="Procurement" data-question="If I were in Procurement, what would matter most in the Forklift Fleet Replacement Review?">Procurement</button></li>
+            <li><button type="button" data-hold-event="role-lens-click" data-role-label="Governance Reviewer" data-question="If I were a Governance Reviewer, what would matter most in the Forklift Fleet Replacement Review?">Governance Reviewer</button></li>
           </ul>
           <button class="generate-button" id="generate-context" type="button">Show Role Lens View</button>
         </div>
@@ -5617,6 +5617,7 @@ Important:
     generateButton.addEventListener("click", async () => {
       const question = cleanText(questionInput.value) || "What are Hold\u2019s strongest points?";
       const selection = determineContextSelection(question);
+      window.HoldAnalytics?.askHold(selection.sourceMode || "role-lens");
       contextSources = getContextSources(selection, question);
       aiPrompt = buildAiPrompt(selection);
       renderSelectedContext(selection);
@@ -5717,6 +5718,8 @@ Important:
     renderFileRecords();
     loadKnowledgeFromFolder();
   </script>
+  <script src="umami-config.js?v=1"></script>
+  <script src="hold-analytics.js?v=1"></script>
 </body>
 </html>
 
