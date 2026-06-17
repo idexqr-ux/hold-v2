@@ -10,11 +10,11 @@
   />
   <style>
     :root {
-      --ink: #283531;
-      --muted: #64746e;
-      --paper: #f7f8f4;
-      --sage: #eef4ed;
-      --line: #d8e1d8;
+      --ink: #1f2725;
+      --muted: #5f6b64;
+      --paper: #f6f7f3;
+      --line: #d8ded7;
+      --soft: #eef2ec;
       --shadow: 0 16px 42px rgba(40, 53, 49, 0.08);
     }
 
@@ -26,36 +26,39 @@
       margin: 0;
       background: linear-gradient(180deg, var(--paper), #fbfbf8);
       color: var(--ink);
-      font-family: Georgia, serif;
-      line-height: 1.58;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.48;
     }
 
     .page {
-      width: min(920px, calc(100% - 32px));
+      width: min(1040px, calc(100% - 32px));
       margin: 0 auto;
       padding: 28px 0 56px;
     }
 
-    .back-link {
-      display: inline-flex;
-      margin-bottom: 22px;
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.95rem;
-    }
-
-    header {
+    .hold-frame {
       display: grid;
       gap: 8px;
       margin-bottom: 24px;
       padding-bottom: 18px;
       border-bottom: 1px solid var(--line);
+      color: #283531;
+      font-family: Georgia, serif;
       text-align: center;
+    }
+
+    .back-link {
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 20px;
+      color: var(--muted);
+      font-family: Georgia, serif;
+      text-decoration: none;
+      font-size: 0.95rem;
     }
 
     h1 {
       margin: 0;
-      color: var(--ink);
       font-size: clamp(2rem, 5vw, 3.1rem);
       line-height: 1.05;
       letter-spacing: 0;
@@ -67,92 +70,193 @@
       font-style: italic;
     }
 
-    .source-doc {
-      margin-top: 18px;
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.9);
-      box-shadow: var(--shadow);
+    .source-note {
+      max-width: 760px;
+      margin: 0 auto 24px;
+      color: var(--muted);
+      font-family: Georgia, serif;
+      font-style: italic;
+      text-align: center;
     }
 
-    .source-doc h2 {
-      margin: 0 0 6px;
-      font-size: clamp(1.35rem, 3vw, 1.8rem);
-      letter-spacing: 0;
+    .source-doc {
+      margin-top: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .doc-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--line);
+      background: #f5f6f3;
+      color: #53605a;
+      font-size: 0.84rem;
+    }
+
+    .doc-body {
+      padding: 24px;
     }
 
     .format-label {
       display: inline-flex;
-      margin-bottom: 14px;
       padding: 4px 9px;
       border: 1px solid var(--line);
       border-radius: 999px;
-      background: var(--sage);
+      background: var(--soft);
       color: #40564e;
-      font-size: 0.82rem;
-      font-weight: 750;
+      font-size: 0.78rem;
+      font-weight: 700;
     }
 
-    h3 {
-      margin: 18px 0 8px;
-      color: #40564e;
-      font-size: 1rem;
-      letter-spacing: 0.02em;
+    .word-doc {
+      font-family: "Aptos", "Calibri", "Segoe UI", Arial, sans-serif;
     }
 
-    p {
+    .word-doc h2 {
+      margin: 0 0 6px;
+      color: #17365d;
+      font-size: 1.7rem;
+      font-weight: 650;
+    }
+
+    .word-doc h3 {
+      margin: 22px 0 8px;
+      color: #365f91;
+      font-size: 1.05rem;
+      font-weight: 650;
+    }
+
+    .word-doc p,
+    .word-doc li {
+      color: #303030;
+      font-size: 0.98rem;
+    }
+
+    .ops-doc {
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    .ops-doc h2 {
+      margin: 0 0 8px;
+      color: #2a3d4f;
+      font-size: 1.55rem;
+    }
+
+    .ops-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    .rating {
+      padding: 12px;
+      border: 1px solid #cad5dd;
+      border-radius: 4px;
+      background: #f3f6f8;
+    }
+
+    .rating strong {
+      display: block;
+      color: #2a3d4f;
+    }
+
+    .rating span {
+      color: #5a6872;
+      font-size: 0.9rem;
+    }
+
+    .finance-doc {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fcfcfc;
+    }
+
+    .finance-doc h2 {
       margin: 0 0 10px;
-      color: var(--muted);
+      color: #1f4e79;
+      font-size: 1.45rem;
     }
 
-    ul,
-    ol {
-      margin: 0 0 10px;
-      padding-left: 1.25rem;
-      color: var(--muted);
-    }
-
-    li + li {
-      margin-top: 4px;
-    }
-
-    table {
+    .sheet {
       width: 100%;
       border-collapse: collapse;
-      margin: 10px 0 14px;
-      color: var(--muted);
-      font-size: 0.95rem;
+      margin: 12px 0 16px;
+      font-size: 0.9rem;
     }
 
-    th,
-    td {
-      padding: 8px 9px;
-      border: 1px solid var(--line);
+    .sheet th,
+    .sheet td {
+      padding: 7px 8px;
+      border: 1px solid #c8d2dc;
       text-align: left;
       vertical-align: top;
     }
 
-    th {
-      background: var(--sage);
-      color: #40564e;
-      font-weight: 750;
+    .sheet th {
+      background: #d9eaf7;
+      color: #1f4e79;
+      font-weight: 700;
     }
 
-    .email-block,
-    .memo-block {
-      padding: 14px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(247, 248, 244, 0.78);
+    .sheet .right {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .email-doc {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff;
     }
 
     .email-meta {
       display: grid;
-      gap: 4px;
-      margin-bottom: 14px;
-      color: var(--muted);
-      font-size: 0.95rem;
+      gap: 5px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #d8d8d8;
+      color: #333;
+      font-size: 0.94rem;
+    }
+
+    .email-doc p {
+      color: #202124;
+    }
+
+    .support-doc {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #fbfbfd;
+    }
+
+    .support-doc h2 {
+      margin: 0 0 8px;
+      color: #3b3f66;
+      font-size: 1.5rem;
+    }
+
+    .callout {
+      margin: 12px 0;
+      padding: 12px 14px;
+      border-left: 4px solid #7c82b8;
+      background: #f0f1fa;
+      color: #3b3f66;
+    }
+
+    .checklist-doc {
+      font-family: "Trebuchet MS", Arial, sans-serif;
+    }
+
+    .checklist-doc h2 {
+      margin: 0 0 8px;
+      color: #365a44;
+      font-size: 1.45rem;
     }
 
     .checklist {
@@ -160,9 +264,45 @@
       padding-left: 0;
     }
 
+    .checklist li {
+      display: grid;
+      grid-template-columns: 30px minmax(0, 1fr) 130px;
+      gap: 10px;
+      align-items: start;
+      padding: 9px 0;
+      border-bottom: 1px solid #dfe5df;
+      color: #34423a;
+    }
+
     .checklist li::before {
-      content: "[ ] ";
-      color: #40564e;
+      content: "[ ]";
+      color: #557268;
+      font-weight: 700;
+    }
+
+    .checklist .status {
+      color: #66736d;
+      font-size: 0.86rem;
+      font-style: italic;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    ul,
+    ol {
+      margin: 0 0 12px;
+      padding-left: 1.25rem;
+    }
+
+    li + li {
+      margin-top: 4px;
+    }
+
+    .minor {
+      color: #6b7470;
+      font-size: 0.92rem;
     }
 
     footer {
@@ -170,11 +310,19 @@
       gap: 4px;
       padding: 34px 16px 0;
       color: var(--muted);
+      font-family: Georgia, serif;
       text-align: center;
     }
 
     footer p {
       margin: 0;
+    }
+
+    @media (max-width: 760px) {
+      .ops-grid,
+      .checklist li {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -182,183 +330,316 @@
   <main class="page">
     <a class="back-link" href="hold-v6-multiple-context.html">&larr; Back to Hold V6</a>
 
-    <header>
+    <header class="hold-frame">
       <h1>Original Launch Pack</h1>
       <p class="subtitle">Source materials for Hold V6 &ndash; Launch Readiness</p>
     </header>
 
-    <article class="source-doc">
-      <h2>Marketing Campaign Plan</h2>
-      <span class="format-label">Campaign plan</span>
+    <p class="source-note">
+      These source materials are deliberately left as workplace documents. The value of Hold is easier to feel when the original pack requires effort to read across.
+    </p>
 
-      <div class="memo-block">
-        <p><strong>Prepared by:</strong> Marketing</p>
-        <p><strong>Campaign name:</strong> Nova Home Starter Launch</p>
-        <p><strong>Working launch date:</strong> 12 August</p>
-        <p><strong>Version:</strong> Draft 0.7</p>
+    <article class="source-doc word-doc">
+      <div class="doc-bar">
+        <span>Internal Word document</span>
+        <span class="format-label">Marketing Campaign Plan</span>
       </div>
+      <div class="doc-body">
+        <h2>Nova Home Starter Launch - Marketing Campaign Plan</h2>
+        <p class="minor"><strong>Prepared by:</strong> Marketing | <strong>Version:</strong> Draft 0.7 | <strong>Working date:</strong> 26 July</p>
 
-      <h3>Objective</h3>
-      <p>Generate launch-week awareness and early orders for the Nova Home Starter bundle through email, partner posts, paid social and website homepage placement.</p>
+        <h3>Executive summary</h3>
+        <p>The Nova Home Starter campaign is intended to introduce the new bundled starter offer to existing household customers and selected acquisition audiences. The current plan uses 12 August as the public launch date. This date has been used for provisional media booking, partner social scheduling and homepage planning.</p>
+        <p>The campaign is commercially useful because it packages existing product components into a simpler entry offer. The messaging is therefore less about technical detail and more about convenience, reassurance and first-week availability. The campaign should not imply guaranteed dispatch unless Operations confirms launch-week fulfilment.</p>
 
-      <h3>Planned launch activity</h3>
-      <ul>
-        <li>Email announcement scheduled for 09:00 on 12 August.</li>
-        <li>Partner social posts planned for 12-14 August.</li>
-        <li>Paid social creative booked for 12-25 August.</li>
-        <li>Homepage launch banner requested from the website team.</li>
-      </ul>
+        <h3>Campaign objectives</h3>
+        <ul>
+          <li>Create awareness among existing customers who have previously browsed starter products but did not purchase.</li>
+          <li>Generate launch-week orders through email, paid social and partner posts.</li>
+          <li>Use website homepage placement to make the bundle feel like a coordinated launch rather than a minor catalogue update.</li>
+          <li>Keep support language simple enough that Customer Support can answer early questions without bespoke handling.</li>
+        </ul>
 
-      <h3>Open items</h3>
-      <ul>
-        <li>Final creative approval is still open.</li>
-        <li>Launch availability wording depends on confirmed stock position.</li>
-        <li>Customer Support needs final product details before campaign traffic begins.</li>
-      </ul>
+        <h3>Campaign schedule</h3>
+        <ul>
+          <li><strong>5 August:</strong> Final creative review due. Current creative uses "Available from launch" wording.</li>
+          <li><strong>7 August:</strong> Email build handed to CRM. Subject line still provisional.</li>
+          <li><strong>9 August:</strong> Partner asset pack due to be sent to two channel partners.</li>
+          <li><strong>12 August:</strong> Email announcement scheduled for 09:00. Paid social activity begins at 12:00.</li>
+          <li><strong>12-14 August:</strong> Partner posts and short launch sequence planned.</li>
+          <li><strong>12-25 August:</strong> Paid social flight booked. Budget can be paused but not fully recovered after launch week.</li>
+        </ul>
+
+        <h3>Risks and dependencies</h3>
+        <p>The campaign plan assumes the bundle can be sold and described clearly on 12 August. It does not independently verify stock, packaging, dispatch capacity or support readiness. Any shift to a phased launch will require changes to the email body, website banner, paid social captions and partner copy.</p>
+        <ul>
+          <li>Availability wording depends on confirmed stock position.</li>
+          <li>Customer Support needs approved answers for delivery, substitutions and partial availability.</li>
+          <li>Final imagery has not yet been signed off by the website team.</li>
+          <li>If supplier packaging delays retail-ready packs, the campaign may need to avoid "ready now" language.</li>
+        </ul>
+
+        <h3>Notes not directly related to launch readiness</h3>
+        <p>The creative team has also asked whether the autumn colour palette should be carried into the product photography. This is a brand consistency point and does not affect the launch decision, although it may affect future campaign refresh work.</p>
+      </div>
     </article>
 
-    <article class="source-doc">
-      <h2>Operations Stock Readiness Note</h2>
-      <span class="format-label">Operational readiness note</span>
+    <article class="source-doc ops-doc">
+      <div class="doc-bar">
+        <span>Warehouse operations report</span>
+        <span class="format-label">Operations Readiness Report</span>
+      </div>
+      <div class="doc-body">
+        <h2>Operations Readiness Report: Nova Home Starter</h2>
+        <p class="minor"><strong>Prepared by:</strong> Operations | <strong>Date:</strong> 31 July | <strong>Review owner:</strong> Fulfilment Manager</p>
 
-      <p><strong>Prepared by:</strong> Operations</p>
-      <p><strong>Date:</strong> 31 July</p>
-      <p><strong>Scope:</strong> inbound stock, pick-pack readiness and dispatch confidence for launch week.</p>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Readiness area</th>
-            <th>Current position</th>
-            <th>Constraint</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Inbound stock</td>
-            <td>First usable stock expected from 18 August.</td>
-            <td>Packaging components must arrive before final kitting.</td>
-          </tr>
-          <tr>
-            <td>Fulfilment testing</td>
-            <td>Test-picks scheduled but not complete.</td>
-            <td>Final product labels and inserts still awaited.</td>
-          </tr>
-          <tr>
-            <td>Dispatch capacity</td>
-            <td>Capacity available if launch volume is phased.</td>
-            <td>Full first-week launch volume not yet confirmed.</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p>Operations cannot confirm full launch-week fulfilment against a 12 August public launch date until stock and packaging readiness are confirmed.</p>
-    </article>
-
-    <article class="source-doc">
-      <h2>Finance Launch Forecast</h2>
-      <span class="format-label">Forecast extract</span>
-
-      <p><strong>Prepared by:</strong> Finance</p>
-      <p><strong>Forecast basis:</strong> Draft launch forecast using 12 August as first sales date.</p>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Assumption</th>
-            <th>Current forecast</th>
-            <th>Dependency</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>First sales date</td>
-            <td>12 August</td>
-            <td>Marketing launch date and website go-live.</td>
-          </tr>
-          <tr>
-            <td>Launch-week availability</td>
-            <td>Full first-week availability assumed.</td>
-            <td>Operations stock readiness and supplier packaging.</td>
-          </tr>
-          <tr>
-            <td>Launch-month revenue</td>
-            <td>Forecast assumes no delay to first dispatch.</td>
-            <td>Dispatch capacity and confirmed stock.</td>
-          </tr>
-          <tr>
-            <td>Margin note</td>
-            <td>Margin sensitive to expedited packaging or split shipments.</td>
-            <td>Supplier timing and procurement confirmation.</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p>Finance recommends a revised scenario if launch availability moves beyond 12 August or if launch volume is phased.</p>
-    </article>
-
-    <article class="source-doc">
-      <h2>Customer Support Brief</h2>
-      <span class="format-label">Support brief</span>
-
-      <p><strong>Audience:</strong> Customer Support team leaders</p>
-      <p><strong>Status:</strong> Draft, awaiting final product and availability wording.</p>
-
-      <h3>Known customer questions</h3>
-      <ul>
-        <li>When will the Nova Home Starter bundle ship?</li>
-        <li>Will all bundle components be available at launch?</li>
-        <li>Can customers order if stock is pending?</li>
-        <li>What happens if supplier packaging delays dispatch?</li>
-      </ul>
-
-      <h3>Support readiness</h3>
-      <ul>
-        <li>FAQs are drafted but not approved.</li>
-        <li>Training is not yet complete.</li>
-        <li>Escalation route for availability questions is not confirmed.</li>
-        <li>Website support links are still awaiting sign-off.</li>
-      </ul>
-
-      <p>Support needs final product information and confirmed availability wording before campaign traffic begins.</p>
-    </article>
-
-    <article class="source-doc">
-      <h2>Supplier Update Email</h2>
-      <span class="format-label">Supplier email</span>
-
-      <div class="email-block">
-        <div class="email-meta">
-          <span><strong>From:</strong> Supplier Account Manager</span>
-          <span><strong>To:</strong> Procurement / Supplier Management</span>
-          <span><strong>Date:</strong> 30 July</span>
-          <span><strong>Subject:</strong> Nova packaging components and launch dispatch</span>
+        <div class="ops-grid">
+          <div class="rating"><strong>Inbound stock</strong><span>Amber - first usable stock expected from 18 August.</span></div>
+          <div class="rating"><strong>Pick-pack process</strong><span>Amber - test-picks scheduled but incomplete.</span></div>
+          <div class="rating"><strong>Dispatch capacity</strong><span>Green/Amber - workable if launch volume is phased.</span></div>
         </div>
 
-        <p>Hello,</p>
-        <p>We can confirm that the final packaging components are currently due to arrive with us on 16 August. Dispatch of complete launch kits will depend on final confirmation once the packaging has passed intake checks.</p>
-        <p>Component stock for the product itself remains available, but the retail-ready pack cannot be completed until packaging arrives. If required, we can discuss a partial shipment option, though this may affect presentation, fulfilment handling and cost.</p>
-        <p>Please confirm whether the 12 August date remains fixed or whether the launch quantity can be phased.</p>
-        <p>Regards,<br>Supplier Account Manager</p>
+        <h3>Operational position</h3>
+        <p>The product components are not considered operationally launch-ready as a complete retail bundle. Core component stock is expected to be available before the end of the current planning window, but retail-ready packaging remains the practical constraint. The first usable stock date currently being worked to is 18 August.</p>
+        <p>Operations can support a controlled release if launch volume is reduced and customer-facing language is clear about dispatch timing. A full launch-week sales push from 12 August would create risk because test-picks have not yet confirmed packing time, insert placement or exception handling.</p>
+
+        <h3>Readiness table</h3>
+        <table class="sheet">
+          <thead>
+            <tr>
+              <th>Area</th>
+              <th>Status</th>
+              <th>Detail</th>
+              <th>Action owner</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Inbound stock</td>
+              <td>Amber</td>
+              <td>First usable stock expected from 18 August once packaging is available for final kitting.</td>
+              <td>Inbound Lead</td>
+            </tr>
+            <tr>
+              <td>Location setup</td>
+              <td>Green</td>
+              <td>Temporary launch bay allocated. Permanent location to be reviewed after week two.</td>
+              <td>Warehouse Coordinator</td>
+            </tr>
+            <tr>
+              <td>Pick-pack trial</td>
+              <td>Amber</td>
+              <td>Trial not complete because final product labels and inserts are still awaited.</td>
+              <td>Fulfilment Supervisor</td>
+            </tr>
+            <tr>
+              <td>Returns handling</td>
+              <td>Grey</td>
+              <td>No specific returns flow has been issued. Standard returns can be used initially.</td>
+              <td>Customer Operations</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Constraints and actions</h3>
+        <ul>
+          <li>Confirm whether launch date can move or whether sales wording should describe pre-order / phased dispatch.</li>
+          <li>Complete test-picks once packaging and inserts are available.</li>
+          <li>Confirm first-week order ceiling if campaign activity remains fixed.</li>
+          <li>Agree who will handle customer queries where order date and dispatch date differ.</li>
+        </ul>
+
+        <p class="minor">Separate note: the warehouse team is also reviewing storage labels for two older product lines. This does not affect Nova launch readiness but is included here because it shares the same temporary bay.</p>
       </div>
     </article>
 
-    <article class="source-doc">
-      <h2>Website Launch Checklist</h2>
-      <span class="format-label">Website checklist</span>
+    <article class="source-doc finance-doc">
+      <div class="doc-bar">
+        <span>Spreadsheet extract</span>
+        <span class="format-label">Finance Launch Forecast</span>
+      </div>
+      <div class="doc-body">
+        <h2>Finance Launch Forecast - Working Extract</h2>
+        <p class="minor"><strong>Workbook:</strong> FY26 Launch Forecasts.xlsx | <strong>Sheet:</strong> Nova Starter | <strong>Status:</strong> Draft assumptions</p>
 
-      <ol class="checklist">
-        <li>Product page copy drafted.</li>
-        <li>Launch banner requested.</li>
-        <li>Final product imagery not yet signed off.</li>
-        <li>Stock-status wording not confirmed.</li>
-        <li>Support links not signed off.</li>
-        <li>Analytics tags ready for launch campaign.</li>
-        <li>Pricing block aligned to finance draft forecast.</li>
-        <li>Homepage slot held for 12 August pending final readiness check.</li>
-      </ol>
+        <table class="sheet">
+          <thead>
+            <tr>
+              <th>Input / assumption</th>
+              <th>Current value</th>
+              <th>Source / dependency</th>
+              <th>Finance note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>First sales date</td>
+              <td>12 August</td>
+              <td>Marketing campaign plan</td>
+              <td>Used in launch-month revenue profile.</td>
+            </tr>
+            <tr>
+              <td>Launch-week availability</td>
+              <td>Full availability assumed</td>
+              <td>Operations readiness not confirmed</td>
+              <td>High sensitivity if stock moves later.</td>
+            </tr>
+            <tr>
+              <td>Planned launch-month units</td>
+              <td class="right">1,850</td>
+              <td>Commercial draft forecast</td>
+              <td>Assumes no first-week dispatch delay.</td>
+            </tr>
+            <tr>
+              <td>Paid media cost</td>
+              <td class="right">£18,400</td>
+              <td>Marketing media plan</td>
+              <td>Some launch-week spend not recoverable once live.</td>
+            </tr>
+            <tr>
+              <td>Expedited packaging risk</td>
+              <td class="right">£4,800 - £7,200</td>
+              <td>Supplier timing uncertainty</td>
+              <td>Not currently included in base margin.</td>
+            </tr>
+            <tr>
+              <td>Gross margin impact if launch slips one week</td>
+              <td class="right">-3.8 pts estimate</td>
+              <td>Finance scenario model</td>
+              <td>Indicative only; depends on campaign pause and fulfilment cost.</td>
+            </tr>
+          </tbody>
+        </table>
 
-      <p>The website can prepare the launch page, but go-live wording depends on confirmed availability, support sign-off and final imagery approval.</p>
+        <h3>Forecast notes</h3>
+        <p>The current forecast is commercially acceptable if launch-week availability is real. It becomes less reliable if the first dispatch date moves beyond the marketing launch date or if orders are taken before the bundle can be fulfilled.</p>
+        <p>Finance has not yet received confirmation of supplier packaging timing, phased launch volume or whether website language will create a pre-order position. The current version should therefore be treated as a planning forecast, not a final launch approval basis.</p>
+
+        <h3>Dependency notes</h3>
+        <ul>
+          <li>Confirm whether 12 August remains a sales date, campaign date or content go-live date.</li>
+          <li>Check whether supplier timing affects all launch units or only retail-ready packaging.</li>
+          <li>Request an updated Operations readiness position before final margin sign-off.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="source-doc support-doc">
+      <div class="doc-bar">
+        <span>Operational briefing</span>
+        <span class="format-label">Customer Support Brief</span>
+      </div>
+      <div class="doc-body">
+        <h2>Customer Support Brief - Nova Home Starter</h2>
+        <p class="minor"><strong>Audience:</strong> Support team leaders | <strong>Status:</strong> Draft | <strong>Last updated:</strong> 1 August</p>
+
+        <div class="callout">
+          Support should not yet promise a dispatch date. Availability wording is still being agreed between Marketing, Operations and Website.
+        </div>
+
+        <h3>Likely customer questions</h3>
+        <ul>
+          <li>When will the Nova Home Starter bundle ship?</li>
+          <li>Will all bundle components be available at launch?</li>
+          <li>Can customers order if stock is pending?</li>
+          <li>Will orders be split if packaging is delayed?</li>
+          <li>Is the launch offer available through partners or only through the website?</li>
+          <li>What should agents say if campaign material says available but the product page says awaiting stock?</li>
+        </ul>
+
+        <h3>Training status</h3>
+        <table class="sheet">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Status</th>
+              <th>Comment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Product overview</td>
+              <td>Draft</td>
+              <td>Awaiting final product detail from Product / Marketing.</td>
+            </tr>
+            <tr>
+              <td>FAQ script</td>
+              <td>Draft</td>
+              <td>Blocked by availability wording.</td>
+            </tr>
+            <tr>
+              <td>Escalation route</td>
+              <td>Open</td>
+              <td>Need owner for stock-date and supplier-delay questions.</td>
+            </tr>
+            <tr>
+              <td>Agent briefing</td>
+              <td>Not started</td>
+              <td>Can be completed within 48 hours once wording is approved.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Escalation routes</h3>
+        <p>Questions about campaign eligibility should go to Marketing. Questions about stock, dispatch dates or partial shipment should go to Operations until a single launch owner is confirmed. Pricing and promotional exceptions should go to Finance.</p>
+        <p class="minor">Support also needs final website support links. This is not a training blocker but may increase avoidable contact if missing at go-live.</p>
+      </div>
+    </article>
+
+    <article class="source-doc email-doc">
+      <div class="doc-bar">
+        <span>Email thread</span>
+        <span class="format-label">Supplier Update Email</span>
+      </div>
+      <div class="doc-body">
+        <div class="email-meta">
+          <span><strong>From:</strong> Daniel Moore &lt;daniel.moore@supplier-example.co.uk&gt;</span>
+          <span><strong>To:</strong> Priya Shah &lt;priya.shah@example.co.uk&gt;</span>
+          <span><strong>Cc:</strong> supplier-management@example.co.uk; operations-planning@example.co.uk</span>
+          <span><strong>Date:</strong> 30 July, 16:42</span>
+          <span><strong>Subject:</strong> RE: Nova packaging components and launch dispatch timing</span>
+        </div>
+
+        <p>Hello Priya,</p>
+        <p>Following the call earlier today, I have checked the current status with our packaging team. The final printed packaging components are currently due to arrive with us on 16 August. This date has not moved since yesterday, but I would still treat it as subject to intake checks because the print batch has not yet landed with our warehouse.</p>
+        <p>Component stock for the product itself remains available. The constraint is the retail-ready pack. We can complete basic component collation before the printed packaging arrives, but the finished launch kit cannot be dispatched as a complete retail pack until packaging has passed intake and quality checks.</p>
+        <p>If the 12 August launch date is fixed, there are two possible options:</p>
+        <ul>
+          <li>Phase launch quantity and dispatch finished kits once packaging is ready.</li>
+          <li>Discuss a partial shipment route, although this may affect presentation, fulfilment handling and cost.</li>
+        </ul>
+        <p>I would not recommend committing to full launch-week finished-kit dispatch until the packaging is physically received. Please confirm whether the 12 August date remains fixed or whether launch quantity can be phased.</p>
+        <p>Regards,</p>
+        <p>Daniel Moore<br>Account Manager<br>Supplier Example Ltd<br>Tel: 01632 000 482</p>
+      </div>
+    </article>
+
+    <article class="source-doc checklist-doc">
+      <div class="doc-bar">
+        <span>Website task checklist</span>
+        <span class="format-label">Website Launch Checklist</span>
+      </div>
+      <div class="doc-body">
+        <h2>Website Launch Checklist - Nova Home Starter</h2>
+        <p class="minor"><strong>System:</strong> Web launch tracker | <strong>Owner:</strong> Digital Trading | <strong>Target slot:</strong> Homepage 12 August</p>
+
+        <ol class="checklist">
+          <li><span>Product page copy drafted and loaded into staging.</span><span class="status">Draft complete</span></li>
+          <li><span>Homepage launch banner requested from Design.</span><span class="status">In progress</span></li>
+          <li><span>Final product imagery signed off.</span><span class="status">Outstanding</span></li>
+          <li><span>Stock-status wording confirmed with Operations.</span><span class="status">Outstanding</span></li>
+          <li><span>Support links added to launch page.</span><span class="status">Awaiting Support</span></li>
+          <li><span>Analytics tags applied to campaign landing page.</span><span class="status">Ready</span></li>
+          <li><span>Pricing block checked against Finance launch forecast.</span><span class="status">Draft checked</span></li>
+          <li><span>Partner tracking parameters added.</span><span class="status">Ready</span></li>
+          <li><span>Legal footer and promotion terms reviewed.</span><span class="status">Not required unless offer wording changes</span></li>
+          <li><span>Final go-live confirmation received.</span><span class="status">Not received</span></li>
+        </ol>
+
+        <h3>Web team note</h3>
+        <p>The website can prepare the page for 12 August, but the wording must not conflict with actual availability. If Operations confirms 18 August as first usable stock, the product page should avoid immediate dispatch language.</p>
+        <p class="minor">Separate housekeeping: the team also wants to retire two older seasonal landing pages after the launch page is stable. This is not part of the launch readiness decision.</p>
+      </div>
     </article>
 
     <footer>
