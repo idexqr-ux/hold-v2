@@ -119,8 +119,7 @@
 
     .context-card,
     .perspective-card,
-    .output-panel,
-    .original-pack-card {
+    .output-panel {
       border: 1px solid var(--line);
       border-radius: 8px;
       background: rgba(255, 255, 255, 0.86);
@@ -165,6 +164,18 @@
       margin: 0;
       color: var(--muted);
       font-style: italic;
+    }
+
+    .context-source-copy {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .context-source-copy em {
+      display: block;
+      margin-top: 4px;
+      color: #40564e;
     }
 
     .launch-pack-list,
@@ -222,32 +233,6 @@
       padding: 10px 14px;
       background: var(--celadon);
       color: #2f4d42;
-    }
-
-    .original-pack-card {
-      display: grid;
-      gap: 12px;
-      margin-top: 18px;
-      padding: 16px;
-    }
-
-    .original-pack-card h2 {
-      margin: 0;
-      color: var(--ink);
-      font-size: clamp(1.18rem, 2.2vw, 1.5rem);
-      line-height: 1.15;
-    }
-
-    .original-pack-card p {
-      max-width: 760px;
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .original-pack-card em {
-      display: block;
-      margin-top: 4px;
-      color: #40564e;
     }
 
     .source-toggle {
@@ -424,8 +409,8 @@
     <header class="topbar" aria-label="Hold v6 header">
       <h1 class="brand-title">Hold V6 &ndash; Launch Readiness</h1>
       <p class="brand-subtitle">What connects across the launch pack?</p>
-      <p class="story-flow">Launch Pack &rarr; Role Lens &rarr; Understanding</p>
-      <p class="story-orientation">Start with the multi-document source, then see what matters through a role lens.</p>
+      <p class="story-flow">Launch Pack &rarr; Perspective &rarr; Connected Understanding</p>
+      <p class="story-orientation">Start with the launch pack, then see what connects across the documents.</p>
     </header>
 
     <section class="demo-note" aria-labelledby="demo-note-title">
@@ -437,10 +422,15 @@
     <section aria-labelledby="context-title">
       <div class="context-card">
         <div>
-          <p class="eyebrow">Choose a Demonstration Source</p>
+          <p class="eyebrow">Choose a Demonstration Context</p>
           <h2 id="context-title">Product Launch Readiness Pack</h2>
-          <p class="context-intent">Explore this launch pack through the Role Lens.</p>
+          <p class="context-intent">Explore how Hold connects understanding across multiple launch documents and team perspectives.</p>
         </div>
+
+        <p class="context-source-copy">
+          The following documents represent the information available across Marketing, Operations, Finance, Customer Support, Supplier Management and Website teams.
+          <em>The challenge is understanding how they fit together.</em>
+        </p>
 
         <ul class="launch-pack-list" aria-label="Launch pack documents">
           <li>Marketing Campaign Plan</li>
@@ -450,13 +440,18 @@
           <li>Supplier Update Email</li>
           <li>Website Launch Checklist</li>
         </ul>
+
+        <button class="source-toggle" id="toggle-source-pack" type="button" aria-expanded="false" aria-controls="source-pack-frame-wrap">View Original Launch Pack</button>
+        <div class="source-frame-wrap" id="source-pack-frame-wrap" hidden>
+          <iframe class="source-frame" src="hold-v6-launch-pack.html" title="Original Launch Pack"></iframe>
+        </div>
       </div>
     </section>
 
-    <section class="interaction-grid" aria-label="Role lens workspace">
+    <section class="interaction-grid" aria-label="Perspective workspace">
       <div class="perspective-card">
-        <h2>Choose a Role Lens</h2>
-        <ul class="perspective-options" aria-label="Role lens options">
+        <h2>Choose a Perspective</h2>
+        <ul class="perspective-options" aria-label="Perspective options">
           <li><button class="is-active" type="button" data-perspective="launch-lead">Launch Lead</button></li>
           <li><button type="button" data-perspective="marketing">Marketing</button></li>
           <li><button type="button" data-perspective="operations">Operations</button></li>
@@ -465,19 +460,19 @@
           <li><button type="button" data-perspective="supplier">Supplier Management</button></li>
           <li><button type="button" data-perspective="connected">Connected View</button></li>
         </ul>
-        <button class="generate-button" id="show-perspective" type="button">Show Role Lens View</button>
+        <button class="generate-button" id="show-perspective" type="button">Show Perspective View</button>
       </div>
 
       <div class="output-panel" id="output-panel" aria-live="polite">
         <section class="answer-section">
           <h3>Your Question</h3>
-          <p class="prompt-question" id="question-text">What matters across the launch pack from this role lens?</p>
+          <p class="prompt-question" id="question-text">What connects across the launch pack from this perspective?</p>
         </section>
 
         <section class="answer-section">
-          <h3>Role Lens View</h3>
+          <h3>Connected Understanding</h3>
           <div class="generated-answer" id="generated-answer">
-            <p>Choose a role lens, then show the view. Hold will use the full launch pack to bring forward what connects across the documents.</p>
+            <p>Choose a perspective, then show the view. Hold will use the full launch pack to bring forward what connects across the documents.</p>
           </div>
         </section>
 
@@ -485,23 +480,6 @@
           <p class="response-note"><strong>Sources used:</strong> Marketing Campaign Plan, Operations Stock Readiness Note, Finance Launch Forecast, Customer Support Brief, Supplier Update Email, Website Launch Checklist.</p>
           <p class="permissions-note">Related context identified. Some supporting information may be limited by permissions, role access or organisational policy.</p>
         </section>
-      </div>
-    </section>
-
-    <section aria-labelledby="original-pack-title">
-      <div class="original-pack-card">
-        <div>
-          <p class="eyebrow">Original Launch Pack</p>
-          <h2 id="original-pack-title">Original Launch Pack</h2>
-        </div>
-        <p>
-          The following documents represent the information available across Marketing, Operations, Finance, Customer Support, Supplier Management and Website teams.
-          <em>The challenge is understanding how they fit together.</em>
-        </p>
-        <button class="source-toggle" id="toggle-source-pack" type="button" aria-expanded="false" aria-controls="source-pack-frame-wrap">View Original Launch Pack</button>
-        <div class="source-frame-wrap" id="source-pack-frame-wrap" hidden>
-          <iframe class="source-frame" src="hold-v6-launch-pack.html" title="Original Launch Pack"></iframe>
-        </div>
       </div>
     </section>
 
