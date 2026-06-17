@@ -261,9 +261,7 @@
 
     .interaction-grid {
       display: grid;
-      grid-template-columns: minmax(280px, 0.86fr) minmax(0, 1.14fr);
       gap: 18px;
-      align-items: start;
     }
 
     .perspective-card {
@@ -423,11 +421,6 @@
       margin: 0;
     }
 
-    @media (max-width: 860px) {
-      .interaction-grid {
-        grid-template-columns: 1fr;
-      }
-    }
   </style>
 </head>
 <body class="v6-page">
@@ -480,12 +473,14 @@
         <button class="generate-button" id="show-perspective" type="button">Show Perspective View</button>
       </div>
 
-      <div class="output-panel" id="output-panel" aria-live="polite">
+      <div class="output-panel">
         <section class="answer-section">
           <h3>Your Question</h3>
           <p class="prompt-question" id="question-text">What connects across the launch pack from this perspective?</p>
         </section>
+      </div>
 
+      <div class="output-panel" id="output-panel" aria-live="polite">
         <section class="answer-section">
           <h3>Connected Understanding</h3>
           <div class="generated-answer" id="generated-answer">
