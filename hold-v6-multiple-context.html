@@ -222,39 +222,6 @@
       color: #2f4d42;
     }
 
-    .launch-pack-context {
-      display: none;
-      gap: 10px;
-      padding: 14px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(247, 248, 244, 0.8);
-    }
-
-    .launch-pack-context.is-visible {
-      display: grid;
-    }
-
-    .source-note {
-      display: grid;
-      gap: 4px;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .source-note:last-child {
-      border-bottom: 0;
-    }
-
-    .source-note strong {
-      color: var(--ink);
-    }
-
-    .source-note span {
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
     .interaction-grid {
       display: grid;
       grid-template-columns: minmax(280px, 0.86fr) minmax(0, 1.14fr);
@@ -431,34 +398,7 @@
         </ul>
 
         <div class="context-actions">
-          <button class="secondary-link" id="view-context" type="button">View Launch Pack Context</button>
-        </div>
-
-        <div class="launch-pack-context" id="launch-pack-context">
-          <article class="source-note">
-            <strong>Marketing Campaign Plan</strong>
-            <span>Campaign activity is built around a 12 August launch date, with partner announcements and email activity scheduled. Final creative approval is still open.</span>
-          </article>
-          <article class="source-note">
-            <strong>Operations Stock Readiness Note</strong>
-            <span>First usable stock is expected from 18 August, and fulfilment test-picks are not yet complete.</span>
-          </article>
-          <article class="source-note">
-            <strong>Finance Launch Forecast</strong>
-            <span>The launch forecast assumes sales from 12 August and full first-week availability.</span>
-          </article>
-          <article class="source-note">
-            <strong>Customer Support Brief</strong>
-            <span>Support FAQs are in draft, training has not been completed and final product detail is still awaited.</span>
-          </article>
-          <article class="source-note">
-            <strong>Supplier Update Email</strong>
-            <span>Final packaging components are due on 16 August, with dispatch dependent on confirmation.</span>
-          </article>
-          <article class="source-note">
-            <strong>Website Launch Checklist</strong>
-            <span>Product page copy is ready, but final imagery, support links and stock-status wording are not signed off.</span>
-          </article>
+          <a class="secondary-link" href="hold-v6-launch-pack.html">View Original Launch Pack</a>
         </div>
       </div>
     </section>
@@ -568,8 +508,6 @@
     const perspectiveButtons = [...document.querySelectorAll("[data-perspective]")];
     const generatedAnswer = document.querySelector("#generated-answer");
     const showButton = document.querySelector("#show-perspective");
-    const viewContextButton = document.querySelector("#view-context");
-    const launchPackContext = document.querySelector("#launch-pack-context");
     let activePerspective = "launch-lead";
 
     function renderAnswer() {
@@ -593,10 +531,6 @@
     });
 
     showButton.addEventListener("click", renderAnswer);
-    viewContextButton.addEventListener("click", () => {
-      const isVisible = launchPackContext.classList.toggle("is-visible");
-      viewContextButton.textContent = isVisible ? "Hide Launch Pack Context" : "View Launch Pack Context";
-    });
   </script>
 </body>
 </html>
