@@ -6,7 +6,7 @@
   <title>Hold V6 &ndash; Launch Readiness</title>
   <meta
     name="description"
-    content="Hold V6 prototype showing how launch readiness context connects across documents, teams, assumptions and gaps."
+    content="Hold V6 prototype showing how launch readiness context connects across multiple documents and team perspectives."
   />
   <link rel="stylesheet" href="style.css?v=51" />
   <style>
@@ -29,7 +29,7 @@
     body.v6-page {
       margin: 0;
       background:
-        radial-gradient(circle at top left, rgba(220, 233, 223, 0.7), transparent 30rem),
+        radial-gradient(circle at top left, rgba(220, 233, 223, 0.72), transparent 30rem),
         linear-gradient(180deg, var(--paper), #fbfbf8);
       color: var(--ink);
       font-family: Georgia, serif;
@@ -40,17 +40,17 @@
       font: inherit;
     }
 
-    .v6-page-shell {
+    .page {
       width: min(1120px, calc(100% - 32px));
       margin: 0 auto;
       padding: 28px 0 56px;
     }
 
-    .v6-topbar {
+    .topbar {
       display: grid;
       justify-items: center;
       gap: 10px;
-      max-width: 820px;
+      max-width: 800px;
       margin: 0 auto;
       padding: 10px 0 20px;
       text-align: center;
@@ -59,76 +59,81 @@
     .brand-title {
       margin: 0;
       color: var(--ink);
-      font-size: clamp(2rem, 4.5vw, 3.05rem);
+      font-size: clamp(2rem, 5vw, 3.4rem);
       font-weight: 800;
-      line-height: 1.04;
+      line-height: 1.02;
       letter-spacing: 0;
     }
 
     .brand-subtitle {
       margin: 0;
       color: var(--muted);
-      font-size: clamp(1.08rem, 2vw, 1.24rem);
+      font-size: clamp(1.05rem, 2vw, 1.22rem);
       font-style: italic;
     }
 
     .story-flow {
-      margin: 8px 0 0;
+      margin: 6px 0 0;
       color: #40564e;
       font-size: clamp(1rem, 2vw, 1.16rem);
       font-weight: 750;
     }
 
     .story-orientation {
-      max-width: 650px;
+      max-width: 640px;
       margin: 0;
       color: var(--muted);
       font-size: 1rem;
+      line-height: 1.53;
     }
 
-    .v6-card,
-    .v6-output {
+    .demo-note {
+      display: grid;
+      gap: 5px;
+      max-width: 720px;
+      margin: 0 auto 20px;
+      padding: 0 12px 12px;
+      border-bottom: 1px solid rgba(216, 225, 216, 0.75);
+      color: #465e55;
+      text-align: center;
+    }
+
+    .demo-note h2 {
+      margin: 0;
+      color: #557268;
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .demo-note p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.42;
+    }
+
+    section {
+      padding-top: 18px;
+    }
+
+    .context-card,
+    .perspective-card,
+    .output-panel {
       border: 1px solid var(--line);
       border-radius: 8px;
       background: rgba(255, 255, 255, 0.86);
       box-shadow: var(--shadow);
     }
 
-    .v6-demo-note {
-      max-width: 760px;
-      margin: 0 auto 22px;
-      padding: 14px 18px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(238, 244, 237, 0.72);
-      color: var(--muted);
-      text-align: center;
-    }
-
-    .v6-demo-note strong {
-      display: block;
-      margin-bottom: 4px;
-      color: #40564e;
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .v6-demo-note p {
-      margin: 0;
-      font-size: 0.95rem;
-    }
-
-    .v6-scenario {
+    .context-card {
       display: grid;
-      gap: 10px;
-      margin-bottom: 18px;
-      padding: 18px;
+      gap: 13px;
+      padding: 16px;
     }
 
-    .v6-eyebrow,
-    .v6-label {
-      margin: 0 0 10px;
+    .eyebrow {
+      margin: 0 0 4px;
       color: #557268;
       font-size: 0.78rem;
       font-weight: 800;
@@ -136,609 +141,461 @@
       text-transform: uppercase;
     }
 
-    .v6-scenario h2,
-    .v6-card h2,
-    .v6-output h2 {
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    .context-card h2,
+    .perspective-card h2,
+    .output-panel h2 {
       margin: 0;
       color: var(--ink);
-      line-height: 1.16;
+      line-height: 1.15;
       letter-spacing: 0;
     }
 
-    .v6-scenario h2 {
-      font-size: clamp(1.45rem, 3vw, 2rem);
+    .context-card h2 {
+      font-size: clamp(1.25rem, 2.4vw, 1.65rem);
     }
 
-    .v6-copy {
+    .context-intent {
       margin: 0;
       color: var(--muted);
-      max-width: 790px;
+      font-style: italic;
     }
 
-    .v6-tags {
+    .launch-pack-list,
+    .sources-list {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin: 4px 0 0;
+      margin: 0;
       padding: 0;
       list-style: none;
     }
 
-    .v6-tags li,
-    .v6-pill {
+    .launch-pack-list li,
+    .sources-list li {
       min-height: 28px;
-      padding: 4px 9px;
+      padding: 5px 9px;
       border: 1px solid var(--line);
       border-radius: 999px;
       background: var(--sage);
       color: #40564e;
-      font-size: 0.86rem;
-      font-weight: 750;
+      font-size: 0.88rem;
+      font-weight: 720;
     }
 
-    .v6-workspace {
+    .context-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .secondary-link,
+    .generate-button {
+      min-height: 42px;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 760;
+      text-decoration: none;
+    }
+
+    .secondary-link {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 9px 12px;
+      background: rgba(255, 255, 255, 0.68);
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .generate-button {
+      justify-content: center;
+      padding: 10px 14px;
+      background: var(--celadon);
+      color: #2f4d42;
+    }
+
+    .launch-pack-context {
+      display: none;
+      gap: 10px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(247, 248, 244, 0.8);
+    }
+
+    .launch-pack-context.is-visible {
       display: grid;
-      grid-template-columns: minmax(300px, 0.92fr) minmax(0, 1.35fr);
+    }
+
+    .source-note {
+      display: grid;
+      gap: 4px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .source-note:last-child {
+      border-bottom: 0;
+    }
+
+    .source-note strong {
+      color: var(--ink);
+    }
+
+    .source-note span {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .interaction-grid {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.86fr) minmax(0, 1.14fr);
       gap: 18px;
       align-items: start;
     }
 
-    .v6-card {
-      padding: 18px;
-    }
-
-    .v6-source-list {
+    .perspective-card {
       display: grid;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .v6-source {
-      display: grid;
-      grid-template-columns: 22px minmax(0, 1fr);
       gap: 12px;
-      padding: 13px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(247, 248, 244, 0.78);
-      cursor: pointer;
+      padding: 14px;
     }
 
-    .v6-source:has(input:checked) {
-      border-color: var(--line-strong);
-      background: rgba(238, 244, 237, 0.94);
+    .perspective-card h2 {
+      font-size: 1.16rem;
     }
 
-    .v6-source input {
-      width: 17px;
-      height: 17px;
-      margin-top: 3px;
-      accent-color: #5d806f;
-    }
-
-    .v6-source h3 {
+    .perspective-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
       margin: 0;
-      font-size: 1rem;
-      letter-spacing: 0;
+      padding: 0;
+      list-style: none;
     }
 
-    .v6-source p {
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.45;
-    }
-
-    .v6-source-type {
-      display: inline-flex;
-      width: fit-content;
-      margin-bottom: 7px;
-      padding: 4px 8px;
+    .perspective-options button {
+      min-height: 38px;
       border: 1px solid var(--line);
       border-radius: 999px;
-      background: var(--panel);
-      color: #40564e;
-      font-size: 0.78rem;
-      font-weight: 750;
-    }
-
-    .v6-role-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px;
-      margin-top: 16px;
-    }
-
-    .v6-role {
-      min-height: 42px;
-      padding: 9px 10px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.72);
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.74);
       color: #40564e;
       cursor: pointer;
+      font-size: 0.94rem;
       font-weight: 720;
     }
 
-    .v6-role[aria-pressed="true"] {
+    .perspective-options button.is-active {
       border-color: var(--line-strong);
       background: var(--celadon);
       color: #2f4d42;
     }
 
-    .v6-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .v6-button {
-      min-height: 42px;
-      padding: 10px 14px;
-      border: 1px solid var(--line-strong);
-      border-radius: 8px;
-      background: var(--celadon);
-      color: #2f4d42;
-      cursor: pointer;
-      font-weight: 760;
-    }
-
-    .v6-button.secondary {
-      border-color: var(--line);
-      background: var(--sage);
-      color: #40564e;
-    }
-
-    .v6-output {
+    .output-panel {
       display: grid;
-      gap: 16px;
-      padding: 18px;
+      gap: 14px;
+      padding: 16px;
       background: rgba(255, 255, 255, 0.92);
     }
 
-    .v6-answer-section {
+    .answer-section {
       display: grid;
       gap: 8px;
-      padding-bottom: 15px;
+      padding-bottom: 14px;
       border-bottom: 1px solid var(--line);
     }
 
-    .v6-answer-section:last-child {
+    .answer-section:last-child {
       padding-bottom: 0;
       border-bottom: 0;
     }
 
-    .v6-answer-section h2 {
-      font-size: 1.25rem;
-    }
-
-    .v6-answer-section h3 {
+    .answer-section h3 {
       margin: 0;
-      font-size: 1rem;
-      letter-spacing: 0;
+      color: #40564e;
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
-    .v6-answer-section p,
-    .v6-answer-section li {
+    .prompt-question {
+      margin: 0;
+      color: #40564e;
+      font-style: italic;
+      letter-spacing: 0.01em;
+    }
+
+    .generated-answer {
+      display: grid;
+      gap: 0.55em;
+      margin: 0;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(247, 248, 244, 0.72);
       color: var(--muted);
+      letter-spacing: 0.01em;
       line-height: 1.55;
     }
 
-    .v6-answer-section p {
+    .generated-answer p {
       margin: 0;
     }
 
-    .v6-answer-section ul {
-      margin: 0;
-      padding-left: 19px;
+    .generated-answer .answer-bullet {
+      padding-left: 1.15em;
+      text-indent: -1.15em;
     }
 
-    .v6-connection-grid {
+    .response-note {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .v6-connection {
-      padding: 12px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #fff;
-    }
-
-    .v6-connection strong {
-      display: block;
-      margin-bottom: 5px;
-      color: var(--ink);
+      gap: 8px;
+      margin: 0;
+      color: var(--muted);
       font-size: 0.95rem;
+      line-height: 1.45;
     }
 
-    .v6-permissions-note {
-      padding: 14px 16px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(238, 244, 237, 0.82);
-      color: #4f615c;
+    .response-note strong {
+      color: #40564e;
+    }
+
+    .permissions-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
       font-style: italic;
     }
 
-    .v6-footer-nav {
-      display: flex;
-      justify-content: flex-start;
-      padding: 22px 0 0;
+    .footer-link {
+      margin: 22px 0 0;
     }
 
-    .v6-footer-nav a {
-      min-height: 36px;
-      padding: 8px 11px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.68);
+    footer {
+      display: grid;
+      gap: 4px;
+      padding: 0 16px 34px;
       color: var(--muted);
-      font-size: 0.92rem;
-      text-decoration: none;
+      text-align: center;
     }
 
-    @media (max-width: 900px) {
-      .v6-workspace,
-      .v6-connection-grid {
-        grid-template-columns: 1fr;
-      }
+    footer p {
+      margin: 0;
+    }
 
-      .v6-role-grid {
+    @media (max-width: 860px) {
+      .interaction-grid {
         grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body class="v6-page">
-  <main class="v6-page-shell">
-    <header class="v6-topbar" aria-label="Hold v6 header">
+  <main class="page">
+    <header class="topbar" aria-label="Hold v6 header">
       <h1 class="brand-title">Hold V6 &ndash; Launch Readiness</h1>
       <p class="brand-subtitle">What connects across the launch pack?</p>
-      <p class="story-flow">Documents &rarr; Dependencies &rarr; Connected Understanding</p>
-      <p class="story-orientation">V5 asked what matters in this document. V6 asks what connects across these documents.</p>
+      <p class="story-flow">Launch Pack &rarr; Perspective &rarr; Connected Understanding</p>
+      <p class="story-orientation">The new idea is not a new interface. It is that Hold connects understanding across several launch documents rather than interpreting one document.</p>
     </header>
 
-    <section class="v6-demo-note" aria-label="Demonstration note">
-      <strong>First V6 direction</strong>
-      <p>This static prototype explores how Hold could connect scattered launch context without replacing the original documents or making the launch decision.</p>
+    <section class="demo-note" aria-labelledby="demo-note-title">
+      <h2 id="demo-note-title">Demonstration Note</h2>
+      <p>This V6 prototype demonstrates Hold&rsquo;s ability to connect understanding across multiple launch documents.</p>
+      <p>In a live environment, available views, information and document access would be governed by permissions, role access and organisational policy.</p>
     </section>
 
-    <section class="v6-card v6-scenario" aria-labelledby="v6-scenario-title">
-      <p class="v6-eyebrow">Scenario</p>
-      <h2 id="v6-scenario-title">Product Launch Readiness Pack</h2>
-      <p class="v6-copy">
-        A product launch is being prepared across several teams. Each document holds a useful part of the picture, but the documents do not fully agree on timing, readiness or what still needs to happen.
-      </p>
-      <ul class="v6-tags" aria-label="Teams represented">
-        <li>Marketing</li>
-        <li>Operations</li>
-        <li>Finance</li>
-        <li>Customer Support</li>
-        <li>Procurement / Supplier Management</li>
-        <li>Website</li>
-      </ul>
-    </section>
+    <section aria-labelledby="context-title">
+      <div class="context-card">
+        <div>
+          <p class="eyebrow">Choose a Demonstration Context</p>
+          <h2 id="context-title">Product Launch Readiness Pack</h2>
+          <p class="context-intent">Explore how Hold connects understanding across different launch documents and team perspectives.</p>
+        </div>
 
-    <section class="v6-workspace" aria-label="Launch readiness workspace">
-      <div class="v6-card">
-        <p class="v6-label">Launch pack</p>
-        <h2>Choose context</h2>
-        <p class="v6-copy">Select which documents Hold can use, then choose the role view for the connected understanding.</p>
+        <ul class="launch-pack-list" aria-label="Launch pack documents">
+          <li>Marketing Campaign Plan</li>
+          <li>Operations Stock Readiness Note</li>
+          <li>Finance Launch Forecast</li>
+          <li>Customer Support Brief</li>
+          <li>Supplier Update Email</li>
+          <li>Website Launch Checklist</li>
+        </ul>
 
-        <div class="v6-source-list" id="v6-source-list" aria-label="Launch documents"></div>
+        <div class="context-actions">
+          <button class="secondary-link" id="view-context" type="button">View Launch Pack Context</button>
+        </div>
 
-        <p class="v6-label" style="margin-top:18px">Role view</p>
-        <div class="v6-role-grid" id="v6-role-grid" aria-label="Role views"></div>
-
-        <div class="v6-actions">
-          <button class="v6-button" id="v6-run" type="button">Show Connected View</button>
-          <button class="v6-button secondary" id="v6-all" type="button">Select All</button>
-          <button class="v6-button secondary" id="v6-reset" type="button">Reset</button>
+        <div class="launch-pack-context" id="launch-pack-context">
+          <article class="source-note">
+            <strong>Marketing Campaign Plan</strong>
+            <span>Campaign activity is built around a 12 August launch date, with partner announcements and email activity scheduled. Final creative approval is still open.</span>
+          </article>
+          <article class="source-note">
+            <strong>Operations Stock Readiness Note</strong>
+            <span>First usable stock is expected from 18 August, and fulfilment test-picks are not yet complete.</span>
+          </article>
+          <article class="source-note">
+            <strong>Finance Launch Forecast</strong>
+            <span>The launch forecast assumes sales from 12 August and full first-week availability.</span>
+          </article>
+          <article class="source-note">
+            <strong>Customer Support Brief</strong>
+            <span>Support FAQs are in draft, training has not been completed and final product detail is still awaited.</span>
+          </article>
+          <article class="source-note">
+            <strong>Supplier Update Email</strong>
+            <span>Final packaging components are due on 16 August, with dispatch dependent on confirmation.</span>
+          </article>
+          <article class="source-note">
+            <strong>Website Launch Checklist</strong>
+            <span>Product page copy is ready, but final imagery, support links and stock-status wording are not signed off.</span>
+          </article>
         </div>
       </div>
+    </section>
 
-      <div class="v6-output" id="v6-answer" aria-live="polite">
-        <section class="v6-answer-section">
-          <h2>Connected Launch View</h2>
-          <p>Select launch pack sources and a role view. Hold will show how the selected documents connect, where they conflict and what context may still be missing.</p>
+    <section class="interaction-grid" aria-label="Perspective workspace">
+      <div class="perspective-card">
+        <h2>Choose a Perspective</h2>
+        <ul class="perspective-options" aria-label="Perspective options">
+          <li><button class="is-active" type="button" data-perspective="launch-lead">Launch Lead</button></li>
+          <li><button type="button" data-perspective="marketing">Marketing</button></li>
+          <li><button type="button" data-perspective="operations">Operations</button></li>
+          <li><button type="button" data-perspective="finance">Finance</button></li>
+          <li><button type="button" data-perspective="support">Customer Support</button></li>
+          <li><button type="button" data-perspective="supplier">Supplier Management</button></li>
+          <li><button type="button" data-perspective="connected">Connected View</button></li>
+        </ul>
+        <button class="generate-button" id="show-perspective" type="button">Show Perspective View</button>
+      </div>
+
+      <div class="output-panel" id="output-panel" aria-live="polite">
+        <section class="answer-section">
+          <h3>Your Question</h3>
+          <p class="prompt-question" id="question-text">What connects across the launch pack from this perspective?</p>
+        </section>
+
+        <section class="answer-section">
+          <h3>Connected Understanding</h3>
+          <div class="generated-answer" id="generated-answer">
+            <p>Choose a perspective, then show the view. Hold will use the full launch pack to bring forward what connects across the documents.</p>
+          </div>
+        </section>
+
+        <section class="answer-section">
+          <p class="response-note"><strong>Sources used:</strong> Marketing Campaign Plan, Operations Stock Readiness Note, Finance Launch Forecast, Customer Support Brief, Supplier Update Email, Website Launch Checklist.</p>
+          <p class="permissions-note">Related context identified. Some supporting information may be limited by permissions, role access or organisational policy.</p>
         </section>
       </div>
     </section>
 
-    <nav class="v6-footer-nav" aria-label="Back to Hold demos">
-      <a href="index.html">Back to Hold</a>
-    </nav>
+    <p class="footer-link"><a class="secondary-link" href="index.html">Back to Hold</a></p>
   </main>
 
-  <footer class="footer">
+  <footer>
     <p>Powered by IdexQR<sup>&reg;</sup></p>
-    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+    <p>Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
   </footer>
 
   <script src="umami-config.js?v=1"></script>
   <script src="hold-analytics.js?v=1"></script>
   <script>
-    const sources = [
-      {
-        id: "marketing-plan",
-        type: "Campaign plan",
-        title: "Marketing Campaign Plan",
-        team: "Marketing",
-        summary: "Campaign activity is built around a 12 August launch date, with partner announcements and email activity scheduled.",
-        evidence: "Launch date treated as 12 August; final creative approval still open.",
-        connection: "Creates the public date assumption that finance, website and support may also be using."
-      },
-      {
-        id: "operations-stock",
-        type: "Readiness note",
-        title: "Operations Stock Readiness Note",
-        team: "Operations",
-        summary: "First usable stock is expected from 18 August, and fulfilment test-picks are not yet complete.",
-        evidence: "Stock availability starts after the campaign date; fulfilment readiness is still being tested.",
-        connection: "Challenges whether the 12 August launch date can be supported operationally."
-      },
-      {
-        id: "finance-forecast",
-        type: "Forecast",
-        title: "Finance Launch Forecast",
-        team: "Finance",
-        summary: "The launch forecast assumes sales from 12 August and full first-week availability.",
-        evidence: "Revenue and margin assumptions depend on launch timing and stock being available in the first week.",
-        connection: "Finance assumptions depend on the same timing that operations and supplier notes make uncertain."
-      },
-      {
-        id: "support-brief",
-        type: "Support brief",
-        title: "Customer Support Brief",
-        team: "Customer Support",
-        summary: "Support FAQs are in draft, training has not been completed and final product detail is still awaited.",
-        evidence: "Support is not yet ready to answer launch queries with final product information.",
-        connection: "Customer readiness depends on final product detail, website wording and confirmed availability."
-      },
-      {
-        id: "supplier-update",
-        type: "Supplier email",
-        title: "Supplier Update Email",
-        team: "Procurement / Supplier Management",
-        summary: "Final packaging components are due on 16 August, with dispatch dependent on confirmation.",
-        evidence: "Supplier timing sits between the campaign date and the first usable stock date.",
-        connection: "Supplier timing may explain why operations readiness is later than the marketing date."
-      },
-      {
-        id: "website-checklist",
-        type: "Checklist",
-        title: "Website Launch Checklist",
-        team: "Website",
-        summary: "Product page copy is ready, but final imagery, support links and stock-status wording are not signed off.",
-        evidence: "The public launch surface is partly ready but still needs availability and support wording.",
-        connection: "Website readiness depends on marketing, support and operations agreeing what can safely be published."
-      }
-    ];
+    const responses = {
+      "launch-lead": [
+        "The launch date is not yet a settled assumption. Marketing, finance and the website are working around 12 August, but operations stock readiness and supplier packaging timing sit later.",
+        "The strongest dependency is timing: the campaign date, sales forecast, stock readiness, supplier dispatch and customer-facing website wording all need to line up.",
+        "Support is not ready to absorb launch queries until final product detail, FAQs and training are completed.",
+        "The launch pack points to a coordination decision, not a single-document problem."
+      ],
+      marketing: [
+        "Marketing is planning around 12 August, but the wider pack shows stock and supplier readiness may not support that date.",
+        "Public campaign commitments should not be locked until website stock wording and final creative approval are confirmed.",
+        "Customer Support is still waiting for final product information, so campaign traffic may create avoidable pressure.",
+        "Related operations and supplier context sits outside the campaign plan but directly affects campaign confidence."
+      ],
+      operations: [
+        "Operations needs to notice that the launch promise appears earlier than physical readiness. First usable stock is expected from 18 August.",
+        "Fulfilment test-picks are still incomplete, so dispatch confidence is not fully proven.",
+        "Supplier packaging components due on 16 August are a practical dependency for stock readiness.",
+        "Marketing and finance assumptions may need updating if the operational date becomes the real launch constraint."
+      ],
+      finance: [
+        "Finance should treat the current forecast as assumption-sensitive. It assumes sales from 12 August and full first-week availability.",
+        "Operations and supplier information indicate availability may fall later than the forecast assumption.",
+        "Launch-month margin may be overstated if campaign timing moves ahead of fulfilment readiness.",
+        "A revised launch forecast scenario may be needed before commercial readiness is treated as settled."
+      ],
+      support: [
+        "Customer Support needs final product information before customer enquiries begin.",
+        "FAQs are still in draft and training has not been completed.",
+        "Website support links and stock-status wording are not signed off, so customers may receive inconsistent information.",
+        "Support readiness depends on decisions and information held by marketing, operations and the website team."
+      ],
+      supplier: [
+        "Supplier Management needs to clarify whether packaging timing affects launch quantity, replenishment or the first dispatch.",
+        "Final packaging components are due on 16 August, which sits after the marketing date and before operations expects usable stock.",
+        "Supplier dispatch remains dependent on confirmation, so the dependency is not fully closed.",
+        "This external timing affects operations readiness, finance assumptions and what the website can safely say about availability."
+      ],
+      connected: [
+        "The launch pack contains one central tension: the public-facing launch date is ahead of some operational and supplier readiness signals.",
+        "Marketing, finance and website work are using or supporting a 12 August launch assumption.",
+        "Operations and supplier updates point to readiness closer to 16-18 August.",
+        "Customer Support still needs final product information, FAQs and training before campaign traffic starts.",
+        "The main gap is not missing documents. It is unresolved alignment between launch date, availability, customer messaging and forecast assumptions."
+      ]
+    };
 
-    const roles = [
-      {
-        id: "launch-lead",
-        label: "Launch Lead",
-        focus: "The launch date is not yet a settled assumption. The main connection is between the 12 August campaign plan, later stock readiness, supplier packaging timing, support preparation and website wording.",
-        points: [
-          "Marketing, finance and website activity are moving around 12 August.",
-          "Operations and supplier context suggest practical readiness sits closer to 16-18 August.",
-          "Support still needs final product information before customer enquiries begin.",
-          "The decision is not simply whether documents exist; it is whether their assumptions line up."
-        ]
-      },
-      {
-        id: "marketing",
-        label: "Marketing",
-        focus: "Marketing would need to know whether the public date can still be used, because other documents show readiness constraints that may affect campaign confidence.",
-        points: [
-          "The campaign plan assumes 12 August, but stock is not expected until 18 August.",
-          "Website wording is not signed off, so public availability claims may need care.",
-          "Support FAQs are still in draft, which may affect campaign response handling.",
-          "Related operational and supplier context exists outside the campaign plan."
-        ]
-      },
-      {
-        id: "operations",
-        label: "Operations",
-        focus: "Operations would focus on whether fulfilment can support the launch promise being made elsewhere.",
-        points: [
-          "First usable stock is later than the marketing launch date.",
-          "Fulfilment test-picks are still incomplete.",
-          "Supplier packaging components affect operational readiness.",
-          "Finance and marketing assumptions may need updating if availability moves."
-        ]
-      },
-      {
-        id: "finance",
-        label: "Finance",
-        focus: "Finance would focus on whether the forecast is using assumptions that are no longer supported by the wider launch pack.",
-        points: [
-          "The forecast assumes sales from 12 August and full first-week availability.",
-          "Operations and supplier notes put stock and packaging readiness later.",
-          "Launch-month margin may be overstated if availability slips.",
-          "Finance may need a revised forecast scenario before launch approval."
-        ]
-      },
-      {
-        id: "support",
-        label: "Customer Support",
-        focus: "Customer Support would focus on what they need before customer questions start arriving.",
-        points: [
-          "FAQs remain in draft and training is not complete.",
-          "Final product information is still awaited.",
-          "Website support links and stock-status wording are not signed off.",
-          "Support readiness depends on decisions and information held by other teams."
-        ]
-      },
-      {
-        id: "supplier",
-        label: "Supplier Management",
-        focus: "Supplier Management would focus on whether the supplier dependency affects launch quantity, packaging readiness or replenishment timing.",
-        points: [
-          "Final packaging components are due on 16 August.",
-          "Supplier dispatch remains dependent on confirmation.",
-          "Operations stock readiness follows the supplier timing.",
-          "Marketing and finance assumptions may need to reflect this external dependency."
-        ]
-      }
-    ];
+    const rationale = {
+      "launch-lead": "Campaign date • Stock readiness • Supplier timing • Support readiness",
+      marketing: "Campaign commitment • Availability wording • Support readiness",
+      operations: "Stock date • Fulfilment checks • Supplier packaging",
+      finance: "Forecast assumption • First-week availability • Margin risk",
+      support: "Draft FAQs • Training gap • Website support links",
+      supplier: "Packaging components • Dispatch confirmation • Operational readiness",
+      connected: "Cross-document timing • Assumptions • Dependencies and gaps"
+    };
 
-    const defaultSourceIds = sources.map((source) => source.id);
-    let selectedRoleId = "launch-lead";
-
-    const sourceList = document.querySelector("#v6-source-list");
-    const roleGrid = document.querySelector("#v6-role-grid");
-    const answerPanel = document.querySelector("#v6-answer");
-    const runButton = document.querySelector("#v6-run");
-    const selectAllButton = document.querySelector("#v6-all");
-    const resetButton = document.querySelector("#v6-reset");
-
-    function renderSources() {
-      sourceList.innerHTML = "";
-      sources.forEach((source) => {
-        const label = document.createElement("label");
-        label.className = "v6-source";
-        label.innerHTML = `
-          <input type="checkbox" value="${source.id}">
-          <span>
-            <span class="v6-source-type">${source.type}</span>
-            <h3>${source.title}</h3>
-            <p>${source.summary}</p>
-          </span>
-        `;
-        sourceList.append(label);
-      });
-    }
-
-    function renderRoles() {
-      roleGrid.innerHTML = "";
-      roles.forEach((role) => {
-        const button = document.createElement("button");
-        button.className = "v6-role";
-        button.type = "button";
-        button.textContent = role.label;
-        button.setAttribute("aria-pressed", String(role.id === selectedRoleId));
-        button.addEventListener("click", () => {
-          selectedRoleId = role.id;
-          renderRoles();
-        });
-        roleGrid.append(button);
-      });
-    }
-
-    function setSelected(ids) {
-      sourceList.querySelectorAll("input").forEach((input) => {
-        input.checked = ids.includes(input.value);
-      });
-    }
-
-    function getSelectedSources() {
-      const ids = [...sourceList.querySelectorAll("input:checked")].map((input) => input.value);
-      return sources.filter((source) => ids.includes(source.id));
-    }
-
-    function getSelectedRole() {
-      return roles.find((role) => role.id === selectedRoleId) || roles[0];
-    }
-
-    function getMissingContext(selectedSources) {
-      const ids = selectedSources.map((source) => source.id);
-      const missing = [];
-      if (!ids.includes("operations-stock")) missing.push("Operations readiness is not visible, so stock and fulfilment constraints may be missed.");
-      if (!ids.includes("finance-forecast")) missing.push("Finance assumptions are not visible, so forecast impact may be unclear.");
-      if (!ids.includes("support-brief")) missing.push("Customer Support readiness is not visible, so customer-facing gaps may be hidden.");
-      if (!ids.includes("supplier-update")) missing.push("Supplier timing is not visible, so external dependency risk may be understated.");
-      if (!ids.includes("website-checklist")) missing.push("Website checklist is not visible, so public-page readiness may be assumed.");
-      return missing;
-    }
+    const perspectiveButtons = [...document.querySelectorAll("[data-perspective]")];
+    const generatedAnswer = document.querySelector("#generated-answer");
+    const showButton = document.querySelector("#show-perspective");
+    const viewContextButton = document.querySelector("#view-context");
+    const launchPackContext = document.querySelector("#launch-pack-context");
+    let activePerspective = "launch-lead";
 
     function renderAnswer() {
-      const selectedSources = getSelectedSources();
-      const selectedRole = getSelectedRole();
-      const missingContext = getMissingContext(selectedSources);
-
-      window.HoldAnalytics?.track("v6-launch-readiness-run", {
-        role: selectedRole.id,
-        sourceCount: selectedSources.length
-      });
-
-      if (!selectedSources.length) {
-        answerPanel.innerHTML = `
-          <section class="v6-answer-section">
-            <h2>No context selected</h2>
-            <p>Select at least one launch document so Hold can prepare a connected view.</p>
-          </section>
-        `;
-        return;
-      }
-
-      answerPanel.innerHTML = `
-        <section class="v6-answer-section">
-          <h2>Connected Launch View</h2>
-          <p>${selectedRole.focus}</p>
-        </section>
-
-        <section class="v6-answer-section">
-          <h2>What connects across the pack?</h2>
-          <div class="v6-connection-grid">
-            ${selectedSources.map((source) => `
-              <article class="v6-connection">
-                <strong>${source.title}</strong>
-                <p>${source.connection}</p>
-              </article>
-            `).join("")}
-          </div>
-        </section>
-
-        <section class="v6-answer-section">
-          <h2>${selectedRole.label} view</h2>
-          <ul>
-            ${selectedRole.points.map((point) => `<li>${point}</li>`).join("")}
-          </ul>
-        </section>
-
-        <section class="v6-answer-section">
-          <h2>Assumptions and gaps</h2>
-          <ul>
-            ${(missingContext.length ? missingContext : [
-              "The selected launch pack gives a useful joined-up view, but launch ownership, date confidence and final customer-facing wording still need human review."
-            ]).map((gap) => `<li>${gap}</li>`).join("")}
-          </ul>
-        </section>
-
-        <section class="v6-answer-section v6-permissions-note">
-          <p>Related context identified. Some supporting information may be limited by permissions, role access or organisational policy.</p>
-        </section>
-
-        <section class="v6-answer-section">
-          <h2>Sources used</h2>
-          <ul>
-            ${selectedSources.map((source) => `<li>${source.title} <span class="v6-pill">${source.team}</span></li>`).join("")}
-          </ul>
-        </section>
+      const points = responses[activePerspective] || responses.connected;
+      generatedAnswer.innerHTML = `
+        ${points.map((point) => `<p class="answer-bullet">&bull; ${point}</p>`).join("")}
+        <p class="response-note"><strong>Why this view:</strong> ${rationale[activePerspective]}</p>
+        <p class="response-note">Hold does not change the launch documents.<br>It brings forward what connects across them.</p>
       `;
+
+      window.HoldAnalytics?.track("v6-perspective-view", {
+        perspective: activePerspective
+      });
     }
 
-    renderSources();
-    renderRoles();
-    setSelected(defaultSourceIds);
+    perspectiveButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activePerspective = button.dataset.perspective;
+        perspectiveButtons.forEach((item) => item.classList.toggle("is-active", item === button));
+      });
+    });
 
-    runButton.addEventListener("click", renderAnswer);
-    selectAllButton.addEventListener("click", () => setSelected(defaultSourceIds));
-    resetButton.addEventListener("click", () => {
-      selectedRoleId = "launch-lead";
-      renderRoles();
-      setSelected(defaultSourceIds);
-      answerPanel.innerHTML = `
-        <section class="v6-answer-section">
-          <h2>Connected Launch View</h2>
-          <p>Select launch pack sources and a role view. Hold will show how the selected documents connect, where they conflict and what context may still be missing.</p>
-        </section>
-      `;
+    showButton.addEventListener("click", renderAnswer);
+    viewContextButton.addEventListener("click", () => {
+      const isVisible = launchPackContext.classList.toggle("is-visible");
+      viewContextButton.textContent = isVisible ? "Hide Launch Pack Context" : "View Launch Pack Context";
     });
   </script>
 </body>
