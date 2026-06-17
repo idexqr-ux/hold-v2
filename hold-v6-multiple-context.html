@@ -463,11 +463,12 @@
         <h2>Choose a Perspective</h2>
         <ul class="perspective-options" aria-label="Perspective options">
           <li><button class="is-active" type="button" data-perspective="launch-lead">Launch Lead</button></li>
-          <li><button type="button" data-perspective="marketing">Marketing</button></li>
-          <li><button type="button" data-perspective="operations">Operations</button></li>
-          <li><button type="button" data-perspective="finance">Finance</button></li>
-          <li><button type="button" data-perspective="support">Customer Support</button></li>
-          <li><button type="button" data-perspective="supplier">Supplier Management</button></li>
+          <li><button type="button" data-perspective="campaigns-owner">Campaigns Owner</button></li>
+          <li><button type="button" data-perspective="fulfilment-manager">Fulfilment Manager</button></li>
+          <li><button type="button" data-perspective="commercial-finance">Commercial Finance Lead</button></li>
+          <li><button type="button" data-perspective="customer-ops-enablement">Customer Ops Enablement Lead</button></li>
+          <li><button type="button" data-perspective="supplier-management">Supplier Management Lead</button></li>
+          <li><button type="button" data-perspective="digital-trading">Digital Trading Lead</button></li>
           <li><button type="button" data-perspective="connected">Connected View</button></li>
         </ul>
         <button class="generate-button" id="show-perspective" type="button">Show Perspective View</button>
@@ -476,7 +477,7 @@
       <div class="output-panel">
         <section class="answer-section">
           <h3>Your Question</h3>
-          <p class="prompt-question" id="question-text">What connects across the launch pack from this perspective?</p>
+          <p class="prompt-question" id="question-text">As Launch Lead, what connects across the launch pack?</p>
         </section>
       </div>
 
@@ -530,9 +531,9 @@
           "Without alignment, teams may each be ready for a different version of launch."
         ]
       },
-      marketing: {
+      "campaigns-owner": {
         matters: [
-          "Marketing is planning around 12 August.",
+          "Rachel Lane is planning campaign activity around 12 August.",
           "Campaign language should not imply immediate availability until stock and website wording are confirmed."
         ],
         connects: [
@@ -548,7 +549,7 @@
           "Clear wording reduces avoidable customer confusion and support contact."
         ]
       },
-      operations: {
+      "fulfilment-manager": {
         matters: [
           "The launch promise appears earlier than physical readiness.",
           "First usable stock is expected from 18 August, with packaging still a practical constraint."
@@ -566,7 +567,7 @@
           "A mismatch between orders and dispatch could create avoidable pressure."
         ]
       },
-      finance: {
+      "commercial-finance": {
         matters: [
           "The forecast assumes sales from 12 August and full first-week availability.",
           "That assumption is sensitive because supplier and Operations information points later."
@@ -584,7 +585,7 @@
           "Margin and launch-month performance may be overstated if timing assumptions drift."
         ]
       },
-      support: {
+      "customer-ops-enablement": {
         matters: [
           "Support should not promise a dispatch date yet.",
           "FAQs, macros and training depend on final product availability wording."
@@ -602,7 +603,7 @@
           "Clear escalation routes prevent all uncertainty being pushed to agents."
         ]
       },
-      supplier: {
+      "supplier-management": {
         matters: [
           "Packaging components are due on 16 August.",
           "The supplier does not recommend committing to full launch-week finished-kit dispatch until packaging is received."
@@ -618,6 +619,24 @@
         mattersWhy: [
           "The external dependency is small in wording but central to readiness.",
           "Supplier evidence should be updated before the pack is used for approval."
+        ]
+      },
+      "digital-trading": {
+        matters: [
+          "The website can prepare for the 12 August go-live slot, but the page wording cannot safely imply immediate dispatch.",
+          "Stock-status wording and final go-live confirmation remain open."
+        ],
+        connects: [
+          "Digital Trading depends on Operations for stock wording and Support for customer links.",
+          "Finance and Marketing assumptions affect pricing blocks, tracking and campaign landing page readiness."
+        ],
+        attention: [
+          "Remove temporary launch-soon wording if dispatch language is not approved by content freeze.",
+          "Confirm who signs off stock wording if Ops and Marketing use different terms."
+        ],
+        mattersWhy: [
+          "The website is where internal ambiguity becomes customer-facing.",
+          "Clear web wording can prevent campaign demand from turning into avoidable support contact."
         ]
       },
       connected: {
@@ -641,7 +660,19 @@
       }
     };
 
+    const questions = {
+      "launch-lead": "As Launch Lead, what connects across the launch pack?",
+      "campaigns-owner": "As Campaigns Owner, what should I notice across the launch pack?",
+      "fulfilment-manager": "As Fulfilment Manager, what affects operational readiness across the launch pack?",
+      "commercial-finance": "As Commercial Finance Lead, what assumptions or risks should I notice across the launch pack?",
+      "customer-ops-enablement": "As Customer Ops Enablement Lead, what needs to be clear before support teams are briefed?",
+      "supplier-management": "As Supplier Management Lead, what supplier dependencies affect launch readiness?",
+      "digital-trading": "As Digital Trading Lead, what needs to be aligned before the website goes live?",
+      connected: "What connects across the full launch pack?"
+    };
+
     const perspectiveButtons = [...document.querySelectorAll("[data-perspective]")];
+    const questionText = document.querySelector("#question-text");
     const generatedAnswer = document.querySelector("#generated-answer");
     const showButton = document.querySelector("#show-perspective");
     const sourceToggle = document.querySelector("#toggle-source-pack");
@@ -659,6 +690,10 @@
           ${renderBulletList(points)}
         </section>
       `;
+    }
+
+    function updateQuestion() {
+      questionText.textContent = questions[activePerspective] || questions.connected;
     }
 
     function renderAnswer() {
@@ -681,6 +716,7 @@
       button.addEventListener("click", () => {
         activePerspective = button.dataset.perspective;
         perspectiveButtons.forEach((item) => item.classList.toggle("is-active", item === button));
+        updateQuestion();
       });
     });
 
