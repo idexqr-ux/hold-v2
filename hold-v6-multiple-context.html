@@ -354,6 +354,34 @@
       margin: 0;
     }
 
+    .answer-group {
+      display: grid;
+      gap: 0.35em;
+      padding-bottom: 0.55em;
+      border-bottom: 1px solid rgba(216, 225, 216, 0.78);
+    }
+
+    .answer-group:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .answer-group h4 {
+      margin: 0;
+      color: #40564e;
+      font-size: 0.94rem;
+      letter-spacing: 0.03em;
+      text-transform: none;
+    }
+
+    .answer-list {
+      display: grid;
+      gap: 0.36em;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
     .generated-answer .answer-bullet {
       padding-left: 1.15em;
       text-indent: -1.15em;
@@ -465,10 +493,6 @@
           </div>
         </section>
 
-        <section class="answer-section">
-          <p class="response-note"><strong>Sources used:</strong> Marketing Campaign Plan, Operations Stock Readiness Note, Finance Launch Forecast, Customer Support Brief, Supplier Update Email, Website Launch Checklist.</p>
-          <p class="permissions-note">Related context identified. Some supporting information may be limited by permissions, role access or organisational policy.</p>
-        </section>
       </div>
     </section>
 
@@ -483,60 +507,143 @@
   <script src="umami-config.js?v=1"></script>
   <script src="hold-analytics.js?v=1"></script>
   <script>
-    const responses = {
-      "launch-lead": [
-        "The launch date is not yet a settled assumption. Marketing, finance and the website are working around 12 August, but operations stock readiness and supplier packaging timing sit later.",
-        "The strongest dependency is timing: the campaign date, sales forecast, stock readiness, supplier dispatch and customer-facing website wording all need to line up.",
-        "Support is not ready to absorb launch queries until final product detail, FAQs and training are completed.",
-        "The launch pack points to a coordination decision, not a single-document problem."
-      ],
-      marketing: [
-        "Marketing is planning around 12 August, but the wider pack shows stock and supplier readiness may not support that date.",
-        "Public campaign commitments should not be locked until website stock wording and final creative approval are confirmed.",
-        "Customer Support is still waiting for final product information, so campaign traffic may create avoidable pressure.",
-        "Related operations and supplier context sits outside the campaign plan but directly affects campaign confidence."
-      ],
-      operations: [
-        "Operations needs to notice that the launch promise appears earlier than physical readiness. First usable stock is expected from 18 August.",
-        "Fulfilment test-picks are still incomplete, so dispatch confidence is not fully proven.",
-        "Supplier packaging components due on 16 August are a practical dependency for stock readiness.",
-        "Marketing and finance assumptions may need updating if the operational date becomes the real launch constraint."
-      ],
-      finance: [
-        "Finance should treat the current forecast as assumption-sensitive. It assumes sales from 12 August and full first-week availability.",
-        "Operations and supplier information indicate availability may fall later than the forecast assumption.",
-        "Launch-month margin may be overstated if campaign timing moves ahead of fulfilment readiness.",
-        "A revised launch forecast scenario may be needed before commercial readiness is treated as settled."
-      ],
-      support: [
-        "Customer Support needs final product information before customer enquiries begin.",
-        "FAQs are still in draft and training has not been completed.",
-        "Website support links and stock-status wording are not signed off, so customers may receive inconsistent information.",
-        "Support readiness depends on decisions and information held by marketing, operations and the website team."
-      ],
-      supplier: [
-        "Supplier Management needs to clarify whether packaging timing affects launch quantity, replenishment or the first dispatch.",
-        "Final packaging components are due on 16 August, which sits after the marketing date and before operations expects usable stock.",
-        "Supplier dispatch remains dependent on confirmation, so the dependency is not fully closed.",
-        "This external timing affects operations readiness, finance assumptions and what the website can safely say about availability."
-      ],
-      connected: [
-        "The launch pack contains one central tension: the public-facing launch date is ahead of some operational and supplier readiness signals.",
-        "Marketing, finance and website work are using or supporting a 12 August launch assumption.",
-        "Operations and supplier updates point to readiness closer to 16-18 August.",
-        "Customer Support still needs final product information, FAQs and training before campaign traffic starts.",
-        "The main gap is not missing documents. It is unresolved alignment between launch date, availability, customer messaging and forecast assumptions."
-      ]
-    };
+    const sourceList = [
+      "Marketing Campaign Plan",
+      "Operations Stock Readiness Note",
+      "Finance Launch Forecast",
+      "Customer Support Brief",
+      "Supplier Update Email",
+      "Website Launch Checklist"
+    ];
 
-    const rationale = {
-      "launch-lead": "Campaign date • Stock readiness • Supplier timing • Support readiness",
-      marketing: "Campaign commitment • Availability wording • Support readiness",
-      operations: "Stock date • Fulfilment checks • Supplier packaging",
-      finance: "Forecast assumption • First-week availability • Margin risk",
-      support: "Draft FAQs • Training gap • Website support links",
-      supplier: "Packaging components • Dispatch confirmation • Operational readiness",
-      connected: "Cross-document timing • Assumptions • Dependencies and gaps"
+    const responses = {
+      "launch-lead": {
+        matters: [
+          "The launch date is not yet a settled assumption.",
+          "Marketing, Finance and Website are working around 12 August, while Operations and supplier signals sit later."
+        ],
+        connects: [
+          "Campaign timing, forecast assumptions, supplier packaging, stock readiness and customer wording all depend on the same date alignment.",
+          "Support readiness depends on decisions being made elsewhere in the pack."
+        ],
+        attention: [
+          "Resolve whether 12 August means campaign activity, sales opening, go-live or fulfilment readiness.",
+          "Confirm who owns the final launch wording before teams brief customers."
+        ],
+        mattersWhy: [
+          "The pack points to a coordination decision, not a single-document problem.",
+          "Without alignment, teams may each be ready for a different version of launch."
+        ]
+      },
+      marketing: {
+        matters: [
+          "Marketing is planning around 12 August.",
+          "Campaign language should not imply immediate availability until stock and website wording are confirmed."
+        ],
+        connects: [
+          "Operations and supplier updates affect what Marketing can safely promise.",
+          "Customer Support needs final wording before campaign traffic starts."
+        ],
+        attention: [
+          "Review campaign copy that says available, launch week or ready now.",
+          "Check whether partner assets need softer wording if fulfilment is phased."
+        ],
+        mattersWhy: [
+          "The campaign can create demand before the organisation is ready to explain availability.",
+          "Clear wording reduces avoidable customer confusion and support contact."
+        ]
+      },
+      operations: {
+        matters: [
+          "The launch promise appears earlier than physical readiness.",
+          "First usable stock is expected from 18 August, with packaging still a practical constraint."
+        ],
+        connects: [
+          "Supplier packaging due on 16 August affects test-picks, dispatch confidence and website availability wording.",
+          "Marketing and Finance assumptions may need updating if Operations becomes the real launch constraint."
+        ],
+        attention: [
+          "Complete test-picks once packaging and inserts are available.",
+          "Confirm whether first usable stock should be translated into customer-facing dispatch wording."
+        ],
+        mattersWhy: [
+          "Operational readiness controls whether the launch can be fulfilled, not just announced.",
+          "A mismatch between orders and dispatch could create avoidable pressure."
+        ]
+      },
+      finance: {
+        matters: [
+          "The forecast assumes sales from 12 August and full first-week availability.",
+          "That assumption is sensitive because supplier and Operations information points later."
+        ],
+        connects: [
+          "Revenue timing, launch spend, fulfilment readiness and supplier packaging are linked.",
+          "Website wording may create a pre-order position that affects forecast interpretation."
+        ],
+        attention: [
+          "Request an updated Operations readiness position before final margin sign-off.",
+          "Prepare a revised scenario if first fulfilment moves beyond campaign activity."
+        ],
+        mattersWhy: [
+          "The current forecast is useful for planning, but not yet a settled approval basis.",
+          "Margin and launch-month performance may be overstated if timing assumptions drift."
+        ]
+      },
+      support: {
+        matters: [
+          "Support should not promise a dispatch date yet.",
+          "FAQs, macros and training depend on final product availability wording."
+        ],
+        connects: [
+          "Support needs Marketing, Operations and Website to agree what customers will be told.",
+          "Supplier timing may change the answer agents need to give."
+        ],
+        attention: [
+          "Update agent briefing once public wording is confirmed.",
+          "Clarify who owns stock-date and supplier-delay questions."
+        ],
+        mattersWhy: [
+          "Support will receive the customer impact of unresolved launch assumptions.",
+          "Clear escalation routes prevent all uncertainty being pushed to agents."
+        ]
+      },
+      supplier: {
+        matters: [
+          "Packaging components are due on 16 August.",
+          "The supplier does not recommend committing to full launch-week finished-kit dispatch until packaging is received."
+        ],
+        connects: [
+          "Supplier timing affects Operations readiness, Finance assumptions and Website availability wording.",
+          "Procurement follow-up ownership is still unclear."
+        ],
+        attention: [
+          "Confirm whether the issue affects all launch units or only retail-ready packaging.",
+          "Agree whether launch quantity can be phased."
+        ],
+        mattersWhy: [
+          "The external dependency is small in wording but central to readiness.",
+          "Supplier evidence should be updated before the pack is used for approval."
+        ]
+      },
+      connected: {
+        matters: [
+          "The central tension is that public-facing launch activity is ahead of some operational and supplier readiness signals.",
+          "The pack does not show one missing document; it shows several teams using different meanings of launch."
+        ],
+        connects: [
+          "Marketing, Finance and Website are using or supporting a 12 August assumption.",
+          "Operations and supplier updates point to readiness closer to 16-18 August.",
+          "Customer Support is waiting for final wording before it can brief agents."
+        ],
+        attention: [
+          "Align launch date, go-live date, first sales date, first fulfilment date and dispatch wording.",
+          "Assign ownership for final customer wording and readiness sign-off."
+        ],
+        mattersWhy: [
+          "Hold makes the cross-document dependency visible without asking the user to manually reconcile six sources.",
+          "The value is faster understanding of what connects, what is assumed and what still needs a decision."
+        ]
+      }
     };
 
     const perspectiveButtons = [...document.querySelectorAll("[data-perspective]")];
@@ -546,12 +653,28 @@
     const sourceFrameWrap = document.querySelector("#source-pack-frame-wrap");
     let activePerspective = "launch-lead";
 
+    function renderBulletList(points) {
+      return `<ul class="answer-list">${points.map((point) => `<li class="answer-bullet">&bull; ${point}</li>`).join("")}</ul>`;
+    }
+
+    function renderAnswerGroup(title, points) {
+      return `
+        <section class="answer-group">
+          <h4>${title}</h4>
+          ${renderBulletList(points)}
+        </section>
+      `;
+    }
+
     function renderAnswer() {
-      const points = responses[activePerspective] || responses.connected;
+      const response = responses[activePerspective] || responses.connected;
       generatedAnswer.innerHTML = `
-        ${points.map((point) => `<p class="answer-bullet">&bull; ${point}</p>`).join("")}
-        <p class="response-note"><strong>Why this answer:</strong> ${rationale[activePerspective]}</p>
-        <p class="response-note">Hold does not change the launch documents.<br>It brings forward what connects across them.</p>
+        ${renderAnswerGroup("What matters most?", response.matters)}
+        ${renderAnswerGroup("What connects across the pack?", response.connects)}
+        ${renderAnswerGroup("What needs attention?", response.attention)}
+        ${renderAnswerGroup("Why this matters", response.mattersWhy)}
+        ${renderAnswerGroup("Sources used", sourceList)}
+        <p class="permissions-note">Related context identified. Some supporting information may be limited by permissions, role access or organisational policy.</p>
       `;
 
       window.HoldAnalytics?.track("v6-perspective-view", {
