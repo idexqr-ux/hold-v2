@@ -424,8 +424,8 @@
     <header class="topbar" aria-label="Hold v6 header">
       <h1 class="brand-title">Hold V6 &ndash; Launch Readiness</h1>
       <p class="brand-subtitle">What connects across the launch pack?</p>
-      <p class="story-flow">Launch Pack &rarr; Perspective &rarr; Connected Understanding</p>
-      <p class="story-orientation">The new idea is not a new interface. It is that Hold connects understanding across several launch documents rather than interpreting one document.</p>
+      <p class="story-flow">Launch Pack &rarr; Role Lens &rarr; Understanding</p>
+      <p class="story-orientation">Start with the multi-document source, then see what matters through a role lens.</p>
     </header>
 
     <section class="demo-note" aria-labelledby="demo-note-title">
@@ -437,9 +437,9 @@
     <section aria-labelledby="context-title">
       <div class="context-card">
         <div>
-          <p class="eyebrow">Choose a Demonstration Context</p>
+          <p class="eyebrow">Choose a Demonstration Source</p>
           <h2 id="context-title">Product Launch Readiness Pack</h2>
-          <p class="context-intent">Explore how Hold connects understanding across different launch documents and team perspectives.</p>
+          <p class="context-intent">Explore this launch pack through the Role Lens.</p>
         </div>
 
         <ul class="launch-pack-list" aria-label="Launch pack documents">
@@ -453,10 +453,10 @@
       </div>
     </section>
 
-    <section class="interaction-grid" aria-label="Perspective workspace">
+    <section class="interaction-grid" aria-label="Role lens workspace">
       <div class="perspective-card">
-        <h2>Choose a Perspective</h2>
-        <ul class="perspective-options" aria-label="Perspective options">
+        <h2>Choose a Role Lens</h2>
+        <ul class="perspective-options" aria-label="Role lens options">
           <li><button class="is-active" type="button" data-perspective="launch-lead">Launch Lead</button></li>
           <li><button type="button" data-perspective="marketing">Marketing</button></li>
           <li><button type="button" data-perspective="operations">Operations</button></li>
@@ -465,19 +465,19 @@
           <li><button type="button" data-perspective="supplier">Supplier Management</button></li>
           <li><button type="button" data-perspective="connected">Connected View</button></li>
         </ul>
-        <button class="generate-button" id="show-perspective" type="button">Show Perspective View</button>
+        <button class="generate-button" id="show-perspective" type="button">Show Role Lens View</button>
       </div>
 
       <div class="output-panel" id="output-panel" aria-live="polite">
         <section class="answer-section">
           <h3>Your Question</h3>
-          <p class="prompt-question" id="question-text">What connects across the launch pack from this perspective?</p>
+          <p class="prompt-question" id="question-text">What matters across the launch pack from this role lens?</p>
         </section>
 
         <section class="answer-section">
-          <h3>Connected Understanding</h3>
+          <h3>Role Lens View</h3>
           <div class="generated-answer" id="generated-answer">
-            <p>Choose a perspective, then show the view. Hold will use the full launch pack to bring forward what connects across the documents.</p>
+            <p>Choose a role lens, then show the view. Hold will use the full launch pack to bring forward what connects across the documents.</p>
           </div>
         </section>
 
@@ -583,7 +583,7 @@
       const points = responses[activePerspective] || responses.connected;
       generatedAnswer.innerHTML = `
         ${points.map((point) => `<p class="answer-bullet">&bull; ${point}</p>`).join("")}
-        <p class="response-note"><strong>Why this view:</strong> ${rationale[activePerspective]}</p>
+        <p class="response-note"><strong>Why this answer:</strong> ${rationale[activePerspective]}</p>
         <p class="response-note">Hold does not change the launch documents.<br>It brings forward what connects across them.</p>
       `;
 
