@@ -133,14 +133,24 @@
     .context-source-copy {
       max-width: 760px;
       margin: 0;
-      color: var(--muted);
+      color: #40564e;
       line-height: 1.52;
     }
 
-    .context-source-copy em {
-      display: block;
-      margin-top: 4px;
-      color: #40564e;
+    .context-format-icons {
+      margin: 0;
+      color: #557268;
+      font-family: "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
+      font-size: 1.22rem;
+      letter-spacing: 0;
+      line-height: 1.2;
+      word-spacing: 0.35em;
+    }
+
+    .context-source-actions {
+      display: flex;
+      justify-content: flex-start;
+      width: 100%;
     }
 
     .sources-list {
@@ -206,6 +216,7 @@
     }
 
     .source-frame-wrap {
+      width: 100%;
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -400,17 +411,13 @@
 
     <section aria-labelledby="context-title">
       <div class="context-card">
-        <div>
-          <p class="eyebrow">Choose a Demonstration Context</p>
-          <h2 id="context-title">Product Launch Readiness Pack</h2>
+        <h2 id="context-title">Product Launch Readiness Pack</h2>
+        <p class="context-format-icons" aria-label="Multiple source formats">📄 📊 📧 ☑ 📋 📑</p>
+        <p class="context-source-copy">The challenge is understanding how the context fits together.</p>
+
+        <div class="context-source-actions">
+          <button class="source-toggle" id="toggle-source-pack" type="button" aria-expanded="false" aria-controls="source-pack-frame-wrap">View Original Launch Pack</button>
         </div>
-
-        <p class="context-source-copy">
-          <em>The challenge is understanding how they fit together.</em>
-          View the original launch pack used by Hold.
-        </p>
-
-        <button class="source-toggle" id="toggle-source-pack" type="button" aria-expanded="false" aria-controls="source-pack-frame-wrap">View Original Launch Pack</button>
         <div class="source-frame-wrap" id="source-pack-frame-wrap" hidden>
           <iframe class="source-frame" src="hold-v6-launch-pack.html" title="Original Launch Pack"></iframe>
         </div>
