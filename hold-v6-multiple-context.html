@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hold V6 &ndash; Launch Readiness</title>
+  <title>Hold V6 &ndash; Multiple Context Sources</title>
   <meta
     name="description"
-    content="Hold V6 prototype showing how launch readiness context connects across multiple documents and team perspectives."
+    content="Hold V6 demonstrates how understanding can be connected across multiple context sources, formats and perspectives."
   />
   <link rel="stylesheet" href="style.css?v=51" />
   <style>
@@ -72,45 +72,13 @@
       font-style: italic;
     }
 
-    .story-flow {
-      margin: 6px 0 0;
-      color: #40564e;
-      font-size: clamp(1rem, 2vw, 1.16rem);
-      font-weight: 750;
-    }
-
     .story-orientation {
       max-width: 640px;
       margin: 0;
       color: var(--muted);
       font-size: 1rem;
       line-height: 1.53;
-    }
-
-    .demo-note {
-      display: grid;
-      gap: 5px;
-      max-width: 720px;
-      margin: 0 auto 20px;
-      padding: 0 12px 12px;
-      border-bottom: 1px solid rgba(216, 225, 216, 0.75);
-      color: #465e55;
-      text-align: center;
-    }
-
-    .demo-note h2 {
-      margin: 0;
-      color: #557268;
-      font-size: 0.76rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .demo-note p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.42;
+      font-style: italic;
     }
 
     section {
@@ -160,12 +128,6 @@
 
     .context-card h2 {
       font-size: clamp(1.25rem, 2.4vw, 1.65rem);
-    }
-
-    .context-intent {
-      margin: 0;
-      color: var(--muted);
-      font-style: italic;
     }
 
     .context-source-copy {
@@ -431,29 +393,21 @@
 <body class="v6-page">
   <main class="page">
     <header class="topbar" aria-label="Hold v6 header">
-      <h1 class="brand-title">Hold V6 &ndash; Launch Readiness</h1>
-      <p class="brand-subtitle">What connects across the launch pack?</p>
-      <p class="story-flow">Launch Pack &rarr; Perspective &rarr; Connected Understanding</p>
-      <p class="story-orientation">Start with the launch pack, then see what connects across the documents.</p>
+      <h1 class="brand-title">Hold V6 &ndash; Multiple Context Sources</h1>
+      <p class="brand-subtitle">Understanding rarely comes from one source.</p>
+      <p class="story-orientation">V6 explores what happens when context begins to meet itself.</p>
     </header>
-
-    <section class="demo-note" aria-labelledby="demo-note-title">
-      <h2 id="demo-note-title">Demonstration Note</h2>
-      <p>This V6 prototype demonstrates Hold&rsquo;s ability to connect understanding across multiple launch documents.</p>
-      <p>In a live environment, available views, information and document access would be governed by permissions, role access and organisational policy.</p>
-    </section>
 
     <section aria-labelledby="context-title">
       <div class="context-card">
         <div>
           <p class="eyebrow">Choose a Demonstration Context</p>
           <h2 id="context-title">Product Launch Readiness Pack</h2>
-          <p class="context-intent">Explore how Hold connects understanding across multiple launch documents and team perspectives.</p>
         </div>
 
         <p class="context-source-copy">
-          The following documents represent the information available across Marketing, Operations, Finance, Customer Support, Supplier Management and Website teams.
           <em>The challenge is understanding how they fit together.</em>
+          View the original launch pack used by Hold.
         </p>
 
         <button class="source-toggle" id="toggle-source-pack" type="button" aria-expanded="false" aria-controls="source-pack-frame-wrap">View Original Launch Pack</button>
