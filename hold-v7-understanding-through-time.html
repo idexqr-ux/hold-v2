@@ -1,0 +1,2662 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hold V7 &mdash; Understanding Through Time</title>
+  <meta
+    name="description"
+    content="Hold V7 explores Understanding Through Time and the first demonstration of Preserved Understanding."
+  >
+  <style>
+    :root {
+      --ink: #283531;
+      --muted: #64746e;
+      --paper: #f7f8f4;
+      --panel: #ffffff;
+      --celadon: #dce9df;
+      --sage: #eef4ed;
+      --line: #d8e1d8;
+      --line-strong: #a8c2b5;
+      --accent: #557268;
+      --shadow: 0 16px 42px rgba(40, 53, 49, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(220, 233, 223, 0.72), transparent 30rem),
+        linear-gradient(180deg, var(--paper), #fbfbf8);
+      color: var(--ink);
+      font-family: Georgia, serif;
+      line-height: 1.55;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .page {
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 58px;
+    }
+
+    .topbar {
+      display: grid;
+      justify-items: center;
+      gap: 10px;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 10px 0 28px;
+      text-align: center;
+    }
+
+    .draft-label,
+    .eyebrow {
+      margin: 0;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .brand-title {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.03;
+    }
+
+    .brand-subtitle {
+      margin: 0;
+      color: #52675f;
+      font-size: clamp(1.05rem, 2vw, 1.24rem);
+      font-weight: 650;
+    }
+
+    .core-question {
+      margin: 4px 0 0;
+      padding: 11px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.74);
+      color: #40564e;
+      font-size: clamp(1rem, 2vw, 1.14rem);
+      font-style: italic;
+    }
+
+    .concept-line {
+      max-width: 720px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .format-icons {
+      margin: 0;
+      color: var(--accent);
+      font-family: "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
+      font-size: 1.18rem;
+      line-height: 1.2;
+      word-spacing: 0.35em;
+    }
+
+    .snapshot-records-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      width: 100%;
+      margin-top: 7px;
+    }
+
+    .snapshot-records-disclosure {
+      min-width: 0;
+    }
+
+    .snapshot-records-button {
+      width: 100%;
+      min-height: 40px;
+      padding: 9px 13px;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: var(--celadon);
+      color: #40564e;
+      cursor: pointer;
+      font-weight: 750;
+      list-style: none;
+    }
+
+    .snapshot-records-button::-webkit-details-marker {
+      display: none;
+    }
+
+    .snapshot-records-button:hover,
+    .snapshot-records-button:focus-visible {
+      background: var(--sage);
+      outline: none;
+    }
+
+    .snapshot-records-button::after {
+      margin-left: 0.55em;
+      content: "\25BE";
+    }
+
+    .snapshot-records-disclosure[open] > .snapshot-records-button::after {
+      content: "\25B4";
+    }
+
+    .snapshot-records-button .expanded-label,
+    .snapshot-records-disclosure[open] > .snapshot-records-button .collapsed-label {
+      display: none;
+    }
+
+    .snapshot-records-disclosure[open] > .snapshot-records-button .expanded-label {
+      display: inline;
+    }
+
+    .snapshot-records-disclosure:not([open]) > .body-of-work-card {
+      display: none;
+    }
+
+    .snapshot-records-disclosure > .body-of-work-card {
+      margin-top: 10px;
+      padding: 14px;
+      box-shadow: none;
+      text-align: left;
+    }
+
+    .snapshot-records-disclosure .work-records {
+      grid-template-columns: 1fr;
+    }
+
+    .snapshot-records-disclosure .body-of-work-heading h2 {
+      font-size: 1.02rem;
+    }
+
+    .snapshot-records-disclosure .snapshot-provenance {
+      margin-top: 0;
+    }
+
+    .scenario-card,
+    .understanding-card,
+    .content-card,
+    .body-of-work-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow);
+    }
+
+    .scenario-card {
+      display: grid;
+      gap: 7px;
+      padding: 18px 20px;
+      text-align: center;
+    }
+
+    .example-heading {
+      display: grid;
+      gap: 10px;
+      padding: 18px 0 4px;
+    }
+
+    .example-heading + .time-comparison {
+      margin-top: 18px;
+    }
+
+    .example-heading.is-secondary {
+      position: relative;
+      margin-top: 52px;
+      padding-top: 32px;
+    }
+
+    .example-heading.is-secondary::before {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: min(680px, 86%);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
+      content: "";
+      transform: translateX(-50%);
+    }
+
+    .example-heading h1,
+    .example-heading h2 {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      line-height: 1.18;
+      text-align: center;
+    }
+
+    .example-heading > p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-style: italic;
+      text-align: center;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    .scenario-card h1 {
+      margin: 0;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      line-height: 1.18;
+    }
+
+    .scenario-card p:last-child {
+      max-width: 720px;
+      margin: 0 auto;
+      color: var(--muted);
+    }
+
+    .time-comparison {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .understanding-through-time {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 750;
+    }
+
+    .understanding-through-time strong {
+      padding: 6px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.82);
+      color: #40564e;
+    }
+
+    .understanding-through-time span {
+      color: var(--accent);
+    }
+
+    .body-of-work-card {
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+      padding: 20px;
+    }
+
+    .body-of-work-heading {
+      display: grid;
+      gap: 6px;
+      padding-bottom: 13px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .body-of-work-heading h2 {
+      margin: 0;
+      font-size: 1.22rem;
+      line-height: 1.2;
+    }
+
+    .body-of-work-heading p:last-child {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .work-records {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .work-record {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 8px;
+      min-width: 0;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcf9;
+    }
+
+    .work-record-title {
+      display: grid;
+      grid-template-columns: 1.35em minmax(0, 1fr);
+      gap: 8px;
+      align-items: baseline;
+    }
+
+    .work-record-title .document-icon {
+      opacity: 0.72;
+      text-align: center;
+      font-family: "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
+    }
+
+    .work-record-title h3 {
+      margin: 0;
+      color: #40564e;
+      font-size: 0.98rem;
+      line-height: 1.28;
+    }
+
+    .work-record-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 5px 12px;
+      margin: 0;
+    }
+
+    .work-record-meta div {
+      min-width: 0;
+    }
+
+    .work-record-meta dt {
+      color: var(--muted);
+      font-size: 0.67rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .work-record-meta dd {
+      margin: 0;
+      color: #40564e;
+      font-size: 0.78rem;
+      overflow-wrap: anywhere;
+    }
+
+    .work-record-open {
+      justify-self: start;
+      min-height: 34px;
+      padding: 7px 10px;
+      border: 1px solid var(--line-strong);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.84);
+      color: #40564e;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 750;
+    }
+
+    .work-record-open:hover,
+    .work-record-open:focus-visible {
+      background: var(--sage);
+    }
+
+    .understanding-card,
+    .content-card {
+      padding: 20px;
+    }
+
+    .understanding-card {
+      display: grid;
+      align-content: start;
+      gap: 12px;
+    }
+
+    .understanding-card.current {
+      border-color: var(--line-strong);
+      background: linear-gradient(180deg, rgba(238, 244, 237, 0.94), rgba(255, 255, 255, 0.94));
+    }
+
+    .card-heading {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      padding-bottom: 11px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .card-heading h2,
+    .content-card h2 {
+      margin: 0;
+      font-size: 1.16rem;
+      line-height: 1.2;
+    }
+
+    .moment {
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .comparison-baseline {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 7px;
+      margin: 0;
+      padding: 9px 11px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
+
+    .comparison-baseline strong {
+      color: #40564e;
+    }
+
+    .comparison-baseline .baseline-arrow {
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .held-record-summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 0;
+      padding: 11px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--sage);
+    }
+
+    .held-record-summary div {
+      display: grid;
+      gap: 3px;
+    }
+
+    .held-record-summary strong {
+      color: #40564e;
+      font-size: 0.75rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .held-record-summary span {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.35;
+    }
+
+    .understanding-state-context {
+      margin: 0;
+      padding: 11px 12px;
+      border-left: 3px solid var(--line-strong);
+      background: #fbfcf9;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .understanding-state-context strong {
+      color: #40564e;
+    }
+
+    .understanding-section-title {
+      margin: 2px 0 -3px;
+      color: #40564e;
+      font-size: 0.96rem;
+    }
+
+    .understanding-list,
+    .change-list,
+    .impact-list,
+    .source-list {
+      display: grid;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .understanding-list li,
+    .change-list li,
+    .impact-list li {
+      position: relative;
+      padding-left: 1.15em;
+      color: #40564e;
+    }
+
+    .understanding-list li::before,
+    .impact-list li::before {
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      content: "\2022";
+    }
+
+    .change-list li::before {
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      content: "\2192";
+    }
+
+    .understanding-question {
+      margin: 0 0 12px;
+      padding: 10px 12px;
+      border-left: 3px solid var(--accent);
+      background: var(--sage);
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .understanding-question strong {
+      color: #40564e;
+    }
+
+    .snapshot-sources {
+      display: grid;
+      gap: 7px;
+      margin-top: 3px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .snapshot-sources h3 {
+      margin: 0;
+      color: var(--accent);
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+    }
+
+    .snapshot-source-list {
+      display: grid;
+      gap: 5px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .snapshot-source-list li {
+      margin: 0;
+    }
+
+    .snapshot-source-button {
+      display: grid;
+      grid-template-columns: 1.25em minmax(0, 1fr);
+      gap: 7px;
+      align-items: baseline;
+      width: 100%;
+      padding: 5px 6px;
+      border: 0;
+      border-radius: 5px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.84rem;
+      line-height: 1.4;
+      text-align: left;
+    }
+
+    .snapshot-source-button:hover,
+    .snapshot-source-button:focus-visible {
+      background: rgba(220, 233, 223, 0.62);
+      color: #40564e;
+      outline: none;
+    }
+
+    .snapshot-source-button .document-icon {
+      opacity: 0.68;
+      text-align: center;
+      font-family: "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
+    }
+
+    .snapshot-provenance {
+      display: grid;
+      margin-top: 3px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .snapshot-provenance:not([open]) > :not(summary) {
+      display: none;
+    }
+
+    .snapshot-provenance > summary {
+      width: fit-content;
+      padding: 7px 10px;
+      border: 1px solid var(--line-strong);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 750;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .snapshot-provenance > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .snapshot-provenance > summary::after {
+      margin-left: 0.55em;
+      content: "\25BE";
+    }
+
+    .snapshot-provenance[open] > summary::after {
+      content: "\25B4";
+    }
+
+    .snapshot-provenance > summary:hover,
+    .snapshot-provenance > summary:focus-visible {
+      background: var(--sage);
+      outline: none;
+    }
+
+    .provenance-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 14px;
+      margin: 10px 0 0;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcf9;
+    }
+
+    .provenance-grid div {
+      display: grid;
+      align-content: start;
+      gap: 1px;
+    }
+
+    .provenance-grid .provenance-purpose {
+      grid-column: 1 / -1;
+      padding-top: 7px;
+      border-top: 1px solid rgba(216, 225, 216, 0.7);
+    }
+
+    .provenance-grid .continuity-principle {
+      grid-column: 1 / -1;
+      margin-top: 2px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(216, 225, 216, 0.7);
+    }
+
+    .continuity-principle dd {
+      color: var(--muted) !important;
+      font-style: italic;
+    }
+
+    .provenance-grid dt {
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .provenance-grid dd {
+      margin: 0;
+      color: #40564e;
+      font-size: 0.84rem;
+      line-height: 1.4;
+    }
+
+    .source-dialog {
+      width: min(760px, calc(100% - 32px));
+      max-height: calc(100vh - 48px);
+      padding: 0;
+      overflow: hidden;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--ink);
+      box-shadow: 0 24px 70px rgba(40, 53, 49, 0.24);
+    }
+
+    .source-dialog::backdrop {
+      background: rgba(40, 53, 49, 0.42);
+      backdrop-filter: blur(2px);
+    }
+
+    .source-dialog-shell {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      max-height: calc(100vh - 48px);
+    }
+
+    .source-dialog-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--line);
+      background: var(--sage);
+    }
+
+    .source-dialog-header h2 {
+      margin: 3px 0 0;
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      line-height: 1.2;
+    }
+
+    .source-dialog-close {
+      min-width: 36px;
+      min-height: 36px;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+      color: #40564e;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    .source-dialog-close:hover,
+    .source-dialog-close:focus-visible {
+      background: #fff;
+    }
+
+    .source-document {
+      overflow: auto;
+      padding: clamp(20px, 4vw, 34px);
+      background:
+        linear-gradient(90deg, transparent 0, transparent 31px, rgba(216, 225, 216, 0.42) 32px, transparent 33px),
+        #fff;
+    }
+
+    .source-document-masthead {
+      display: grid;
+      gap: 7px;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--line-strong);
+    }
+
+    .source-document-type {
+      margin: 0;
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .source-document-masthead h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(1.35rem, 3vw, 1.85rem);
+      line-height: 1.18;
+    }
+
+    .source-document-reference {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .source-document-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 18px;
+      margin: 0 0 20px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcf9;
+    }
+
+    .source-document-meta div {
+      display: grid;
+      gap: 1px;
+    }
+
+    .source-document-meta dt {
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .source-document-meta dd {
+      margin: 0;
+      color: #40564e;
+      font-size: 0.9rem;
+    }
+
+    .source-document-section + .source-document-section {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .source-document-section h3 {
+      margin: 0 0 7px;
+      color: #40564e;
+      font-size: 1rem;
+    }
+
+    .source-document-section p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .source-document-section p + p {
+      margin-top: 8px;
+    }
+
+    .source-evidence-note {
+      display: grid;
+      gap: 5px;
+      margin-top: 22px;
+      padding: 13px 14px;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: var(--sage);
+    }
+
+    .source-evidence-note strong {
+      color: #40564e;
+      font-size: 0.88rem;
+    }
+
+    .source-evidence-note p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .held-understanding-record {
+      display: grid;
+      gap: 20px;
+    }
+
+    .held-understanding-status {
+      width: fit-content;
+      margin: 0;
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: var(--sage);
+      color: #40564e;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .held-understanding-record > h3 {
+      margin: -10px 0 0;
+      color: var(--ink);
+      font-size: 1.25rem;
+    }
+
+    .held-understanding-section {
+      display: grid;
+      gap: 9px;
+    }
+
+    .held-understanding-section + .held-understanding-section {
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .held-understanding-section h3,
+    .held-understanding-section h4 {
+      margin: 0;
+      color: #40564e;
+      font-size: 0.96rem;
+    }
+
+    .held-question {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    .held-understanding-list,
+    .held-evidence-list,
+    .held-evidence-path {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .held-evidence-list {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .held-evidence-list .snapshot-source-button {
+      width: 100%;
+    }
+
+    .held-reasoning {
+      margin: 2px 0 0;
+      padding: 10px 12px;
+      border-left: 3px solid var(--line-strong);
+      background: #fbfcf9;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .source-provenance-list {
+      display: grid;
+      gap: 10px;
+      margin: 10px 0 0;
+    }
+
+    .source-provenance-record {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcf9;
+    }
+
+    .source-provenance-record h5 {
+      margin: 0 0 9px;
+      color: #40564e;
+      font-size: 0.9rem;
+    }
+
+    .source-provenance-record dl {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px 14px;
+      margin: 0;
+    }
+
+    .source-provenance-record dl div {
+      min-width: 0;
+    }
+
+    .source-provenance-record dt {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .source-provenance-record dd {
+      margin: 2px 0 0;
+      overflow-wrap: anywhere;
+      color: #40564e;
+      font-size: 0.84rem;
+      line-height: 1.4;
+    }
+
+    .source-document-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 22px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .section-stack {
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .example-divider {
+      display: grid;
+      justify-items: center;
+      gap: 6px;
+      margin: 50px auto 24px;
+      padding-top: 30px;
+      border-top: 1px solid var(--line-strong);
+      text-align: center;
+    }
+
+    .example-divider h2 {
+      margin: 0;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      line-height: 1.18;
+    }
+
+    .example-divider p:last-child {
+      max-width: 660px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .content-card {
+      display: grid;
+      gap: 13px;
+    }
+
+    .content-card > p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .change-summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .change-point {
+      min-height: 100%;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--sage);
+    }
+
+    .change-point strong {
+      display: block;
+      margin-bottom: 3px;
+      color: #40564e;
+    }
+
+    .change-point span {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .source-list {
+      gap: 0;
+    }
+
+    .source-item {
+      display: grid;
+      grid-template-columns: 1.45em minmax(0, 1fr);
+      gap: 3px 9px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .source-item:last-child {
+      border-bottom: 0;
+    }
+
+    .source-icon {
+      grid-row: 1 / span 2;
+      opacity: 0.75;
+      text-align: center;
+      font-family: "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
+    }
+
+    .source-name {
+      font-weight: 750;
+    }
+
+    .source-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px 14px;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .source-meta span::before {
+      color: var(--line-strong);
+      content: "\2022";
+      margin-right: 6px;
+    }
+
+    .source-meta span:first-child::before {
+      content: "";
+      margin: 0;
+    }
+
+    .history {
+      position: relative;
+      display: grid;
+      gap: 16px;
+      margin: 0;
+      padding: 2px 0 0 24px;
+      list-style: none;
+    }
+
+    .history::before {
+      position: absolute;
+      top: 8px;
+      bottom: 8px;
+      left: 7px;
+      width: 1px;
+      background: var(--line-strong);
+      content: "";
+    }
+
+    .history li {
+      position: relative;
+    }
+
+    .history li::before {
+      position: absolute;
+      top: 0.42em;
+      left: -21px;
+      width: 9px;
+      height: 9px;
+      border: 2px solid var(--panel);
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 1px var(--line-strong);
+      content: "";
+    }
+
+    .history time {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .history strong {
+      display: block;
+      color: #40564e;
+    }
+
+    .history p {
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .snapshot-note {
+      margin: 0;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-style: italic;
+    }
+
+    .understanding-preservation {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      margin-top: 16px;
+      padding: 14px;
+      border: 1px solid var(--line-strong);
+      border-radius: 9px;
+      background: var(--sage);
+    }
+
+    .understanding-preservation strong {
+      display: block;
+      margin-bottom: 3px;
+      color: #40564e;
+      font-size: 0.92rem;
+    }
+
+    .understanding-preservation p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .save-briefing-button {
+      min-width: 132px;
+      padding: 10px 15px;
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      background: var(--accent);
+      color: #fff;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 750;
+    }
+
+    .save-briefing-button:hover,
+    .save-briefing-button:focus-visible {
+      background: #405f54;
+    }
+
+    .save-briefing-button[disabled] {
+      cursor: default;
+      opacity: 0.72;
+    }
+
+    .scenario-save-status {
+      grid-column: 1 / -1;
+      margin-top: -6px !important;
+      padding-top: 11px;
+      border-top: 1px solid var(--line);
+      color: #40564e !important;
+      font-size: 0.86rem !important;
+    }
+
+    .view-held-button {
+      width: fit-content;
+      margin-top: 8px;
+      padding: 7px 10px;
+      border: 1px solid var(--line-strong);
+      border-radius: 7px;
+      background: var(--panel);
+      color: var(--accent);
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.82rem;
+      font-weight: 750;
+    }
+
+    .view-held-button:hover,
+    .view-held-button:focus-visible {
+      background: var(--sage);
+    }
+
+    footer {
+      display: grid;
+      gap: 4px;
+      padding: 0 16px 34px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    footer a {
+      color: var(--accent);
+      font-weight: 700;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 760px) {
+      .time-comparison,
+      .change-summary,
+      .work-records,
+      .snapshot-records-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .source-meta {
+        display: grid;
+        gap: 2px;
+      }
+
+      .source-meta span::before {
+        content: "";
+        margin: 0;
+      }
+
+      .source-document-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .provenance-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .held-record-summary {
+        grid-template-columns: 1fr;
+      }
+
+      .source-provenance-record dl {
+        grid-template-columns: 1fr;
+      }
+
+      .provenance-grid .provenance-purpose {
+        grid-column: auto;
+      }
+
+      .provenance-grid .continuity-principle {
+        grid-column: auto;
+      }
+
+      .work-record-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .understanding-preservation {
+        grid-template-columns: 1fr;
+      }
+
+      .save-briefing-button {
+        width: 100%;
+      }
+    }
+    .foundation-principle {
+      margin-bottom: 28px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(239, 246, 242, .94), rgba(255, 255, 255, .97));
+    }
+
+    .foundation-principle h2 { margin: 4px 0 8px; font-size: 1.1rem; }
+    .foundation-principle p { margin: 0; color: var(--muted); }
+    .foundation-path { display: flex; flex-wrap: wrap; gap: 7px; margin: 16px 0; padding: 0; list-style: none; }
+    .foundation-path li { display: flex; align-items: center; gap: 7px; font-size: .82rem; font-weight: 700; }
+    .foundation-path li:not(:last-child)::after { content: "\2192"; color: var(--muted); font-weight: 400; }
+    .foundation-version { padding-top: 12px; border-top: 1px solid var(--line); font-size: .86rem; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <p class="brand-title">Hold V7</p>
+      <p class="brand-subtitle">Understanding Through Time</p>
+      <p class="eyebrow">The first demonstration of Preserved Understanding</p>
+      <p class="core-question">What has changed since we last understood this?</p>
+      <p class="concept-line"><em>Preserve what was understood before exploring what is understood now.</em></p>
+      <p class="format-icons" aria-label="Documents, data, email, checklist, brief and notes">📄 📊 📧 ☑ 📋 📑</p>
+    </header>
+
+    <section class="foundation-principle" aria-labelledby="foundation-title">
+      <p class="eyebrow">V-series foundation</p>
+      <h2 id="foundation-title">Preserved Understanding and Evidence Paths</h2>
+      <p>Hold retains what was understood, why it was understood and the source records that supported it. Later evidence can change the current position without silently rewriting the organisation&rsquo;s earlier understanding.</p>
+      <ol class="foundation-path" aria-label="Verification path">
+        <li>Understanding</li>
+        <li>Sources</li>
+        <li>Original Documents / Records</li>
+        <li>Evidence Path</li>
+      </ol>
+      <p class="foundation-version"><strong>V7 preservation:</strong> timestamped understanding states and their evidence paths remain available for comparison through time, including what changed, what stayed stable and which new evidence altered the position.</p>
+    </section>
+
+    <section class="example-heading" aria-labelledby="scenario-title">
+      <h1 id="scenario-title">Forklift Fleet Replacement Review</h1>
+      <p>Comparing an earlier planning position with the current decision-preparation state.</p>
+      <div class="snapshot-records-grid">
+        <details class="snapshot-records-disclosure">
+          <summary class="snapshot-records-button">
+            <span class="collapsed-label">📁 Then (14 May 2026)</span>
+            <span class="expanded-label">📁 Hide Then records</span>
+          </summary>
+          <section class="body-of-work-card" aria-labelledby="forklift-then-title">
+            <header class="body-of-work-heading">
+              <p class="eyebrow">Previous snapshot</p>
+              <h2 id="forklift-then-title">Source Documents · Then</h2>
+              <p>Evidence available when the replacement decision remained in planning.</p>
+            </header>
+            <ul class="work-records">
+              <li class="work-record">
+                <div class="work-record-title"><span class="document-icon" aria-hidden="true">📄</span><h3>Forklift Fleet Replacement Review</h3></div>
+                <dl class="work-record-meta">
+                  <div><dt>Owner</dt><dd>Operations Review Group</dd></div>
+                  <div><dt>Review date</dt><dd>14 May 2026</dd></div>
+                  <div><dt>Version</dt><dd>1.7</dd></div>
+                  <div><dt>Status</dt><dd>Replacement planning</dd></div>
+                  <div><dt>Continuity</dt><dd>Later updated to version 1.9</dd></div>
+                </dl>
+                <button class="work-record-open" type="button" data-source-document="forklift-review-previous">Open source record</button>
+              </li>
+              <li class="work-record">
+                <div class="work-record-title"><span class="document-icon" aria-hidden="true">📋</span><h3>Maintenance Activity Log</h3></div>
+                <dl class="work-record-meta">
+                  <div><dt>Owner</dt><dd>Engineering Services</dd></div>
+                  <div><dt>Period</dt><dd>June 2025 – May 2026</dd></div>
+                  <div><dt>Reference</dt><dd>ENG-FLT04-LOG-2025-26</dd></div>
+                  <div><dt>Status</dt><dd>Active record</dd></div>
+                </dl>
+                <button class="work-record-open" type="button" data-source-document="maintenance-log">Open source record</button>
+              </li>
+              <li class="work-record">
+                <div class="work-record-title"><span class="document-icon" aria-hidden="true">📑</span><h3>Initial Replacement Planning Note</h3></div>
+                <dl class="work-record-meta">
+                  <div><dt>Owner</dt><dd>Operations Management</dd></div>
+                  <div><dt>Date</dt><dd>10 May 2026</dd></div>
+                  <div><dt>Version</dt><dd>Draft 0.3</dd></div>
+                  <div><dt>Status</dt><dd>Inputs outstanding</dd></div>
+                </dl>
+                <button class="work-record-open" type="button" data-source-document="replacement-planning-note">Open source record</button>
+              </li>
+            </ul>
+            <details class="snapshot-provenance">
+              <summary>View point-in-time provenance</summary>
+              <dl class="provenance-grid">
+                <div><dt>Snapshot ID</dt><dd>SNAP-2026-05-14-1020-FL01</dd></div>
+                <div><dt>Captured</dt><dd>14 May 2026 · 10:20 BST</dd></div>
+                <div><dt>Understanding State</dt><dd>Replacement Planning</dd></div>
+                <div><dt>Source Records</dt><dd>3 connected records</dd></div>
+                <div><dt>Latest Source Update</dt><dd>13 May 2026 · 16:10 BST</dd></div>
+                <div><dt>Evidence Confidence</dt><dd>Medium</dd></div>
+                <div><dt>Comparison Baseline</dt><dd>Initial planning position</dd></div>
+                <div><dt>Preservation Status</dt><dd>Understanding Held</dd></div>
+                <div class="provenance-purpose"><dt>Snapshot Purpose</dt><dd>Preserved the planning position while supplier engagement and updated budget forecasting remained outstanding.</dd></div>
+              </dl>
+            </details>
+          </section>
+        </details>
+
+        <details class="snapshot-records-disclosure">
+          <summary class="snapshot-records-button">
+            <span class="collapsed-label">📁 Now (18 June 2026)</span>
+            <span class="expanded-label">📁 Hide Now records</span>
+          </summary>
+          <section class="body-of-work-card" aria-labelledby="forklift-now-title">
+            <header class="body-of-work-heading">
+              <p class="eyebrow">Current snapshot</p>
+              <h2 id="forklift-now-title">Source Documents · Now</h2>
+              <p>Evidence available after supplier, budget and governance inputs were received.</p>
+            </header>
+            <ul class="work-records">
+              <li class="work-record">
+                <div class="work-record-title"><span class="document-icon" aria-hidden="true">📄</span><h3>Forklift Fleet Replacement Review</h3></div>
+                <dl class="work-record-meta">
+                  <div><dt>Owner</dt><dd>Operations Review Group</dd></div>
+                  <div><dt>Updated</dt><dd>18 June 2026</dd></div>
+                  <div><dt>Version</dt><dd>1.9</dd></div>
+                  <div><dt>Status</dt><dd>Governance preparation</dd></div>
+                  <div><dt>Continuity</dt><dd>Updated from version 1.7</dd></div>
+                </dl>
+                <button class="work-record-open" type="button" data-source-document="forklift-review-current">Open source record</button>
+              </li>
+              <li class="work-record">
+                <div class="work-record-title"><span class="document-icon" aria-hidden="true">📋</span><h3>Replacement Supplier Comparison</h3></div>
+                <dl class="work-record-meta">
+                  <div><dt>Owner</dt><dd>Procurement</dd></div>
+                  <div><dt>Updated</dt><dd>12 June 2026</dd></div>
+                  <div><dt>Version</dt><dd>Final comparison</dd></div>
+                  <div><dt>Status</dt><dd>Engagement complete</dd></div>
+                </dl>
+                <button class="work-record-open" type="button" data-source-document="supplier-comparison">Open source record</button>
+              </li>
+              <li class="work-record">
+                <div class="work-record-title"><span class="document-icon" aria-hidden="true">📊</span><h3>Forklift Replacement Budget Forecast</h3></div>
+                <dl class="work-record-meta">
+                  <div><dt>Owner</dt><dd>Commercial Finance</dd></div>
+                  <div><dt>Updated</dt><dd>16 June 2026</dd></div>
+                  <div><dt>Version</dt><dd>Forecast 1.1</dd></div>
+                  <div><dt>Status</dt><dd>Received</dd></div>
+                </dl>
+                <button class="work-record-open" type="button" data-source-document="forklift-budget">Open source record</button>
+              </li>
+              <li class="work-record">
+                <div class="work-record-title"><span class="document-icon" aria-hidden="true">📑</span><h3>Capital Expenditure Governance Note</h3></div>
+                <dl class="work-record-meta">
+                  <div><dt>Owner</dt><dd>Governance Review Group</dd></div>
+                  <div><dt>Updated</dt><dd>17 June 2026</dd></div>
+                  <div><dt>Reference</dt><dd>GOV-CAPEX-ROUTE-2026-22</dd></div>
+                  <div><dt>Status</dt><dd>Route confirmed</dd></div>
+                </dl>
+                <button class="work-record-open" type="button" data-source-document="capex-governance">Open source record</button>
+              </li>
+            </ul>
+            <details class="snapshot-provenance">
+              <summary>View point-in-time provenance</summary>
+              <dl class="provenance-grid">
+                <div><dt>Snapshot ID</dt><dd>SNAP-2026-06-18-1145-FL02</dd></div>
+                <div><dt>Captured</dt><dd>18 June 2026 · 11:45 BST</dd></div>
+                <div><dt>Understanding State</dt><dd>Decision Preparation</dd></div>
+                <div><dt>Source Records</dt><dd>4 connected records</dd></div>
+                <div><dt>Latest Source Update</dt><dd>18 June 2026 · 09:05 BST</dd></div>
+                <div><dt>Evidence Confidence</dt><dd>High</dd></div>
+                <div><dt>Comparison Baseline</dt><dd>14 May planning snapshot</dd></div>
+                <div><dt>Preservation Status</dt><dd data-preservation-state="forklift">Hold Ready</dd></div>
+                <div class="provenance-purpose"><dt>Snapshot Purpose</dt><dd>Supplier, budget and governance evidence materially increased decision readiness compared with the earlier planning position.</dd></div>
+              </dl>
+            </details>
+          </section>
+        </details>
+      </div>
+    </section>
+
+    <div class="understanding-through-time" aria-label="Understanding through time">
+      <strong>Past Understanding State</strong><span>&rarr;</span><strong>What Changed</strong><span>&rarr;</span><strong>Current Understanding State</strong>
+    </div>
+    <section class="time-comparison" aria-label="Understanding compared across time">
+      <article class="understanding-card">
+        <div class="card-heading">
+          <h2>Previous Understanding</h2>
+          <span class="moment">Understanding Held &middot; 14 May 2026</span>
+        </div>
+        <div class="held-record-summary" aria-label="Held understanding details">
+          <div><strong>Held on</strong><span>14 May 2026 &middot; 10:20 BST</span></div>
+          <div><strong>Snapshot ID</strong><span>SNAP-2026-05-14-1020-FL01</span></div>
+          <div><strong>Evidence path</strong><span>Available</span></div>
+        </div>
+        <p class="understanding-state-context"><strong>Point-in-time understanding.</strong> This is what the organisation reasonably understood on 14 May 2026, based on the evidence available at that time. It is the held baseline for this comparison.</p>
+        <p class="understanding-question"><strong>Question:</strong> What was understood about the Forklift Fleet Replacement Review on 14 May 2026?</p>
+        <h3 class="understanding-section-title">Understanding</h3>
+        <ul class="understanding-list">
+          <li>A replacement decision was expected during Quarter 3.</li>
+          <li>Further supplier engagement was outstanding.</li>
+          <li>Updated budget forecasting was still required.</li>
+          <li>The review remained in monitoring and replacement planning.</li>
+        </ul>
+        <section class="snapshot-sources" aria-labelledby="forklift-previous-sources">
+          <h3 id="forklift-previous-sources">Held Evidence</h3>
+          <ul class="snapshot-source-list">
+            <li><button class="snapshot-source-button" type="button" data-source-document="forklift-review-previous"><span class="document-icon" aria-hidden="true">📄</span><span>Forklift Fleet Replacement Review</span></button></li>
+            <li><button class="snapshot-source-button" type="button" data-source-document="maintenance-log"><span class="document-icon" aria-hidden="true">📋</span><span>Maintenance Activity Log</span></button></li>
+            <li><button class="snapshot-source-button" type="button" data-source-document="replacement-planning-note"><span class="document-icon" aria-hidden="true">📑</span><span>Initial Replacement Planning Note</span></button></li>
+          </ul>
+        </section>
+        <section class="held-understanding-section">
+          <h3>Evidence Path</h3>
+          <ol class="held-evidence-path">
+            <li><strong>Forklift Fleet Replacement Review</strong> &rarr; established the Quarter 3 decision expectation and the planning position.</li>
+            <li><strong>Maintenance Activity Log</strong> &rarr; supported the understanding that reliability remained an active operational concern.</li>
+            <li><strong>Initial Replacement Planning Note</strong> &rarr; showed that supplier and budget inputs were still required before progression.</li>
+          </ol>
+          <p class="held-reasoning"><strong>Reasoning review:</strong> The available operational and maintenance evidence supported continued replacement planning, but did not yet support decision preparation.</p>
+        </section>
+        <details class="snapshot-provenance source-provenance-disclosure">
+          <summary>View Source Provenance</summary>
+          <div class="source-provenance-list">
+            <article class="source-provenance-record">
+              <h5>Forklift Fleet Replacement Review</h5>
+              <dl>
+                <div><dt>Record Owner</dt><dd>Operations Review Group</dd></div>
+                <div><dt>Version</dt><dd>1.7</dd></div>
+                <div><dt>Status</dt><dd>Monitoring and Replacement Planning</dd></div>
+                <div><dt>Last Updated</dt><dd>14 May 2026</dd></div>
+                <div><dt>Source System</dt><dd>SharePoint</dd></div>
+                <div><dt>Source Identifier</dt><dd>OPS-CAPEX-2026-014</dd></div>
+                <div class="provenance-purpose"><dt>Record Location / Path</dt><dd>Operations/Fleet/Replacement Reviews/FLT04/Controlled Copies/1.7</dd></div>
+              </dl>
+            </article>
+            <article class="source-provenance-record">
+              <h5>Maintenance Activity Log</h5>
+              <dl>
+                <div><dt>Record Owner</dt><dd>Engineering Services</dd></div>
+                <div><dt>Version</dt><dd>Extract at 14 May 2026</dd></div>
+                <div><dt>Status</dt><dd>Active Maintenance Record</dd></div>
+                <div><dt>Last Updated</dt><dd>13 May 2026</dd></div>
+                <div><dt>Source System</dt><dd>Engineering Maintenance System</dd></div>
+                <div><dt>Source Identifier</dt><dd>ENG-FLT04-LOG-2025-26</dd></div>
+                <div class="provenance-purpose"><dt>Record Location / Path</dt><dd>Engineering/Assets/FLT04/Maintenance Activity</dd></div>
+              </dl>
+            </article>
+            <article class="source-provenance-record">
+              <h5>Initial Replacement Planning Note</h5>
+              <dl>
+                <div><dt>Record Owner</dt><dd>Operations Management</dd></div>
+                <div><dt>Version</dt><dd>Draft 0.3</dd></div>
+                <div><dt>Status</dt><dd>Inputs Outstanding</dd></div>
+                <div><dt>Last Updated</dt><dd>10 May 2026</dd></div>
+                <div><dt>Source System</dt><dd>Operations Workspace</dd></div>
+                <div><dt>Source Identifier</dt><dd>OPS-FLT04-PLAN-003</dd></div>
+                <div class="provenance-purpose"><dt>Record Location / Path</dt><dd>Operations/Fleet/Replacement Reviews/FLT04/Planning</dd></div>
+              </dl>
+            </article>
+          </div>
+        </details>
+        <details class="snapshot-provenance">
+          <summary>View full held details</summary>
+          <dl class="provenance-grid">
+            <div><dt>Snapshot ID</dt><dd>SNAP-2026-05-14-1020-FL01</dd></div>
+            <div><dt>Captured</dt><dd>14 May 2026 &middot; 10:20 BST</dd></div>
+            <div><dt>Understanding State</dt><dd>Replacement Planning</dd></div>
+            <div><dt>Source Records</dt><dd>3 connected records</dd></div>
+            <div><dt>Latest Source Update</dt><dd>13 May 2026 &middot; 16:10 BST</dd></div>
+            <div><dt>Evidence Confidence</dt><dd>Medium</dd></div>
+            <div><dt>Comparison Baseline</dt><dd>Initial planning position</dd></div>
+            <div><dt>Preservation Status</dt><dd>Understanding Held</dd></div>
+            <div class="provenance-purpose"><dt>Snapshot Purpose</dt><dd>Preserved the planning position while supplier engagement and updated budget forecasting remained outstanding.</dd></div>
+          </dl>
+        </details>
+      </article>
+
+      <article class="understanding-card current">
+        <div class="card-heading">
+          <h2>Current Understanding</h2>
+          <span class="moment" data-current-moment="forklift">Live understanding &middot; 18 June 2026</span>
+        </div>
+        <p class="comparison-baseline">
+          <strong>Comparison baseline</strong>
+          <span>Understanding Held &middot; 14 May 2026</span>
+          <span class="baseline-arrow" aria-hidden="true">&rarr;</span>
+          <span>Current understanding changed since this hold</span>
+        </p>
+        <p class="understanding-state-context"><strong>Current understanding state.</strong> This is the organisation&rsquo;s live position after new supplier, budget and governance evidence changed the earlier held understanding.</p>
+        <p class="understanding-question"><strong>Question:</strong> What has changed in the Forklift Fleet Replacement Review since the previous understanding?</p>
+        <ul class="understanding-list">
+          <li>Supplier engagement has been completed with three viable options reviewed.</li>
+          <li>An updated budget forecast has been received.</li>
+          <li>The approval route and expenditure threshold are now clearer.</li>
+          <li>Governance review is the principal remaining step before a decision.</li>
+        </ul>
+        <section class="snapshot-sources" aria-labelledby="forklift-current-sources">
+          <h3 id="forklift-current-sources">Current Evidence</h3>
+          <ul class="snapshot-source-list">
+            <li><button class="snapshot-source-button" type="button" data-source-document="forklift-review-current"><span class="document-icon" aria-hidden="true">📄</span><span>Forklift Fleet Replacement Review</span></button></li>
+            <li><button class="snapshot-source-button" type="button" data-source-document="supplier-comparison"><span class="document-icon" aria-hidden="true">📋</span><span>Replacement Supplier Comparison</span></button></li>
+            <li><button class="snapshot-source-button" type="button" data-source-document="forklift-budget"><span class="document-icon" aria-hidden="true">📊</span><span>Forklift Replacement Budget Forecast</span></button></li>
+            <li><button class="snapshot-source-button" type="button" data-source-document="capex-governance"><span class="document-icon" aria-hidden="true">📑</span><span>Capital Expenditure Governance Note</span></button></li>
+          </ul>
+        </section>
+        <details class="snapshot-provenance">
+          <summary>View live context</summary>
+          <dl class="provenance-grid">
+            <div><dt>Live State ID</dt><dd>LIVE-2026-06-18-1145-FL02</dd></div>
+            <div><dt>Current as of</dt><dd>18 June 2026 &middot; 11:45 BST</dd></div>
+            <div><dt>Understanding State</dt><dd>Decision Preparation</dd></div>
+            <div><dt>Source Records</dt><dd>4 connected records</dd></div>
+            <div><dt>Latest Source Update</dt><dd>18 June 2026 &middot; 09:05 BST</dd></div>
+            <div><dt>Evidence Confidence</dt><dd>High</dd></div>
+            <div><dt>Comparison Baseline</dt><dd>14 May planning snapshot</dd></div>
+            <div><dt>Preservation Status</dt><dd data-preservation-state="forklift">Hold Ready</dd></div>
+            <div><dt>Held by</dt><dd>Alex Morgan</dd></div>
+            <div><dt>Accountable Role</dt><dd>Logistics Operations Manager</dd></div>
+            <div><dt>Current Role Holder</dt><dd>Priya Shah</dd></div>
+            <div><dt>Review Due</dt><dd>25 December 2026</dd></div>
+            <div class="provenance-purpose"><dt>Snapshot Purpose</dt><dd>Supplier, budget and governance evidence materially increased decision readiness compared with the earlier planning position.</dd></div>
+            <div class="continuity-principle"><dt>Continuity</dt><dd>People contribute understanding. Roles preserve responsibility. Hold maintains both.</dd></div>
+          </dl>
+        </details>
+        <div class="understanding-preservation">
+          <div>
+            <strong data-hold-status-title="forklift">Hold Ready</strong>
+            <p data-hold-status-line="forklift">This understanding has materially changed since the held baseline and is ready to preserve.</p>
+          </div>
+          <button class="save-briefing-button" type="button" data-save-scenario="forklift" aria-describedby="forklift-save-description">Hold this understanding</button>
+          <div class="scenario-save-status" id="forklift-save-description" data-save-status="forklift" role="status">
+            <span>This retains this understanding and its evidence path at this point in time. It does not imply approval or verification.</span>
+            <button class="view-held-button" type="button" data-view-held="forklift" hidden>View Held Understanding</button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <div class="section-stack">
+      <section class="content-card" aria-labelledby="changed-title">
+        <p class="eyebrow">Comparison</p>
+        <h2 id="changed-title">What Changed</h2>
+        <div class="change-summary">
+          <div class="change-point">
+            <strong>Dependencies progressed</strong>
+            <span>Supplier engagement and budget forecasting moved from outstanding to complete.</span>
+          </div>
+          <div class="change-point">
+            <strong>Decision readiness increased</strong>
+            <span>The option, cost and approval position are now sufficiently clear for preparation.</span>
+          </div>
+          <div class="change-point">
+            <strong>The remaining constraint shifted</strong>
+            <span>Governance review is now the main step rather than evidence gathering.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-card" aria-labelledby="matters-title">
+        <p class="eyebrow">Operational meaning</p>
+        <h2 id="matters-title">Why It Matters</h2>
+        <ul class="impact-list">
+          <li>The issue has moved from planning into decision preparation.</li>
+          <li>A concise management briefing may now be needed before governance review.</li>
+          <li>Accountability should shift from chasing inputs to confirming review ownership and timing.</li>
+          <li>The current evidence and connected understanding should be preserved before approval changes the position again.</li>
+        </ul>
+      </section>
+
+      <section class="content-card" aria-labelledby="history-title">
+        <p class="eyebrow">Preserved understanding</p>
+        <h2 id="history-title">Snapshot History</h2>
+        <ol class="history">
+          <li>
+            <time datetime="2026-05-14T10:20">14 May 2026 &middot; 10:20</time>
+            <strong>Planning position preserved</strong>
+            <p>Supplier engagement and updated budget forecasting were recorded as outstanding dependencies.</p>
+          </li>
+          <li>
+            <time datetime="2026-06-18T11:45">18 June 2026 &middot; 11:45</time>
+            <strong data-preservation-history="forklift">Decision preparation position</strong>
+            <p>New evidence shows increased readiness, with governance review now the principal remaining step.</p>
+          </li>
+        </ol>
+        <p class="snapshot-note">
+          Each snapshot represents the connected understanding available to Hold at that moment. Later evidence may change the position without rewriting what was previously understood.
+        </p>
+      </section>
+    </div>
+
+    <header class="example-heading is-secondary">
+      <h2>Estates Drainage Works Review</h2>
+      <p>Comparing an earlier investigation position with the current planning-preparation state.</p>
+      <div class="snapshot-records-grid">
+      <details class="snapshot-records-disclosure">
+        <summary class="snapshot-records-button">
+          <span class="collapsed-label">📁 Then (14 May 2026)</span>
+          <span class="expanded-label">📁 Hide Then records</span>
+        </summary>
+        <section class="body-of-work-card" aria-labelledby="estates-then-title">
+          <header class="body-of-work-heading">
+            <p class="eyebrow">Previous snapshot</p>
+            <h2 id="estates-then-title">Source Documents · Then</h2>
+            <p>Evidence available while the drainage concern remained under investigation.</p>
+          </header>
+          <ul class="work-records">
+            <li class="work-record">
+              <div class="work-record-title"><span class="document-icon" aria-hidden="true">📄</span><h3>Initial Drainage Concern Record</h3></div>
+              <dl class="work-record-meta"><div><dt>Owner</dt><dd>Estates Helpdesk</dd></div><div><dt>Date</dt><dd>6 May 2026</dd></div><div><dt>Reference</dt><dd>EST-DRN-026</dd></div><div><dt>Status</dt><dd>Investigation required</dd></div></dl>
+              <button class="work-record-open" type="button" data-source-document="drainage-concern">Open source record</button>
+            </li>
+            <li class="work-record">
+              <div class="work-record-title"><span class="document-icon" aria-hidden="true">📋</span><h3>Estates Observation Notes</h3></div>
+              <dl class="work-record-meta"><div><dt>Owner</dt><dd>Estates Team</dd></div><div><dt>Period</dt><dd>7–12 May 2026</dd></div><div><dt>Version</dt><dd>Working notes</dd></div><div><dt>Status</dt><dd>Pre-survey</dd></div></dl>
+              <button class="work-record-open" type="button" data-source-document="estates-observations">Open source record</button>
+            </li>
+            <li class="work-record">
+              <div class="work-record-title"><span class="document-icon" aria-hidden="true">📑</span><h3>Contractor Availability Pending Note</h3></div>
+              <dl class="work-record-meta"><div><dt>Owner</dt><dd>Estates Procurement</dd></div><div><dt>Date</dt><dd>13 May 2026</dd></div><div><dt>Version</dt><dd>Initial enquiry</dd></div><div><dt>Status</dt><dd>Availability uncertain</dd></div></dl>
+              <button class="work-record-open" type="button" data-source-document="contractor-pending">Open source record</button>
+            </li>
+          </ul>
+          <details class="snapshot-provenance">
+            <summary>View point-in-time provenance</summary>
+            <dl class="provenance-grid">
+              <div><dt>Snapshot ID</dt><dd>SNAP-2026-05-14-1540-DR01</dd></div><div><dt>Captured</dt><dd>14 May 2026 · 15:40 BST</dd></div>
+              <div><dt>Understanding State</dt><dd>Investigation Required</dd></div><div><dt>Source Records</dt><dd>3 connected records</dd></div>
+              <div><dt>Latest Source Update</dt><dd>13 May 2026 · 14:25 BST</dd></div><div><dt>Evidence Confidence</dt><dd>Medium-Low</dd></div>
+              <div><dt>Comparison Baseline</dt><dd>Initial concern record</dd></div><div><dt>Preservation Status</dt><dd>Understanding Held</dd></div>
+              <div class="provenance-purpose"><dt>Snapshot Purpose</dt><dd>Preserved the investigation position before survey evidence clarified the cause, scope and delivery options.</dd></div>
+            </dl>
+          </details>
+        </section>
+      </details>
+
+      <details class="snapshot-records-disclosure">
+        <summary class="snapshot-records-button">
+          <span class="collapsed-label">📁 Now (18 June 2026)</span>
+          <span class="expanded-label">📁 Hide Now records</span>
+        </summary>
+        <section class="body-of-work-card" aria-labelledby="estates-now-title">
+          <header class="body-of-work-heading">
+            <p class="eyebrow">Current snapshot</p>
+            <h2 id="estates-now-title">Source Documents · Now</h2>
+            <p>Evidence available after survey, contractor and cost information were received.</p>
+          </header>
+          <ul class="work-records">
+            <li class="work-record">
+              <div class="work-record-title"><span class="document-icon" aria-hidden="true">📄</span><h3>Drainage Survey Report</h3></div>
+              <dl class="work-record-meta"><div><dt>Owner</dt><dd>Estates Engineering</dd></div><div><dt>Completed</dt><dd>11 June 2026</dd></div><div><dt>Version</dt><dd>Final survey</dd></div><div><dt>Status</dt><dd>Scope confirmed</dd></div></dl>
+              <button class="work-record-open" type="button" data-source-document="drainage-survey">Open source record</button>
+            </li>
+            <li class="work-record">
+              <div class="work-record-title"><span class="document-icon" aria-hidden="true">📋</span><h3>Contractor Availability Review</h3></div>
+              <dl class="work-record-meta"><div><dt>Owner</dt><dd>Estates Procurement</dd></div><div><dt>Updated</dt><dd>14 June 2026</dd></div><div><dt>Version</dt><dd>1.0</dd></div><div><dt>Status</dt><dd>Availability confirmed</dd></div></dl>
+              <button class="work-record-open" type="button" data-source-document="contractor-review">Open source record</button>
+            </li>
+            <li class="work-record">
+              <div class="work-record-title"><span class="document-icon" aria-hidden="true">📊</span><h3>Estates Cost Estimate</h3></div>
+              <dl class="work-record-meta"><div><dt>Owner</dt><dd>Estates Finance</dd></div><div><dt>Updated</dt><dd>16 June 2026</dd></div><div><dt>Version</dt><dd>Initial estimate</dd></div><div><dt>Status</dt><dd>Available for planning</dd></div></dl>
+              <button class="work-record-open" type="button" data-source-document="estates-cost">Open source record</button>
+            </li>
+            <li class="work-record">
+              <div class="work-record-title"><span class="document-icon" aria-hidden="true">📑</span><h3>Remedial Works Planning Note</h3></div>
+              <dl class="work-record-meta"><div><dt>Owner</dt><dd>Estates Programme Manager</dd></div><div><dt>Updated</dt><dd>18 June 2026</dd></div><div><dt>Version</dt><dd>Draft 0.6</dd></div><div><dt>Status</dt><dd>Approval preparation</dd></div></dl>
+              <button class="work-record-open" type="button" data-source-document="remedial-planning">Open source record</button>
+            </li>
+          </ul>
+          <details class="snapshot-provenance">
+            <summary>View point-in-time provenance</summary>
+            <dl class="provenance-grid">
+              <div><dt>Snapshot ID</dt><dd>SNAP-2026-06-18-1145-DR02</dd></div><div><dt>Captured</dt><dd>18 June 2026 · 11:45 BST</dd></div>
+              <div><dt>Understanding State</dt><dd>Planning Preparation</dd></div><div><dt>Source Records</dt><dd>4 connected records</dd></div>
+              <div><dt>Latest Source Update</dt><dd>18 June 2026 · 09:12 BST</dd></div><div><dt>Evidence Confidence</dt><dd>High</dd></div>
+              <div><dt>Comparison Baseline</dt><dd>Earlier Review Snapshot</dd></div><div><dt>Preservation Status</dt><dd data-preservation-state="estates">Hold Ready</dd></div>
+              <div class="provenance-purpose"><dt>Snapshot Purpose</dt><dd>Survey completion, contractor confirmation and initial cost information materially changed the planning position compared with the earlier review.</dd></div>
+            </dl>
+          </details>
+        </section>
+      </details>
+      </div>
+    </header>
+
+    <div class="understanding-through-time" aria-label="Estates understanding through time">
+      <strong>Past Understanding State</strong><span>&rarr;</span><strong>What Changed</strong><span>&rarr;</span><strong>Current Understanding State</strong>
+    </div>
+    <section class="time-comparison" aria-label="Estates understanding compared across time">
+      <article class="understanding-card">
+        <div class="card-heading">
+          <h2>Previous Understanding</h2>
+          <span class="moment">Understanding Held &middot; 14 May 2026</span>
+        </div>
+        <div class="held-record-summary" aria-label="Held understanding details">
+          <div><strong>Held on</strong><span>14 May 2026 &middot; 15:40 BST</span></div>
+          <div><strong>Snapshot ID</strong><span>SNAP-2026-05-14-1540-DR01</span></div>
+          <div><strong>Evidence path</strong><span>Available</span></div>
+        </div>
+        <p class="understanding-state-context"><strong>Point-in-time understanding.</strong> This is what the organisation reasonably understood on 14 May 2026, based on the evidence available at that time. It is the held baseline for this comparison.</p>
+        <p class="understanding-question"><strong>Question:</strong> What was understood about the Estates Drainage Works Review on 14 May 2026?</p>
+        <h3 class="understanding-section-title">Understanding</h3>
+        <ul class="understanding-list">
+          <li>Drainage concerns had been identified.</li>
+          <li>The scope of remedial works remained unclear.</li>
+          <li>Contractor availability was uncertain.</li>
+          <li>Further investigation was required before planning could proceed.</li>
+        </ul>
+        <section class="snapshot-sources" aria-labelledby="estates-previous-sources">
+          <h3 id="estates-previous-sources">Held Evidence</h3>
+          <ul class="snapshot-source-list">
+            <li><button class="snapshot-source-button" type="button" data-source-document="drainage-concern"><span class="document-icon" aria-hidden="true">📄</span><span>Initial Drainage Concern Record</span></button></li>
+            <li><button class="snapshot-source-button" type="button" data-source-document="estates-observations"><span class="document-icon" aria-hidden="true">📋</span><span>Estates Observation Notes</span></button></li>
+            <li><button class="snapshot-source-button" type="button" data-source-document="contractor-pending"><span class="document-icon" aria-hidden="true">📑</span><span>Contractor Availability Pending Note</span></button></li>
+          </ul>
+        </section>
+        <section class="held-understanding-section">
+          <h3>Evidence Path</h3>
+          <ol class="held-evidence-path">
+            <li><strong>Initial Drainage Concern Record</strong> &rarr; established that a drainage issue existed but did not define its cause or scope.</li>
+            <li><strong>Estates Observation Notes</strong> &rarr; confirmed the visible symptoms and operational location while preserving technical uncertainty.</li>
+            <li><strong>Contractor Availability Pending Note</strong> &rarr; supported the conclusion that programme planning could not yet proceed.</li>
+          </ol>
+          <p class="held-reasoning"><strong>Reasoning review:</strong> The evidence supported an investigation state, with technical scope and delivery availability still unresolved.</p>
+        </section>
+        <details class="snapshot-provenance source-provenance-disclosure">
+          <summary>View Source Provenance</summary>
+          <div class="source-provenance-list">
+            <article class="source-provenance-record">
+              <h5>Initial Drainage Concern Record</h5>
+              <dl>
+                <div><dt>Record Owner</dt><dd>Estates Helpdesk</dd></div>
+                <div><dt>Version</dt><dd>Original concern record</dd></div>
+                <div><dt>Status</dt><dd>Investigation Required</dd></div>
+                <div><dt>Last Updated</dt><dd>6 May 2026</dd></div>
+                <div><dt>Source System</dt><dd>Estates Helpdesk</dd></div>
+                <div><dt>Source Identifier</dt><dd>EST-DRN-026</dd></div>
+                <div class="provenance-purpose"><dt>Record Location / Path</dt><dd>Estates/Helpdesk/Drainage/2026/EST-DRN-026</dd></div>
+              </dl>
+            </article>
+            <article class="source-provenance-record">
+              <h5>Estates Observation Notes</h5>
+              <dl>
+                <div><dt>Record Owner</dt><dd>Estates Team</dd></div>
+                <div><dt>Version</dt><dd>Working notes</dd></div>
+                <div><dt>Status</dt><dd>Pre-survey Observations</dd></div>
+                <div><dt>Last Updated</dt><dd>12 May 2026</dd></div>
+                <div><dt>Source System</dt><dd>Estates Document Library</dd></div>
+                <div><dt>Source Identifier</dt><dd>EST-DRN-OBS-026</dd></div>
+                <div class="provenance-purpose"><dt>Record Location / Path</dt><dd>Estates/Drainage/2026/EST-DRN-026/Observations</dd></div>
+              </dl>
+            </article>
+            <article class="source-provenance-record">
+              <h5>Contractor Availability Pending Note</h5>
+              <dl>
+                <div><dt>Record Owner</dt><dd>Estates Procurement</dd></div>
+                <div><dt>Version</dt><dd>Initial enquiry</dd></div>
+                <div><dt>Status</dt><dd>Availability Uncertain</dd></div>
+                <div><dt>Last Updated</dt><dd>13 May 2026</dd></div>
+                <div><dt>Source System</dt><dd>Procurement Workspace</dd></div>
+                <div><dt>Source Identifier</dt><dd>EST-PROC-DRN-011</dd></div>
+                <div class="provenance-purpose"><dt>Record Location / Path</dt><dd>Procurement/Estates/Drainage/2026/Initial Enquiries</dd></div>
+              </dl>
+            </article>
+          </div>
+        </details>
+        <details class="snapshot-provenance">
+          <summary>View full held details</summary>
+          <dl class="provenance-grid">
+            <div><dt>Snapshot ID</dt><dd>SNAP-2026-05-14-1540-DR01</dd></div>
+            <div><dt>Captured</dt><dd>14 May 2026 &middot; 15:40 BST</dd></div>
+            <div><dt>Understanding State</dt><dd>Investigation Required</dd></div>
+            <div><dt>Source Records</dt><dd>3 connected records</dd></div>
+            <div><dt>Latest Source Update</dt><dd>13 May 2026 &middot; 14:25 BST</dd></div>
+            <div><dt>Evidence Confidence</dt><dd>Medium-Low</dd></div>
+            <div><dt>Comparison Baseline</dt><dd>Initial concern record</dd></div>
+            <div><dt>Preservation Status</dt><dd>Understanding Held</dd></div>
+            <div class="provenance-purpose"><dt>Snapshot Purpose</dt><dd>Preserved the investigation position before survey evidence clarified the cause, scope and delivery options.</dd></div>
+          </dl>
+        </details>
+      </article>
+
+      <article class="understanding-card current">
+        <div class="card-heading">
+          <h2>Current Understanding</h2>
+          <span class="moment" data-current-moment="estates">Live understanding &middot; 18 June 2026</span>
+        </div>
+        <p class="comparison-baseline">
+          <strong>Comparison baseline</strong>
+          <span>Understanding Held &middot; 14 May 2026</span>
+          <span class="baseline-arrow" aria-hidden="true">&rarr;</span>
+          <span>Current understanding changed since this hold</span>
+        </p>
+        <p class="understanding-state-context"><strong>Current understanding state.</strong> This is the organisation&rsquo;s live position after survey, contractor and cost evidence changed the earlier held understanding.</p>
+        <p class="understanding-question"><strong>Question:</strong> What has changed in the Estates Drainage Works Review since the previous understanding?</p>
+        <ul class="understanding-list">
+          <li>The drainage survey has been completed.</li>
+          <li>The scope of works is now defined.</li>
+          <li>Contractor availability has been confirmed.</li>
+          <li>Initial cost estimates have been received.</li>
+          <li>Planning can now move toward approval preparation.</li>
+        </ul>
+        <section class="snapshot-sources" aria-labelledby="estates-current-sources">
+          <h3 id="estates-current-sources">Current Evidence</h3>
+          <ul class="snapshot-source-list">
+            <li><button class="snapshot-source-button" type="button" data-source-document="drainage-survey"><span class="document-icon" aria-hidden="true">📄</span><span>Drainage Survey Report</span></button></li>
+            <li><button class="snapshot-source-button" type="button" data-source-document="contractor-review"><span class="document-icon" aria-hidden="true">📋</span><span>Contractor Availability Review</span></button></li>
+            <li><button class="snapshot-source-button" type="button" data-source-document="estates-cost"><span class="document-icon" aria-hidden="true">📊</span><span>Estates Cost Estimate</span></button></li>
+            <li><button class="snapshot-source-button" type="button" data-source-document="remedial-planning"><span class="document-icon" aria-hidden="true">📑</span><span>Remedial Works Planning Note</span></button></li>
+          </ul>
+        </section>
+        <details class="snapshot-provenance">
+          <summary>View live context</summary>
+          <dl class="provenance-grid">
+            <div><dt>Live State ID</dt><dd>LIVE-2026-06-18-1145-DR02</dd></div>
+            <div><dt>Current as of</dt><dd>18 June 2026 &middot; 11:45 BST</dd></div>
+            <div><dt>Understanding State</dt><dd>Planning Preparation</dd></div>
+            <div><dt>Source Records</dt><dd>4 connected records</dd></div>
+            <div><dt>Latest Source Update</dt><dd>18 June 2026 &middot; 09:12 BST</dd></div>
+            <div><dt>Evidence Confidence</dt><dd>High</dd></div>
+            <div><dt>Comparison Baseline</dt><dd>Earlier Review Snapshot</dd></div>
+            <div><dt>Preservation Status</dt><dd data-preservation-state="estates">Hold Ready</dd></div>
+            <div><dt>Held by</dt><dd>Daniel Reed</dd></div>
+            <div><dt>Accountable Role</dt><dd>Estates Programme Manager</dd></div>
+            <div><dt>Current Role Holder</dt><dd>Hannah Cole</dd></div>
+            <div><dt>Review Due</dt><dd>18 January 2027</dd></div>
+            <div class="provenance-purpose"><dt>Snapshot Purpose</dt><dd>Survey completion, contractor confirmation and initial cost information materially changed the planning position compared with the earlier review.</dd></div>
+            <div class="continuity-principle"><dt>Continuity</dt><dd>People contribute understanding. Roles preserve responsibility. Hold maintains both.</dd></div>
+          </dl>
+        </details>
+        <div class="understanding-preservation">
+          <div>
+            <strong data-hold-status-title="estates">Hold Ready</strong>
+            <p data-hold-status-line="estates">This understanding has materially changed since the held baseline and is ready to preserve.</p>
+          </div>
+          <button class="save-briefing-button" type="button" data-save-scenario="estates" aria-describedby="estates-save-description">Hold this understanding</button>
+          <div class="scenario-save-status" id="estates-save-description" data-save-status="estates" role="status">
+            <span>This retains this understanding and its evidence path at this point in time. It does not imply approval or verification.</span>
+            <button class="view-held-button" type="button" data-view-held="estates" hidden>View Held Understanding</button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <div class="section-stack">
+      <section class="content-card" aria-labelledby="estates-changed-title">
+        <p class="eyebrow">Comparison</p>
+        <h2 id="estates-changed-title">What Changed</h2>
+        <div class="change-summary">
+          <div class="change-point">
+            <strong>Investigation progressed</strong>
+            <span>Survey work moved from outstanding to complete.</span>
+          </div>
+          <div class="change-point">
+            <strong>Scope became clearer</strong>
+            <span>The extent of remedial work is now understood.</span>
+          </div>
+          <div class="change-point">
+            <strong>Planning readiness increased</strong>
+            <span>Cost and contractor information are now available.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-card" aria-labelledby="estates-matters-title">
+        <p class="eyebrow">Operational meaning</p>
+        <h2 id="estates-matters-title">Why It Matters</h2>
+        <ul class="impact-list">
+          <li>The review has moved from investigation into planning preparation.</li>
+          <li>Stakeholders can now review cost, disruption and timing implications.</li>
+          <li>Approval discussions can be based on evidence rather than assumptions.</li>
+        </ul>
+      </section>
+
+      <section class="content-card" aria-labelledby="estates-history-title">
+        <p class="eyebrow">Preserved understanding</p>
+        <h2 id="estates-history-title">Snapshot History</h2>
+        <ol class="history">
+          <li>
+            <time datetime="2026-05-14T15:40">14 May 2026 &middot; 15:40</time>
+            <strong>Investigation position preserved</strong>
+            <p>Drainage concerns were known, but scope, contractor availability and planning evidence remained uncertain.</p>
+          </li>
+          <li>
+            <time datetime="2026-06-18T11:45">18 June 2026 &middot; 11:45</time>
+            <strong data-preservation-history="estates">Planning preparation position</strong>
+            <p>Survey, scope, contractor and initial cost evidence now support preparation for approval.</p>
+          </li>
+        </ol>
+        <p class="snapshot-note">
+          Later evidence may change the connected understanding without rewriting what was previously understood.
+        </p>
+      </section>
+    </div>
+
+    <dialog class="source-dialog" id="source-dialog" aria-labelledby="source-dialog-title">
+      <div class="source-dialog-shell">
+        <header class="source-dialog-header">
+          <div>
+            <p class="eyebrow" id="source-dialog-snapshot">Snapshot source</p>
+            <h2 id="source-dialog-title">Source document</h2>
+          </div>
+          <button class="source-dialog-close" id="source-dialog-close" type="button" aria-label="Close source document">&times;</button>
+        </header>
+        <article class="source-document" id="source-document-content"></article>
+      </div>
+    </dialog>
+
+    <dialog class="source-dialog" id="held-understanding-dialog" aria-labelledby="held-understanding-title">
+      <div class="source-dialog-shell">
+        <header class="source-dialog-header">
+          <div>
+            <p class="eyebrow">Historical snapshot</p>
+            <h2 id="held-understanding-title">Understanding Held</h2>
+          </div>
+          <button class="source-dialog-close" id="held-understanding-close" type="button" aria-label="Close held understanding">&times;</button>
+        </header>
+        <article class="source-document" id="held-understanding-content"></article>
+      </div>
+    </dialog>
+  </main>
+
+  <footer>
+    <p><a href="index.html">Back to Hold demos</a></p>
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p>Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
+  <script>
+    const sourceDocuments = {
+      "forklift-review-previous": {
+        title: "Forklift Fleet Replacement Review",
+        snapshot: "Previous Understanding",
+        meta: { Owner: "Operations Review Group", Version: "1.7", "Review date": "14 May 2026", Status: "Monitoring and replacement planning" },
+        sections: [
+          ["Current position", "Forklift 04 remains operational but has experienced increasing maintenance activity and intermittent availability concerns."],
+          ["Decision timing", "A replacement decision is expected during Quarter 3, subject to further supplier engagement and updated budget forecasting."],
+          ["Recommendation", "Continue monitoring while replacement planning progresses. Formal replacement approval has not yet been requested."]
+        ]
+      },
+      "maintenance-log": {
+        title: "Maintenance Activity Log",
+        snapshot: "Previous Understanding",
+        meta: { Owner: "Engineering Services", Period: "June 2025 – May 2026", Asset: "Forklift 04", Status: "Active maintenance record" },
+        sections: [
+          ["Recorded activity", "The asset required 27 planned and unplanned maintenance interventions during the review period."],
+          ["Operational effect", "Warehouse supervisors recorded intermittent availability issues during maintenance activity."],
+          ["Evidence limitation", "The log establishes a reliability trend but does not itself determine whether replacement should be approved."]
+        ]
+      },
+      "replacement-planning-note": {
+        title: "Initial Replacement Planning Note",
+        snapshot: "Previous Understanding",
+        meta: { Owner: "Operations Management", Date: "10 May 2026", Version: "Draft 0.3", Status: "Inputs outstanding" },
+        sections: [
+          ["Planning assumption", "Quarter 3 is the provisional decision point for whether Forklift 04 should move into formal replacement approval."],
+          ["Outstanding inputs", "Supplier engagement and updated budget forecasting are required before a recommendation can be completed."],
+          ["Approval position", "The governance route remains provisional until replacement value and funding arrangements are confirmed."]
+        ]
+      },
+      "forklift-review-current": {
+        title: "Forklift Fleet Replacement Review",
+        snapshot: "Current Understanding",
+        meta: { Owner: "Operations Review Group", Version: "1.9", Updated: "18 June 2026", Status: "Prepared for governance review" },
+        sections: [
+          ["Updated position", "Supplier engagement and budget forecasting have now been completed. Three viable replacement options have been reviewed."],
+          ["Decision readiness", "The replacement value, operational requirement and approval threshold are sufficiently clear for governance preparation."],
+          ["Remaining step", "Governance review is the principal remaining dependency before a formal replacement decision."]
+        ]
+      },
+      "supplier-comparison": {
+        title: "Replacement Supplier Comparison",
+        snapshot: "Current Understanding",
+        meta: { Owner: "Procurement", Updated: "12 June 2026", Version: "Final comparison", Status: "Supplier engagement complete" },
+        sections: [
+          ["Options reviewed", "Three suppliers were assessed against operational specification, availability, support provision and delivery lead time."],
+          ["Lead times", "Indicative delivery periods range from 14 to 22 weeks for compliant replacement options."],
+          ["Outcome", "Two options are suitable for progression. Procurement has completed the information needed for decision preparation."]
+        ]
+      },
+      "forklift-budget": {
+        title: "Forklift Replacement Budget Forecast",
+        snapshot: "Current Understanding",
+        meta: { Owner: "Commercial Finance", Updated: "16 June 2026", Version: "Forecast 1.1", Status: "Received for approval preparation" },
+        sections: [
+          ["Forecast position", "The working replacement allowance is £38,000 excluding VAT, with contingency identified for delivery and commissioning."],
+          ["Funding", "Capital provision can be considered within the current equipment replacement programme, subject to approval."],
+          ["Financial implication", "The updated forecast removes the earlier budget-information dependency but does not constitute spending approval."]
+        ]
+      },
+      "capex-governance": {
+        title: "Capital Expenditure Governance Note",
+        snapshot: "Current Understanding",
+        meta: { Owner: "Governance Review Group", Updated: "17 June 2026", Version: "Route confirmation", Status: "Governance review required" },
+        sections: [
+          ["Approval route", "The forecast replacement value exceeds the local operational approval threshold and requires Capital Expenditure Governance review."],
+          ["Evidence required", "The review pack should include operational need, supplier comparison, budget forecast and confirmation of accountable ownership."],
+          ["Next step", "A management briefing should be prepared before the item is submitted for governance review."]
+        ]
+      },
+      "drainage-concern": {
+        title: "Initial Drainage Concern Record",
+        snapshot: "Previous Understanding",
+        meta: { Owner: "Estates Helpdesk", Date: "6 May 2026", Reference: "EST-DRN-026", Status: "Investigation required" },
+        sections: [
+          ["Concern recorded", "Standing water and slow surface drainage were reported near the service-yard access route after periods of heavy rainfall."],
+          ["Known effect", "The condition may affect pedestrian movement, contractor access and routine vehicle movements."],
+          ["Evidence gap", "The cause and extent of remedial work were not known at the time of recording."]
+        ]
+      },
+      "estates-observations": {
+        title: "Estates Observation Notes",
+        snapshot: "Previous Understanding",
+        meta: { Owner: "Estates Team", Period: "7–12 May 2026", Version: "Working notes", Status: "Pre-survey observations" },
+        sections: [
+          ["Site observations", "Pooling was observed around two drainage channels and along a section of worn yard surfacing."],
+          ["Operational context", "The affected route supports deliveries, waste collection and maintenance access."],
+          ["Limitation", "Visual observations could not confirm whether the issue arose from blockage, asset failure or surface levels."]
+        ]
+      },
+      "contractor-pending": {
+        title: "Contractor Availability Pending Note",
+        snapshot: "Previous Understanding",
+        meta: { Owner: "Estates Procurement", Date: "13 May 2026", Version: "Initial enquiry", Status: "Availability uncertain" },
+        sections: [
+          ["Market position", "Two drainage contractors were approached for indicative availability, but no confirmed survey or works dates were received."],
+          ["Planning effect", "Programme assumptions could not be established until contractor availability and likely scope were clearer."],
+          ["Next action", "Re-engage contractors after an initial drainage survey defines the technical requirement."]
+        ]
+      },
+      "drainage-survey": {
+        title: "Drainage Survey Report",
+        snapshot: "Current Understanding",
+        meta: { Owner: "Estates Engineering", Completed: "11 June 2026", Version: "Final survey", Status: "Technical scope confirmed" },
+        sections: [
+          ["Survey finding", "The survey identified partial channel failure, localised obstruction and insufficient falls across the affected surface area."],
+          ["Required work", "Recommended works include channel replacement, clearance, local resurfacing and reinstatement of drainage falls."],
+          ["Planning value", "The report defines the technical scope needed for contractor pricing and approval preparation."]
+        ]
+      },
+      "contractor-review": {
+        title: "Contractor Availability Review",
+        snapshot: "Current Understanding",
+        meta: { Owner: "Estates Procurement", Updated: "14 June 2026", Version: "Availability review 1.0", Status: "Availability confirmed" },
+        sections: [
+          ["Contractors reviewed", "Three suitable contractors were contacted using the survey-defined scope."],
+          ["Availability", "Two contractors can undertake the work within the proposed late-summer planning window."],
+          ["Delivery implication", "Contractor availability is no longer preventing programme preparation, although a final appointment remains subject to approval."]
+        ]
+      },
+      "estates-cost": {
+        title: "Estates Cost Estimate",
+        snapshot: "Current Understanding",
+        meta: { Owner: "Estates Finance", Updated: "16 June 2026", Version: "Initial estimate", Status: "Available for planning" },
+        sections: [
+          ["Estimated value", "The initial planning estimate is £68,500 excluding VAT, including drainage replacement, local resurfacing and contingency."],
+          ["Budget context", "Potential provision exists within the Estates Capital Maintenance Programme, subject to final confirmation and approval."],
+          ["Evidence limitation", "The estimate supports planning and stakeholder review but is not a final tender value."]
+        ]
+      },
+      "remedial-planning": {
+        title: "Remedial Works Planning Note",
+        snapshot: "Current Understanding",
+        meta: { Owner: "Estates Programme Manager", Updated: "18 June 2026", Version: "Draft 0.6", Status: "Approval preparation" },
+        sections: [
+          ["Planning position", "Survey, scope, contractor availability and initial cost information are now available."],
+          ["Operational considerations", "Approval preparation should address delivery access, pedestrian management, temporary drainage controls and work sequencing."],
+          ["Next step", "Stakeholders can now review cost, disruption and timing implications before the approval route is confirmed."]
+        ]
+      }
+    };
+
+    const sourceDocumentContext = {
+      "forklift-review-previous": {
+        type: "Operational review paper",
+        reference: "OPS-CAPEX-2026-014 · Controlled copy at 14 May 2026",
+        relevance: "This version established the Quarter 3 decision expectation and recorded supplier engagement and budget forecasting as unresolved dependencies."
+      },
+      "maintenance-log": {
+        type: "Engineering maintenance record",
+        reference: "ENG-FLT04-LOG-2025-26 · Extract issued 14 May 2026",
+        relevance: "The intervention count and availability observations supported Hold’s understanding that reliability remained an active operational concern."
+      },
+      "replacement-planning-note": {
+        type: "Operational planning note",
+        reference: "OPS-FLT04-PLAN-003 · Draft point-in-time copy",
+        relevance: "The note showed that replacement activity remained in planning and could not progress until supplier and budget inputs were available."
+      },
+      "forklift-review-current": {
+        type: "Operational review paper",
+        reference: "OPS-CAPEX-2026-014 · Controlled copy at 18 June 2026",
+        relevance: "The revised version recorded completed supplier and budget inputs and identified governance review as the principal remaining step."
+      },
+      "supplier-comparison": {
+        type: "Procurement option appraisal",
+        reference: "PROC-FLT04-COMP-001 · Final comparison",
+        relevance: "The completed appraisal removed supplier engagement as an outstanding dependency and confirmed viable replacement options."
+      },
+      "forklift-budget": {
+        type: "Finance forecast",
+        reference: "FIN-FLT04-FCST-1.1 · Approval-preparation copy",
+        relevance: "The forecast supplied the working replacement allowance and funding context needed to move from planning toward decision preparation."
+      },
+      "capex-governance": {
+        type: "Governance route note",
+        reference: "GOV-CAPEX-ROUTE-2026-22 · Confirmed route",
+        relevance: "The note clarified the approval threshold, required evidence pack and accountable next step, making governance the remaining constraint."
+      },
+      "drainage-concern": {
+        type: "Estates concern record",
+        reference: "EST-DRN-026 · Record as captured 6 May 2026",
+        relevance: "The record established that a drainage issue existed but contained no technical diagnosis or defined remedial scope."
+      },
+      "estates-observations": {
+        type: "Site observation record",
+        reference: "EST-DRN-OBS-026 · Working observation copy",
+        relevance: "The observations confirmed the operational location and visible symptoms while preserving uncertainty about cause and extent."
+      },
+      "contractor-pending": {
+        type: "Procurement enquiry note",
+        reference: "EST-PROC-DRN-011 · Initial market enquiry",
+        relevance: "The absence of confirmed availability supported Hold’s earlier conclusion that programme planning could not yet proceed."
+      },
+      "drainage-survey": {
+        type: "Technical survey report",
+        reference: "EST-DRN-SURV-026 · Final survey",
+        relevance: "The survey replaced assumption with a defined technical diagnosis and remedial scope, materially changing the planning position."
+      },
+      "contractor-review": {
+        type: "Contractor availability review",
+        reference: "EST-PROC-DRN-014 · Availability review 1.0",
+        relevance: "Confirmed contractor capacity removed availability as a planning uncertainty, while retaining approval as a condition of appointment."
+      },
+      "estates-cost": {
+        type: "Estates cost estimate",
+        reference: "EST-FIN-DRN-026 · Initial planning estimate",
+        relevance: "The estimate introduced an evidence-based cost position for stakeholder and approval preparation without presenting it as a final tender value."
+      },
+      "remedial-planning": {
+        type: "Remedial works planning note",
+        reference: "EST-DRN-PLAN-006 · Draft 0.6",
+        relevance: "The note connected survey, contractor and cost evidence into a planning position ready for disruption, timing and approval review."
+      }
+    };
+
+    const sourceDialog = document.querySelector("#source-dialog");
+    const sourceDialogTitle = document.querySelector("#source-dialog-title");
+    const sourceDialogSnapshot = document.querySelector("#source-dialog-snapshot");
+    const sourceDocumentContent = document.querySelector("#source-document-content");
+    const sourceDialogClose = document.querySelector("#source-dialog-close");
+    const sourceButtons = [...document.querySelectorAll("[data-source-document]")];
+
+    function renderSourceDocument(documentKey, documentRecord) {
+      const documentContext = sourceDocumentContext[documentKey];
+      sourceDialogTitle.textContent = documentRecord.title;
+      sourceDialogSnapshot.textContent = `Snapshot source · ${documentRecord.snapshot}`;
+      sourceDocumentContent.innerHTML = `
+        <header class="source-document-masthead">
+          <p class="source-document-type">${documentContext.type}</p>
+          <h3>${documentRecord.title}</h3>
+          <p class="source-document-reference">${documentContext.reference}</p>
+        </header>
+        <dl class="source-document-meta">
+          ${Object.entries(documentRecord.meta).map(([label, value]) => `
+            <div>
+              <dt>${label}</dt>
+              <dd>${value}</dd>
+            </div>
+          `).join("")}
+        </dl>
+        ${documentRecord.sections.map(([heading, content]) => `
+          <section class="source-document-section">
+            <h3>${heading}</h3>
+            <p>${content}</p>
+          </section>
+        `).join("")}
+        <aside class="source-evidence-note">
+          <strong>Evidence carried into ${documentRecord.snapshot}</strong>
+          <p>${documentContext.relevance}</p>
+        </aside>
+        <footer class="source-document-footer">
+          <span>Point-in-time source record</span>
+          <span>${documentContext.reference.split(" · ")[0]}</span>
+        </footer>
+      `;
+    }
+
+    sourceButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const documentKey = button.dataset.sourceDocument;
+        const documentRecord = sourceDocuments[documentKey];
+        if (!documentRecord) return;
+        renderSourceDocument(documentKey, documentRecord);
+        sourceDialog.showModal();
+      });
+    });
+
+    sourceDialogClose.addEventListener("click", () => sourceDialog.close());
+
+    sourceDialog.addEventListener("click", (event) => {
+      if (event.target === sourceDialog) sourceDialog.close();
+    });
+
+    const scenarioPreservation = {
+      forklift: {
+        scenarioIdentifier: "V7-FORKLIFT-FLEET-REPLACEMENT",
+        contentVersion: "2026-06-18-FL02",
+        title: "Forklift Fleet Replacement Review",
+        snapshotId: "SNAP-2026-06-18-1145-FL02",
+        userQuestion: "What has changed in the Forklift Fleet Replacement Review since the previous understanding?",
+        understandingState: "Decision Preparation",
+        understandingTimestamp: "18 June 2026 · 11:45 BST",
+        latestSourceUpdate: "18 June 2026 · 09:05 BST",
+        evidenceConfidence: "High",
+        comparisonBaseline: "14 May planning snapshot",
+        snapshotPurpose: "Supplier, budget and governance evidence materially increased decision readiness compared with the earlier planning position.",
+        generatedUnderstanding: [
+          "Supplier engagement has been completed with three viable options reviewed.",
+          "An updated budget forecast has been received.",
+          "The approval route and expenditure threshold are now clearer.",
+          "Governance review is the principal remaining step before a decision."
+        ],
+        sourceRecords: [
+          { key: "forklift-review-current", title: "Forklift Fleet Replacement Review" },
+          { key: "supplier-comparison", title: "Replacement Supplier Comparison" },
+          { key: "forklift-budget", title: "Forklift Replacement Budget Forecast" },
+          { key: "capex-governance", title: "Capital Expenditure Governance Note" }
+        ],
+        sourceMetadata: [
+          { key: "forklift-review-current", title: "Forklift Fleet Replacement Review", owner: "Operations Review Group", version: "1.9", updated: "18 June 2026", status: "Governance Preparation", sourceSystem: "SharePoint", recordPath: "Operations/Fleet/Replacement Reviews/FLT04", reference: "OPS-FLT04-REV-1.9" },
+          { key: "supplier-comparison", title: "Replacement Supplier Comparison", owner: "Procurement", version: "Final comparison", updated: "12 June 2026", status: "Supplier Engagement Complete", sourceSystem: "Procurement Workspace", recordPath: "Procurement/Fleet/2026/FLT04/Supplier Comparison", reference: "PROC-FLT04-COMP-2026" },
+          { key: "forklift-budget", title: "Forklift Replacement Budget Forecast", owner: "Commercial Finance", version: "Forecast 1.1", updated: "16 June 2026", status: "Received for Approval Preparation", sourceSystem: "Finance Planning", recordPath: "Finance/Capital Forecasts/2026/Fleet/FLT04", reference: "FIN-CAPEX-FLT04-1.1" },
+          { key: "capex-governance", title: "Capital Expenditure Governance Note", owner: "Governance Review Group", version: "Route confirmation", updated: "17 June 2026", status: "Governance Review Required", sourceSystem: "Governance Library", recordPath: "Governance/Capital Expenditure/Routes/2026", reference: "GOV-CAPEX-ROUTE-2026-22" }
+        ],
+        evidencePath: [
+          { evidence: "Replacement Supplier Comparison", supports: "Supplier engagement completed and viable options identified" },
+          { evidence: "Forklift Replacement Budget Forecast", supports: "Working cost and funding context available" },
+          { evidence: "Capital Expenditure Governance Note", supports: "Approval route and threshold confirmed" },
+          { evidence: "Connected current sources", supports: "Governance review identified as the remaining step" }
+        ],
+        reasoningReview: "Supplier, budget and governance evidence changed the position from replacement planning to decision preparation.",
+        continuity: {
+          heldBy: "Alex Morgan",
+          accountableRole: "Logistics Operations Manager",
+          currentRoleHolder: "Priya Shah",
+          reviewDue: "25 December 2026"
+        }
+      },
+      estates: {
+        scenarioIdentifier: "V7-ESTATES-DRAINAGE-WORKS",
+        contentVersion: "2026-06-18-DR02",
+        title: "Estates Drainage Works Review",
+        snapshotId: "SNAP-2026-06-18-1145-DR02",
+        userQuestion: "What has changed in the Estates Drainage Works Review since the previous understanding?",
+        understandingState: "Planning Preparation",
+        understandingTimestamp: "18 June 2026 · 11:45 BST",
+        latestSourceUpdate: "18 June 2026 · 09:12 BST",
+        evidenceConfidence: "High",
+        comparisonBaseline: "Earlier Review Snapshot",
+        snapshotPurpose: "Survey completion, contractor confirmation and initial cost information materially changed the planning position compared with the earlier review.",
+        generatedUnderstanding: [
+          "The drainage survey has been completed.",
+          "The scope of works is now defined.",
+          "Contractor availability has been confirmed.",
+          "Initial cost estimates have been received.",
+          "Planning can now move toward approval preparation."
+        ],
+        sourceRecords: [
+          { key: "drainage-survey", title: "Drainage Survey Report" },
+          { key: "contractor-review", title: "Contractor Availability Review" },
+          { key: "estates-cost", title: "Estates Cost Estimate" },
+          { key: "remedial-planning", title: "Remedial Works Planning Note" }
+        ],
+        sourceMetadata: [
+          { key: "drainage-survey", title: "Drainage Survey Report", owner: "Estates Engineering", version: "Final survey", updated: "11 June 2026", status: "Technical Scope Confirmed", sourceSystem: "Estates Document Library", recordPath: "Estates/Drainage/2026/EST-DRN-026/Surveys", reference: "EST-DRN-SUR-026" },
+          { key: "contractor-review", title: "Contractor Availability Review", owner: "Estates Procurement", version: "Availability review 1.0", updated: "14 June 2026", status: "Availability Confirmed", sourceSystem: "Procurement Workspace", recordPath: "Procurement/Estates/Drainage/2026/Contractor Review", reference: "EST-PROC-DRN-AV-1.0" },
+          { key: "estates-cost", title: "Estates Cost Estimate", owner: "Estates Finance", version: "Initial estimate", updated: "16 June 2026", status: "Available for Planning", sourceSystem: "Finance Planning", recordPath: "Finance/Estates Estimates/2026/EST-DRN-026", reference: "EST-FIN-DRN-026-EST01" },
+          { key: "remedial-planning", title: "Remedial Works Planning Note", owner: "Estates Programme Manager", version: "Draft 0.6", updated: "18 June 2026", status: "Approval Preparation", sourceSystem: "SharePoint", recordPath: "Estates/Programmes/Drainage/EST-DRN-026/Planning", reference: "EST-DRN-PLAN-006" }
+        ],
+        evidencePath: [
+          { evidence: "Drainage Survey Report", supports: "Cause and remedial scope defined" },
+          { evidence: "Contractor Availability Review", supports: "Delivery availability confirmed" },
+          { evidence: "Estates Cost Estimate", supports: "Initial planning cost available" },
+          { evidence: "Remedial Works Planning Note", supports: "Understanding moved into approval preparation" }
+        ],
+        reasoningReview: "Survey, contractor and cost evidence changed the position from investigation to planning preparation.",
+        continuity: {
+          heldBy: "Daniel Reed",
+          accountableRole: "Estates Programme Manager",
+          currentRoleHolder: "Hannah Cole",
+          reviewDue: "18 January 2027"
+        }
+      }
+    };
+
+    const scenarioSaveButtons = [...document.querySelectorAll("[data-save-scenario]")];
+
+    function formatPreservationTime(value) {
+      return new Intl.DateTimeFormat("en-GB", {
+        dateStyle: "medium",
+        timeStyle: "short",
+        timeZone: "Europe/London"
+      }).format(new Date(value));
+    }
+
+    function showLatestHold(scenarioKey, preservedRecord) {
+      const button = document.querySelector(`[data-save-scenario="${scenarioKey}"]`);
+      const status = document.querySelector(`[data-save-status="${scenarioKey}"]`);
+      const statusTitle = document.querySelector(`[data-hold-status-title="${scenarioKey}"]`);
+      const statusLine = document.querySelector(`[data-hold-status-line="${scenarioKey}"]`);
+      const statusText = status?.querySelector("span");
+      const viewHeldButton = document.querySelector(`[data-view-held="${scenarioKey}"]`);
+      if (!button || !status) return;
+      button.hidden = true;
+      if (statusTitle) statusTitle.textContent = "Latest hold";
+      if (statusLine) statusLine.textContent = `Held version created ${formatPreservationTime(preservedRecord.preservedAt)}.`;
+      document.querySelectorAll(`[data-preservation-state="${scenarioKey}"]`).forEach((state) => {
+        state.textContent = `Latest hold · ${formatPreservationTime(preservedRecord.preservedAt)}`;
+      });
+      document.querySelectorAll(`[data-preservation-history="${scenarioKey}"]`).forEach((historyLabel) => {
+        if (!historyLabel.textContent.includes("preserved")) {
+          historyLabel.textContent = `${historyLabel.textContent} preserved`;
+        }
+      });
+      if (statusText) {
+        statusText.textContent = "A preserved version exists. The live understanding remains current and can change as new evidence appears.";
+      }
+      if (viewHeldButton) viewHeldButton.hidden = false;
+    }
+
+    function showHoldReadySinceLatest(scenarioKey, preservedRecord) {
+      const button = document.querySelector(`[data-save-scenario="${scenarioKey}"]`);
+      const status = document.querySelector(`[data-save-status="${scenarioKey}"]`);
+      const statusTitle = document.querySelector(`[data-hold-status-title="${scenarioKey}"]`);
+      const statusLine = document.querySelector(`[data-hold-status-line="${scenarioKey}"]`);
+      const statusText = status?.querySelector("span");
+      const viewHeldButton = document.querySelector(`[data-view-held="${scenarioKey}"]`);
+      if (!button || !status) return;
+      button.hidden = false;
+      if (statusTitle) statusTitle.textContent = "Hold Ready";
+      if (statusLine) statusLine.textContent = "This understanding has changed since the latest hold.";
+      document.querySelectorAll(`[data-preservation-state="${scenarioKey}"]`).forEach((state) => {
+        state.textContent = "Hold Ready";
+      });
+      if (statusText) statusText.textContent = `Latest hold: ${formatPreservationTime(preservedRecord.preservedAt)}.`;
+      if (viewHeldButton) viewHeldButton.hidden = false;
+    }
+
+    function showHoldCreated(scenarioKey, preservedRecord) {
+      const button = document.querySelector(`[data-save-scenario="${scenarioKey}"]`);
+      const status = document.querySelector(`[data-save-status="${scenarioKey}"]`);
+      const statusTitle = document.querySelector(`[data-hold-status-title="${scenarioKey}"]`);
+      const statusLine = document.querySelector(`[data-hold-status-line="${scenarioKey}"]`);
+      const statusText = status?.querySelector("span");
+      const viewHeldButton = document.querySelector(`[data-view-held="${scenarioKey}"]`);
+      if (!button || !status) return;
+      button.hidden = true;
+      if (statusTitle) statusTitle.textContent = "Hold Created";
+      if (statusLine) statusLine.textContent = "This understanding and its evidence path were preserved.";
+      document.querySelectorAll(`[data-preservation-state="${scenarioKey}"]`).forEach((state) => {
+        state.textContent = `Held version created · ${formatPreservationTime(preservedRecord.preservedAt)}`;
+      });
+      if (statusText) {
+        statusText.textContent = `Held on ${formatPreservationTime(preservedRecord.preservedAt)}. This does not imply approval or verification.`;
+      }
+      if (viewHeldButton) viewHeldButton.hidden = false;
+      window.setTimeout(() => showLatestHold(scenarioKey, preservedRecord), 5000);
+    }
+
+    scenarioSaveButtons.forEach((button) => {
+      const scenarioKey = button.dataset.saveScenario;
+      const scenario = scenarioPreservation[scenarioKey];
+      if (!scenario) return;
+      const storageKey = `hold-v7-lifecycle-v2-${scenario.scenarioIdentifier}`;
+
+      try {
+        const existingRecord = localStorage.getItem(storageKey);
+        if (existingRecord) {
+          const parsedRecord = JSON.parse(existingRecord);
+          if (parsedRecord.contentVersion === scenario.contentVersion) {
+            showLatestHold(scenarioKey, parsedRecord);
+          } else {
+            showHoldReadySinceLatest(scenarioKey, parsedRecord);
+          }
+        }
+      } catch (error) {
+        // The action remains usable when local browser storage is unavailable.
+      }
+
+      button.addEventListener("click", () => {
+        const preservedRecord = {
+          ...scenario,
+          scenarioKey,
+          preservedAt: new Date().toISOString(),
+          contentVersion: scenario.contentVersion,
+          recordType: "Held understanding"
+        };
+
+        try {
+          localStorage.setItem(storageKey, JSON.stringify(preservedRecord));
+        } catch (error) {
+          // The confirmation still demonstrates independent scenario preservation.
+        }
+
+        showHoldCreated(scenarioKey, preservedRecord);
+      });
+    });
+
+    const heldUnderstandingDialog = document.querySelector("#held-understanding-dialog");
+    const heldUnderstandingContent = document.querySelector("#held-understanding-content");
+    const heldUnderstandingClose = document.querySelector("#held-understanding-close");
+
+    document.querySelectorAll("[data-view-held]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const scenarioKey = button.dataset.viewHeld;
+        const scenario = scenarioPreservation[scenarioKey];
+        const storageKey = `hold-v7-lifecycle-v2-${scenario.scenarioIdentifier}`;
+        let record = null;
+        try {
+          record = JSON.parse(localStorage.getItem(storageKey));
+        } catch (error) {
+          // A held record is shown only when one can be recalled.
+        }
+        if (!record || !heldUnderstandingDialog || !heldUnderstandingContent) return;
+        record = { ...scenario, ...record };
+        record.sourceMetadata = scenario.sourceMetadata.map((source) => ({
+          ...source,
+          ...(record.sourceMetadata?.find((savedSource) => savedSource.key === source.key) || {})
+        }));
+        heldUnderstandingContent.innerHTML = `
+          <div class="held-understanding-record">
+            <p class="held-understanding-status">Understanding Held</p>
+            <h3>${record.title}</h3>
+            <div class="held-record-summary" aria-label="Held understanding details">
+              <div><strong>Held on</strong><span>${formatPreservationTime(record.preservedAt)}</span></div>
+              <div><strong>Snapshot ID</strong><span>${record.snapshotId}</span></div>
+              <div><strong>Evidence path</strong><span>Available</span></div>
+            </div>
+            <section class="held-understanding-section">
+              <h4>Question</h4>
+              <p class="held-question">${record.userQuestion}</p>
+            </section>
+            <section class="held-understanding-section">
+              <h4>Understanding</h4>
+              <ul class="held-understanding-list">
+                ${record.generatedUnderstanding.map((item) => `<li>${item}</li>`).join("")}
+              </ul>
+            </section>
+            <section class="held-understanding-section">
+              <h4>Held Evidence</h4>
+              <ul class="held-evidence-list">
+                ${record.sourceRecords.map((source) => `
+                  <li>
+                    <button class="snapshot-source-button" type="button" data-held-source="${source.key}">
+                      <span class="document-icon" aria-hidden="true">📄</span>
+                      <span>${source.title}</span>
+                    </button>
+                  </li>
+                `).join("")}
+              </ul>
+            </section>
+            <section class="held-understanding-section">
+              <h4>Evidence Path</h4>
+              <ol class="held-evidence-path">
+                ${record.evidencePath.map((step) => `<li><strong>${step.evidence}</strong> → ${step.supports}</li>`).join("")}
+              </ol>
+              <p class="held-reasoning"><strong>Reasoning review:</strong> ${record.reasoningReview}</p>
+            </section>
+            <details class="snapshot-provenance source-provenance-disclosure">
+              <summary>View Source Provenance</summary>
+              <div class="source-provenance-list">
+                ${record.sourceMetadata.map((source) => `
+                  <article class="source-provenance-record">
+                    <h5>${source.title}</h5>
+                    <dl>
+                      <div><dt>Record Owner</dt><dd>${source.owner}</dd></div>
+                      <div><dt>Version</dt><dd>${source.version}</dd></div>
+                      <div><dt>Status</dt><dd>${source.status}</dd></div>
+                      <div><dt>Last Updated</dt><dd>${source.updated}</dd></div>
+                      <div><dt>Source System</dt><dd>${source.sourceSystem}</dd></div>
+                      <div><dt>Source Identifier</dt><dd>${source.reference}</dd></div>
+                      <div class="provenance-purpose"><dt>Record Location / Path</dt><dd>${source.recordPath}</dd></div>
+                    </dl>
+                  </article>
+                `).join("")}
+              </div>
+            </details>
+            <details class="snapshot-provenance">
+              <summary>View full held details</summary>
+              <dl class="provenance-grid">
+                <div><dt>Snapshot ID</dt><dd>${record.snapshotId}</dd></div>
+                <div><dt>Captured</dt><dd>${formatPreservationTime(record.preservedAt)}</dd></div>
+                <div><dt>Understanding State</dt><dd>${record.understandingState}</dd></div>
+                <div><dt>Source Records</dt><dd>${record.sourceRecords.length} connected records</dd></div>
+                <div><dt>Latest Source Update</dt><dd>${record.latestSourceUpdate}</dd></div>
+                <div><dt>Evidence Confidence</dt><dd>${record.evidenceConfidence}</dd></div>
+                <div><dt>Comparison Baseline</dt><dd>${record.comparisonBaseline}</dd></div>
+                <div><dt>Preservation Status</dt><dd>Understanding Held</dd></div>
+                <div class="provenance-purpose"><dt>Snapshot Purpose</dt><dd>${record.snapshotPurpose}</dd></div>
+              </dl>
+            </details>
+          </div>
+        `;
+        heldUnderstandingDialog.showModal();
+      });
+    });
+
+    heldUnderstandingContent?.addEventListener("click", (event) => {
+      const sourceButton = event.target.closest("[data-held-source]");
+      if (!sourceButton) return;
+      const documentKey = sourceButton.dataset.heldSource;
+      const documentRecord = sourceDocuments[documentKey];
+      if (!documentRecord) return;
+      heldUnderstandingDialog.close();
+      renderSourceDocument(documentKey, documentRecord);
+      sourceDialog.showModal();
+    });
+
+    heldUnderstandingClose?.addEventListener("click", () => heldUnderstandingDialog.close());
+    heldUnderstandingDialog?.addEventListener("click", (event) => {
+      if (event.target === heldUnderstandingDialog) heldUnderstandingDialog.close();
+    });
+
+  </script>
+</body>
+</html>
