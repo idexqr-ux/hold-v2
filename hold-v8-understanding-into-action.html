@@ -1,0 +1,1738 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hold V8 &mdash; Understanding Into Action</title>
+  <meta
+    name="description"
+    content="A standalone Hold V8 exploration following what happened after connected understanding became action."
+  >
+  <style>
+    :root {
+      --ink: #283531;
+      --muted: #64746e;
+      --paper: #f7f8f4;
+      --panel: #ffffff;
+      --celadon: #dce9df;
+      --sage: #eef4ed;
+      --line: #d8e1d8;
+      --line-strong: #a8c2b5;
+      --accent: #557268;
+      --shadow: 0 16px 42px rgba(40, 53, 49, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(220, 233, 223, 0.72), transparent 30rem),
+        linear-gradient(180deg, var(--paper), #fbfbf8);
+      color: var(--ink);
+      font-family: Georgia, serif;
+      line-height: 1.55;
+    }
+
+    .page {
+      width: min(1060px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 58px;
+    }
+
+    .topbar {
+      display: grid;
+      justify-items: center;
+      gap: 10px;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 10px 0 30px;
+      text-align: center;
+    }
+
+    .brand-title,
+    .brand-subtitle,
+    .core-question {
+      margin: 0;
+    }
+
+    .brand-title {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.02;
+    }
+
+    .brand-subtitle {
+      color: #52675f;
+      font-size: clamp(1.05rem, 2vw, 1.24rem);
+      font-weight: 650;
+    }
+
+    .core-question {
+      margin-top: 3px;
+      padding: 11px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.74);
+      color: #40564e;
+      font-size: clamp(1rem, 2vw, 1.14rem);
+      font-style: italic;
+    }
+
+    .evolution-line {
+      max-width: 720px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .scenario-heading {
+      display: grid;
+      justify-items: center;
+      gap: 7px;
+      padding: 18px 0 8px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .scenario-heading h1 {
+      margin: 0;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      line-height: 1.18;
+    }
+
+    .scenario-heading p:last-child {
+      max-width: 700px;
+      margin: 0;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .card,
+    .action-stage {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: var(--shadow);
+    }
+
+    .card {
+      display: grid;
+      gap: 13px;
+      margin-top: 18px;
+      padding: 20px;
+    }
+
+    .card-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      padding-bottom: 11px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .card h2,
+    .card h3 {
+      margin: 0;
+      color: #40564e;
+      line-height: 1.22;
+    }
+
+    .card h2 {
+      font-size: 1.17rem;
+    }
+
+    .state-label {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .understanding-list,
+    .outcome-list,
+    .evidence-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .understanding-list li,
+    .outcome-list li {
+      position: relative;
+      padding-left: 1.15em;
+      color: #40564e;
+    }
+
+    .understanding-list li::before,
+    .outcome-list li::before {
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      content: "\2022";
+    }
+
+    .decision-line {
+      margin: 0;
+      padding: 13px 14px;
+      border-left: 3px solid var(--line-strong);
+      background: var(--sage);
+      color: #40564e;
+      font-weight: 700;
+    }
+
+    .concept-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .disclosure {
+      margin-top: 2px;
+    }
+
+    .disclosure > summary,
+    .action-stage > summary,
+    .operational-change > summary,
+    .evidence-record > summary {
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .disclosure > summary::-webkit-details-marker,
+    .action-stage > summary::-webkit-details-marker,
+    .operational-change > summary::-webkit-details-marker,
+    .evidence-record > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .disclosure-button {
+      width: fit-content;
+      padding: 8px 11px;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.82);
+      color: #40564e;
+      font-size: 0.86rem;
+      font-weight: 750;
+    }
+
+    .disclosure-button::after,
+    .action-stage > summary::after,
+    .operational-change > summary::after,
+    .evidence-record > summary::after {
+      margin-left: 0.55em;
+      color: var(--accent);
+      content: "\25BE";
+    }
+
+    details[open] > .disclosure-button::after,
+    .action-stage[open] > summary::after,
+    .operational-change[open] > summary::after,
+    .evidence-record[open] > summary::after {
+      content: "\25B4";
+    }
+
+    .source-records {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .source-record {
+      display: grid;
+      gap: 6px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcf9;
+    }
+
+    .source-record strong {
+      color: #40564e;
+    }
+
+    .source-record-meta {
+      color: var(--muted);
+      font-size: 0.79rem;
+      line-height: 1.45;
+    }
+
+    .source-record-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .source-document-button {
+      justify-self: start;
+      min-height: 34px;
+      padding: 7px 10px;
+      border: 1px solid var(--line-strong);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #40564e;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 750;
+    }
+
+    .source-document-button:hover,
+    .source-document-button:focus-visible {
+      background: var(--sage);
+      outline: none;
+    }
+
+    .source-dialog {
+      width: min(760px, calc(100% - 32px));
+      max-height: calc(100vh - 48px);
+      padding: 0;
+      overflow: hidden;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--ink);
+      box-shadow: 0 24px 70px rgba(40, 53, 49, 0.24);
+    }
+
+    .source-dialog::backdrop {
+      background: rgba(40, 53, 49, 0.42);
+      backdrop-filter: blur(2px);
+    }
+
+    .source-dialog-shell {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      max-height: calc(100vh - 48px);
+    }
+
+    .source-dialog-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--line);
+      background: var(--sage);
+    }
+
+    .source-dialog-header h2 {
+      margin: 3px 0 0;
+      color: var(--ink);
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      line-height: 1.2;
+    }
+
+    .source-dialog-close {
+      min-width: 36px;
+      min-height: 36px;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.8);
+      color: #40564e;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    .original-document {
+      overflow: auto;
+      padding: clamp(20px, 4vw, 34px);
+      background: #fff;
+    }
+
+    .document-masthead {
+      display: grid;
+      gap: 6px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--line-strong);
+    }
+
+    .document-masthead h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(1.35rem, 3vw, 1.85rem);
+      line-height: 1.18;
+    }
+
+    .document-type,
+    .document-reference {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .document-type {
+      color: var(--accent);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .document-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 18px;
+      margin: 18px 0;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcf9;
+    }
+
+    .document-meta div {
+      display: grid;
+      gap: 1px;
+    }
+
+    .document-meta dt {
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .document-meta dd {
+      margin: 0;
+      color: #40564e;
+      font-size: 0.88rem;
+    }
+
+    .document-section + .document-section {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .document-section h4 {
+      margin: 0 0 7px;
+      color: #40564e;
+      font-size: 1rem;
+    }
+
+    .document-section p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .document-section ul {
+      margin: 7px 0 0;
+      padding-left: 1.2em;
+      color: var(--muted);
+    }
+
+    .document-table {
+      width: 100%;
+      margin-top: 12px;
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .document-table th,
+    .document-table td {
+      padding: 8px;
+      border: 1px solid #cfd8d2;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .document-table th {
+      background: #edf2ee;
+      color: #354941;
+      font-weight: 700;
+    }
+
+    .finance-sheet {
+      font-family: Arial, sans-serif;
+    }
+
+    .finance-total {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      margin: 18px 0;
+      padding: 14px;
+      border: 1px solid #9fb6aa;
+      background: #eef4ed;
+    }
+
+    .finance-total strong {
+      color: #354941;
+    }
+
+    .finance-total span {
+      color: #283531;
+      font-size: 1.35rem;
+      font-weight: 800;
+    }
+
+    .governance-banner {
+      margin: 18px 0;
+      padding: 10px 12px;
+      border-left: 4px solid #557268;
+      background: #eef4ed;
+      color: #354941;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+    }
+
+    .document-signoff {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+    }
+
+    .source-world-email {
+      font-family: Arial, sans-serif;
+      background: #f5f6f8;
+    }
+
+    .email-envelope {
+      overflow: hidden;
+      border: 1px solid #cfd5dc;
+      border-radius: 7px;
+      background: #fff;
+    }
+
+    .email-fields {
+      display: grid;
+      gap: 5px;
+      padding: 12px 14px;
+      border-bottom: 1px solid #dfe3e8;
+      background: #f7f8fa;
+      color: #4a5560;
+      font-size: 0.8rem;
+    }
+
+    .email-subject {
+      padding: 14px;
+      border-bottom: 1px solid #dfe3e8;
+      color: #26323a;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .email-body {
+      padding: 18px;
+      color: #3f4a52;
+      line-height: 1.6;
+    }
+
+    .source-world-purchase {
+      font-family: Arial, sans-serif;
+    }
+
+    .purchase-order-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+      padding: 16px;
+      border: 2px solid #354941;
+    }
+
+    .purchase-order-number {
+      color: #354941;
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-align: right;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 8px;
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+      font-family: Arial, sans-serif;
+    }
+
+    .checklist li {
+      display: grid;
+      grid-template-columns: 1.4em minmax(0, 1fr);
+      gap: 8px;
+      padding: 8px 10px;
+      border: 1px solid #d5ddd8;
+      background: #fbfcf9;
+      color: #405047;
+    }
+
+    .checkmark {
+      color: #3f715c;
+      font-weight: 800;
+    }
+
+    .approval-stamp {
+      width: fit-content;
+      margin: 16px 0;
+      padding: 8px 14px;
+      border: 3px double #3f715c;
+      color: #3f715c;
+      font-family: Arial, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transform: rotate(-1deg);
+    }
+
+    .training-register,
+    .asset-register {
+      font-family: Arial, sans-serif;
+    }
+
+    .qr-placeholder {
+      display: grid;
+      place-items: center;
+      width: 94px;
+      height: 94px;
+      margin: 14px 0;
+      border: 7px double #283531;
+      background:
+        repeating-linear-gradient(45deg, #283531 0 5px, #fff 5px 10px);
+      color: #fff;
+      font-size: 0;
+    }
+
+    .review-evidence-disclosure {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 2px solid var(--line-strong);
+    }
+
+    .review-evidence-disclosure > summary {
+      width: fit-content;
+      padding: 8px 11px;
+      border: 1px solid var(--line-strong);
+      border-radius: 7px;
+      background: #eef4ed;
+      color: #354941;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      font-size: 0.84rem;
+      font-weight: 700;
+      list-style: none;
+    }
+
+    .review-evidence-disclosure > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .review-evidence-list {
+      display: grid;
+      gap: 8px;
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .review-evidence-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      padding: 10px 11px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #fbfcf9;
+      font-family: Arial, sans-serif;
+    }
+
+    .review-evidence-item strong,
+    .review-evidence-item span {
+      display: block;
+    }
+
+    .review-evidence-item strong {
+      color: #354941;
+      font-size: 0.86rem;
+    }
+
+    .review-evidence-item span {
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .evidence-view-button,
+    .document-back-button {
+      min-height: 32px;
+      padding: 6px 9px;
+      border: 1px solid var(--line-strong);
+      border-radius: 6px;
+      background: #fff;
+      color: #40564e;
+      cursor: pointer;
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+
+    .document-back-button {
+      margin-bottom: 14px;
+    }
+
+    .evidence-view-button:hover,
+    .evidence-view-button:focus-visible,
+    .document-back-button:hover,
+    .document-back-button:focus-visible {
+      background: var(--sage);
+      outline: none;
+    }
+
+    .action-flow {
+      position: relative;
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .action-flow::before {
+      position: absolute;
+      top: 28px;
+      bottom: 28px;
+      left: 27px;
+      width: 1px;
+      background: var(--line-strong);
+      content: "";
+    }
+
+    .action-stage {
+      position: relative;
+      padding: 16px 18px;
+      box-shadow: none;
+    }
+
+    .action-stage > summary {
+      display: grid;
+      grid-template-columns: 40px minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .stage-marker {
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--line-strong);
+      border-radius: 50%;
+      background: var(--celadon);
+      color: #40564e;
+      font-weight: 800;
+    }
+
+    .stage-content {
+      display: grid;
+      gap: 5px;
+    }
+
+    .stage-content h3,
+    .stage-content p {
+      margin: 0;
+    }
+
+    .stage-content h3 {
+      color: #40564e;
+      font-size: 1rem;
+    }
+
+    .stage-evidence {
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.4;
+    }
+
+    .stage-evidence strong {
+      color: var(--accent);
+    }
+
+    .stage-meta {
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .stage-content p:last-child {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .stage-detail {
+      margin: 10px 0 0 52px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .stage-detail p {
+      margin: 0;
+    }
+
+    .stage-detail p + p {
+      margin-top: 5px;
+    }
+
+    .stage-evidence-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+    .stage-evidence-button {
+      min-height: 32px;
+      padding: 6px 9px;
+      border: 1px solid var(--line-strong);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #40564e;
+      cursor: pointer;
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+
+    .stage-evidence-button:hover,
+    .stage-evidence-button:focus-visible {
+      background: var(--sage);
+      outline: none;
+    }
+
+    .operational-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .transition-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .transition-item {
+      display: grid;
+      gap: 8px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcf9;
+    }
+
+    .transition-item h3,
+    .transition-item p {
+      margin: 0;
+    }
+
+    .transition-item h3 {
+      color: #40564e;
+      font-size: 1rem;
+    }
+
+    .transition-item p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .transition-evidence {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
+    }
+
+    .operational-change {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcf9;
+    }
+
+    .operational-change > summary strong,
+    .operational-change p {
+      display: block;
+    }
+
+    .operational-change > summary strong {
+      color: #40564e;
+    }
+
+    .operational-change p {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 0.89rem;
+    }
+
+    .change-comparison {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+    }
+
+    .change-state {
+      display: grid;
+      gap: 4px;
+    }
+
+    .change-state h4 {
+      margin: 0;
+      color: var(--accent);
+      font-size: 0.74rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .change-state ul {
+      display: grid;
+      gap: 3px;
+      margin: 0;
+      padding-left: 1.15em;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .change-evidence {
+      display: grid;
+      gap: 6px;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
+    }
+
+    .change-evidence strong {
+      color: var(--accent);
+      font-size: 0.76rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .change-evidence-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .matter-lead {
+      margin: 0;
+      color: #40564e;
+      font-size: 1.02rem;
+      font-weight: 750;
+    }
+
+    .evidence-list {
+      gap: 0;
+    }
+
+    .evidence-record {
+      display: grid;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .evidence-record:last-child {
+      border-bottom: 0;
+    }
+
+    .evidence-record > summary {
+      display: grid;
+      grid-template-columns: 1.4em minmax(0, 1fr) auto auto;
+      gap: 9px;
+      align-items: baseline;
+    }
+
+    .evidence-icon {
+      opacity: 0.72;
+      font-family: "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
+    }
+
+    .evidence-name {
+      color: #40564e;
+      font-weight: 700;
+    }
+
+    .evidence-status {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .evidence-detail {
+      margin: 8px 0 0 2.3em;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .preservation-note {
+      margin: 0;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-style: italic;
+    }
+
+    footer {
+      display: grid;
+      gap: 4px;
+      padding: 0 16px 34px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 700px) {
+      .operational-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .transition-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .source-records {
+        grid-template-columns: 1fr;
+      }
+
+      .document-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .review-evidence-item {
+        grid-template-columns: 1fr;
+      }
+
+      .evidence-record > summary {
+        grid-template-columns: 1.4em minmax(0, 1fr) auto;
+      }
+
+      .evidence-status {
+        grid-column: 2;
+      }
+
+      .stage-detail {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <p class="brand-title">Hold V8</p>
+      <p class="brand-subtitle">Understanding Into Action</p>
+      <p class="core-question">What happened because we acted on this understanding?</p>
+      <p class="evolution-line">
+        V5 explored perspective. V6 explored connection. V7 explored time. V8 begins with the consequences of acting on connected understanding.
+      </p>
+    </header>
+
+    <section class="scenario-heading" aria-labelledby="scenario-title">
+      <p class="eyebrow">Exploration scenario</p>
+      <h1 id="scenario-title">Forklift Fleet Replacement Review</h1>
+      <p>Following a preserved decision position into governance, procurement, implementation and operational record change.</p>
+    </section>
+
+    <section class="card" aria-labelledby="before-title">
+      <div class="card-header">
+        <h2 id="before-title">Preserved Decision Understanding</h2>
+        <span class="state-label">Preserved decision-preparation snapshot · 18 June 2026</span>
+      </div>
+      <p class="concept-note">The understanding available when the decision was made.</p>
+      <p class="concept-note"><strong>Question Being Answered:</strong> What should the organisation do about Forklift 04, based on the available operational, supplier, financial and governance evidence?</p>
+      <ul class="understanding-list">
+        <li>Supplier engagement complete.</li>
+        <li>Budget forecasting complete.</li>
+        <li>Two replacement options met the operational requirement.</li>
+        <li>Governance review was the principal remaining dependency.</li>
+      </ul>
+      <p class="decision-line">Decision: approve replacement of Forklift 04 and proceed with the selected supplier option.</p>
+      <p class="concept-note">The original documents remain available, but Hold first preserves the decision understanding those documents created.</p>
+      <details class="disclosure">
+        <summary class="disclosure-button">View supporting sources</summary>
+        <ul class="source-records">
+          <li class="source-record">
+            <strong>📄 Forklift Fleet Replacement Review</strong>
+            <span class="source-record-meta">Operations Review Group · Version 1.9 · Updated 18 June 2026 · Governance preparation</span>
+            <p class="source-record-note">Recorded the operational requirement, viable options and governance dependency.</p>
+            <button class="source-document-button" type="button" data-original-document="forklift-review">View Original Document</button>
+          </li>
+          <li class="source-record">
+            <strong>📋 Replacement Supplier Comparison</strong>
+            <span class="source-record-meta">Procurement · Final comparison · Updated 12 June 2026 · Complete</span>
+            <p class="source-record-note">Confirmed two compliant replacement options and preferred support arrangements.</p>
+            <button class="source-document-button" type="button" data-original-document="supplier-comparison">View Original Document</button>
+          </li>
+          <li class="source-record">
+            <strong>📊 Forklift Replacement Budget Forecast</strong>
+            <span class="source-record-meta">Commercial Finance · Forecast 1.1 · Updated 16 June 2026 · Received</span>
+            <p class="source-record-note">Established the £38,000 excluding VAT working allowance and funding context.</p>
+            <button class="source-document-button" type="button" data-original-document="budget-forecast">View Original Document</button>
+          </li>
+          <li class="source-record">
+            <strong>📑 Capital Expenditure Governance Note</strong>
+            <span class="source-record-meta">Governance Review Group · Updated 17 June 2026 · Route confirmed</span>
+            <p class="source-record-note">Confirmed the approval threshold, evidence requirements and accountable next step.</p>
+            <button class="source-document-button" type="button" data-original-document="governance-note">View Original Document</button>
+          </li>
+        </ul>
+      </details>
+    </section>
+
+    <section aria-labelledby="action-title">
+      <div class="card-header">
+        <h2 id="action-title">Implementation Understanding</h2>
+        <span class="state-label">How work progressed across systems, teams and records after the decision.</span>
+      </div>
+      <p class="concept-note">Understanding creates decisions. Implementation creates complexity. Hold helps connect the implementation story.</p>
+      <div class="action-flow">
+        <details class="action-stage">
+          <summary><span class="stage-marker">1</span><span class="stage-content"><h3>Governance approval completed</h3><span class="stage-evidence"><strong>Evidence:</strong> Capital Expenditure Approval Record</span></span></summary>
+          <div class="stage-detail">
+            <p class="stage-meta">Owner: Governance Review Group · Date: 24 June 2026</p>
+            <p>Capital expenditure approval was recorded with the evidence pack and accountable decision owner.</p>
+            <div class="stage-evidence-actions"><button class="stage-evidence-button" type="button" data-original-document="capex-approval">View approval record</button></div>
+          </div>
+        </details>
+        <details class="action-stage">
+          <summary><span class="stage-marker">2</span><span class="stage-content"><h3>Supplier selected and purchase order issued</h3><span class="stage-evidence"><strong>Evidence:</strong> Supplier Selection Record + Purchase Order PO-48217</span></span></summary>
+          <div class="stage-detail">
+            <p class="stage-meta">Owner: Procurement · Date: 27 June 2026</p>
+            <p>The compliant option with the preferred support arrangement was selected and formally ordered.</p>
+            <div class="stage-evidence-actions"><button class="stage-evidence-button" type="button" data-original-document="supplier-selection">View selection record</button><button class="stage-evidence-button" type="button" data-original-document="purchase-order">View purchase order</button></div>
+          </div>
+        </details>
+        <details class="action-stage">
+          <summary><span class="stage-marker">3</span><span class="stage-content"><h3>Delivery and commissioning prepared</h3><span class="stage-evidence"><strong>Evidence:</strong> Supplier Delivery Confirmation + Commissioning Readiness Checklist</span></span></summary>
+          <div class="stage-detail">
+            <p class="stage-meta">Owner: Procurement and Operations · Status: Scheduled for 22 September 2026</p>
+            <p>Delivery arrangements, site access, inspection requirements and commissioning responsibilities were confirmed before arrival.</p>
+            <div class="stage-evidence-actions"><button class="stage-evidence-button" type="button" data-original-document="delivery-confirmation">View delivery confirmation</button><button class="stage-evidence-button" type="button" data-original-document="commissioning-readiness">View readiness checklist</button></div>
+          </div>
+        </details>
+        <details class="action-stage">
+          <summary><span class="stage-marker">4</span><span class="stage-content"><h3>Replacement asset received</h3><span class="stage-evidence"><strong>Evidence:</strong> Asset Receipt and Commissioning Checklist</span></span></summary>
+          <div class="stage-detail">
+            <p class="stage-meta">Owner: Operations · Date: 22 September 2026</p>
+            <p>The new asset was delivered, inspected and accepted into the operational fleet.</p>
+            <div class="stage-evidence-actions"><button class="stage-evidence-button" type="button" data-original-document="receipt-checklist">View receipt checklist</button></div>
+          </div>
+        </details>
+        <details class="action-stage">
+          <summary><span class="stage-marker">5</span><span class="stage-content"><h3>Operator familiarisation completed</h3><span class="stage-evidence"><strong>Evidence:</strong> Operator Familiarisation Record</span></span></summary>
+          <div class="stage-detail">
+            <p class="stage-meta">Owner: Operations and Safety · Date: 24 September 2026</p>
+            <p>Relevant operators completed familiarisation and updated training requirements were recorded.</p>
+            <div class="stage-evidence-actions"><button class="stage-evidence-button" type="button" data-original-document="familiarisation-record">View familiarisation record</button></div>
+          </div>
+        </details>
+        <details class="action-stage">
+          <summary><span class="stage-marker">6</span><span class="stage-content"><h3>Operational information updated</h3><span class="stage-evidence"><strong>Evidence:</strong> Asset Register and QR Information Record + Forklift Maintenance Schedule</span></span></summary>
+          <div class="stage-detail">
+            <p class="stage-meta">Owner: Operations, Engineering and Safety · Date: 25 September 2026</p>
+            <p>Training, maintenance, asset-register and QR-linked information were updated for the replacement asset.</p>
+            <div class="stage-evidence-actions"><button class="stage-evidence-button" type="button" data-original-document="asset-qr-record">View asset and QR record</button><button class="stage-evidence-button" type="button" data-original-document="maintenance-schedule">View maintenance schedule</button></div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="transition-title">
+      <div class="card-header">
+        <h2 id="transition-title">Asset Transition</h2>
+        <span class="state-label">How the organisation moved from the old operational state to the new one.</span>
+      </div>
+      <div class="transition-grid">
+        <article class="transition-item">
+          <h3>Replacement asset</h3>
+          <p>FLT-11 was commissioned and entered operational service.</p>
+          <div class="transition-evidence">
+            <button class="stage-evidence-button" type="button" data-original-document="receipt-checklist">View receipt and commissioning evidence</button>
+            <button class="stage-evidence-button" type="button" data-original-document="asset-qr-record">View asset and QR record</button>
+          </div>
+        </article>
+        <article class="transition-item">
+          <h3>Previous asset</h3>
+          <p>FLT-04 was removed from primary dispatch operations and reassigned to contingency fleet support.</p>
+          <div class="transition-evidence">
+            <button class="stage-evidence-button" type="button" data-original-document="fleet-allocation-update">View fleet allocation update</button>
+            <button class="stage-evidence-button" type="button" data-original-document="asset-transfer-record">View asset transfer record</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="operational-title">
+      <div class="card-header">
+        <h2 id="operational-title">What Changed Operationally</h2>
+        <span class="state-label">Consequences observed after action</span>
+      </div>
+      <div class="operational-grid">
+        <details class="operational-change">
+          <summary><strong>Fleet capability</strong></summary>
+          <div class="change-comparison">
+            <div class="change-state"><h4>Before</h4><ul><li>FLT-04 was the primary dispatch asset.</li></ul></div>
+            <div class="change-state"><h4>After</h4><ul><li>FLT-11 entered primary operational service.</li><li>FLT-04 moved to contingency support.</li></ul></div>
+            <div class="change-evidence"><strong>Evidence</strong><div class="change-evidence-actions"><button class="stage-evidence-button" type="button" data-original-document="fleet-allocation-update">View Fleet Allocation Update</button><button class="stage-evidence-button" type="button" data-original-document="asset-qr-record">View Asset and QR Record</button></div></div>
+          </div>
+        </details>
+        <details class="operational-change">
+          <summary><strong>Maintenance position</strong></summary>
+          <div class="change-comparison">
+            <div class="change-state"><h4>Before</h4><ul><li>FLT-04 had an increasing reactive maintenance pattern.</li><li>27 interventions had been recorded.</li></ul></div>
+            <div class="change-state"><h4>After</h4><ul><li>FLT-11 entered a planned maintenance programme.</li><li>A new preventive maintenance schedule is active.</li></ul></div>
+            <div class="change-evidence"><strong>Evidence</strong><div class="change-evidence-actions"><button class="stage-evidence-button" type="button" data-original-document="maintenance-history">View Maintenance History</button><button class="stage-evidence-button" type="button" data-original-document="maintenance-schedule">View Maintenance Schedule</button></div></div>
+          </div>
+        </details>
+        <details class="operational-change">
+          <summary><strong>People readiness</strong></summary>
+          <div class="change-comparison">
+            <div class="change-state"><h4>Before</h4><ul><li>Operators were familiar with FLT-04.</li></ul></div>
+            <div class="change-state"><h4>After</h4><ul><li>Relevant operators completed FLT-11 familiarisation.</li><li>Refresher and training requirements were recorded.</li></ul></div>
+            <div class="change-evidence"><strong>Evidence</strong><div class="change-evidence-actions"><button class="stage-evidence-button" type="button" data-original-document="familiarisation-record">View Operator Familiarisation Record</button></div></div>
+          </div>
+        </details>
+        <details class="operational-change">
+          <summary><strong>Information state</strong></summary>
+          <div class="change-comparison">
+            <div class="change-state"><h4>Before</h4><ul><li>Operational records referenced FLT-04.</li></ul></div>
+            <div class="change-state"><h4>After</h4><ul><li>The asset register, local records, maintenance schedule and QR-linked information reference FLT-11.</li></ul></div>
+            <div class="change-evidence"><strong>Evidence</strong><div class="change-evidence-actions"><button class="stage-evidence-button" type="button" data-original-document="asset-qr-record">View Asset and QR Record</button><button class="stage-evidence-button" type="button" data-original-document="maintenance-schedule">View Maintenance Schedule</button></div></div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="matters-title">
+      <div class="card-header">
+        <h2 id="matters-title">Why It Matters</h2>
+      </div>
+      <p class="matter-lead">Hold shows whether a decision produced the intended operational change.</p>
+      <details class="disclosure">
+        <summary class="disclosure-button">Read more</summary>
+        <ul class="outcome-list">
+        <li>The action trail connects approval, procurement, receipt, training and record updates rather than treating them as unrelated tasks.</li>
+        <li>Missing follow-through becomes visible—for example, an asset can arrive while training or QR-linked information remains incomplete.</li>
+        <li>The organisation retains both the understanding that justified the action and the evidence of what happened afterwards.</li>
+        </ul>
+      </details>
+    </section>
+
+    <section class="card" aria-labelledby="evidence-title">
+      <div class="card-header">
+        <h2 id="evidence-title">Implementation Archive</h2>
+        <span class="state-label">Records created, updated or referenced as implementation progressed.</span>
+      </div>
+      <ul class="evidence-list">
+        <li><details class="evidence-record"><summary><span class="evidence-icon">📑</span><span class="evidence-name">Capital Expenditure Approval Record</span><span class="evidence-status">Approved · 24 June</span></summary><p class="evidence-detail">Links the preserved understanding and evidence pack to the formal approval decision.</p><button class="stage-evidence-button" type="button" data-original-document="capex-approval">View approval record</button></details></li>
+        <li><details class="evidence-record"><summary><span class="evidence-icon">📋</span><span class="evidence-name">Supplier Selection Record</span><span class="evidence-status">Completed · 27 June</span></summary><p class="evidence-detail">Records the selected compliant option and preferred support arrangement.</p><button class="stage-evidence-button" type="button" data-original-document="supplier-selection">View selection record</button></details></li>
+        <li><details class="evidence-record"><summary><span class="evidence-icon">📄</span><span class="evidence-name">Purchase Order PO-48217</span><span class="evidence-status">Issued · 27 June</span></summary><p class="evidence-detail">Shows that the approved decision became a committed procurement action.</p><button class="stage-evidence-button" type="button" data-original-document="purchase-order">View purchase order</button></details></li>
+        <li><details class="evidence-record"><summary><span class="evidence-icon">📧</span><span class="evidence-name">Supplier Delivery Confirmation</span><span class="evidence-status">Confirmed · 15 September</span></summary><p class="evidence-detail">Confirms the planned delivery date, receiving location and supplier contact for the replacement asset.</p><button class="stage-evidence-button" type="button" data-original-document="delivery-confirmation">View delivery confirmation</button></details></li>
+        <li><details class="evidence-record"><summary><span class="evidence-icon">☑</span><span class="evidence-name">Commissioning Readiness Checklist</span><span class="evidence-status">Prepared · 19 September</span></summary><p class="evidence-detail">Records site access, inspection responsibilities, commissioning checks and accountable owners before delivery.</p><button class="stage-evidence-button" type="button" data-original-document="commissioning-readiness">View readiness checklist</button></details></li>
+        <li><details class="evidence-record"><summary><span class="evidence-icon">☑</span><span class="evidence-name">Asset Receipt and Commissioning Checklist</span><span class="evidence-status">Completed · 22 September</span></summary><p class="evidence-detail">Confirms delivery, inspection and acceptance into the operational fleet.</p><button class="stage-evidence-button" type="button" data-original-document="receipt-checklist">View receipt checklist</button></details></li>
+        <li><details class="evidence-record"><summary><span class="evidence-icon">📋</span><span class="evidence-name">Operator Familiarisation Record</span><span class="evidence-status">Completed · 24 September</span></summary><p class="evidence-detail">Confirms who attended, what was covered, who delivered the familiarisation and when refresher review is required.</p><button class="stage-evidence-button" type="button" data-original-document="familiarisation-record">View familiarisation record</button></details></li>
+        <li><details class="evidence-record"><summary><span class="evidence-icon">📊</span><span class="evidence-name">Forklift Maintenance Schedule</span><span class="evidence-status">Updated · 25 September</span></summary><p class="evidence-detail">Closes the previous intervention pattern and begins the replacement asset's planned schedule.</p><button class="stage-evidence-button" type="button" data-original-document="maintenance-schedule">View maintenance schedule</button></details></li>
+        <li><details class="evidence-record"><summary><span class="evidence-icon">📑</span><span class="evidence-name">Asset Register and QR Information Record</span><span class="evidence-status">Updated · 25 September</span></summary><p class="evidence-detail">Confirms that local records and QR-linked information reference the replacement asset.</p><button class="stage-evidence-button" type="button" data-original-document="asset-qr-record">View asset and QR record</button></details></li>
+        <li><details class="evidence-record"><summary><span class="evidence-icon">📋</span><span class="evidence-name">Fleet Allocation Update</span><span class="evidence-status">Updated · 25 September</span></summary><p class="evidence-detail">Records FLT-11 entering primary service and FLT-04 moving to contingency fleet support.</p><button class="stage-evidence-button" type="button" data-original-document="fleet-allocation-update">View fleet allocation update</button></details></li>
+        <li><details class="evidence-record"><summary><span class="evidence-icon">📑</span><span class="evidence-name">Asset Transfer Record</span><span class="evidence-status">Transferred · 25 September</span></summary><p class="evidence-detail">Preserves the custody, maintenance ownership and historical linkage for FLT-04.</p><button class="stage-evidence-button" type="button" data-original-document="asset-transfer-record">View asset transfer record</button></details></li>
+      </ul>
+      <p class="preservation-note">
+        <strong>Question preserved:</strong> What happened because the organisation acted on the decision understanding supporting replacement of Forklift 04?<br>
+        The earlier question, understanding, approval decision and subsequent action records remain linked as separate preserved states. Later outcomes do not rewrite why the decision was made.
+      </p>
+    </section>
+
+    <dialog class="source-dialog" id="source-dialog" aria-labelledby="source-dialog-title">
+      <div class="source-dialog-shell">
+        <header class="source-dialog-header">
+          <div>
+            <p class="eyebrow">Original source content</p>
+            <h2 id="source-dialog-title">Source document</h2>
+          </div>
+          <button class="source-dialog-close" id="source-dialog-close" type="button" aria-label="Close original document">&times;</button>
+        </header>
+        <article class="original-document" id="original-document-content"></article>
+      </div>
+    </dialog>
+  </main>
+
+  <footer>
+    <p><a href="index.html">Back to Hold demos</a></p>
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p>Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  </footer>
+  <script>
+    const originalDocuments = {
+      "forklift-review": {
+        title: "Forklift Fleet Replacement Review",
+        type: "Operational review paper",
+        reference: "OPS-CAPEX-2026-014",
+        meta: { Owner: "Operations Review Group", Version: "1.9", Updated: "18 June 2026", Status: "Governance preparation" },
+        sections: [
+          ["Purpose", "This review assesses whether Forklift 04 should progress from replacement planning into formal approval, considering operational reliability, procurement options, budget position and governance requirements."],
+          ["Operational position", "Forklift 04 remains operational but has experienced increasing maintenance activity and intermittent availability. The operational requirement for a replacement asset has been confirmed."],
+          ["Evidence position", "Supplier engagement and budget forecasting are complete. Two options meet the operational specification and the approval route is understood."],
+          ["Recommendation", "Proceed to Capital Expenditure Governance review and, subject to approval, replace Forklift 04 using the selected compliant supplier option."]
+        ]
+      },
+      "maintenance-history": {
+        title: "Maintenance Intervention History",
+        type: "Engineering maintenance record",
+        reference: "ENG-FLT04-HIST-2025-26",
+        meta: { Owner: "Engineering Services", Period: "June 2025 – May 2026", Updated: "13 June 2026", Status: "Reviewed" },
+        sections: [
+          ["Recorded activity", "Forklift 04 required 27 planned and unplanned maintenance interventions during the twelve-month review period."],
+          ["Availability effect", "Intermittent operational availability was recorded during both planned maintenance and unplanned fault investigation."],
+          ["Engineering observation", "The intervention pattern is increasing and supports continued replacement planning. The maintenance record does not itself authorise replacement."]
+        ]
+      },
+      "supplier-comparison": {
+        title: "Replacement Supplier Comparison",
+        type: "Procurement option appraisal",
+        reference: "PROC-FLT04-COMP-001",
+        meta: { Owner: "Procurement", Version: "Final comparison", Updated: "12 June 2026", Status: "Complete" },
+        sections: [
+          ["Scope", "Three potential suppliers were assessed against operational specification, availability, support provision, warranty and delivery lead time."],
+          ["Assessment", "Two options met the required lifting capacity, safety specification and support expectations. Indicative delivery periods ranged from 14 to 22 weeks."],
+          ["Preferred option", "The preferred option provides compliant capability with the stronger local support arrangement and an acceptable delivery period."],
+          ["Procurement conclusion", "Supplier engagement is complete. Procurement recommends progression of the preferred compliant option, subject to governance approval."]
+        ]
+      },
+      "budget-forecast": {
+        title: "Forklift Replacement Budget Forecast",
+        type: "Finance forecast",
+        reference: "FIN-FLT04-FCST-1.1",
+        meta: { Owner: "Commercial Finance", Version: "Forecast 1.1", Updated: "16 June 2026", Status: "Received" },
+        sections: [
+          ["Forecast basis", "The forecast uses current supplier pricing, delivery assumptions and commissioning requirements for a compliant replacement asset."],
+          ["Working allowance", "The working replacement allowance is £38,000 excluding VAT, with contingency identified for delivery and commissioning."],
+          ["Funding context", "Capital provision can be considered within the current equipment replacement programme, subject to formal approval."],
+          ["Finance note", "This forecast supports decision preparation. It does not constitute spending authority or a final purchase commitment."]
+        ]
+      },
+      "governance-note": {
+        title: "Capital Expenditure Governance Note",
+        type: "Governance route note",
+        reference: "GOV-CAPEX-ROUTE-2026-22",
+        meta: { Owner: "Governance Review Group", Updated: "17 June 2026", Version: "Route confirmation", Status: "Governance review required" },
+        sections: [
+          ["Approval route", "The forecast replacement value exceeds the local operational approval threshold and requires Capital Expenditure Governance review."],
+          ["Required evidence", "The submission should include operational need, supplier comparison, budget forecast, accountable ownership and implementation implications."],
+          ["Decision record", "Any approval should preserve the evidence considered, the selected option, conditions attached and the accountable decision owner."],
+          ["Next step", "Prepare the management briefing and submit the complete evidence pack for governance review."]
+        ]
+      },
+      "capex-approval": {
+        title: "Capital Expenditure Approval Record",
+        type: "Formal approval record",
+        reference: "CAPEX-APP-2026-041",
+        meta: { Owner: "Governance Review Group", Decision: "Approved", Date: "24 June 2026", Status: "Closed" },
+        sections: [
+          ["Decision", "Replacement of Forklift 04 is approved using the preferred compliant supplier option, within the authorised capital limit."],
+          ["Evidence considered", "Operational review paper, supplier comparison, budget forecast and governance route note were considered."],
+          ["Conditions", "Procurement must confirm purchase terms. Operations must complete receipt, familiarisation and operational-record updates before unrestricted use."],
+          ["Accountability", "Operations Director is the accountable decision owner. Procurement and Operations own implementation."]
+        ]
+      },
+      "supplier-selection": {
+        title: "Supplier Selection Record",
+        type: "Procurement decision record",
+        reference: "PROC-SEL-FLT04-2026-09",
+        meta: { Owner: "Procurement", Date: "27 June 2026", Selected: "Northfield Handling", Status: "Completed" },
+        sections: [
+          ["Selected option", "Northfield Handling was selected as the preferred compliant supplier following governance approval."],
+          ["Selection basis", "The offer met the operational and safety specification, provided local engineer coverage and offered an acceptable delivery period."],
+          ["Approval check", "The selected price and terms remain within the authorised capital limit."],
+          ["Next action", "Issue the purchase order and confirm delivery and commissioning arrangements."]
+        ]
+      },
+      "purchase-order": {
+        title: "Purchase Order PO-48217",
+        type: "Purchase order",
+        reference: "PO-48217",
+        meta: { Buyer: "Procurement", Supplier: "Northfield Handling", Issued: "27 June 2026", Status: "Accepted" },
+        sections: [
+          ["Order", "One compliant replacement forklift for Forklift 04, including delivery, commissioning support and agreed warranty provision."],
+          ["Order value", "£37,000 excluding VAT, within the approved working allowance."],
+          ["Delivery requirement", "Delivery to the main dispatch facility, subject to pre-delivery confirmation and receiving arrangements."],
+          ["Authorisation", "Issued against Capital Expenditure Approval Record CAPEX-APP-2026-041."]
+        ]
+      },
+      "delivery-confirmation": {
+        title: "Supplier Delivery Confirmation",
+        type: "Supplier correspondence",
+        reference: "NH-DEL-220926",
+        meta: { From: "Northfield Handling", To: "Procurement and Operations", Date: "15 September 2026", Status: "Confirmed" },
+        sections: [
+          ["Confirmed delivery", "Delivery is confirmed for 22 September 2026 between 09:00 and 11:00."],
+          ["Supplier contact", "The delivery engineer will contact the receiving supervisor thirty minutes before arrival."],
+          ["Requirements", "Clear unloading access, an authorised receiving contact and the commissioning checklist must be available."],
+          ["Included documentation", "Warranty information, operating manual and initial service schedule will accompany the asset."]
+        ]
+      },
+      "commissioning-readiness": {
+        title: "Commissioning Readiness Checklist",
+        type: "Pre-delivery checklist",
+        reference: "OPS-FLT04-COMM-READY",
+        meta: { Owner: "Operations", Prepared: "19 September 2026", Delivery: "22 September 2026", Status: "Ready" },
+        sections: [
+          ["Site readiness", "Delivery access, unloading area and temporary segregation arrangements confirmed."],
+          ["People", "Receiving supervisor, Engineering representative and Safety contact identified."],
+          ["Checks prepared", "Asset identity, specification, safety features, documentation and initial condition checks assigned."],
+          ["Post-receipt actions", "Operator familiarisation, maintenance schedule creation, asset registration and QR information update planned."]
+        ]
+      },
+      "receipt-checklist": {
+        title: "Asset Receipt and Commissioning Checklist",
+        type: "Receipt and acceptance record",
+        reference: "OPS-FLT04-REC-220926",
+        meta: { Owner: "Operations", Completed: "22 September 2026", Asset: "FLT-11", Status: "Accepted" },
+        sections: [
+          ["Receipt", "The replacement asset was delivered within the confirmed window and matched the purchase-order specification."],
+          ["Inspection", "Safety features, controls, documentation and initial condition were checked with no blocking defects identified."],
+          ["Commissioning", "Initial operational checks were completed with the supplier engineer and Engineering representative."],
+          ["Acceptance", "FLT-11 was accepted into the fleet, subject to operator familiarisation and completion of operational-record updates."]
+        ]
+      },
+      "familiarisation-record": {
+        title: "Operator Familiarisation Record",
+        type: "Training and competence record",
+        reference: "TRN-FLT11-FAM-240926",
+        meta: { Asset: "FLT-11 Replacement Forklift", "Training date": "24 September 2026", Trainer: "Operations Supervisor", Duration: "2 hours", Validity: "Until 24 September 2027", Status: "Completed" },
+        sections: [
+          ["Attendees", "Operator 123 ABC; Operator 456 DEF; Operator 789 GHI; Operator 214 JKL; Operator 335 MNO; Operator 428 PQR; Operator 512 STU; Operator 607 VWX."],
+          ["Training topics", "Vehicle controls and instrumentation; daily inspection procedure; safe operating limits; battery charging process; emergency shutdown procedure; incident reporting requirements."],
+          ["Competence note", "Existing operator authorisations remain applicable. Familiarisation confirms understanding of the replacement asset and local operating arrangements."],
+          ["Refresher requirement", "Annual familiarisation review, or earlier following a material equipment, control or operating-procedure change."]
+        ]
+      },
+      "maintenance-schedule": {
+        title: "Forklift Maintenance Schedule",
+        type: "Engineering maintenance schedule",
+        reference: "ENG-FLT11-SCHED-1.0",
+        meta: { Owner: "Engineering Services", Updated: "25 September 2026", Asset: "FLT-11", Status: "Active" },
+        sections: [
+          ["Schedule start", "The planned-maintenance schedule begins from the commissioning date for FLT-11."],
+          ["Intervals", "Daily pre-use checks remain operational responsibilities. Engineering inspections and supplier servicing follow the agreed intervals."],
+          ["Previous asset", "The intervention history for Forklift 04 is closed and retained as a historical asset record."],
+          ["Monitoring", "Availability, defects and maintenance interventions will be monitored through the normal fleet-maintenance process."]
+        ]
+      },
+      "asset-qr-record": {
+        title: "Asset Register and QR Information Record",
+        type: "Operational information update",
+        reference: "ASSET-FLT11-250926",
+        meta: { Owner: "Operations, Engineering and Safety", Updated: "25 September 2026", Asset: "FLT-11", Status: "Published" },
+        sections: [
+          ["Asset register", "FLT-11 was added as the active replacement asset. FLT-04 was reassigned to contingency fleet support and retained in historical records."],
+          ["QR-linked information", "The operational QR record now links to current pre-use checks, local instructions, emergency information and reporting routes."],
+          ["Maintenance link", "The new maintenance schedule and Engineering contact information are connected to the asset record."],
+          ["Governance link", "The preserved decision understanding, approval record and implementation evidence remain associated with the replacement history."]
+        ]
+      },
+      "fleet-allocation-update": {
+        title: "Fleet Allocation Update",
+        type: "Operations allocation record",
+        reference: "OPS-FLEET-ALLOC-250926",
+        meta: { Owner: "Operations", Updated: "25 September 2026", Asset: "FLT-04", Status: "Contingency support" },
+        sections: [
+          ["Allocation change", "FLT-04 was removed from primary dispatch allocation following commissioning of FLT-11."],
+          ["New role", "FLT-04 is retained for controlled contingency fleet support when primary assets are unavailable."],
+          ["Operating restriction", "Use requires supervisor allocation and completion of the existing pre-use and defect-reporting controls."],
+          ["Review point", "The contingency requirement and asset condition will be reviewed after three months of FLT-11 operation."]
+        ]
+      },
+      "asset-transfer-record": {
+        title: "Asset Transfer Record",
+        type: "Asset custody record",
+        reference: "ASSET-TRF-FLT04-250926",
+        meta: { Owner: "Asset Management", Date: "25 September 2026", Asset: "FLT-04", Status: "Transferred" },
+        sections: [
+          ["Transfer from", "Primary Dispatch Operations"],
+          ["Transfer to", "Contingency Fleet Support"],
+          ["Custody", "Operational custody remains with the Dispatch Manager; Engineering retains maintenance responsibility."],
+          ["Record preservation", "FLT-04 maintenance history, decision evidence and replacement linkage remain attached to the asset record."]
+        ]
+      }
+    };
+
+    const sourceDialog = document.querySelector("#source-dialog");
+    const sourceDialogTitle = document.querySelector("#source-dialog-title");
+    const originalDocumentContent = document.querySelector("#original-document-content");
+    const sourceDialogClose = document.querySelector("#source-dialog-close");
+
+    function renderDocumentBody(documentKey, record) {
+      if (documentKey === "capex-approval") {
+        return `
+          <div class="approval-stamp">Approved</div>
+          <section class="document-section"><h4>Committee decision</h4><p>Replacement of Forklift 04 is approved using the preferred compliant supplier option, within the authorised capital limit.</p></section>
+          <table class="document-table">
+            <tbody><tr><th>Decision authority</th><td>Capital Expenditure Governance Panel</td></tr><tr><th>Decision owner</th><td>Operations Director</td></tr><tr><th>Approved limit</th><td>£38,000 excluding VAT</td></tr><tr><th>Implementation owners</th><td>Procurement and Operations</td></tr></tbody>
+          </table>
+          <section class="document-section"><h4>Conditions of approval</h4><ul><li>Purchase terms must remain within the authorised limit.</li><li>Receipt and commissioning checks must be completed.</li><li>Operator familiarisation and operational records must be updated before unrestricted use.</li></ul></section>
+          <div class="document-signoff"><span>Governance Review Group</span><span>CAPEX-APP-2026-041 · Closed</span></div>
+        `;
+      }
+
+      if (documentKey === "supplier-selection") {
+        return `
+          <section class="document-section"><h4>Selection decision</h4><table class="document-table"><thead><tr><th>Supplier</th><th>Compliance</th><th>Support</th><th>Decision</th></tr></thead><tbody><tr><td>Northfield Handling</td><td>Meets specification</td><td>Local engineer coverage</td><td>Selected</td></tr><tr><td>Mercer Industrial</td><td>Meets specification</td><td>Regional support</td><td>Reserve</td></tr></tbody></table></section>
+          <section class="document-section"><h4>Procurement rationale</h4><p>Northfield Handling provides the preferred combination of compliant capability, support coverage, delivery period and approved commercial terms.</p></section>
+          <div class="document-signoff"><span>Procurement</span><span>PROC-SEL-FLT04-2026-09 · Completed</span></div>
+        `;
+      }
+
+      if (documentKey === "purchase-order") {
+        return `
+          <div class="purchase-order-header"><div><strong>STRATA OPERATIONS</strong><br>Purchase Order</div><div class="purchase-order-number">PO-48217<br><small>27 June 2026</small></div></div>
+          <table class="document-table"><tbody><tr><th>Supplier</th><td>Northfield Handling</td><th>Buyer</th><td>Procurement</td></tr><tr><th>Deliver to</th><td>Main Dispatch Facility</td><th>Approval</th><td>CAPEX-APP-2026-041</td></tr></tbody></table>
+          <table class="document-table"><thead><tr><th>Description</th><th>Qty</th><th>Unit price</th><th>Total excl. VAT</th></tr></thead><tbody><tr><td>Compliant replacement forklift including delivery, commissioning support and warranty</td><td>1</td><td>£37,000</td><td>£37,000</td></tr></tbody></table>
+          <section class="document-section"><h4>Order conditions</h4><p>Delivery date to be confirmed with Operations. Supplier documentation, operating manual and service schedule must accompany the asset.</p></section>
+        `;
+      }
+
+      if (documentKey === "delivery-confirmation") {
+        return `
+          <div class="email-envelope"><div class="email-fields"><span><strong>From:</strong> deliveries@northfield-handling.example</span><span><strong>To:</strong> Procurement; Operations Receiving</span><span><strong>Date:</strong> 15 September 2026, 14:32</span></div><div class="email-subject">Delivery confirmation — replacement forklift / PO-48217</div><div class="email-body"><p>Hello,</p><p>We confirm delivery of the replacement forklift on <strong>22 September 2026 between 09:00 and 11:00</strong>.</p><p>Our delivery engineer will telephone the receiving supervisor approximately thirty minutes before arrival. Please ensure unloading access is clear and that an authorised receiving contact and commissioning checklist are available.</p><p>The warranty pack, operating manual and initial service schedule will accompany the asset.</p><p>Regards,<br>Daniel Moore<br>Northfield Handling</p></div></div>
+        `;
+      }
+
+      if (documentKey === "commissioning-readiness") {
+        return `
+          <section class="document-section"><h4>Pre-delivery readiness</h4><ul class="checklist"><li><span class="checkmark">☑</span><span>Delivery access and unloading area confirmed</span></li><li><span class="checkmark">☑</span><span>Receiving supervisor identified</span></li><li><span class="checkmark">☑</span><span>Engineering and Safety representatives notified</span></li><li><span class="checkmark">☑</span><span>Specification and safety-feature checks assigned</span></li><li><span class="checkmark">☑</span><span>Operator familiarisation session scheduled</span></li><li><span class="checkmark">☑</span><span>Asset registration and QR update owners assigned</span></li></ul></section>
+          <div class="document-signoff"><span>Operations</span><span>Ready · 19 September 2026</span></div>
+        `;
+      }
+
+      if (documentKey === "receipt-checklist") {
+        return `
+          <section class="document-section"><h4>Receipt and commissioning checks</h4><ul class="checklist"><li><span class="checkmark">☑</span><span>Asset identity matched to PO-48217</span></li><li><span class="checkmark">☑</span><span>Operational and safety specification confirmed</span></li><li><span class="checkmark">☑</span><span>No blocking damage or defects identified</span></li><li><span class="checkmark">☑</span><span>Operating manual and warranty pack received</span></li><li><span class="checkmark">☑</span><span>Initial operational checks completed</span></li><li><span class="checkmark">☑</span><span>FLT-11 accepted into fleet subject to familiarisation</span></li></ul></section>
+          <div class="approval-stamp">Accepted</div>
+          <div class="document-signoff"><span>Operations Receiving</span><span>22 September 2026</span></div>
+        `;
+      }
+
+      if (documentKey === "familiarisation-record") {
+        return `
+          <div class="training-register">
+            <table class="document-table"><tbody><tr><th>Asset</th><td>FLT-11 Replacement Forklift</td><th>Training date</th><td>24 September 2026</td></tr><tr><th>Trainer</th><td>Operations Supervisor</td><th>Duration</th><td>2 hours</td></tr><tr><th>Validity</th><td>Until 24 September 2027</td><th>Status</th><td>Completed</td></tr></tbody></table>
+            <section class="document-section"><h4>Attendee register</h4><table class="document-table"><thead><tr><th>Employee / operator</th><th>Role group</th><th>Attendance</th><th>Acknowledgement</th></tr></thead><tbody><tr><td>Operator 123 ABC</td><td>Dispatch</td><td>Present</td><td>Recorded</td></tr><tr><td>Operator 456 DEF</td><td>Dispatch</td><td>Present</td><td>Recorded</td></tr><tr><td>Operator 789 GHI</td><td>Dispatch</td><td>Present</td><td>Recorded</td></tr><tr><td>Operator 214 JKL</td><td>Dispatch</td><td>Present</td><td>Recorded</td></tr><tr><td>Operator 335 MNO</td><td>Dispatch</td><td>Present</td><td>Recorded</td></tr><tr><td>Operator 428 PQR</td><td>Relief</td><td>Present</td><td>Recorded</td></tr><tr><td>Operator 512 STU</td><td>Relief</td><td>Present</td><td>Recorded</td></tr><tr><td>Operator 607 VWX</td><td>Relief</td><td>Present</td><td>Recorded</td></tr></tbody></table></section>
+            <section class="document-section"><h4>Training topics completed</h4><ul class="checklist"><li><span class="checkmark">☑</span><span>Vehicle controls and instrumentation</span></li><li><span class="checkmark">☑</span><span>Daily inspection procedure</span></li><li><span class="checkmark">☑</span><span>Safe operating limits</span></li><li><span class="checkmark">☑</span><span>Battery charging process</span></li><li><span class="checkmark">☑</span><span>Emergency shutdown procedure</span></li><li><span class="checkmark">☑</span><span>Incident reporting requirements</span></li></ul></section>
+            <section class="document-section"><h4>Refresher requirement</h4><p>Annual familiarisation review due by 24 September 2027, or earlier following a material equipment, control or operating-procedure change.</p></section>
+            <section class="document-section"><h4>Trainer note</h4><p>All listed operators demonstrated familiarity with the replacement asset controls and local arrangements. Existing operator authorisations remain applicable.</p></section>
+            <div class="document-signoff"><span>Delivered by: Operations Supervisor</span><span>8 attendees · Completed</span></div>
+          </div>
+        `;
+      }
+
+      if (documentKey === "maintenance-schedule") {
+        return `
+          <table class="document-table"><thead><tr><th>Maintenance activity</th><th>Frequency</th><th>Owner</th><th>Next due</th></tr></thead><tbody><tr><td>Daily operator inspection</td><td>Each operating day / shift</td><td>Operator</td><td>Daily from 25 Sep 2026</td></tr><tr><td>Battery health check</td><td>Monthly</td><td>Engineering Services</td><td>22 Oct 2026</td></tr><tr><td>Safety systems inspection</td><td>Quarterly</td><td>Engineering and Safety</td><td>22 Dec 2026</td></tr><tr><td>Planned service</td><td>Six-monthly</td><td>Northfield Handling</td><td>22 Mar 2027</td></tr><tr><td>Engineering review</td><td>Annual</td><td>Engineering Services</td><td>22 Sep 2027</td></tr></tbody></table>
+          <div class="finance-total"><strong>Next planned service</strong><span>22 March 2027</span></div>
+          <section class="document-section"><h4>Historical transition</h4><p>The primary-dispatch intervention history for FLT-04 is closed and retained. New availability and defect data will be recorded against FLT-11.</p></section>
+          <div class="document-signoff"><span>Engineering Services</span><span>ENG-FLT11-SCHED-1.0 · Active</span></div>
+        `;
+      }
+
+      if (documentKey === "asset-qr-record") {
+        return `
+          <div class="asset-register"><table class="document-table"><tbody><tr><th>Asset ID</th><td>FLT-11</td><th>Status</th><td>Primary operational service</td></tr><tr><th>Replaces</th><td>FLT-04</td><th>Location</th><td>Main Dispatch</td></tr><tr><th>Commissioned</th><td>22 September 2026</td><th>Record updated</th><td>25 September 2026</td></tr></tbody></table><div class="qr-placeholder" aria-label="QR code representation">QR</div><section class="document-section"><h4>QR-linked operational information</h4><ul><li>Current pre-use inspection</li><li>Local operating instructions</li><li>Emergency and defect-reporting information</li><li>Engineering contact and maintenance schedule</li></ul></section><section class="document-section"><h4>Historical linkage</h4><p>FLT-04 remains preserved as a contingency asset with its decision, approval and transition history linked.</p></section><div class="document-signoff"><span>Operations / Engineering / Safety</span><span>Published · 25 September 2026</span></div></div>
+        `;
+      }
+
+      if (documentKey === "fleet-allocation-update") {
+        return `
+          <table class="document-table"><thead><tr><th>Asset</th><th>Previous allocation</th><th>New allocation</th><th>Effective</th></tr></thead><tbody><tr><td>FLT-04</td><td>Primary Dispatch Operations</td><td>Contingency Fleet Support</td><td>25 Sep 2026</td></tr><tr><td>FLT-11</td><td>Commissioning</td><td>Primary Dispatch Operations</td><td>25 Sep 2026</td></tr></tbody></table>
+          <section class="document-section"><h4>Allocation conditions</h4><p>FLT-04 may be allocated for contingency use by a supervisor when primary fleet capability is unavailable. Existing inspection, defect-reporting and maintenance controls remain applicable.</p></section>
+          <div class="document-signoff"><span>Operations</span><span>OPS-FLEET-ALLOC-250926 · Active</span></div>
+        `;
+      }
+
+      if (documentKey === "asset-transfer-record") {
+        return `
+          <section class="document-section"><h4>Asset transfer</h4><table class="document-table"><tbody><tr><th>Asset</th><td>FLT-04</td></tr><tr><th>Transfer from</th><td>Primary Dispatch Operations</td></tr><tr><th>Transfer to</th><td>Contingency Fleet Support</td></tr><tr><th>Effective date</th><td>25 September 2026</td></tr><tr><th>Operational custodian</th><td>Dispatch Manager</td></tr><tr><th>Maintenance owner</th><td>Engineering Services</td></tr></tbody></table></section>
+          <section class="document-section"><h4>Historical record</h4><p>The maintenance history, preserved decision understanding, approval and replacement linkage remain attached to FLT-04.</p></section>
+          <div class="approval-stamp">Transferred</div>
+        `;
+      }
+
+      if (documentKey === "maintenance-history") {
+        return `
+          <section class="document-section">
+            <h4>Intervention summary</h4>
+            <table class="document-table">
+              <thead><tr><th>Period</th><th>Planned</th><th>Unplanned</th><th>Availability note</th></tr></thead>
+              <tbody>
+                <tr><td>Jun–Aug 2025</td><td>3</td><td>2</td><td>Two short operational interruptions</td></tr>
+                <tr><td>Sep–Nov 2025</td><td>4</td><td>3</td><td>Intermittent starting fault investigated</td></tr>
+                <tr><td>Dec 2025–Feb 2026</td><td>4</td><td>4</td><td>Availability reduced during repeat repairs</td></tr>
+                <tr><td>Mar–May 2026</td><td>3</td><td>4</td><td>Increasing engineering attention required</td></tr>
+                <tr><th>Total</th><th>14</th><th>13</th><th>27 interventions</th></tr>
+              </tbody>
+            </table>
+          </section>
+          <section class="document-section"><h4>Engineering note</h4><p>The maintenance trend supports replacement planning because repeated intervention is affecting availability. This record provides engineering evidence only and does not constitute replacement approval.</p></section>
+          <div class="document-signoff"><span>Engineering Services</span><span>Reviewed · 13 June 2026</span></div>
+        `;
+      }
+
+      if (documentKey === "supplier-comparison") {
+        return `
+          <section class="document-section">
+            <h4>Evaluation summary</h4>
+            <p>Three suppliers were assessed against the agreed Forklift 04 replacement specification.</p>
+            <table class="document-table">
+              <thead><tr><th>Option</th><th>Specification</th><th>Lead time</th><th>Support</th><th>Outcome</th></tr></thead>
+              <tbody>
+                <tr><td>Northfield Handling</td><td>Compliant</td><td>16 weeks</td><td>Local engineer coverage</td><td>Preferred</td></tr>
+                <tr><td>Mercer Industrial</td><td>Compliant</td><td>22 weeks</td><td>Regional support</td><td>Suitable reserve</td></tr>
+                <tr><td>Atlas Lift Systems</td><td>Partial</td><td>14 weeks</td><td>Remote-first support</td><td>Not progressed</td></tr>
+              </tbody>
+            </table>
+          </section>
+          <section class="document-section"><h4>Procurement recommendation</h4><p>Progress Northfield Handling as the preferred compliant option, subject to Capital Expenditure Governance approval and confirmation of purchase authority.</p></section>
+          <div class="document-signoff"><span>Prepared by: Procurement</span><span>Comparison status: Final</span></div>
+        `;
+      }
+
+      if (documentKey === "budget-forecast") {
+        return `
+          <div class="finance-sheet">
+            <div class="finance-total"><strong>Working replacement allowance</strong><span>£38,000</span></div>
+            <table class="document-table">
+              <thead><tr><th>Forecast component</th><th>Basis</th><th>Amount excl. VAT</th></tr></thead>
+              <tbody>
+                <tr><td>Replacement asset</td><td>Preferred compliant supplier indication</td><td>£35,200</td></tr>
+                <tr><td>Delivery and commissioning</td><td>Current planning assumption</td><td>£1,800</td></tr>
+                <tr><td>Contingency</td><td>Decision-preparation allowance</td><td>£1,000</td></tr>
+                <tr><th colspan="2">Total working forecast</th><th>£38,000</th></tr>
+              </tbody>
+            </table>
+            <section class="document-section"><h4>Funding commentary</h4><p>Capital provision may be considered within the equipment replacement programme, subject to formal approval. This forecast is not spending authority and should not be treated as a purchase commitment.</p></section>
+            <div class="document-signoff"><span>Commercial Finance</span><span>Forecast 1.1 · 16 June 2026</span></div>
+          </div>
+        `;
+      }
+
+      if (documentKey === "governance-note") {
+        return `
+          <div class="governance-banner">GOVERNANCE REVIEW REQUIRED</div>
+          <section class="document-section"><h4>Route determination</h4><p>The forecast replacement value exceeds the local operational approval threshold. The proposal must therefore be submitted through the Capital Expenditure Governance Process.</p></section>
+          <section class="document-section"><h4>Submission requirements</h4><ul><li>Confirmed operational need</li><li>Supplier comparison and preferred option</li><li>Current budget forecast</li><li>Named accountable decision owner</li><li>Implementation and operational-readiness implications</li></ul></section>
+          <section class="document-section"><h4>Record requirement</h4><p>The final approval record must preserve the evidence considered, the selected option, conditions attached to approval and the accountable owner.</p></section>
+          <section class="document-section"><h4>Required next action</h4><p>Prepare the management briefing and submit the complete evidence pack for review.</p></section>
+          <div class="document-signoff"><span>Governance Review Group</span><span>Route confirmed · 17 June 2026</span></div>
+        `;
+      }
+
+      const reviewEvidence = documentKey === "forklift-review" ? `
+        <details class="review-evidence-disclosure">
+          <summary>View Supporting Evidence</summary>
+          <ul class="review-evidence-list">
+            <li class="review-evidence-item"><div><strong>📊 Maintenance Intervention History</strong><span>Increasing intervention trend identified</span></div><button class="evidence-view-button" type="button" data-supporting-document="maintenance-history">View evidence</button></li>
+            <li class="review-evidence-item"><div><strong>📋 Replacement Supplier Comparison</strong><span>Two compliant replacement options confirmed</span></div><button class="evidence-view-button" type="button" data-supporting-document="supplier-comparison">View evidence</button></li>
+            <li class="review-evidence-item"><div><strong>📊 Forklift Replacement Budget Forecast</strong><span>£38,000 working allowance established</span></div><button class="evidence-view-button" type="button" data-supporting-document="budget-forecast">View evidence</button></li>
+            <li class="review-evidence-item"><div><strong>📑 Capital Expenditure Governance Note</strong><span>Approval threshold and evidence requirements confirmed</span></div><button class="evidence-view-button" type="button" data-supporting-document="governance-note">View evidence</button></li>
+          </ul>
+        </details>
+      ` : "";
+
+      return `
+        ${record.sections.map(([heading, content]) => `<section class="document-section"><h4>${heading}</h4><p>${content}</p></section>`).join("")}
+        ${reviewEvidence}
+        <div class="document-signoff"><span>${record.meta.Owner || record.meta.Buyer || record.meta.From || "Record owner"}</span><span>${record.reference} · ${record.meta.Status || record.meta.Decision || "Controlled record"}</span></div>
+      `;
+    }
+
+    function renderOriginalDocument(documentKey, record, backToKey = "") {
+      const sourceWorlds = {
+        "delivery-confirmation": "source-world-email",
+        "purchase-order": "source-world-purchase",
+        "budget-forecast": "source-world-finance",
+        "familiarisation-record": "source-world-training",
+        "asset-qr-record": "source-world-register"
+      };
+      const nativeImplementationRecords = new Set([
+        "capex-approval", "supplier-selection", "purchase-order", "delivery-confirmation",
+        "commissioning-readiness", "receipt-checklist", "familiarisation-record",
+        "maintenance-schedule", "asset-qr-record"
+      ]);
+      originalDocumentContent.className = `original-document ${sourceWorlds[documentKey] || ""}`.trim();
+      sourceDialogTitle.textContent = record.title;
+      originalDocumentContent.innerHTML = `
+        ${backToKey ? `<button class="document-back-button" type="button" data-back-document="${backToKey}">← Back to Operational Review Paper</button>` : ""}
+        ${nativeImplementationRecords.has(documentKey) ? "" : `<header class="document-masthead">
+          <p class="document-type">${record.type}</p>
+          <h3>${record.title}</h3>
+          <p class="document-reference">${record.reference}</p>
+        </header>
+        <dl class="document-meta">
+          ${Object.entries(record.meta).map(([label, value]) => `<div><dt>${label}</dt><dd>${value}</dd></div>`).join("")}
+        </dl>`}
+        ${renderDocumentBody(documentKey, record)}
+      `;
+    }
+
+    document.querySelectorAll("[data-original-document]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const documentKey = button.dataset.originalDocument;
+        const record = originalDocuments[documentKey];
+        if (!record) return;
+        renderOriginalDocument(documentKey, record);
+        sourceDialog.showModal();
+      });
+    });
+
+    originalDocumentContent.addEventListener("click", (event) => {
+      const evidenceButton = event.target.closest("[data-supporting-document]");
+      if (evidenceButton) {
+        const documentKey = evidenceButton.dataset.supportingDocument;
+        const record = originalDocuments[documentKey];
+        if (record) renderOriginalDocument(documentKey, record, "forklift-review");
+        return;
+      }
+
+      const backButton = event.target.closest("[data-back-document]");
+      if (backButton) {
+        const documentKey = backButton.dataset.backDocument;
+        const record = originalDocuments[documentKey];
+        if (record) renderOriginalDocument(documentKey, record);
+      }
+    });
+
+    sourceDialogClose.addEventListener("click", () => sourceDialog.close());
+    sourceDialog.addEventListener("click", (event) => {
+      if (event.target === sourceDialog) sourceDialog.close();
+    });
+  </script>
+</body>
+</html>
