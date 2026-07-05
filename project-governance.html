@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hold - Project Governance</title>
+  <meta
+    name="description"
+    content="Hold project governance notes describing how the Hold demonstration project is developed, presented and governed."
+  />
+  <link rel="stylesheet" href="style.css?v=51" />
+  <link rel="stylesheet" href="sidebar.css?v=1" />
+</head>
+
+<body>
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img class="sidebar-logo" src="images/hold-strata-logo.png" alt="Hold" />
+        <h2>Project Governance</h2>
+        <p class="sidebar-entity">Hold demonstration environment</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-group">
+          <p class="sidebar-label">Group View</p>
+          <a href="strata-group-dashboard.html">Group Dashboard</a>
+          <a href="strata-aggregates-dashboard.html">Aggregates</a>
+          <a href="strata-estates-dashboard.html">Estates</a>
+          <a href="strata-logistics-dashboard.html">Logistics</a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Platform</p>
+          <a href="hold-signal.html">Hold Signal <span>Emerging operational signals</span></a>
+          <a href="trust-layer.html">Trust Layer <span>Pre-reasoning evidence</span></a>
+          <a href="provenance-layer.html">Provenance Layer <span>Origin path</span></a>
+          <a href="governance-layer.html">Governance Layer <span>Accountability visibility</span></a>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-label">Governance &amp; Traceability</p>
+          <a href="project-governance.html" class="active">Project Governance <span>How Hold is governed</span></a>
+          <a href="audit-trail.html">Accountability Trail</a>
+          <a href="strata-aggregates-operational-audit.html">Aggregates Governance</a>
+          <a href="strata-estates-operational-audit.html">Estates Governance</a>
+          <a href="strata-logistics-operational-audit.html">Logistics Governance</a>
+        </div>
+      </nav>
+
+      <div class="sidebar-operational-time">
+        <p class="sidebar-time-label">Operational time</p>
+        <p id="currentTime">Loading current time...</p>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <div class="dashboard-header">
+        <p class="dashboard-breadcrumb">Hold / Project Governance</p>
+
+        <div class="dashboard-title-row">
+          <div>
+            <h1>Project Governance</h1>
+            <p class="dashboard-subtitle">
+              Hold records key decisions about how the project is developed, presented and governed.
+            </p>
+          </div>
+
+          <span class="dashboard-status-pill">Project record</span>
+        </div>
+      </div>
+
+      <section class="dashboard-layer">
+        <section class="dashboard-card">
+          <p class="section-kicker">Project Governance</p>
+          <h2>Hold should demonstrate its own governance principles.</h2>
+          <p class="section-intro">
+            This page records calm, factual governance notes about the Hold demonstration project itself. It is intended to stay lightweight and expandable as the project develops.
+          </p>
+        </section>
+      </section>
+
+      <section class="dashboard-layer">
+        <section class="dashboard-card">
+          <p class="section-kicker">Governance Timeline</p>
+          <h2>Early project governance decisions</h2>
+
+          <div class="trust-summary-grid">
+            <article class="trust-dimension">
+              <h3>July 2026 &mdash; Content Use Policy introduced</h3>
+              <p>
+                Hold introduced a Content Use Policy early in the life of the project, distinguishing public human review and evaluation from AI model training or dataset use without permission.
+              </p>
+            </article>
+
+            <article class="trust-dimension">
+              <h3>July 2026 &mdash; AI crawler strategy established</h3>
+              <p>
+                Hold's intended approach is to remain visible to people and discoverable through ordinary search, while restricting AI model training use where supported.
+              </p>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="dashboard-layer">
+        <section class="dashboard-card soft-panel">
+          <p class="section-kicker">Related policy</p>
+          <h2>Content Use Policy</h2>
+          <p>
+            The project governance record links to the current content-use policy so the boundary between public evaluation and AI training use remains visible.
+          </p>
+          <div class="button-row">
+            <a class="quiet-button" href="content-use-policy.md">View Content Use Policy</a>
+            <a class="quiet-button secondary" href="governance-layer.html">Back to Governance Layer</a>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <p class="footer-return">
+    <a href="index.html">Back to Hold demos</a>
+  </p>
+
+  <footer class="footer">
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+  <p class="footer-sub content-use-notice">
+    Hold content is provided for human review and evaluation. AI model training or dataset use is not permitted without prior written permission.
+  </p>
+  </footer>
+
+  <script>
+    function updateOperationalTime() {
+      const now = new Date();
+      const formatted = now.toLocaleString("en-GB", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+
+      document.getElementById("currentTime").textContent = formatted;
+    }
+
+    updateOperationalTime();
+    setInterval(updateOperationalTime, 60000);
+  </script>
+
+  <script>
+    const sidebar = document.querySelector(".sidebar");
+
+    if (sidebar) {
+      const savedSidebarScroll = localStorage.getItem("holdSidebarScroll");
+
+      if (savedSidebarScroll !== null) {
+        sidebar.scrollTop = Number(savedSidebarScroll);
+      }
+
+      sidebar.addEventListener("scroll", () => {
+        localStorage.setItem("holdSidebarScroll", String(sidebar.scrollTop));
+      });
+    }
+  </script>
+
+  <script src="sidebar.js?v=8"></script>
+  <script src="clock.js?v=4"></script>
+  <script src="umami-config.js?v=1"></script>
+  <script src="hold-analytics.js?v=1"></script>
+</body>
+</html>
