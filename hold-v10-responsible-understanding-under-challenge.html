@@ -1,0 +1,1997 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hold V10 — Responsible Understanding Under Challenge</title>
+  <meta name="description" content="A standalone Hold V10 exploration of how preserved organisational understanding withstands responsible challenge before a consequential decision.">
+  <style>
+    :root {
+      --ink: #26342f;
+      --muted: #64716b;
+      --paper: #f5f4ee;
+      --card: #fffefa;
+      --line: #d8e0da;
+      --green: #315f50;
+      --green-dark: #24493d;
+      --green-soft: #e8f0eb;
+      --blue: #355d78;
+      --blue-soft: #eaf1f5;
+      --amber: #9a6528;
+      --amber-soft: #fbf0dd;
+      --rose: #8b4b4b;
+      --rose-soft: #f7eaea;
+      --violet: #665783;
+      --violet-soft: #f0edf6;
+      --shadow: 0 14px 34px rgba(42, 57, 50, .08);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 0%, rgba(81, 121, 103, .11), transparent 29rem),
+        var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    button, summary { font: inherit; }
+    button { color: inherit; }
+
+    .page {
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 30px 0 64px;
+    }
+
+    .topbar {
+      display: grid;
+      justify-items: center;
+      gap: 7px;
+      max-width: 850px;
+      margin: 0 auto 18px;
+      text-align: center;
+    }
+
+    .version,
+    .eyebrow {
+      margin: 0;
+      color: var(--green);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .topbar h1 {
+      margin: 0;
+      font-family: Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3.45rem);
+      line-height: 1.04;
+    }
+
+    .scenario-heading {
+      margin: 0 0 14px;
+      text-align: center;
+    }
+
+    .scenario-heading h2 {
+      margin: 0;
+      font-family: Georgia, serif;
+      font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+    }
+
+    .scenario-heading p {
+      max-width: 620px;
+      margin: 7px auto 0;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .journey {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      align-items: center;
+      margin: 0 0 22px;
+      padding: 0;
+      list-style: none;
+      color: #4f625b;
+      font-size: .82rem;
+      font-weight: 750;
+    }
+
+    .about-demo {
+      margin: -7px 0 22px;
+      text-align: center;
+    }
+
+    .about-demo > summary {
+      color: var(--green);
+      cursor: pointer;
+      font-size: .82rem;
+      font-weight: 800;
+      list-style: none;
+    }
+
+    .about-demo > summary::-webkit-details-marker { display: none; }
+    .about-demo > summary::after { margin-left: .4rem; content: "▾"; }
+    .about-demo[open] > summary::after { content: "▴"; }
+
+    .about-demo-body {
+      max-width: 760px;
+      margin: 12px auto 0;
+      padding: 15px 18px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255,255,255,.7);
+      color: var(--muted);
+      font-size: .9rem;
+      text-align: left;
+    }
+
+    .about-demo-body p {
+      margin: 0;
+    }
+
+    .about-demo-body p + p {
+      margin-top: 8px;
+    }
+
+    .journey li:not(:last-child)::after {
+      margin-left: 7px;
+      color: #91a49c;
+      content: "→";
+      font-weight: 400;
+    }
+
+    .card {
+      margin: 0 0 18px;
+      padding: clamp(20px, 3vw, 30px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .card-header {
+      display: grid;
+      gap: 5px;
+      margin-bottom: 17px;
+    }
+
+    .card-header h2 {
+      margin: 0;
+      font-family: Georgia, serif;
+      font-size: clamp(1.35rem, 2.5vw, 1.82rem);
+    }
+
+    .card-header p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .card-header .time-label {
+      margin: 0 0 2px;
+      color: var(--green);
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    .origin-label,
+    .status-pill,
+    .type-pill {
+      display: inline-flex;
+      width: fit-content;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    .origin-label { background: var(--green-soft); color: var(--green-dark); }
+
+    .inspection-icon {
+      --icon-colour: #4758f7;
+      --icon-bg: #eef1ff;
+      --icon-border: #cfd6ff;
+      display: inline-flex;
+      width: 1.65rem;
+      height: 1.65rem;
+      margin-right: .38rem;
+      border: 1px solid var(--icon-border);
+      border-radius: .45rem;
+      background: var(--icon-bg);
+      vertical-align: middle;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .inspection-icon::before {
+      width: 1rem;
+      height: 1rem;
+      background: var(--icon-colour);
+      content: "";
+      -webkit-mask: var(--icon-shape) center / contain no-repeat;
+      mask: var(--icon-shape) center / contain no-repeat;
+    }
+
+    .icon-evidence {
+      --icon-colour: #2563eb;
+      --icon-bg: #eef4ff;
+      --icon-border: #c9d8ff;
+      --icon-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6.5'/%3E%3Cpath d='m15.5 15.5 5 5'/%3E%3C/svg%3E");
+    }
+
+    .icon-observation {
+      --icon-colour: #d97706;
+      --icon-bg: #fff7e8;
+      --icon-border: #f1d59e;
+      --icon-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M12 1.8c.8 5.2 3.1 7.5 8.3 8.3-5.2.8-7.5 3.1-8.3 8.3-.8-5.2-3.1-7.5-8.3-8.3 5.2-.8 7.5-3.1 8.3-8.3Z'/%3E%3C/svg%3E");
+    }
+
+    .icon-understanding {
+      --icon-colour: #0d9488;
+      --icon-bg: #e9f8f6;
+      --icon-border: #b9e3de;
+      --icon-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2'%3E%3Cpath d='M2.5 12s3.4-6 9.5-6 9.5 6 9.5 6-3.4 6-9.5 6-9.5-6-9.5-6Z'/%3E%3Ccircle cx='12' cy='12' r='2.6' fill='black'/%3E%3C/svg%3E");
+    }
+
+    .icon-access {
+      --icon-colour: #dc2626;
+      --icon-bg: #fff0f0;
+      --icon-border: #f3c7c7;
+      --icon-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='10' width='14' height='11' rx='2'/%3E%3Cpath d='M8 10V7a4 4 0 0 1 8 0v3'/%3E%3Ccircle cx='12' cy='15.5' r='1' fill='black'/%3E%3C/svg%3E");
+    }
+
+    .icon-sources {
+      --icon-colour: #7c3aed;
+      --icon-bg: #f5efff;
+      --icon-border: #ddcdf8;
+      --icon-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linejoin='round'%3E%3Cpath d='M3 5.5c3-1.4 6-1.1 9 1.1v14c-3-2.2-6-2.5-9-1.1v-14Z'/%3E%3Cpath d='M21 5.5c-3-1.4-6-1.1-9 1.1v14c3-2.2 6-2.5 9-1.1v-14Z'/%3E%3C/svg%3E");
+    }
+
+    .icon-missing {
+      --icon-colour: #f59e0b;
+      --icon-bg: #fff6e8;
+      --icon-border: #f3d8aa;
+      --icon-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.7' stroke-linecap='round' stroke-dasharray='1 4'%3E%3Ccircle cx='12' cy='12' r='8'/%3E%3C/svg%3E");
+    }
+
+    .icon-alternatives {
+      --icon-colour: #059669;
+      --icon-bg: #eaf8f2;
+      --icon-border: #bee5d4;
+      --icon-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 7h14m0 0-3-3m3 3-3 3'/%3E%3Cpath d='M20 17H6m0 0 3-3m-3 3 3 3'/%3E%3C/svg%3E");
+    }
+
+    .icon-preservation {
+      --icon-colour: #65a30d;
+      --icon-bg: #f2f7e9;
+      --icon-border: #d4e2ba;
+      --icon-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7v5l3.5 2'/%3E%3C/svg%3E");
+    }
+
+    .icon-location {
+      --icon-colour: #4758f7;
+      --icon-bg: #eef1ff;
+      --icon-border: #cdd4ff;
+      --icon-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linejoin='round'%3E%3Cpath d='M20 10c0 5.5-8 12-8 12S4 15.5 4 10a8 8 0 1 1 16 0Z'/%3E%3Ccircle cx='12' cy='10' r='2.5'/%3E%3C/svg%3E");
+    }
+
+    .foundation-marker {
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 2px;
+      padding: 4px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #f5f7f4;
+      color: #60716a;
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .foundation-marker.connected {
+      border-color: #cbd9d2;
+      background: var(--green-soft);
+      color: var(--green-dark);
+    }
+
+    .foundation-marker.preserved {
+      border-color: #c8d6d0;
+      background: #edf3ef;
+      color: #486359;
+    }
+
+    .foundation-marker.traceable {
+      border-color: #c9d9e2;
+      background: var(--blue-soft);
+      color: var(--blue);
+    }
+
+    .foundation-marker.challengeable {
+      border-color: #dfc89f;
+      background: var(--amber-soft);
+      color: #80551f;
+    }
+
+    .foundation-marker.responsible {
+      border-color: #d5cce4;
+      background: var(--violet-soft);
+      color: var(--violet);
+    }
+    .type-evidence { background: var(--blue-soft); color: var(--blue); }
+    .type-inference { background: var(--violet-soft); color: var(--violet); }
+    .type-assumption { background: var(--amber-soft); color: var(--amber); }
+    .type-conclusion { background: var(--green-soft); color: var(--green-dark); }
+    .type-uncertainty { background: var(--rose-soft); color: var(--rose); }
+
+    .benchmark-grid,
+    .composition-grid,
+    .participant-grid,
+    .evidence-grid,
+    .decision-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .benchmark-item,
+    .composition-item,
+    .participant,
+    .evidence-record,
+    .decision-item {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: #fff;
+    }
+
+    .benchmark-item h3,
+    .composition-item h3,
+    .participant h3,
+    .evidence-record h3,
+    .decision-item h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+    }
+
+    .benchmark-item p,
+    .composition-item p,
+    .participant p,
+    .evidence-record p,
+    .decision-item p {
+      margin: 0;
+      color: #4f5f59;
+      font-size: .92rem;
+    }
+
+    .composition-grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .composition-item {
+      min-height: 132px;
+    }
+
+    .composition-item h3 {
+      margin-top: 9px;
+    }
+
+    .composition-item p {
+      line-height: 1.38;
+    }
+
+    .mini-disclosure,
+    .evidence-inspection {
+      margin-top: 11px;
+      border-top: 1px solid #e4ebe6;
+    }
+
+    .mini-disclosure > summary,
+    .evidence-inspection > summary {
+      padding-top: 10px;
+      color: var(--green);
+      cursor: pointer;
+      font-size: .8rem;
+      font-weight: 800;
+      list-style: none;
+    }
+
+    .mini-disclosure > summary::-webkit-details-marker,
+    .evidence-inspection > summary::-webkit-details-marker { display: none; }
+    .mini-disclosure > summary::after,
+    .evidence-inspection > summary::after { margin-left: .38rem; content: "▾"; }
+    .mini-disclosure[open] > summary::after,
+    .evidence-inspection[open] > summary::after { content: "▴"; }
+
+    .mini-disclosure p,
+    .evidence-inspection p {
+      margin-top: 9px;
+      color: #4f5f59;
+      font-size: .84rem;
+    }
+
+    details.disclosure {
+      margin-top: 15px;
+      border-top: 1px solid var(--line);
+    }
+
+    details.disclosure > summary {
+      padding: 14px 0 0;
+      color: var(--green);
+      cursor: pointer;
+      font-weight: 800;
+      list-style: none;
+    }
+
+    details.disclosure > summary::-webkit-details-marker { display: none; }
+    details.disclosure > summary::after { margin-left: .45rem; content: "▾"; }
+    details.disclosure[open] > summary::after { content: "▴"; }
+
+    .detail-body {
+      margin-top: 14px;
+      padding: 16px;
+      border-radius: 12px;
+      background: #f7f8f5;
+    }
+
+    .detail-body p:first-child { margin-top: 0; }
+    .detail-body p:last-child { margin-bottom: 0; }
+
+    .benchmark-detail-grid,
+    .compact-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 0;
+    }
+
+    .benchmark-detail-grid > div,
+    .compact-detail-grid > div {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fff;
+    }
+
+    .benchmark-detail-grid .detail-wide,
+    .compact-detail-grid .detail-wide {
+      grid-column: 1 / -1;
+    }
+
+    .benchmark-detail-grid dt,
+    .compact-detail-grid dt {
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+
+    .benchmark-detail-grid dd,
+    .compact-detail-grid dd {
+      margin: 4px 0 0;
+      font-size: .88rem;
+    }
+
+    .benchmark-detail-grid ul,
+    .compact-detail-grid ul {
+      margin: 5px 0 0;
+      padding-left: 18px;
+    }
+
+    .benchmark-detail-grid li + li,
+    .compact-detail-grid li + li {
+      margin-top: 4px;
+    }
+
+    .snapshot-drawers {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 13px;
+    }
+
+    .snapshot-drawers .mini-disclosure {
+      margin-top: 0;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #f8faf8;
+    }
+
+    .snapshot-drawers .mini-disclosure > summary {
+      padding-top: 0;
+      color: var(--ink);
+    }
+
+    .snapshot-drawers > .detail-wide {
+      grid-column: 1 / -1;
+    }
+
+    .source-locations {
+      margin-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .source-locations > summary {
+      padding: 14px 0 0;
+      color: var(--green);
+      cursor: pointer;
+      font-weight: 800;
+      list-style: none;
+    }
+
+    .source-locations > summary::-webkit-details-marker { display: none; }
+    .source-locations > summary::after { margin-left: .45rem; content: "▾"; }
+    .source-locations[open] > summary::after { content: "▴"; }
+
+    .source-location-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 13px;
+    }
+
+    .source-location-record {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+    }
+
+    .source-location-record h4 {
+      margin: 0 0 10px;
+      font-size: .96rem;
+    }
+
+    .source-location-record dl {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin: 0;
+    }
+
+    .source-location-record div {
+      padding: 9px;
+      border-radius: 7px;
+      background: #f5f7f4;
+    }
+
+    .source-location-record .location-wide {
+      grid-column: 1 / -1;
+    }
+
+    .source-location-record dt {
+      color: var(--muted);
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+
+    .source-location-record dd {
+      margin: 3px 0 0;
+      overflow-wrap: anywhere;
+      font-size: .82rem;
+    }
+
+    .participant-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .participant {
+      cursor: pointer;
+      text-align: left;
+      transition: border-color .18s ease, background .18s ease, transform .18s ease;
+    }
+
+    .participant:hover,
+    .participant:focus-visible {
+      border-color: #9eb9ad;
+      outline: none;
+      transform: translateY(-1px);
+    }
+
+    .participant.is-active {
+      border-color: var(--green);
+      background: var(--green-soft);
+    }
+
+    .shared-facts-note {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: .88rem;
+      font-style: italic;
+    }
+
+    .role-output {
+      margin-top: 14px;
+      padding: 15px 17px;
+      border-left: 4px solid var(--green);
+      border-radius: 0 12px 12px 0;
+      background: #f6f9f6;
+    }
+
+    .role-output strong { display: block; margin-bottom: 3px; }
+    .role-output p { margin: 0; }
+
+    .role-lens-detail {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .role-lens-detail div {
+      padding: 10px;
+      border: 1px solid #dce5df;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .role-lens-detail span {
+      display: block;
+      color: var(--muted);
+      font-size: .69rem;
+      font-weight: 800;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+
+    .role-lens-detail p {
+      margin-top: 3px;
+      font-size: .84rem;
+    }
+
+    .role-inspection {
+      margin-top: 13px;
+      border-top: 1px solid #d8e2dc;
+    }
+
+    .role-inspection > summary {
+      padding-top: 12px;
+      color: var(--green);
+      cursor: pointer;
+      font-size: .84rem;
+      font-weight: 800;
+      list-style: none;
+    }
+
+    .role-inspection > summary::-webkit-details-marker { display: none; }
+    .role-inspection > summary::after { margin-left: .42rem; content: "▾"; }
+    .role-inspection[open] > summary::after { content: "▴"; }
+
+    .role-inspection-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin: 12px 0 0;
+    }
+
+    .role-inspection-grid > div {
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .role-inspection-grid .inspection-wide {
+      grid-column: 1 / -1;
+    }
+
+    .role-inspection-grid dt {
+      color: var(--muted);
+      font-size: .69rem;
+      font-weight: 800;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+
+    .role-inspection-grid dd {
+      margin: 3px 0 0;
+      font-size: .82rem;
+    }
+
+    .role-inspection-grid ul {
+      margin: 4px 0 0;
+      padding-left: 17px;
+    }
+
+    .challenge-card {
+      border-color: #cdb58f;
+      background:
+        linear-gradient(135deg, rgba(251,240,221,.74), transparent 45%),
+        var(--card);
+    }
+
+    .challenge-trigger {
+      position: relative;
+      margin: 0 0 22px;
+      padding: clamp(22px, 4vw, 34px);
+      border: 1px solid #bd9863;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(251,240,221,.96), rgba(255,254,250,.9) 58%),
+        var(--card);
+      box-shadow: 0 18px 42px rgba(91, 65, 30, .11);
+      overflow: hidden;
+    }
+
+    .challenge-trigger::before {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 6px;
+      background: var(--amber);
+      content: "";
+    }
+
+    .challenge-trigger-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(220px, .6fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    .challenge-trigger .challenge-quote {
+      margin-top: 9px;
+      font-size: clamp(1.4rem, 3.2vw, 2rem);
+    }
+
+    .challenge-trigger-meta {
+      padding: 16px;
+      border: 1px solid #dfcfb4;
+      border-radius: 12px;
+      background: rgba(255,255,255,.7);
+    }
+
+    .challenge-trigger-meta p {
+      margin: 0 0 9px;
+      color: #554c40;
+      font-size: .9rem;
+    }
+
+    .challenge-trigger-meta p:last-child { margin-bottom: 0; }
+
+    .return-to-benchmark {
+      margin: 17px 0 0;
+      color: #66553d;
+      font-size: .9rem;
+      font-style: italic;
+    }
+
+    .challenge-quote {
+      margin: 0;
+      color: #513d25;
+      font-family: Georgia, serif;
+      font-size: clamp(1.25rem, 2.8vw, 1.72rem);
+      line-height: 1.35;
+    }
+
+    .challenge-context {
+      margin: 10px 0 0;
+      color: var(--muted);
+    }
+
+    .claim-panel {
+      margin-top: 18px;
+      padding: 18px;
+      border: 1px solid #ddcfb8;
+      border-radius: 14px;
+      background: rgba(255,255,255,.78);
+    }
+
+    .claim-panel h3 { margin: 0 0 4px; }
+    .claim-panel > p { margin: 0; }
+
+    .status-comparison {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 14px;
+      align-items: stretch;
+      margin-top: 16px;
+    }
+
+    .status-state {
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: #fff;
+    }
+
+    .status-state h4 { margin: 0 0 8px; }
+    .status-state p { margin: 7px 0 0; color: #4e5d58; }
+
+    .status-arrow {
+      align-self: center;
+      color: #879a92;
+      font-size: 1.5rem;
+    }
+
+    .challenge-finding {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--amber);
+      background: var(--amber-soft);
+    }
+
+    .challenge-finding p { margin: 0; }
+
+    .evidence-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .evidence-record {
+      transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+    }
+
+    .evidence-record h3 {
+      display: flex;
+      gap: .42rem;
+      align-items: center;
+    }
+
+    .evidence-record.is-role-priority {
+      border-color: #8eafa0;
+      box-shadow: 0 10px 24px rgba(49, 95, 80, .10);
+      transform: translateY(-1px);
+    }
+
+    .evidence-record.is-role-priority::before {
+      display: block;
+      width: fit-content;
+      margin-bottom: 9px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      content: "Surfaced for this responsibility";
+      font-size: .66rem;
+      font-weight: 800;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+
+    .evidence-meta {
+      display: grid;
+      gap: 3px;
+      margin: 9px 0 12px;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    .evidence-meta.compact {
+      grid-template-columns: 1fr;
+      margin-bottom: 0;
+    }
+
+    .evidence-action,
+    .primary-action {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 39px;
+      padding: 8px 12px;
+      border: 1px solid #9eb9ad;
+      border-radius: 9px;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .evidence-action:hover,
+    .evidence-action:focus-visible,
+    .primary-action:hover,
+    .primary-action:focus-visible {
+      background: #dce9df;
+      outline: none;
+    }
+
+    .restricted {
+      border-color: #d7c49e;
+      background: #fffdf7;
+    }
+
+    .restricted .evidence-action {
+      border-color: #d1bd95;
+      background: var(--amber-soft);
+      color: #7c521f;
+    }
+
+    .permission-note {
+      margin: 15px 0 0;
+      color: var(--muted);
+      font-size: .88rem;
+      font-style: italic;
+    }
+
+    .decision-grid { grid-template-columns: 1.2fr .8fr; }
+
+    .owner-line {
+      margin-top: 10px !important;
+      color: var(--ink) !important;
+      font-weight: 750;
+    }
+
+    .preserve-card {
+      border-color: #a9c1b6;
+      background:
+        linear-gradient(140deg, rgba(232,240,235,.88), transparent 55%),
+        var(--card);
+    }
+
+    .preserve-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 18px;
+    }
+
+    .primary-action {
+      border-color: var(--green);
+      background: var(--green);
+      color: #fff;
+    }
+
+    .primary-action:hover,
+    .primary-action:focus-visible {
+      background: var(--green-dark);
+    }
+
+    .preserve-note { margin: 0; color: var(--muted); font-size: .86rem; }
+
+    .preserved-record {
+      margin-top: 16px;
+      padding: 17px;
+      border: 1px solid #98b5a8;
+      border-radius: 13px;
+      background: #fff;
+    }
+
+    .preserved-record[hidden] { display: none; }
+    .preserved-record h3 { margin: 0 0 8px; }
+
+    .record-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 0;
+    }
+
+    .record-grid div {
+      padding: 10px;
+      border-radius: 9px;
+      background: #f4f7f4;
+    }
+
+    .record-grid dt {
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .record-grid dd {
+      margin: 3px 0 0;
+      font-size: .88rem;
+      font-weight: 700;
+    }
+
+    dialog {
+      width: min(820px, calc(100% - 28px));
+      max-height: min(86vh, 900px);
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+      color: var(--ink);
+      box-shadow: 0 30px 80px rgba(30, 43, 37, .24);
+    }
+
+    dialog::backdrop { background: rgba(25, 36, 31, .55); }
+
+    .dialog-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      padding: 20px 22px;
+      border-bottom: 1px solid var(--line);
+      background: #f6f7f4;
+    }
+
+    .dialog-header h2 { margin: 2px 0 0; font-family: Georgia, serif; }
+
+    .dialog-close {
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: #fff;
+      cursor: pointer;
+      font-size: 1.3rem;
+    }
+
+    .source-document {
+      max-height: calc(86vh - 84px);
+      overflow: auto;
+      padding: 24px;
+    }
+
+    .source-banner {
+      margin-bottom: 18px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: .82rem;
+      font-weight: 750;
+    }
+
+    .sheet {
+      font-family: "Aptos", "Segoe UI", sans-serif;
+    }
+
+    .sheet table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .88rem;
+    }
+
+    .sheet th,
+    .sheet td {
+      padding: 9px;
+      border: 1px solid #cfd8d2;
+      text-align: left;
+    }
+
+    .sheet th { background: #e8efe9; }
+
+    .memo {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .memo h3 { margin-top: 24px; color: #24493d; }
+
+    .email {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .email-meta {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 5px 12px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+      font-size: .88rem;
+    }
+
+    .email-meta strong { color: #586760; }
+
+    .source-provenance {
+      margin-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .source-provenance summary {
+      padding-top: 14px;
+      color: var(--green);
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .source-provenance dl {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .source-provenance div {
+      padding: 10px;
+      border-radius: 8px;
+      background: #f5f7f4;
+    }
+
+    .source-provenance dt { color: var(--muted); font-size: .75rem; font-weight: 800; }
+    .source-provenance dd { margin: 3px 0 0; font-size: .86rem; }
+
+    footer {
+      padding: 18px 16px 34px;
+      color: var(--muted);
+      font-family: Georgia, serif;
+      text-align: center;
+      font-size: .86rem;
+    }
+
+    footer p { margin: 3px 0; }
+
+    @media (max-width: 900px) {
+      .composition-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .participant-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .evidence-grid { grid-template-columns: 1fr; }
+      .role-lens-detail { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 650px) {
+      .benchmark-grid,
+      .composition-grid,
+      .participant-grid,
+      .decision-grid,
+      .record-grid,
+      .benchmark-detail-grid,
+      .compact-detail-grid,
+      .snapshot-drawers,
+      .role-inspection-grid,
+      .source-location-record dl,
+      .source-provenance dl { grid-template-columns: 1fr; }
+
+      .benchmark-detail-grid .detail-wide,
+      .compact-detail-grid .detail-wide,
+      .snapshot-drawers > .detail-wide { grid-column: auto; }
+      .role-inspection-grid .inspection-wide { grid-column: auto; }
+      .source-location-record .location-wide { grid-column: auto; }
+      .status-comparison { grid-template-columns: 1fr; }
+      .status-arrow { justify-self: center; transform: rotate(90deg); }
+      .challenge-trigger-grid { grid-template-columns: 1fr; }
+      .page { width: min(100% - 20px, 1080px); }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <p class="version">Hold V10</p>
+    </header>
+
+    <section class="scenario-heading" aria-labelledby="scenario-title">
+      <h2 id="scenario-title">Hybrid Working Policy Review · Collaboration Claim</h2>
+      <p>Every insight Hold surfaces can be traced back to the evidence that informed it.</p>
+    </section>
+
+    <section class="challenge-trigger" aria-labelledby="challenge-trigger-title">
+      <div class="challenge-trigger-grid">
+        <div>
+          <span class="foundation-marker challengeable">Uncertain &amp; Challengeable Understanding</span>
+          <p class="eyebrow">The Question</p>
+          <h2 id="challenge-trigger-title" class="challenge-quote">“What evidence do we actually have that collaboration improved?”</h2>
+          <p class="return-to-benchmark">The challenge does not replace the benchmark. The Finance Director's deliberately raised current question provides the basis for a fresh, scoped evaluation of the preserved understanding and the evidence on which the claim was formed.</p>
+        </div>
+        <div class="challenge-trigger-meta">
+          <p><strong>Raised by</strong><br>Finance Director</p>
+          <p><strong>Decision pending</strong><br>Whether the two-day attendance expectation should continue unchanged</p>
+          <p><strong>Challenge status</strong><br>Legitimate organisational question</p>
+        </div>
+      </div>
+    </section>
+
+    <details class="about-demo">
+      <summary>About this demonstration</summary>
+      <div class="about-demo-body">
+        <p><strong>Responsible Understanding Under Challenge:</strong> V10 explores how well an organisation understood a consequential claim when it relied upon it.</p>
+        <p>The meeting is only the setting. The demonstration tests whether preserved understanding can be examined through its evidence, inference, assumptions, conclusions and uncertainty before people make a consequential decision.</p>
+        <p><strong>Demonstration boundary:</strong> The organisation, records, paths, dates and response references shown here are fictional. Source views are static embedded demonstration content; no live authentication, permission check or external source is used.</p>
+        <p>Role selection changes presentation emphasis only. It does not authenticate a user, confer authority or change source permissions.</p>
+      </div>
+    </details>
+
+    <ol class="journey" aria-label="V10 understanding journey">
+      <li>The Question</li>
+      <li>What We Understood Then</li>
+      <li>What It Was Based On</li>
+      <li>Who Is Asking?</li>
+      <li>What We Know Now</li>
+      <li>What Supports It</li>
+      <li>Decision Required</li>
+      <li>What We’ll Remember</li>
+    </ol>
+
+    <section class="card" aria-labelledby="preserved-title">
+      <header class="card-header">
+        <span class="foundation-marker preserved">Preserved Understanding</span>
+        <span class="origin-label">Evidence status · Traceable review record</span>
+        <p class="time-label">Effective-date reference · 3 August 2026</p>
+        <h2 id="preserved-title">What We Understood Then</h2>
+        <p>This effective-date reference is derived from the preserved 6 July 2026 decision understanding. It does not replace or alter that earlier record.</p>
+      </header>
+
+      <div class="benchmark-grid">
+        <article class="benchmark-item">
+          <h3>📸 Benchmark understanding</h3>
+          <p>Regular workplace presence was expected to support collaboration, informal learning and organisational connection while retaining employee flexibility.</p>
+        </article>
+        <article class="benchmark-item">
+          <h3>👤 Decision position</h3>
+          <p>Adopt a minimum expectation of two workplace days each week where operationally appropriate.</p>
+        </article>
+        <article class="benchmark-item">
+          <h3>📊 Evidence available</h3>
+          <p>Staff consultation, manager feedback, occupancy analysis, policy review material and professional judgement.</p>
+        </article>
+        <article class="benchmark-item">
+          <h3>⚠ Known uncertainty</h3>
+          <p>No agreed direct measure of collaboration existed. Several intended outcomes would only become visible after implementation.</p>
+        </article>
+      </div>
+
+      <div class="snapshot-drawers" aria-label="Snapshot inspection drawers">
+        <details class="mini-disclosure">
+          <summary>📍 Provenance</summary>
+          <dl class="compact-detail-grid">
+            <div>
+              <dt>Snapshot ID</dt>
+              <dd>SNAP-HWP-2026-08-03-0900</dd>
+            </div>
+            <div>
+              <dt>Captured</dt>
+              <dd>3 August 2026 · 09:00 BST</dd>
+            </div>
+            <div>
+              <dt>Understanding state</dt>
+              <dd>Policy Adoption</dd>
+            </div>
+            <div class="detail-wide">
+              <dt>Question Being Answered</dt>
+              <dd>How should the organisation establish a clearer and more consistent hybrid-working position while supporting collaboration and appropriate flexibility?</dd>
+            </div>
+            <div>
+              <dt><span class="inspection-icon icon-evidence" aria-hidden="true"></span>Evidence confidence</dt>
+              <dd>Moderate — the policy need was supported, but the collaboration outcome remained partly assumption-led.</dd>
+            </div>
+            <div>
+              <dt>Preserved status</dt>
+              <dd>Preserved benchmark · not overwritten by later findings</dd>
+            </div>
+            <div>
+              <dt>Decision owner</dt>
+              <dd>People and Governance Committee</dd>
+            </div>
+            <div class="detail-wide">
+              <dt>Source provenance</dt>
+              <dd>The effective-date reference was derived from the preserved 6 July 2026 decision understanding and records held across the People Policy repository, People Insight working files, Estates analytics and the HR Business Partner working group. Source ownership, version and location were retained; the reference does not create earlier evidence.</dd>
+            </div>
+          </dl>
+        </details>
+
+        <details class="mini-disclosure">
+          <summary>📊 Evidence Used</summary>
+          <dl class="compact-detail-grid">
+            <div class="detail-wide">
+              <dt><span class="inspection-icon icon-sources" aria-hidden="true"></span>Sources used</dt>
+              <dd>
+                <ul>
+                  <li>Hybrid Working Policy Review Paper</li>
+                  <li>Staff Survey Summary</li>
+                  <li>Office Occupancy Report</li>
+                  <li>Manager Feedback Note</li>
+                  <li>Estates Space Utilisation Report</li>
+                  <li>Hybrid Working Policy v2.0</li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+        </details>
+
+        <details class="mini-disclosure">
+          <summary>⚠ Missing Evidence</summary>
+          <dl class="compact-detail-grid">
+            <div class="detail-wide">
+              <dt><span class="inspection-icon icon-missing" aria-hidden="true"></span>Evidence known to be missing</dt>
+              <dd>No agreed collaboration baseline, repeatable collaboration measure or equivalent pre-policy survey question was available. Long-term retention and inclusion effects were not yet observable.</dd>
+            </div>
+          </dl>
+        </details>
+
+        <details class="mini-disclosure">
+          <summary>⇄ Alternative Positions</summary>
+          <dl class="compact-detail-grid">
+            <div class="detail-wide">
+              <dt><span class="inspection-icon icon-alternatives" aria-hidden="true"></span>Alternative positions considered</dt>
+              <dd>
+                <ul>
+                  <li>Retain team-led local arrangements without a common attendance expectation.</li>
+                  <li>Introduce a three-day organisation-wide expectation.</li>
+                  <li>Use role-based attendance ranges rather than one common minimum.</li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+        </details>
+
+        <details class="mini-disclosure">
+          <summary>💾 Preservation Notes</summary>
+          <dl class="compact-detail-grid">
+            <div class="detail-wide">
+              <dt><span class="inspection-icon icon-preservation" aria-hidden="true"></span>Preservation notes</dt>
+              <dd>This effective-date reference carries forward the preserved 6 July 2026 decision understanding, including its assumptions and uncertainty. It does not replace or alter that earlier record, claim that intended collaboration outcomes had already occurred, or allow later evidence to rewrite the original position.</dd>
+            </div>
+          </dl>
+        </details>
+
+        <details class="source-locations detail-wide">
+            <summary><span class="inspection-icon icon-location" aria-hidden="true"></span>📂 Source Locations</summary>
+            <div class="source-location-list">
+              <article class="source-location-record">
+                <h4>Hybrid Working Policy Review Paper</h4>
+                <dl>
+                  <div><dt>Original path</dt><dd>COVID Response / Workplace Transition / Policy Development / Hybrid Review Paper v1.3.docx</dd></div>
+                  <div><dt>Located path</dt><dd>Archive / COVID Transition Programme / Working Papers / Final Versions / Hybrid Review Paper v1.3.docx</dd></div>
+                  <div><dt>Current owner</dt><dd>People Policy</dd></div>
+                  <div><dt>Record status</dt><dd>Historical decision-support record</dd></div>
+                  <div class="location-wide"><dt><span class="inspection-icon icon-location" aria-hidden="true"></span>Location finding</dt><dd>Located outside the expected current policy repository. No evidence was found that the paper was migrated into the formal policy archive.</dd></div>
+                </dl>
+              </article>
+
+              <article class="source-location-record">
+                <h4>Staff Survey Summary</h4>
+                <dl>
+                  <div><dt>Original path</dt><dd>People Insight / Hybrid Working Consultation / Survey Summary Draft 4.pptx</dd></div>
+                  <div><dt>Located path</dt><dd>People Insight / Hybrid Review Working Files / Survey Summary FINAL v4.pptx</dd></div>
+                  <div><dt>Current owner</dt><dd>People Insight</dd></div>
+                  <div><dt>Record status</dt><dd>Approved aggregate consultation summary</dd></div>
+                  <div class="location-wide"><dt><span class="inspection-icon icon-location" aria-hidden="true"></span>Location finding</dt><dd>Found in the expected owning area, although the filename retained “FINAL” rather than a controlled published reference.</dd></div>
+                </dl>
+              </article>
+
+              <article class="source-location-record">
+                <h4>Office Occupancy Report</h4>
+                <dl>
+                  <div><dt>Original path</dt><dd>Workplace Booker / Analytics / Hybrid Baseline / Occupancy Report Q2.xlsx</dd></div>
+                  <div><dt>Located path</dt><dd>Retired Workplace Booker Export / Migration Batch 03 / Reports / Occupancy Report Q2.xlsx</dd></div>
+                  <div><dt>Current owner</dt><dd>Estates Analytics</dd></div>
+                  <div><dt>Record status</dt><dd>Retained system export</dd></div>
+                  <div class="location-wide"><dt><span class="inspection-icon icon-location" aria-hidden="true"></span>Location finding</dt><dd>The source survived through a retired-system export. Its original dashboard context and saved filter configuration were not preserved.</dd></div>
+                </dl>
+              </article>
+
+              <article class="source-location-record">
+                <h4>Manager Feedback Note</h4>
+                <dl>
+                  <div><dt>Original path</dt><dd>Teams / HRBP Network / Hybrid Working Group / Manager Feedback Themes.docx</dd></div>
+                  <div><dt>Located path</dt><dd>Teams Export / HRBP Network Archive / Hybrid Working Working Group / Files / Manager Feedback Themes.docx</dd></div>
+                  <div><dt>Current owner</dt><dd>HR Business Partner Network</dd></div>
+                  <div><dt>Record status</dt><dd>Working-group evidence</dd></div>
+                  <div class="location-wide"><dt><span class="inspection-icon icon-location" aria-hidden="true"></span>Location finding</dt><dd>Located in an archived Teams export. The note remained available, but the discussion thread that shaped several themes was not included in the export.</dd></div>
+                </dl>
+              </article>
+
+              <article class="source-location-record">
+                <h4>Hybrid Working Policy v2.0</h4>
+                <dl>
+                  <div><dt>Original path</dt><dd>People / Policies / Approved / Hybrid Working Policy v2.0.pdf</dd></div>
+                  <div><dt>Located path</dt><dd>People / Policies / Current / Hybrid Working Policy v2.0.pdf</dd></div>
+                  <div><dt>Current owner</dt><dd>People and Culture</dd></div>
+                  <div><dt>Record status</dt><dd>Current benchmark policy</dd></div>
+                  <div class="location-wide"><dt><span class="inspection-icon icon-location" aria-hidden="true"></span>Location finding</dt><dd>Located in the expected controlled policy repository with its effective date and approval status intact.</dd></div>
+                </dl>
+              </article>
+            </div>
+          </details>
+        </div>
+    </section>
+
+    <section class="card" aria-labelledby="composition-title">
+      <header class="card-header">
+        <span class="foundation-marker connected">Connected Understanding</span>
+        <p class="eyebrow">What It Was Based On</p>
+        <h2 id="composition-title">What was the understanding made from?</h2>
+        <p>Hold separates the components of the organisational position rather than presenting every statement as equivalent fact.</p>
+      </header>
+
+      <div class="composition-grid">
+        <article class="composition-item">
+          <span class="type-pill type-evidence">Evidence</span>
+          <h3>Attendance inconsistent. Local interpretations varied.</h3>
+          <details class="mini-disclosure">
+            <summary>🔍 View reasoning</summary>
+            <p>Records directly showed uneven office use, varied local practice and a need for a clearer policy position.</p>
+          </details>
+        </article>
+        <article class="composition-item">
+          <span class="type-pill type-inference">Inference</span>
+          <h3>Shared presence creates more interaction opportunities.</h3>
+          <details class="mini-disclosure">
+            <summary>🔍 View reasoning</summary>
+            <p>The records reasonably connected more consistent workplace overlap with more chances for informal support and learning.</p>
+          </details>
+        </article>
+        <article class="composition-item">
+          <span class="type-pill type-assumption">Assumption</span>
+          <h3>More interaction may improve collaboration.</h3>
+          <details class="mini-disclosure">
+            <summary>🔍 View reasoning</summary>
+            <p>The organisation expected increased interaction opportunities to improve collaboration and informal learning, but this remained partly assumption-led.</p>
+          </details>
+        </article>
+        <article class="composition-item">
+          <span class="type-pill type-conclusion">Conclusion</span>
+          <h3>Two-day expectation was a reasonable balance.</h3>
+          <details class="mini-disclosure">
+            <summary>🔍 View reasoning</summary>
+            <p>A common minimum gave the organisation a clearer benchmark while preserving operational discretion and some employee flexibility.</p>
+          </details>
+        </article>
+        <article class="composition-item">
+          <span class="type-pill type-uncertainty">Uncertainty</span>
+          <h3>Collaboration was not directly measured.</h3>
+          <details class="mini-disclosure">
+            <summary>🔍 View reasoning</summary>
+            <p>No direct collaboration measure, repeatable baseline or proof of consistent effects across teams was established at the time.</p>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="participants-title">
+      <header class="card-header">
+        <span class="foundation-marker responsible">Responsible Understanding</span>
+        <p class="eyebrow">Who Is Asking?</p>
+        <h2 id="participants-title">Different responsibilities. The same facts.</h2>
+        <p>Select a participant to see how responsibility changes the question without changing the underlying facts.</p>
+        <p>Role selection changes presentation emphasis only. It does not authenticate a user, confer authority or change source permissions.</p>
+      </header>
+
+      <div class="participant-grid" role="group" aria-label="Responsible participant lenses">
+        <button class="participant is-active" type="button" data-role="people">
+          <h3>People Director</h3>
+          <p>Fairness, employee experience and policy consistency.</p>
+        </button>
+        <button class="participant" type="button" data-role="operations">
+          <h3>Operations Director</h3>
+          <p>Service delivery, coverage and practical team coordination.</p>
+        </button>
+        <button class="participant" type="button" data-role="finance">
+          <h3>Finance Director</h3>
+          <p>Evidence quality, cost and whether intended value is demonstrable.</p>
+        </button>
+        <button class="participant" type="button" data-role="employee">
+          <h3>Employee Representative</h3>
+          <p>Unequal effects, commuting burden and lived experience.</p>
+        </button>
+      </div>
+
+      <div class="role-output" id="role-output" aria-live="polite">
+        <strong>People Director</strong>
+        <div class="role-lens-detail">
+          <div><span>💬 Question</span><p>Is the policy consistent and fair?</p></div>
+          <div><span>📊 Priority evidence</span><p>Survey, restricted-response boundary, manager note.</p></div>
+          <div><span>Hold observation</span><p>Reported experience is mixed and may not be evenly distributed across roles or circumstances.</p></div>
+          <div><span>🛡 Access boundary</span><p>Approved aggregate view; restricted individual evidence remains unavailable.</p></div>
+        </div>
+        <details class="role-inspection">
+          <summary>🔍 View inspection detail</summary>
+          <dl class="role-inspection-grid">
+            <div><dt>Snapshot ID</dt><dd>SNAP-HWP-2026-08-03-0900</dd></div>
+            <div><dt>Understanding state</dt><dd>Shared benchmark · Policy Adoption</dd></div>
+            <div><dt><span class="inspection-icon icon-evidence" aria-hidden="true"></span>Evidence confidence</dt><dd>Moderate</dd></div>
+            <div><dt><span class="inspection-icon icon-understanding" aria-hidden="true"></span>Understanding access</dt><dd>Shared findings, mixed experience themes and uncertainty are visible.</dd></div>
+            <div><dt><span class="inspection-icon icon-access" aria-hidden="true"></span>Source access</dt><dd>Approved aggregate findings and the restricted-evidence explanation only</dd></div>
+            <div class="inspection-wide"><dt><span class="inspection-icon icon-sources" aria-hidden="true"></span>Relevant sources</dt><dd>Staff Survey Summary; Individual Employee Responses; Manager Feedback Note; Hybrid Working Policy v2.0</dd></div>
+            <div class="inspection-wide"><dt><span class="inspection-icon icon-missing" aria-hidden="true"></span>Evidence known to be missing</dt><dd>Comparable pre-policy collaboration measure and longer-term inclusion outcomes.</dd></div>
+            <div class="inspection-wide"><dt><span class="inspection-icon icon-location" aria-hidden="true"></span>Relevant provenance finding</dt><dd>The survey aggregate survived in the owning area; individual responses remain controlled in the survey platform export.</dd></div>
+            <div class="inspection-wide"><dt><span class="inspection-icon icon-observation" aria-hidden="true"></span>Context survivability observation</dt><dd>Aggregate methodology and response context survived. Some consultation discussion surrounding interpretation was not formally preserved.</dd></div>
+          </dl>
+        </details>
+      </div>
+      <p class="shared-facts-note"><strong>Source access and understanding access are not always the same thing.</strong> A participant may see the shared finding while the underlying identifiable record remains restricted.</p>
+      <p class="shared-facts-note">Role lenses change relevance and presentation emphasis. They do not create different underlying facts, authenticate a user, confer authority or change source permissions.</p>
+    </section>
+
+    <section class="card challenge-card" aria-labelledby="challenge-title">
+      <header class="card-header">
+        <span class="foundation-marker challengeable">Uncertain &amp; Challengeable Understanding</span>
+        <p class="time-label">Current assessment · 18 November 2026</p>
+        <p class="eyebrow">What We Know Now</p>
+        <h2 id="challenge-title">How well does the claim stand up now?</h2>
+        <p>Within the Finance Director's deliberately invoked current evaluation, Hold compares the claim's evidential condition at the time with what later evidence has done to it.</p>
+      </header>
+
+      <article class="claim-panel">
+        <h3>Challenged claim</h3>
+        <p>Regular workplace presence supports collaboration and informal learning.</p>
+
+        <div class="status-comparison">
+          <div class="status-state">
+            <h4>Status at the time</h4>
+            <span class="type-pill type-assumption">Reasonable working assumption</span>
+            <p>Supported by consultation feedback, manager experience and established organisational practice, but not by a direct collaboration measure.</p>
+          </div>
+          <div class="status-arrow" aria-hidden="true">→</div>
+          <div class="status-state">
+            <h4>Status since</h4>
+            <span class="type-pill type-assumption">Partially supported · unresolved</span>
+            <p>Shared attendance increased opportunities for interaction, but evidence of improved collaboration is mixed and uneven across teams.</p>
+          </div>
+        </div>
+
+        <div class="challenge-finding">
+          <p><strong>Hold finding:</strong> The evidence supports increased presence and interaction opportunity. It does not yet support a confident organisation-wide conclusion that collaboration improved because of the policy.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="card" aria-labelledby="evidence-title">
+      <header class="card-header">
+        <span class="foundation-marker traceable">Traceable Understanding</span>
+        <p class="eyebrow">What Supports It</p>
+        <h2 id="evidence-title">What supports—and limits—the claim?</h2>
+        <p>Evidence remains inspectable where authorised. Restricted records are acknowledged without exposing protected content.</p>
+      </header>
+
+      <div class="evidence-grid" id="evidence-grid">
+        <article class="evidence-record" data-evidence="occupancy">
+          <span class="type-pill type-evidence">Direct evidence</span>
+          <h3>📊 Office Occupancy Comparison</h3>
+          <div class="evidence-meta">
+            <span>Owner · Estates Analytics</span>
+            <span>Updated · 12 November 2026</span>
+            <span>Status · Verified utilisation data</span>
+          </div>
+          <p>Attendance increased; collaboration was not measured.</p>
+          <details class="evidence-inspection">
+            <summary>🔍 View evidence</summary>
+            <p>Shows increased attendance and concentration on shared anchor days. It does not measure collaboration.</p>
+            <button class="evidence-action" type="button" data-source="occupancy">📂 View original record</button>
+          </details>
+        </article>
+
+        <article class="evidence-record" data-evidence="survey">
+          <span class="type-pill type-inference">Mixed evidence</span>
+          <h3>💬 Post-Implementation Staff Survey</h3>
+          <div class="evidence-meta">
+            <span>Owner · People Insight</span>
+            <span>Updated · 18 November 2026</span>
+            <span>Status · Aggregate results</span>
+          </div>
+          <p>Experience was mixed across respondents.</p>
+          <details class="evidence-inspection">
+            <summary>🔍 View evidence</summary>
+            <p>Some respondents reported easier informal support; others reported congestion and no meaningful collaboration improvement.</p>
+            <button class="evidence-action" type="button" data-source="survey">📂 View original record</button>
+          </details>
+        </article>
+
+        <article class="evidence-record" data-evidence="measure-gap">
+          <span class="type-pill type-uncertainty">Evidence limitation</span>
+          <h3>⚠ Collaboration Outcome Measure</h3>
+          <div class="evidence-meta">
+            <span>Owner · People Policy Review</span>
+            <span>Status · Measure not established</span>
+            <span>Finding · Evidential gap</span>
+          </div>
+          <p>No direct collaboration baseline was available.</p>
+          <details class="evidence-inspection">
+            <summary>⚠ View evidence limit</summary>
+            <p>No agreed baseline or organisation-wide measure directly tests whether collaboration improved.</p>
+            <button class="evidence-action" type="button" data-source="measure-gap">📊 View evidence-gap note</button>
+          </details>
+        </article>
+
+        <article class="evidence-record" data-evidence="manager-note">
+          <span class="type-pill type-inference">Connected observation</span>
+          <h3>👤 Manager Feedback Note</h3>
+          <div class="evidence-meta">
+            <span>Owner · HR Business Partner Network</span>
+            <span>Date · 15 November 2026</span>
+            <span>Status · Thematic summary</span>
+          </div>
+          <p>Managers saw more contact, unevenly.</p>
+          <details class="evidence-inspection">
+            <summary>🔍 View evidence</summary>
+            <p>Managers reported more informal contact on shared days, but effects differed by work type and management practice.</p>
+            <button class="evidence-action" type="button" data-source="manager-note">📂 View original record</button>
+          </details>
+        </article>
+
+        <article class="evidence-record restricted" data-evidence="restricted">
+          <span class="type-pill type-assumption">Restricted source</span>
+          <h3>🛡 Individual Employee Responses</h3>
+          <div class="evidence-meta">
+            <span>Owner · People Insight</span>
+            <span>Access · Restricted</span>
+            <span>Available here · Aggregated finding only</span>
+          </div>
+          <p>Protected source exists; aggregate finding only.</p>
+          <details class="evidence-inspection">
+            <summary>🛡 View access explanation</summary>
+            <p>The source exists, but identifiable responses are not available to all committee participants.</p>
+            <button class="evidence-action" type="button" data-source="restricted">🔍 View access explanation</button>
+          </details>
+        </article>
+
+        <article class="evidence-record" data-evidence="policy">
+          <span class="type-pill type-conclusion">Preserved benchmark</span>
+          <h3>💾 Hybrid Working Policy v2.0</h3>
+          <div class="evidence-meta">
+            <span>Owner · People and Culture</span>
+            <span>Effective · 3 August 2026</span>
+            <span>Status · Current benchmark</span>
+          </div>
+          <p>Original policy intent and assumption preserved.</p>
+          <details class="evidence-inspection">
+            <summary>🔍 View evidence</summary>
+            <p>Records the original policy intent and the assumption that regular presence supports collaboration.</p>
+            <button class="evidence-action" type="button" data-source="policy">📂 View original policy extract</button>
+          </details>
+        </article>
+      </div>
+
+      <p class="permission-note" id="role-evidence-note">People lens · Aggregate workforce evidence is surfaced first. Restricted employee-level material remains visible as an access boundary, not disclosed content.</p>
+      <details class="mini-disclosure">
+        <summary>🛡 View access principle</summary>
+        <p>Permissions shape the route to evidence; they do not define the V10 story. Restricted access is distinguished from missing evidence.</p>
+      </details>
+    </section>
+
+    <section class="card" aria-labelledby="decision-title">
+      <header class="card-header">
+        <span class="foundation-marker responsible">Responsible Understanding</span>
+        <p class="eyebrow">Decision Required</p>
+        <h2 id="decision-title">Who must decide what happens next?</h2>
+        <p>Hold supports the review. People remain accountable for the consequential decision.</p>
+      </header>
+
+      <div class="decision-grid">
+        <article class="decision-item">
+          <h3>Current decision readiness</h3>
+          <p>The committee can reasonably conclude that office presence increased, but should not describe improved collaboration as established fact. Further measurement or more cautious policy wording may be required.</p>
+          <p class="owner-line">Decision owner · People and Governance Committee</p>
+        </article>
+        <article class="decision-item">
+          <h3>Residual uncertainty accepted?</h3>
+          <p>That judgement remains accountable to the decision route. Hold makes the uncertainty visible and preserves the basis on which it is accepted, deferred or challenged.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="card preserve-card" aria-labelledby="preserve-title">
+      <header class="card-header">
+        <span class="foundation-marker preserved">Preserved Understanding</span>
+        <p class="eyebrow">What We’ll Remember</p>
+        <h2 id="preserve-title">Preserve what this challenge revealed</h2>
+        <p>The challenge, evidence reviewed, evidential status, disagreement, uncertainty and eventual decision can become part of the preserved organisational record.</p>
+      </header>
+
+      <div class="preserve-actions">
+        <button class="primary-action" id="preserve-challenge" type="button">Preserve Challenge Understanding</button>
+        <p class="preserve-note">This records the review position. It does not make or approve the policy decision.</p>
+      </div>
+
+      <section class="preserved-record" id="preserved-record" aria-live="polite" hidden>
+        <h3><span class="inspection-icon icon-preservation" aria-hidden="true"></span>Challenge understanding preserved</h3>
+        <dl class="record-grid">
+          <div><dt>Record ID</dt><dd>CHG-HWP-COLLAB-001</dd></div>
+          <div><dt>Benchmark</dt><dd>SNAP-HWP-2026-08-03-0900</dd></div>
+          <div><dt>Question preserved</dt><dd>What evidence do we actually have that collaboration improved?</dd></div>
+          <div><dt>Record basis</dt><dd>Connected source records and review finding</dd></div>
+          <div><dt>Claim status</dt><dd>Partially supported · unresolved</dd></div>
+          <div><dt>Decision owner</dt><dd>People and Governance Committee</dd></div>
+          <div><dt><span class="inspection-icon icon-preservation" aria-hidden="true"></span>Preserved</dt><dd id="preserved-time">Point-in-time record created</dd></div>
+        </dl>
+      </section>
+    </section>
+  </main>
+
+  <dialog id="source-dialog" aria-labelledby="source-title">
+    <header class="dialog-header">
+      <div>
+        <p class="eyebrow" id="source-type">Original source record</p>
+        <h2 id="source-title">Source record</h2>
+      </div>
+      <button class="dialog-close" id="source-close" type="button" aria-label="Close source record">&times;</button>
+    </header>
+    <article class="source-document" id="source-content"></article>
+  </dialog>
+
+  <footer>
+    <p><a href="index.html">Back to Hold demos</a></p>
+    <p>Powered by IdexQR<sup>&reg;</sup></p>
+    <p>Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+    <p class="footer-sub content-use-notice">
+      Hold content is provided for human review and evaluation. AI model training or dataset use is not permitted without prior written permission.
+    </p>
+  </footer>
+
+  <script>
+    const roleViews = {
+      people: {
+        title: "People Director",
+        question: "Is the policy being applied consistently, and does the available evidence show improved collaboration without creating avoidable inequity?",
+        evidence: ["survey", "restricted", "manager-note", "policy", "occupancy", "measure-gap"],
+        priority: ["survey", "restricted"],
+        surfaced: "Staff survey, employee-response access boundary and manager feedback.",
+        observation: "Reported experience is mixed and may not be evenly distributed across roles or circumstances.",
+        understandingAccess: "Shared findings, mixed experience themes and uncertainty are visible.",
+        sourceAccess: "Approved aggregate findings and the restricted-evidence explanation only.",
+        restrictedAccess: "aggregate",
+        inspectionLabel: "People",
+        relevantSources: ["Staff Survey Summary", "Individual Employee Responses", "Manager Feedback Note", "Hybrid Working Policy v2.0"],
+        missingEvidence: "Comparable pre-policy collaboration measure and longer-term inclusion outcomes.",
+        provenanceFinding: "The survey aggregate survived in the owning area; individual responses remain controlled in the survey platform export.",
+        contextSurvivability: "Aggregate methodology and response context survived. Some consultation discussion surrounding interpretation was not formally preserved.",
+        accessBoundary: "Approved aggregate view; restricted individual evidence remains unavailable",
+        notice: "People lens · Aggregate workforce evidence and the restricted-evidence explanation are available. Role selection does not grant access to protected responses.",
+        openProvenance: false
+      },
+      operations: {
+        title: "Operations Director",
+        question: "Did shared attendance improve practical coordination and service delivery, or did it mainly change where work occurred?",
+        evidence: ["occupancy", "manager-note", "survey", "measure-gap", "policy", "restricted"],
+        priority: ["occupancy", "manager-note"],
+        surfaced: "Occupancy comparison, manager coordination themes and service-delivery observations.",
+        observation: "Shared presence increased coordination opportunities, but operational benefit varies by work type and deliberate team scheduling.",
+        understandingAccess: "Coordination findings, aggregate workforce themes and evidential limits are visible.",
+        sourceAccess: "Operational records are inspectable; identifiable employee responses remain outside this responsibility boundary.",
+        restrictedAccess: "aggregate",
+        inspectionLabel: "Operations",
+        relevantSources: ["Office Occupancy Comparison", "Manager Feedback Note", "Post-Implementation Staff Survey", "Hybrid Working Policy v2.0"],
+        missingEvidence: "Comparable service-delivery measures linked to attendance patterns and team-level coordination baselines.",
+        provenanceFinding: "The occupancy report survived through a retired-system export, while its original dashboard filters and display context did not.",
+        contextSurvivability: "Utilisation data survived. Some operational interpretation and the dashboard state used during the original review were lost.",
+        accessBoundary: "Operational sources inspectable; employee-level evidence available only through approved aggregates",
+        notice: "Operations lens · Coordination and utilisation records are surfaced first. Restricted people evidence remains available through aggregate findings.",
+        openProvenance: true
+      },
+      finance: {
+        title: "Finance Director",
+        question: "What evidence do we actually have that collaboration improved, and is it strong enough to support the organisational claim?",
+        evidence: ["measure-gap", "occupancy", "survey", "manager-note", "policy", "restricted"],
+        priority: ["measure-gap", "occupancy"],
+        surfaced: "Evidence-gap note, verified occupancy data and the limits of the available outcome measures.",
+        observation: "Increased attendance is established; improved collaboration is not yet demonstrated through a direct or comparable measure.",
+        understandingAccess: "The shared conclusion, confidence, aggregate findings and evidence limitations are visible.",
+        sourceAccess: "Verified operational records are inspectable; identifiable employee data is represented through approved aggregates.",
+        restrictedAccess: "aggregate",
+        inspectionLabel: "Finance",
+        relevantSources: ["Collaboration Outcome Measure — Evidence Gap Note", "Office Occupancy Comparison", "Post-Implementation Staff Survey", "Manager Feedback Note"],
+        missingEvidence: "A direct collaboration baseline, repeatable outcome measure and quantified link between attendance cost and organisational benefit.",
+        provenanceFinding: "Verified occupancy data is traceable, but the original system configuration behind part of the baseline was not retained.",
+        contextSurvivability: "The measurable attendance record survived more strongly than the reasoning that originally connected presence with collaboration value.",
+        accessBoundary: "Aggregate people findings visible; identifiable employee evidence remains outside the Finance responsibility boundary",
+        notice: "Finance lens · Evidential gaps and verified measures are surfaced first. Provenance opens by default when a source is inspected.",
+        openProvenance: true
+      },
+      employee: {
+        title: "Employee Representative",
+        question: "Whose collaboration improved, whose did not, and were the commuting and inclusion consequences considered alongside the intended benefit?",
+        evidence: ["survey", "restricted", "policy", "manager-note", "occupancy", "measure-gap"],
+        priority: ["survey", "restricted"],
+        surfaced: "Aggregate survey findings, protected-response boundaries and the original policy commitments.",
+        observation: "Organisation-wide averages may conceal different effects by role, location, adjustment need or personal circumstance.",
+        understandingAccess: "Aggregate lived-experience themes, disagreement and uncertainty are visible.",
+        sourceAccess: "Approved aggregate findings and access-boundary notes are available; identifiable responses remain protected.",
+        restrictedAccess: "aggregate",
+        inspectionLabel: "Employee Representative",
+        relevantSources: ["Post-Implementation Staff Survey", "Individual Employee Responses — Aggregate Themes", "Hybrid Working Policy v2.0", "Manager Feedback Note"],
+        missingEvidence: "Reliable breakdowns by role, location, adjustment need and commuting impact without creating identification risk.",
+        provenanceFinding: "Aggregate findings survived, while the discussion and some contextual detail behind individual experiences remain protected or absent.",
+        contextSurvivability: "Lived-experience themes are preserved at aggregate level. Individual context cannot always travel with the shared understanding.",
+        accessBoundary: "Aggregate themes and access-boundary notes visible; identifiable employee responses remain protected",
+        notice: "Employee lens · Aggregate experience evidence is surfaced first. Hold shows that restricted responses exist without leaking protected content.",
+        openProvenance: false
+      }
+    };
+
+    let activeRole = "people";
+    const evidenceRecords = [...document.querySelectorAll("[data-evidence]")];
+
+    function applyRoleLens(role) {
+      activeRole = role;
+      const view = roleViews[role];
+      document.getElementById("role-output").innerHTML = `
+        <strong>${view.title}</strong>
+        <div class="role-lens-detail">
+          <div><span>💬 Question</span><p>${view.question}</p></div>
+          <div><span>📊 Priority evidence</span><p>${view.surfaced}</p></div>
+          <div><span>Hold observation</span><p>${view.observation}</p></div>
+          <div><span>🛡 Access boundary</span><p>${view.accessBoundary}</p></div>
+        </div>
+        <details class="role-inspection">
+          <summary>🔍 View inspection detail</summary>
+          <dl class="role-inspection-grid">
+            <div><dt>Snapshot ID</dt><dd>SNAP-HWP-2026-08-03-0900</dd></div>
+            <div><dt>Understanding state</dt><dd>Shared benchmark · Policy Adoption</dd></div>
+            <div><dt><span class="inspection-icon icon-evidence" aria-hidden="true"></span>Evidence confidence</dt><dd>Moderate</dd></div>
+            <div><dt><span class="inspection-icon icon-understanding" aria-hidden="true"></span>Understanding access</dt><dd>${view.understandingAccess}</dd></div>
+            <div><dt><span class="inspection-icon icon-access" aria-hidden="true"></span>Source access</dt><dd>${view.accessBoundary}</dd></div>
+            <div class="inspection-wide"><dt><span class="inspection-icon icon-sources" aria-hidden="true"></span>Relevant sources</dt><dd><ul>${view.relevantSources.map((source) => `<li>${source}</li>`).join("")}</ul></dd></div>
+            <div class="inspection-wide"><dt><span class="inspection-icon icon-missing" aria-hidden="true"></span>Evidence known to be missing</dt><dd>${view.missingEvidence}</dd></div>
+            <div class="inspection-wide"><dt><span class="inspection-icon icon-location" aria-hidden="true"></span>Relevant provenance finding</dt><dd>${view.provenanceFinding}</dd></div>
+            <div class="inspection-wide"><dt><span class="inspection-icon icon-observation" aria-hidden="true"></span>Context survivability observation</dt><dd>${view.contextSurvivability}</dd></div>
+          </dl>
+        </details>
+      `;
+      document.getElementById("role-evidence-note").textContent = view.notice;
+      evidenceRecords.forEach((record) => {
+        const key = record.dataset.evidence;
+        record.style.order = view.evidence.indexOf(key);
+        record.classList.toggle("is-role-priority", view.priority.includes(key));
+      });
+      const restrictedButton = document.querySelector('[data-source="restricted"]');
+      restrictedButton.textContent = "View access explanation";
+    }
+
+    document.querySelectorAll("[data-role]").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll("[data-role]").forEach((item) => item.classList.remove("is-active"));
+        button.classList.add("is-active");
+        applyRoleLens(button.dataset.role);
+      });
+    });
+
+    applyRoleLens(activeRole);
+
+    const sources = {
+      occupancy: {
+        title: "Office Occupancy Comparison",
+        type: "Estates analytics spreadsheet",
+        className: "sheet",
+        body: `
+          <div class="source-banner">Original record view · source content shown in its operational format</div>
+          <h3>Workplace Utilisation Comparison</h3>
+          <p><strong>Reporting period:</strong> 3 August–12 November 2026 &nbsp; <strong>Reference:</strong> EST-HYB-UTIL-04</p>
+          <table>
+            <thead><tr><th>Measure</th><th>Pre-policy</th><th>Post-policy</th><th>Observation</th></tr></thead>
+            <tbody>
+              <tr><td>Average weekly workplace days</td><td>1.3</td><td>2.1</td><td>Attendance increased</td></tr>
+              <tr><td>Tuesday peak occupancy</td><td>54%</td><td>82%</td><td>Anchor-day concentration</td></tr>
+              <tr><td>Thursday peak occupancy</td><td>48%</td><td>77%</td><td>Anchor-day concentration</td></tr>
+              <tr><td>Meeting room demand</td><td>Moderate</td><td>High</td><td>Booking pressure increased</td></tr>
+            </tbody>
+          </table>
+          <p><strong>Analyst note:</strong> This report establishes presence and utilisation changes. It does not measure collaboration quality or attribute outcomes to the policy.</p>
+        `,
+        provenance: ["ESTATES/Analytics/Hybrid Review/Utilisation Comparison v1.2.xlsx", "Estates Analytics", "Verified working record", "Located in expected review folder"]
+      },
+      survey: {
+        title: "Post-Implementation Staff Survey",
+        type: "People Insight survey summary",
+        className: "memo",
+        body: `
+          <div class="source-banner">Original aggregate report · individual responses are held separately</div>
+          <h2>Hybrid Working Pulse Survey — Summary Extract</h2>
+          <p><strong>Responses:</strong> 684 &nbsp; <strong>Fieldwork:</strong> 2–13 November 2026</p>
+          <h3>Informal support and collaboration</h3>
+          <ul>
+            <li>46% agreed that shared workplace days made informal support easier.</li>
+            <li>29% reported no meaningful change.</li>
+            <li>18% disagreed, commonly citing noise, congestion or distributed team structures.</li>
+            <li>7% selected “not applicable” or did not answer.</li>
+          </ul>
+          <h3>Research note</h3>
+          <p>Responses indicate mixed experience. The survey was not designed as a causal evaluation and no pre-policy collaboration baseline used the same questions.</p>
+        `,
+        provenance: ["PEOPLE/Insight/Hybrid Review/Pulse Survey Aggregate.pdf", "People Insight", "Approved aggregate extract", "Individual-level dataset retained under restricted access"]
+      },
+      "measure-gap": {
+        title: "Collaboration Outcome Measure — Evidence Gap Note",
+        type: "Review observation from connected records",
+        className: "memo",
+        body: `
+          <div class="source-banner">Review observation · connected evidence route</div>
+          <h2>Evidence Gap</h2>
+          <p>No organisation-wide collaboration baseline, agreed indicator set or repeatable measurement method was identified in the policy review evidence.</p>
+          <h3>Records checked</h3>
+          <ul>
+            <li>Hybrid Working Policy Review Paper</li>
+            <li>Staff Survey Summary</li>
+            <li>Manager Feedback Note</li>
+            <li>Office Occupancy Comparison</li>
+            <li>Policy implementation records</li>
+          </ul>
+          <h3>Consequence</h3>
+          <p>Hold can identify attendance change, interaction opportunities and reported experience. It cannot establish an organisation-wide causal collaboration improvement from the available records.</p>
+        `,
+        provenance: ["V10 challenge review record", "Connected evidence route", "Current review observation", "Based on the connected evidence set listed above"]
+      },
+      "manager-note": {
+        title: "Manager Feedback Note",
+        type: "HR Business Partner network note",
+        className: "email",
+        body: `
+          <div class="source-banner">Original internal correspondence summary</div>
+          <div class="email-meta">
+            <strong>From</strong><span>HR Business Partner Network</span>
+            <strong>To</strong><span>Hybrid Working Review Group</span>
+            <strong>Date</strong><span>15 November 2026 · 14:20</span>
+            <strong>Subject</strong><span>Manager themes following attendance policy implementation</span>
+          </div>
+          <p>Managers generally report that shared attendance days make it easier to resolve small issues quickly and support newer colleagues. This is strongest where teams have deliberately coordinated their days.</p>
+          <p>The effect is less clear for nationally distributed teams and roles whose work is primarily individual. Several managers also noted that overcrowded peak days can make focused work and confidential conversations harder.</p>
+          <p>These are thematic observations rather than measured outcomes. Views were not uniform.</p>
+        `,
+        provenance: ["TEAMS/HRBP Network/Hybrid Review/Manager Themes.msg", "HR Business Partner Network", "Working-group evidence", "Located in expected Teams channel"]
+      },
+      restricted: {
+        title: "Individual Employee Responses",
+        type: "Restricted evidence access explanation",
+        className: "memo",
+        body: `
+          <div class="source-banner">Access boundary · protected content is not reproduced</div>
+          <h2>Why the underlying record is restricted</h2>
+          <p>The individual response dataset contains free-text comments and demographic fields that may identify employees or reveal sensitive personal circumstances.</p>
+          <p><strong>What this participant can see:</strong> the approved aggregate survey report, methodology, response count and high-level themes.</p>
+          <p><strong>What remains restricted:</strong> identifiable responses, small-group cuts and raw free-text comments.</p>
+          <p><strong>Authorised review route:</strong> People Insight may examine the restricted dataset where a legitimate governance question requires it.</p>
+          <p>The existence of restricted evidence is visible. Its protected content is not disclosed through Hold’s summary.</p>
+        `,
+        provenance: ["PEOPLE/Insight/Survey Platform Export/HWP-2026", "People Insight", "Restricted employee data", "Access follows the source"]
+      },
+      policy: {
+        title: "Hybrid Working Policy v2.0",
+        type: "Original policy document",
+        className: "memo",
+        body: `
+          <div class="source-banner">Original benchmark source · policy wording</div>
+          <h2>Hybrid Working Policy v2.0</h2>
+          <p><strong>Effective date:</strong> 3 August 2026</p>
+          <h3>Policy position</h3>
+          <p>Where operationally appropriate, colleagues are expected to spend a minimum of two working days each week in the office or designated workplace.</p>
+          <h3>Attendance patterns should support</h3>
+          <ul>
+            <li>team collaboration;</li>
+            <li>informal learning and mentoring;</li>
+            <li>knowledge sharing;</li>
+            <li>employee wellbeing;</li>
+            <li>effective service delivery;</li>
+            <li>organisational connection.</li>
+          </ul>
+          <h3>Policy assumption</h3>
+          <p>The organisation believes that regular workplace presence supports collaboration and informal learning.</p>
+        `,
+        provenance: ["PEOPLE/Policies/Current/Hybrid Working Policy v2.0.pdf", "People and Culture", "Current policy benchmark", "Located in expected policy repository"]
+      }
+    };
+
+    const dialog = document.getElementById("source-dialog");
+    const dialogTitle = document.getElementById("source-title");
+    const dialogType = document.getElementById("source-type");
+    const dialogContent = document.getElementById("source-content");
+
+    document.querySelectorAll("[data-source]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const sourceKey = button.dataset.source;
+        const source = sources[sourceKey];
+        dialogTitle.textContent = source.title;
+        dialogType.textContent = source.type;
+        dialogContent.className = `source-document ${source.className}`;
+        dialogContent.innerHTML = `
+          ${source.body}
+          <details class="source-provenance" ${roleViews[activeRole].openProvenance ? "open" : ""}>
+            <summary><span class="inspection-icon icon-location" aria-hidden="true"></span>View source provenance</summary>
+            <dl>
+              <div><dt>Located path</dt><dd>${source.provenance[0]}</dd></div>
+              <div><dt>Owning area</dt><dd>${source.provenance[1]}</dd></div>
+              <div><dt>Record status</dt><dd>${source.provenance[2]}</dd></div>
+              <div><dt>Location finding</dt><dd>${source.provenance[3]}</dd></div>
+            </dl>
+          </details>
+        `;
+        dialog.showModal();
+      });
+    });
+
+    document.getElementById("source-close").addEventListener("click", () => dialog.close());
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+
+    document.getElementById("preserve-challenge").addEventListener("click", () => {
+      const record = document.getElementById("preserved-record");
+      document.getElementById("preserved-time").textContent = "18 November 2026 · 16:00 GMT · Review position only";
+      record.hidden = false;
+      record.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+  </script>
+</body>
+</html>
