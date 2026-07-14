@@ -988,6 +988,18 @@
       font-weight: 700;
     }
 
+    .preserved-understanding {
+      display: grid;
+      gap: 16px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .preserved-understanding h4 { margin: 0 0 8px; }
+    .preserved-understanding ul { margin: 0; padding-left: 20px; }
+    .preserved-understanding li + li { margin-top: 5px; }
+
     dialog {
       width: min(820px, calc(100% - 28px));
       max-height: min(86vh, 900px);
@@ -1678,6 +1690,27 @@
           <div><dt>Decision owner</dt><dd>People and Governance Committee</dd></div>
           <div><dt><span class="inspection-icon icon-preservation" aria-hidden="true"></span>Preserved</dt><dd id="preserved-time">Point-in-time record created</dd></div>
         </dl>
+        <div class="preserved-understanding">
+          <section aria-labelledby="shared-understanding-title">
+            <h4 id="shared-understanding-title">Shared understanding preserved</h4>
+            <ul>
+              <li>Attendance increased on expected workplace days.</li>
+              <li>Increased attendance does not establish improved collaboration.</li>
+              <li>Benefits and burdens vary by work type, role and circumstance.</li>
+              <li>Direct comparable collaboration evidence remains missing.</li>
+              <li>The People and Governance Committee owns the consequential decision.</li>
+            </ul>
+          </section>
+          <section aria-labelledby="role-contributions-title">
+            <h4 id="role-contributions-title">Role contributions considered</h4>
+            <ul>
+              <li><strong>People:</strong> Employee experience is mixed and may be uneven across roles and circumstances.</li>
+              <li><strong>Operations:</strong> Coordination benefit depends upon the work type and deliberate team scheduling.</li>
+              <li><strong>Finance:</strong> Increased attendance is evidenced; collaboration value remains unproven.</li>
+              <li><strong>Employee:</strong> Organisation-wide averages may conceal unequal effects and burdens.</li>
+            </ul>
+          </section>
+        </div>
       </section>
     </section>
   </main>
