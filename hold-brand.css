@@ -1,0 +1,87 @@
+.hold-endorsed-brand {
+  --hold-brand-name-size: 1.55rem;
+  --hold-brand-by-size: 0.74rem;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.18rem;
+  max-width: 100%;
+  color: inherit;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1;
+  text-align: center;
+}
+
+.hold-endorsed-brand__name {
+  font-size: var(--hold-brand-name-size);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.hold-endorsed-brand__by {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: var(--hold-brand-by-size);
+  font-weight: 500;
+  letter-spacing: 0.035em;
+  line-height: 1.25;
+  opacity: 0.72;
+  white-space: nowrap;
+}
+
+.hold-endorsed-brand__by sup {
+  position: relative;
+  top: -0.08em;
+  font-size: 0.62em;
+  line-height: 0;
+}
+
+.hold-endorsed-brand--hero {
+  --hold-brand-name-size: clamp(2.5rem, 5vw, 4rem);
+  --hold-brand-by-size: clamp(0.78rem, 1.35vw, 0.94rem);
+  gap: 0.38rem;
+  margin: 0 0 2rem;
+}
+
+.hold-endorsed-brand--sidebar {
+  --hold-brand-name-size: 1.7rem;
+  --hold-brand-by-size: 0.72rem;
+  margin: 0 auto 1rem;
+}
+
+.hold-endorsed-brand--topbar {
+  --hold-brand-name-size: 1.55rem;
+  --hold-brand-by-size: 0.7rem;
+  margin: 0 auto 0.85rem;
+}
+
+.hold-endorsed-brand--footer {
+  --hold-brand-name-size: 1.02rem;
+  --hold-brand-by-size: 0.68rem;
+  gap: 0.14rem;
+  margin: 0.2rem auto 0.45rem;
+}
+
+.hold-endorsed-brand-host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+@media (max-width: 640px) {
+  .hold-endorsed-brand--hero {
+    --hold-brand-name-size: clamp(2.35rem, 12vw, 3.15rem);
+    margin-bottom: 1.65rem;
+  }
+
+  .hold-endorsed-brand--sidebar {
+    --hold-brand-name-size: 1.55rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .hold-endorsed-brand--topbar {
+    --hold-brand-name-size: 1.4rem;
+    margin-bottom: 0.7rem;
+  }
+}
