@@ -43,6 +43,9 @@
     .resilience-boundary div + div { border-left: 1px solid var(--line); }
     .resilience-boundary strong { display: block; margin-bottom: 4px; color: var(--hold); font-size: 0.76rem; letter-spacing: 0.06em; text-transform: uppercase; }
     .resilience-boundary span { color: #485c54; font-size: 0.9rem; line-height: 1.45; }
+    .ai-principle { display: flex; align-items: baseline; gap: 10px; margin: -4px 0 18px; padding: 11px 14px; border: 1px solid #c7d4cd; border-radius: 10px; background: #f7f9f6; color: #465b52; }
+    .ai-principle strong { color: #30483e; }
+    .ai-principle span { font-size: 0.88rem; }
 
     .journey-stage { display: none; }
     .journey-stage.is-active { display: block; }
@@ -69,6 +72,21 @@
     .plain-disclosure > summary { cursor: pointer; color: #40584e; font-weight: 750; }
     .plain-disclosure dl { margin-bottom: 0; }
     .plain-disclosure ul { margin-bottom: 0; color: var(--muted); }
+    .ai-stage-note { margin: 12px 0 0; color: #52675f; font-size: 0.9rem; }
+    .ai-stage-note strong { color: #40584e; }
+    .ai-record { margin-bottom: 16px; padding: 20px 22px; border: 1px solid #aebfb6; border-radius: 14px; background: #f8faf7; box-shadow: 0 8px 20px rgba(41, 56, 49, 0.035); }
+    .ai-record-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
+    .ai-record h2 { margin: 0; }
+    .ai-derived-badge { display: inline-flex; padding: 6px 9px; border: 1px solid #afc1b7; border-radius: 999px; background: #fff; color: #486057; font-size: 0.76rem; font-weight: 750; white-space: nowrap; }
+    .ai-disclosure { margin-top: 14px; border-top: 1px solid var(--line); padding-top: 12px; }
+    .ai-disclosure > summary { cursor: pointer; color: #365047; font-weight: 780; }
+    .ai-record-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 14px 0 0; }
+    .ai-record-grid div { padding: 12px; border: 1px solid var(--line); border-radius: 9px; background: #fff; }
+    .ai-record-grid .wide { grid-column: 1 / -1; }
+    .ai-record-grid dt { margin-bottom: 4px; color: var(--hold); font-size: 0.76rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
+    .ai-record-grid dd { margin: 0; color: #465b52; font-size: 0.9rem; line-height: 1.5; }
+    .ai-connection { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; margin-top: 12px; }
+    .ai-connection span { padding: 9px; border: 1px solid #c9d5ce; border-radius: 8px; background: #fff; color: #4b6158; font-size: 0.8rem; font-weight: 700; text-align: center; }
     .central-question { padding: 18px; border: 1px solid #aac0b4; border-radius: 10px; background: #eef5ef; }
     .central-question strong { display: block; margin-bottom: 7px; color: var(--hold); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; }
     .central-question p { margin: 0; font-size: 1.08rem; font-style: italic; line-height: 1.55; }
@@ -131,8 +149,10 @@
     .gallery-link { display: inline-flex; margin-top: 18px; color: #40594f; font-weight: 750; }
 
     @media (max-width: 760px) {
-      .resilience-progress ol, .resilience-boundary, .paper-grid, .two-column, .source-grid, .finding-grid, .handoff-grid, .outcome-grid { grid-template-columns: 1fr; }
+      .resilience-progress ol, .resilience-boundary, .paper-grid, .two-column, .source-grid, .finding-grid, .handoff-grid, .outcome-grid, .ai-record-grid, .ai-connection { grid-template-columns: 1fr; }
       .resilience-boundary div + div { border-left: 0; border-top: 1px solid var(--line); }
+      .ai-principle, .ai-record-head { align-items: flex-start; flex-direction: column; }
+      .ai-record-grid .wide { grid-column: auto; }
       .comparison { grid-template-columns: 1fr; }
       .comparison-arrow { justify-self: center; transform: rotate(90deg); }
       .change-item { grid-template-columns: 1fr; gap: 4px; }
@@ -168,6 +188,10 @@
       <div><strong>People judge</strong><span>Exposure and priority.</span></div>
       <div><strong>Owners act</strong><span>Through existing systems.</span></div>
     </aside>
+    <aside class="ai-principle" aria-label="Governed AI involvement principle">
+        <strong>When AI contributes, Hold makes that contribution visible, governed and accountable.</strong>
+        <span>AI can contribute to understanding; it cannot own it. Illustrative AI-assisted synthesis is evidence-linked and remains subject to accountable human review.</span>
+    </aside>
 
     <section class="journey-stage is-active" data-stage-panel="0" aria-labelledby="paper-title">
       <div class="panel">
@@ -196,6 +220,7 @@
       <div class="panel">
         <div class="panel-head"><div><p class="eyebrow">Role Lens</p><h2>See the same paper through different responsibilities</h2></div></div>
         <p class="muted">Choose a responsibility to change emphasis without changing the source paper.</p>
+        <p class="ai-stage-note"><strong>Illustrative assisted view:</strong> Role Lens presents a predetermined AI-assisted emphasis. AI did not author, alter or verify the paper.</p>
         <div class="choice-row" role="group" aria-label="Choose a role lens">
           <button class="choice-button role-choice" type="button" aria-pressed="true" data-role="operations">Operations Director</button>
           <button class="choice-button role-choice" type="button" aria-pressed="false" data-role="finance">Finance Director</button>
@@ -226,8 +251,40 @@
         </div>
       </div>
 
+      <article class="ai-record" aria-labelledby="ai-record-title">
+        <div class="ai-record-head">
+          <div><p class="eyebrow">Governed AI involvement</p><h2 id="ai-record-title">AI Contribution Record</h2></div>
+          <span class="ai-derived-badge">Illustrative derived contribution · not authoritative evidence</span>
+        </div>
+        <p class="primary-message">Predetermined demonstration content shows how evidence-linked AI assistance could compare records, surface dependencies and contradictions, and present changed information for human consideration.</p>
+        <p class="ai-stage-note"><strong>No live AI call occurs:</strong> no model is generating the current page output.</p>
+        <details class="ai-disclosure">
+          <summary>View the illustrative AI Contribution Record</summary>
+          <p class="stage-orientation">AI involvement should remain visible in the evidence history rather than disappearing into the conclusion.</p>
+          <div class="ai-connection" aria-label="AI contribution connections">
+            <span>Authoritative sources</span><span>Derived contribution</span><span>Preserved understanding</span><span>Human judgement and later review</span>
+          </div>
+          <dl class="ai-record-grid">
+            <div><dt>Purpose</dt><dd>Help an authorised reviewer inspect how the connected records support, qualify or challenge the paper’s position.</dd></div>
+            <div><dt>Contribution point</dt><dd>Connected Context, before accountable human review. This is an illustrative point in the journey, not a live processing event.</dd></div>
+            <div class="wide"><dt>Connected source records and versions supplied</dt><dd>Operational Resilience Review v3.2; Operational dependency map v6.1; Critical supplier assessment Q3 2026; Technology recovery test, August test; Facilities continuity survey v2.4; Workforce capacity model, Scenario 5; Resilience investment forecast v3.0; Governance responsibility note v1.3.</dd></div>
+            <div class="wide"><dt>Bounded organisational context</dt><dd>The central resilience question, the seven connected source records, their stated provenance and the decision responsibility shown in this demonstration. No wider organisational data is represented as supplied.</dd></div>
+            <div><dt>Nature of assistance</dt><dd>Compared connected evidence; surfaced dependencies and contradictions; identified changed information; and presented unresolved matters for human consideration.</dd></div>
+            <div><dt>Preserved contribution summary</dt><dd>Separate controls appear effective in isolation, while supplier substitution, workforce scope and manual recovery dependencies create a combined exposure that the source records do not resolve.</dd></div>
+            <div class="wide"><dt>Limitations and unresolved uncertainty</dt><dd>This derived contribution is not evidence that the underlying facts are true. AI did not verify source records, determine organisational significance, resolve disagreement, approve anything, assign responsibility, make a decision or initiate action.</dd></div>
+            <div><dt>Model or service identity</dt><dd>Not applicable in this deterministic demonstration; no real model, provider, version or live processing event is represented.</dd></div>
+            <div class="wide"><dt>AI-service provenance</dt><dd><p><strong>AI service/provider:</strong> Not specified—illustrative demonstration</p><p><strong>Identification basis:</strong> No live AI call</p><p><strong>Model/version:</strong> Not applicable to this predetermined demonstration content</p><p>In live organisational use, Hold would record how the identity was established: integration-verified; supplied by a connected system; declared by an authorised user; or unknown. Hold records provider, service and model/version when reliable provenance is available, but does not infer the provider from writing style.</p><p>Hold preserves the provider, service, model/version and identification basis recorded at the time of contribution. Later changes of provider or model do not rewrite that preserved record.</p></dd></div>
+            <div><dt>What Hold would preserve in live use</dt><dd>Available model or service identity and version, relevant configuration, contribution date and time, supplied source references, bounded context, output, limitations and human review outcome.</dd></div>
+            <div><dt>Accountable human reviewer</dt><dd>Director of Operations.</dd></div>
+            <div><dt>Review status and outcome</dt><dd>Still awaiting judgement. The contribution may be accepted, amended or rejected by the accountable human reviewer.</dd></div>
+            <div class="wide"><dt>Connections retained</dt><dd>The authoritative sources relied upon; the preserved understanding influenced; the human judgement that followed; and any later challenge or reconsideration of that understanding.</dd></div>
+          </dl>
+        </details>
+      </article>
+
       <div class="panel">
         <div class="panel-head"><div><p class="eyebrow">Connected view</p><h2>What becomes visible across the evidence</h2></div></div>
+        <p class="ai-stage-note"><strong>Illustrative AI-assisted synthesis:</strong> these evidence-linked observations are derived contributions, not authoritative source records.</p>
         <div class="finding-grid">
           <article class="finding"><strong>Important connection</strong><p>Separate controls perform, but their dependencies overlap.</p></article>
           <article class="finding warning"><strong>Contradiction</strong><p>The paper says supplier substitution is available; Procurement records it as untested.</p></article>
@@ -246,6 +303,7 @@
         <div class="panel-head"><div><p class="eyebrow">What Changed</p><h2 id="changed-title">The organisation’s understanding moved</h2></div><span class="status-pill" id="understanding-status">Live understanding · not yet preserved</span></div>
         <p class="stage-orientation">Compare the earlier position with the connected understanding, then preserve the point-in-time view.</p>
         <p class="primary-message">The important change: resilience is no longer understood as separate functional controls, but as a combined cross-functional exposure.</p>
+              <p class="ai-stage-note"><strong>AI-assisted comparison:</strong> AI can assist in identifying changed information; the Director of Operations must judge why the change matters and what follows.</p>
         <div class="comparison">
           <article class="comparison-card"><p class="eyebrow">Previously understood</p><h3>Separate controls appeared sufficient</h3><ul><li>Tests were considered independently.</li><li>Substitution and capacity were assumed available.</li></ul></article>
           <div class="comparison-arrow" aria-hidden="true">→</div>
@@ -279,6 +337,7 @@
           <article><h3>Next action</h3><p>Cross-functional mitigation review.</p></article>
         </div>
         <p class="muted">Hold preserves why; people remain responsible and act through existing systems.</p>
+        <p class="ai-stage-note"><strong>Human responsibility:</strong> AI did not make the decision, assign the owner or initiate implementation.</p>
       </div>
 
       <div class="panel">
