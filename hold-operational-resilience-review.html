@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hold – Operational Resilience Review</title>
+  <meta name="description" content="A guided Hold demonstration following an Operational Resilience Review from paper through connected evidence, changed understanding and accountable action." />
+  <link rel="stylesheet" href="hold-brand.css?v=4" />
+  <link rel="stylesheet" href="hold-paper-journey.css?v=1" />
+  <style>
+    :root {
+      --ink: #26332e;
+      --muted: #5a6e66;
+      --line: #d8e1d8;
+      --soft: #f4f7f3;
+      --hold: #557268;
+      --accent: #dce9df;
+      --warm: #f7f1e5;
+      --warm-line: #ddc995;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #eef2ed; color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    button { font: inherit; }
+    .resilience-shell { width: min(1080px, calc(100% - 32px)); margin: 0 auto; padding: 24px 0 44px; }
+    .resilience-header { padding: 22px 24px; border: 1px solid var(--line); border-radius: 14px; background: #fff; box-shadow: 0 12px 30px rgba(41, 56, 49, 0.06); }
+    .brand-line { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand-line strong { color: var(--hold); letter-spacing: 0.01em; }
+    .example-label { color: var(--muted); font-size: 0.82rem; font-weight: 750; letter-spacing: 0.07em; text-transform: uppercase; }
+    h1 { max-width: 780px; margin: 20px 0 8px; font-size: clamp(2rem, 5vw, 3.7rem); line-height: 1.02; letter-spacing: -0.045em; }
+    .lede { max-width: 810px; margin: 0; color: var(--muted); font-size: 1.05rem; font-style: italic; line-height: 1.55; }
+    .example-note { margin: 18px 0 0; padding: 12px 14px; border-left: 4px solid #8da79a; background: var(--soft); color: #42574f; }
+
+    .resilience-progress { margin: 18px 0; }
+    .resilience-progress ol { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 0; padding: 0; list-style: none; }
+    .stage-tab { width: 100%; min-height: 62px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--muted); text-align: left; cursor: pointer; }
+    .stage-tab span { display: block; margin-bottom: 4px; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+    .stage-tab strong { color: inherit; font-size: 0.92rem; }
+    .stage-tab[aria-current="step"] { border-color: #7f9c8d; background: var(--accent); color: #30483e; box-shadow: inset 0 -3px 0 #678578; }
+
+    .resilience-boundary { display: grid; grid-template-columns: repeat(3, 1fr); margin-bottom: 18px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: #fff; }
+    .resilience-boundary div { padding: 13px 15px; }
+    .resilience-boundary div + div { border-left: 1px solid var(--line); }
+    .resilience-boundary strong { display: block; margin-bottom: 4px; color: var(--hold); font-size: 0.76rem; letter-spacing: 0.06em; text-transform: uppercase; }
+    .resilience-boundary span { color: #485c54; font-size: 0.9rem; line-height: 1.45; }
+
+    .journey-stage { display: none; }
+    .journey-stage.is-active { display: block; }
+    .panel { margin-bottom: 16px; padding: 22px; border: 1px solid var(--line); border-radius: 14px; background: #fff; box-shadow: 0 10px 24px rgba(41, 56, 49, 0.04); }
+    .panel-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+    .eyebrow { margin: 0 0 5px; color: var(--hold); font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+    h2 { margin: 0; font-size: clamp(1.35rem, 3vw, 2rem); letter-spacing: -0.025em; }
+    h3 { margin: 0 0 8px; font-size: 1rem; }
+    p { line-height: 1.55; }
+    .muted { color: var(--muted); }
+    .stage-orientation { max-width: 760px; margin: -4px 0 16px; color: var(--muted); font-style: italic; }
+    .primary-message { margin: 0 0 16px; padding: 14px 16px; border-left: 4px solid #7f9c8d; background: #f1f6f2; color: #344a40; font-size: 1.02rem; font-weight: 700; }
+    .primary-message.editorial-extract { font-style: italic; font-weight: 600; }
+    .reflective-transition { font-style: italic; }
+    .status-pill { display: inline-flex; align-items: center; padding: 6px 9px; border: 1px solid #b7cabf; border-radius: 999px; background: var(--soft); color: #456055; font-size: 0.78rem; font-weight: 750; white-space: nowrap; }
+    .paper-grid, .two-column, .outcome-grid { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 14px; }
+    .record, .insight-card { padding: 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--soft); }
+    .record dl { display: grid; grid-template-columns: auto 1fr; gap: 7px 12px; margin: 14px 0 0; font-size: 0.88rem; }
+    .record dt { color: var(--muted); font-weight: 750; }
+    .record dd { margin: 0; }
+    .key-facts { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 13px; }
+    .key-facts span { padding: 5px 8px; border: 1px solid #c9d5ce; border-radius: 999px; background: #fff; color: #4b6158; font-size: 0.78rem; font-weight: 700; }
+    .plain-disclosure { margin-top: 12px; border-top: 1px solid var(--line); padding-top: 10px; }
+    .plain-disclosure > summary { cursor: pointer; color: #40584e; font-weight: 750; }
+    .plain-disclosure dl { margin-bottom: 0; }
+    .plain-disclosure ul { margin-bottom: 0; color: var(--muted); }
+    .central-question { padding: 18px; border: 1px solid #aac0b4; border-radius: 10px; background: #eef5ef; }
+    .central-question strong { display: block; margin-bottom: 7px; color: var(--hold); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; }
+    .central-question p { margin: 0; font-size: 1.08rem; font-style: italic; line-height: 1.55; }
+
+    .choice-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+    .choice-button, .primary-button, .secondary-button { min-height: 42px; padding: 9px 13px; border-radius: 8px; cursor: pointer; font-weight: 750; }
+    .choice-button, .secondary-button { border: 1px solid #a9bdb2; background: #fff; color: #41564e; }
+    .choice-button[aria-pressed="true"] { border-color: #668477; background: var(--accent); color: #2e463c; }
+    .primary-button { border: 1px solid #58776a; background: #5f7e71; color: #fff; }
+    .answer-panel { min-height: 122px; padding: 16px; border: 1px solid var(--line); border-radius: 10px; background: #fbfcfa; }
+    .answer-panel h3 { color: var(--hold); }
+    .answer-panel ul { margin: 8px 0 0; padding-left: 20px; }
+    .answer-panel li + li { margin-top: 7px; }
+
+    .source-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .source-record { border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+    .source-record summary { padding: 14px; cursor: pointer; font-weight: 780; }
+    .source-body { padding: 0 14px 14px; color: var(--muted); }
+    .source-body p { margin-top: 0; }
+    .source-body dl { display: grid; grid-template-columns: auto 1fr; gap: 5px 10px; margin: 0; font-size: 0.84rem; }
+    .source-body dt { color: #40564e; font-weight: 750; }
+    .source-body dd { margin: 0; }
+    .finding-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+    .finding { padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--soft); }
+    .finding.warning { border-color: var(--warm-line); background: var(--warm); }
+    .finding strong { display: block; margin-bottom: 5px; color: var(--hold); font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; }
+    .finding p { margin: 0; color: #43574f; font-size: 0.92rem; }
+
+    .comparison { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: stretch; }
+    .comparison-card { padding: 17px; border: 1px solid var(--line); border-radius: 10px; background: var(--soft); }
+    .comparison-card.now { border-color: #9eb6aa; background: #edf5ef; }
+    .comparison-arrow { align-self: center; color: var(--hold); font-size: 1.5rem; }
+    .comparison-card ul { margin: 10px 0 0; padding-left: 19px; }
+    .comparison-card li + li { margin-top: 7px; }
+    .change-list { display: grid; gap: 9px; margin-top: 14px; }
+    .change-item { display: grid; grid-template-columns: 112px 1fr; gap: 12px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 9px; }
+    .change-item strong { color: var(--hold); font-size: 0.8rem; text-transform: uppercase; }
+    .judgement-box { margin-top: 14px; padding: 17px; border: 1px solid var(--warm-line); border-radius: 10px; background: var(--warm); }
+    .judgement-box h3 { color: #6c5731; }
+    .judgement-box p { margin-bottom: 0; }
+    .preserve-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); }
+
+    .handoff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .handoff-grid article { padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--soft); }
+    .handoff-grid h3 { color: var(--hold); font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; }
+    .timeline { display: grid; gap: 9px; }
+    .timeline details { border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+    .timeline summary { padding: 14px; cursor: pointer; font-weight: 780; }
+    .timeline-body { padding: 0 14px 14px; color: var(--muted); }
+    .timeline-body p { margin: 7px 0 0; }
+    .outcome-grid { grid-template-columns: repeat(3, 1fr); }
+    .outcome-grid .insight-card { background: #fff; }
+    .outcome-grid p { margin-bottom: 0; }
+    .archive { margin-top: 12px; border-top: 1px solid var(--line); padding-top: 12px; }
+    .archive summary { cursor: pointer; color: #42584f; font-weight: 750; }
+    .archive ul { color: var(--muted); }
+
+    .stage-navigation { display: flex; justify-content: space-between; gap: 12px; margin-top: 18px; }
+    .stage-navigation button:disabled { visibility: hidden; }
+    .gallery-link { display: inline-flex; margin-top: 18px; color: #40594f; font-weight: 750; }
+
+    @media (max-width: 760px) {
+      .resilience-progress ol, .resilience-boundary, .paper-grid, .two-column, .source-grid, .finding-grid, .handoff-grid, .outcome-grid { grid-template-columns: 1fr; }
+      .resilience-boundary div + div { border-left: 0; border-top: 1px solid var(--line); }
+      .comparison { grid-template-columns: 1fr; }
+      .comparison-arrow { justify-self: center; transform: rotate(90deg); }
+      .change-item { grid-template-columns: 1fr; gap: 4px; }
+      .panel-head, .preserve-row { align-items: flex-start; flex-direction: column; }
+      .stage-tab { min-height: 48px; }
+      .stage-tab span { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="resilience-shell">
+    <header class="resilience-header">
+      <div class="brand-line">
+        <strong>Hold by IdexQR®</strong>
+        <span class="example-label">Example paper journey</span>
+      </div>
+      <h1>Operational Resilience Review</h1>
+      <p class="lede">From paper to evidence, changed understanding and accountable action.</p>
+      <p class="example-note"><strong>Example paper, not a Hold module.</strong></p>
+    </header>
+
+    <nav class="resilience-progress" aria-label="Paper to outcome journey">
+      <ol>
+        <li><button class="stage-tab" type="button" data-stage="0" aria-current="step"><span>Stage 1</span><strong>The Paper</strong></button></li>
+        <li><button class="stage-tab" type="button" data-stage="1"><span>Stage 2</span><strong>Connected Context</strong></button></li>
+        <li><button class="stage-tab" type="button" data-stage="2"><span>Stage 3</span><strong>What Changed</strong></button></li>
+        <li><button class="stage-tab" type="button" data-stage="3"><span>Stage 4</span><strong>Into Action</strong></button></li>
+      </ol>
+    </nav>
+
+    <aside class="resilience-boundary" aria-label="Hold operating boundary">
+      <div><strong>Hold observes</strong><span>Connections and gaps.</span></div>
+      <div><strong>People judge</strong><span>Exposure and priority.</span></div>
+      <div><strong>Owners act</strong><span>Through existing systems.</span></div>
+    </aside>
+
+    <section class="journey-stage is-active" data-stage-panel="0" aria-labelledby="paper-title">
+      <div class="panel">
+        <div class="panel-head">
+          <div><p class="eyebrow">The entry object</p><h2 id="paper-title">The paper and the position it presents</h2></div>
+          <span class="status-pill">Paper · Authoritative source record</span>
+        </div>
+        <p class="stage-orientation">Start with the position the paper presents, then view it through the responsibility of the person reading it.</p>
+        <p class="primary-message editorial-extract">Essential operations withstand short disruptions, but combined supplier, site and workforce constraints may exceed current recovery assumptions.</p>
+        <div class="paper-grid">
+          <article class="record">
+            <h3>Operational Resilience Review</h3>
+            <div class="key-facts"><span>Owner · Director of Operations</span><span>Status · Review required</span><span>Ref · ORR-2026-09</span></div>
+            <details class="plain-disclosure">
+              <summary>View paper provenance</summary>
+              <dl><dt>System</dt><dd>Board papers repository</dd><dt>Version</dt><dd>3.2 · 12 September 2026</dd><dt>Status</dt><dd>Submitted for accountable review</dd></dl>
+            </details>
+          </article>
+          <div class="central-question">
+            <strong>Central question</strong>
+            <p>What is now understood, what changed, and what still requires accountable human judgement?</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><div><p class="eyebrow">Role Lens</p><h2>See the same paper through different responsibilities</h2></div></div>
+        <p class="muted">Choose a responsibility to change emphasis without changing the source paper.</p>
+        <div class="choice-row" role="group" aria-label="Choose a role lens">
+          <button class="choice-button role-choice" type="button" aria-pressed="true" data-role="operations">Operations Director</button>
+          <button class="choice-button role-choice" type="button" aria-pressed="false" data-role="finance">Finance Director</button>
+          <button class="choice-button role-choice" type="button" aria-pressed="false" data-role="governance">Governance Chair</button>
+          <button class="choice-button role-choice" type="button" aria-pressed="false" data-role="service">Service Owner</button>
+        </div>
+        <div class="answer-panel" id="role-answer" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="journey-stage" data-stage-panel="1" aria-labelledby="context-title" hidden>
+      <div class="panel">
+        <div class="panel-head">
+          <div><p class="eyebrow">Connected Context</p><h2 id="context-title">Evidence from the organisation’s authoritative sources</h2></div>
+          <span class="status-pill">7 connected records</span>
+        </div>
+        <p class="stage-orientation">Scan the seven connected records, then open any source to inspect its description and provenance.</p>
+        <p class="primary-message">No single record shows the combined exposure; the connection between them does.</p>
+        <p class="muted">Each source system remains authoritative for its own record.</p>
+        <div class="source-grid">
+          <details class="source-record"><summary>Operational dependency map</summary><div class="source-body"><p>Maps the services, people, facilities and systems required to sustain essential operations.</p><dl><dt>Owner</dt><dd>Business Continuity Lead</dd><dt>System</dt><dd>Resilience register</dd><dt>Version</dt><dd>6.1</dd><dt>Status</dt><dd>Current</dd><dt>Reference</dt><dd>RES-DEP-061</dd></dl></div></details>
+          <details class="source-record"><summary>Critical supplier assessment</summary><div class="source-body"><p>Shows concentration in one specialist supplier and an untested substitution assumption.</p><dl><dt>Owner</dt><dd>Head of Procurement</dd><dt>System</dt><dd>Supplier assurance</dd><dt>Version</dt><dd>Q3 2026</dd><dt>Status</dt><dd>Review open</dd><dt>Reference</dt><dd>SUP-CRIT-118</dd></dl></div></details>
+          <details class="source-record"><summary>Technology recovery test</summary><div class="source-body"><p>Confirms core recovery performance but records a manual integration dependency.</p><dl><dt>Owner</dt><dd>Technology Operations</dd><dt>System</dt><dd>Service management</dd><dt>Version</dt><dd>August test</dd><dt>Status</dt><dd>Exception recorded</dd><dt>Reference</dt><dd>TECH-DR-0826</dd></dl></div></details>
+          <details class="source-record"><summary>Facilities continuity survey</summary><div class="source-body"><p>Identifies improved backup power and a remaining access vulnerability at the secondary site.</p><dl><dt>Owner</dt><dd>Facilities Director</dd><dt>System</dt><dd>Estates assurance</dd><dt>Version</dt><dd>2.4</dd><dt>Status</dt><dd>Current</dd><dt>Reference</dt><dd>FAC-CONT-024</dd></dl></div></details>
+          <details class="source-record"><summary>Workforce capacity model</summary><div class="source-body"><p>Models normal absence and single-event disruption, but not simultaneous regional disruption.</p><dl><dt>Owner</dt><dd>People Analytics</dd><dt>System</dt><dd>Workforce planning</dd><dt>Version</dt><dd>Scenario 5</dd><dt>Status</dt><dd>Assumption limited</dd><dt>Reference</dt><dd>WF-CAP-005</dd></dl></div></details>
+          <details class="source-record"><summary>Resilience investment forecast</summary><div class="source-body"><p>Estimates mitigation cost and potential avoided loss using a range of disruption durations.</p><dl><dt>Owner</dt><dd>Finance Business Partner</dd><dt>System</dt><dd>Financial planning</dd><dt>Version</dt><dd>3.0</dd><dt>Status</dt><dd>Sensitivity required</dd><dt>Reference</dt><dd>FIN-RES-030</dd></dl></div></details>
+          <details class="source-record"><summary>Governance responsibility note</summary><div class="source-body"><p>Confirms decision rights but leaves the cross-functional action owner unnamed.</p><dl><dt>Owner</dt><dd>Company Secretariat</dd><dt>System</dt><dd>Governance records</dd><dt>Version</dt><dd>1.3</dd><dt>Status</dt><dd>Ownership gap</dd><dt>Reference</dt><dd>GOV-RES-013</dd></dl></div></details>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><div><p class="eyebrow">Connected view</p><h2>What becomes visible across the evidence</h2></div></div>
+        <div class="finding-grid">
+          <article class="finding"><strong>Important connection</strong><p>Separate controls perform, but their dependencies overlap.</p></article>
+          <article class="finding warning"><strong>Contradiction</strong><p>The paper says supplier substitution is available; Procurement records it as untested.</p></article>
+          <article class="finding warning"><strong>Unclear ownership</strong><p>No one owner is recorded for the cross-functional exposure.</p></article>
+          <article class="finding"><strong>Human judgement</strong><p>Evidence alone cannot determine whether the combined exposure is acceptable.</p></article>
+        </div>
+        <details class="plain-disclosure">
+          <summary>View assumptions and supporting findings</summary>
+          <ul><li>Workforce capacity assumes disruption remains local and sequential.</li><li>Technology recovery depends on a small team performing a manual step.</li></ul>
+        </details>
+      </div>
+    </section>
+
+    <section class="journey-stage" data-stage-panel="2" aria-labelledby="changed-title" hidden>
+      <div class="panel">
+        <div class="panel-head"><div><p class="eyebrow">What Changed</p><h2 id="changed-title">The organisation’s understanding moved</h2></div><span class="status-pill" id="understanding-status">Live understanding · not yet preserved</span></div>
+        <p class="stage-orientation">Compare the earlier position with the connected understanding, then preserve the point-in-time view.</p>
+        <p class="primary-message">The important change: resilience is no longer understood as separate functional controls, but as a combined cross-functional exposure.</p>
+        <div class="comparison">
+          <article class="comparison-card"><p class="eyebrow">Previously understood</p><h3>Separate controls appeared sufficient</h3><ul><li>Tests were considered independently.</li><li>Substitution and capacity were assumed available.</li></ul></article>
+          <div class="comparison-arrow" aria-hidden="true">→</div>
+          <article class="comparison-card now"><p class="eyebrow">Now understood</p><h3>Dependencies create combined exposure</h3><ul><li>Supplier substitution remains untested.</li><li>Capacity evidence excludes combined disruption.</li></ul></article>
+        </div>
+        <details class="plain-disclosure">
+          <summary>View change detail and supporting evidence</summary>
+          <div class="change-list"><div class="change-item"><strong>Claim qualified</strong><span>Continuity now depends on duration and concurrency.</span></div><div class="change-item"><strong>Disagreement</strong><span>Substitution readiness is described differently.</span></div><div class="change-item"><strong>Ownership gap</strong><span>Cross-functional accountability is missing.</span></div></div>
+          <ul><li>The supplier assessment and facilities survey now connect to the paper.</li><li>Recovery tests remain supportive for isolated events.</li><li>The workforce model does not cover simultaneous regional disruption.</li></ul>
+        </details>
+        <div class="judgement-box">
+          <h3>Unresolved matter requiring accountable human judgement</h3>
+          <p>Is the combined exposure acceptable, or must mitigation be prioritised?</p>
+          <p><strong>Owner:</strong> Director of Operations · <strong>Next action:</strong> Executive Resilience Group review, 22 September 2026</p>
+        </div>
+        <div class="preserve-row">
+          <p class="muted">Preservation records this point-in-time understanding; it does not approve or resolve it.</p>
+          <button class="primary-button" type="button" id="preserve-understanding">Preserve this understanding</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="journey-stage" data-stage-panel="3" aria-labelledby="action-title" hidden>
+      <div class="panel">
+        <div class="panel-head"><div><p class="eyebrow">Into Action</p><h2 id="action-title">Human judgement becomes accountable action</h2></div><span class="status-pill">Continuity, not workflow</span></div>
+        <p class="stage-orientation">Follow the decision into implementation, then open a timeline step to inspect the evidence continuity.</p>
+        <p class="primary-message">The exposure was not accepted without time-bound mitigation across supplier, site and specialist-capacity dependencies.</p>
+        <div class="handoff-grid">
+          <article><h3>Human decision</h3><p>Mitigation required.</p></article>
+          <article><h3>Accountable owner</h3><p>Director of Operations.</p></article>
+          <article><h3>Next action</h3><p>Cross-functional mitigation review.</p></article>
+        </div>
+        <p class="muted">Hold preserves why; people remain responsible and act through existing systems.</p>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><div><p class="eyebrow">Implementation continuity</p><h2>From decision basis to observed outcome</h2></div></div>
+        <details class="plain-disclosure">
+          <summary>View implementation timeline (5 steps)</summary>
+          <div class="timeline">
+            <details><summary>1 · Recorded human decision</summary><div class="timeline-body"><strong>Owner: Director of Operations · 22 September 2026</strong><p>The exposure was judged outside appetite until substitution, access and specialist-capacity measures were demonstrated.</p></div></details>
+            <details><summary>2 · Supplier substitution test</summary><div class="timeline-body"><strong>Owner: Head of Procurement · Source: Supplier assurance</strong><p>A live substitution exercise was scheduled with service and quality conditions retained.</p></div></details>
+            <details><summary>3 · Secondary-site access treatment</summary><div class="timeline-body"><strong>Owner: Facilities Director · Source: Estates assurance</strong><p>Alternative access arrangements were implemented and added to the continuity test plan.</p></div></details>
+            <details><summary>4 · Broader recovery capacity</summary><div class="timeline-body"><strong>Owner: Technology Operations · Source: Service management</strong><p>Additional staff were trained for the manual integration step identified in recovery evidence.</p></div></details>
+            <details><summary>5 · Combined resilience exercise</summary><div class="timeline-body"><strong>Owner: Business Continuity Lead · 18 November 2026</strong><p>The combined exercise maintained essential service, while exposing a slower supplier transition than intended.</p></div></details>
+          </div>
+        </details>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><div><p class="eyebrow">Outcome understanding</p><h2>Success does not erase the original uncertainty</h2></div></div>
+        <div class="outcome-grid">
+          <article class="insight-card"><h3>Intended outcome</h3><p>Maintain essential operations through combined disruption.</p></article>
+          <article class="insight-card"><h3>Observed outcome</h3><p>Service held; supplier transition missed target by six hours.</p></article>
+          <article class="insight-card"><h3>Remaining review</h3><p>Is the delay tolerable, or is further investment required?</p></article>
+        </div>
+        <div class="judgement-box">
+          <h3>Later success does not retrospectively prove the original decision</h3>
+          <p class="reflective-transition">The exercise adds evidence; it does not remove the uncertainty present when people decided.</p>
+        </div>
+        <details class="archive">
+          <summary>Implementation evidence archive</summary>
+          <ul><li>Human decision record · Executive Resilience Group</li><li>Supplier substitution exercise · Supplier assurance</li><li>Secondary-site access confirmation · Estates assurance</li><li>Recovery skills record · Service management</li><li>Combined exercise report · Resilience register</li></ul>
+        </details>
+      </div>
+    </section>
+
+    <div class="stage-navigation" aria-label="Journey controls">
+      <button class="secondary-button" type="button" id="previous-stage" disabled>Back</button>
+      <button class="primary-button" type="button" id="next-stage">Continue to Connected Context</button>
+    </div>
+    <a class="gallery-link" href="index.html">← Back to demo gallery</a>
+  </main>
+
+  <script>
+    const stageTabs = [...document.querySelectorAll(".stage-tab")];
+    const stagePanels = [...document.querySelectorAll("[data-stage-panel]")];
+    const previousButton = document.getElementById("previous-stage");
+    const nextButton = document.getElementById("next-stage");
+    const stageNames = ["The Paper", "Connected Context", "What Changed", "Into Action"];
+    let activeStage = 0;
+
+    function showStage(index) {
+      activeStage = Math.max(0, Math.min(stagePanels.length - 1, index));
+      stageTabs.forEach((tab, tabIndex) => {
+        if (tabIndex === activeStage) tab.setAttribute("aria-current", "step");
+        else tab.removeAttribute("aria-current");
+      });
+      stagePanels.forEach((panel, panelIndex) => {
+        const active = panelIndex === activeStage;
+        panel.classList.toggle("is-active", active);
+        panel.hidden = !active;
+      });
+      previousButton.disabled = activeStage === 0;
+      nextButton.textContent = activeStage === stagePanels.length - 1
+        ? "Return to The Paper"
+        : `Continue to ${stageNames[activeStage + 1]}`;
+      document.querySelector(".resilience-progress").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    stageTabs.forEach((tab) => tab.addEventListener("click", () => showStage(Number(tab.dataset.stage))));
+    previousButton.addEventListener("click", () => showStage(activeStage - 1));
+    nextButton.addEventListener("click", () => showStage(activeStage === stagePanels.length - 1 ? 0 : activeStage + 1));
+
+    const roleContent = {
+      operations: { title: "Operations Director lens", items: ["Short, isolated events are covered.", "Combined dependencies create the material exposure.", "You own the judgement on appetite and priority."] },
+      finance: { title: "Finance Director lens", items: ["Forecasts use a range, not one assured value.", "Avoided-loss assumptions need sensitivity review.", "You own the financial judgement."] },
+      governance: { title: "Governance Chair lens", items: ["Decision rights exist; cross-functional ownership does not.", "Supplier substitution remains disputed.", "The forum must test whether evidence is sufficient."] },
+      service: { title: "Service Owner lens", items: ["Service depends on a manual step and specialist team.", "Combined disruption is less well evidenced.", "You own service impact and operating detail."] }
+    };
+    const roleAnswer = document.getElementById("role-answer");
+    function renderRole(role) {
+      const content = roleContent[role];
+      roleAnswer.innerHTML = `<h3>${content.title}</h3><ul>${content.items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+      document.querySelectorAll(".role-choice").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.role === role)));
+    }
+    document.querySelectorAll(".role-choice").forEach((button) => button.addEventListener("click", () => renderRole(button.dataset.role)));
+    renderRole("operations");
+
+    document.getElementById("preserve-understanding").addEventListener("click", (event) => {
+      document.getElementById("understanding-status").textContent = "Preserved understanding · 22 September 2026";
+      event.currentTarget.textContent = "Understanding preserved";
+      event.currentTarget.disabled = true;
+    });
+  </script>
+  <script src="umami-config.js?v=1"></script>
+  <script src="hold-analytics.js?v=1"></script>
+</body>
+</html>
