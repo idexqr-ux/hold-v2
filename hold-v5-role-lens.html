@@ -1292,15 +1292,6 @@
             </section>
           </details>
 
-          <details class="context-details">
-            <summary>Copy AI prompt package</summary>
-            <textarea class="prompt-output" id="context-output" readonly placeholder="Generated AI prompt package will appear here after you choose a question and select Generate Answer."></textarea>
-            <div class="copy-row">
-              <button class="copy-button" id="copy-context" type="button">Copy AI prompt package</button>
-              <span class="copy-status" id="copy-status"></span>
-            </div>
-          </details>
-
           <div>
             <p class="suggestions-title">Older prompt examples</p>
             <ul class="suggestions" aria-label="Suggested questions">
@@ -1355,453 +1346,6 @@
       </details>
     </section>
 
-    <details class="framework-details" id="framework" hidden>
-      <summary>Show More: framework content, libraries and context tools</summary>
-      <div class="framework-body">
-
-    <section id="observations" aria-labelledby="observations-title">
-      <div class="section-head">
-        <h2 id="observations-title">Observation Capture</h2>
-        <p class="section-note">
-          Capture small observations over time so Hold can build more useful context
-          before preparing a focused AI prompt.
-        </p>
-      </div>
-
-      <div class="observation-capture">
-        <div class="capture-grid">
-          <div>
-            <label class="label" for="observation-title-input">Observation title</label>
-            <input class="capture-input" id="observation-title-input" type="text" placeholder="Short title">
-          </div>
-          <div>
-            <label class="label" for="observation-theme-input">Theme</label>
-            <input class="capture-input" id="observation-theme-input" type="text" placeholder="Theme or pattern">
-          </div>
-          <div class="capture-wide">
-            <label class="label" for="observation-body-input">Observation</label>
-            <textarea class="capture-textarea" id="observation-body-input" placeholder="Write the observation in plain language"></textarea>
-          </div>
-          <div>
-            <label class="label" for="observation-area-input">Related area</label>
-            <select class="capture-select" id="observation-area-input">
-              <option>Hold</option>
-              <option>IdexQR</option>
-              <option>RuAI</option>
-              <option>Employment</option>
-              <option>Articles</option>
-              <option>Meetings</option>
-              <option>Files</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div>
-            <label class="label" for="observation-value-input">Value type</label>
-            <select class="capture-select" id="observation-value-input">
-              <option>Staff time</option>
-              <option>Expense</option>
-              <option>Resilience</option>
-              <option>AI context</option>
-              <option>Decision support</option>
-              <option>File discovery</option>
-              <option>Meeting preparation</option>
-              <option>Other</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="capture-actions">
-          <button class="generate-button" id="add-observation" type="button">Add Observation</button>
-          <button class="secondary-button" id="clear-observations" type="button">Clear Observations</button>
-          <span class="copy-status" id="observation-status" aria-live="polite"></span>
-        </div>
-
-        <div>
-          <h3>Active Observations</h3>
-          <div class="active-observations" id="active-observations" aria-live="polite"></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="article-library" aria-labelledby="article-library-title">
-      <div class="section-head">
-        <h2 id="article-library-title">Article Library</h2>
-        <p class="section-note">
-          Capture article evidence as structured records so Ask Hold can reason from workplace AI,
-          governance, cost, risk, productivity and market signals separately from general observations.
-        </p>
-      </div>
-
-      <div class="observation-capture">
-        <div class="capture-grid">
-          <div>
-            <label class="label" for="article-title-input">Article title</label>
-            <input class="capture-input" id="article-title-input" type="text" placeholder="Article title">
-          </div>
-          <div>
-            <label class="label" for="article-source-input">Source/publication</label>
-            <input class="capture-input" id="article-source-input" type="text" placeholder="Source or publication">
-          </div>
-          <div>
-            <label class="label" for="article-date-input">Date added</label>
-            <input class="capture-input" id="article-date-input" type="date">
-          </div>
-          <div>
-            <label class="label" for="article-theme-input">Article theme</label>
-            <input class="capture-input" id="article-theme-input" type="text" placeholder="Theme">
-          </div>
-          <div class="capture-wide">
-            <label class="label" for="article-key-point-input">Key point</label>
-            <textarea class="capture-textarea" id="article-key-point-input" placeholder="What is the article saying?"></textarea>
-          </div>
-          <div class="capture-wide">
-            <label class="label" for="article-hold-relevance-input">Why it matters to Hold</label>
-            <textarea class="capture-textarea" id="article-hold-relevance-input" placeholder="Why does this article support, challenge or shape Hold?"></textarea>
-          </div>
-          <div>
-            <label class="label" for="article-related-idea-input">Related Hold idea</label>
-            <input class="capture-input" id="article-related-idea-input" type="text" placeholder="Related Hold idea">
-          </div>
-          <div>
-            <label class="label" for="article-value-input">Related value type</label>
-            <select class="capture-select" id="article-value-input">
-              <option>AI context</option>
-              <option>governance</option>
-              <option>productivity</option>
-              <option>cost</option>
-              <option>risk</option>
-              <option>workflow</option>
-              <option>systems &amp; formats</option>
-              <option>organisational memory</option>
-              <option>other</option>
-            </select>
-          </div>
-          <div>
-            <label class="label" for="article-supports-input">Supports Hold?</label>
-            <select class="capture-select" id="article-supports-input">
-              <option>Yes</option>
-              <option>No</option>
-              <option>Unsure</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="capture-actions">
-          <button class="generate-button" id="add-article-observation" type="button">Add Article</button>
-          <button class="secondary-button" id="clear-article-observations" type="button">Clear Article Library</button>
-          <span class="copy-status" id="article-observation-status" aria-live="polite"></span>
-        </div>
-
-        <div>
-          <h3>Article Records</h3>
-          <div class="active-observations" id="active-article-observations" aria-live="polite"></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="file-library" aria-labelledby="file-library-title">
-      <div class="section-head">
-        <h2 id="file-library-title">File Library</h2>
-        <p class="section-note">
-          Store lightweight file records so Ask Hold can locate known files without reading
-          or opening their contents.
-        </p>
-      </div>
-
-      <div class="observation-capture">
-        <div class="capture-grid">
-          <div>
-            <label class="label" for="file-name-input">File name</label>
-            <input class="capture-input" id="file-name-input" type="text" placeholder="File name">
-          </div>
-          <div>
-            <label class="label" for="file-type-input">File type</label>
-            <input class="capture-input" id="file-type-input" type="text" placeholder="Spreadsheet, document, folder">
-          </div>
-          <div class="capture-wide">
-            <label class="label" for="file-path-input">File path</label>
-            <textarea class="capture-textarea" id="file-path-input" placeholder="Local file path"></textarea>
-          </div>
-          <div>
-            <label class="label" for="file-related-area-input">Related area</label>
-            <input class="capture-input" id="file-related-area-input" type="text" placeholder="Project or area">
-          </div>
-          <div>
-            <label class="label" for="file-keywords-input">Keywords</label>
-            <input class="capture-input" id="file-keywords-input" type="text" placeholder="asset, register, spreadsheet">
-          </div>
-          <div class="capture-wide">
-            <label class="label" for="file-description-input">Description</label>
-            <textarea class="capture-textarea" id="file-description-input" placeholder="What this file is used for"></textarea>
-          </div>
-          <div class="capture-wide">
-            <label class="label" for="file-purpose-input">Purpose</label>
-            <textarea class="capture-textarea" id="file-purpose-input" placeholder="Why this file exists and what it supports"></textarea>
-          </div>
-          <div class="capture-wide">
-            <label class="label" for="file-related-information-input">Related Information</label>
-            <textarea class="capture-textarea" id="file-related-information-input" placeholder="Other records, notes, systems or background linked to this file"></textarea>
-          </div>
-          <div class="capture-wide">
-            <label class="label" for="file-related-files-input">Related files</label>
-            <textarea class="capture-textarea" id="file-related-files-input" placeholder="Other likely files or evidence connected to this file"></textarea>
-          </div>
-          <div>
-            <label class="label" for="file-related-people-input">Related People</label>
-            <input class="capture-input" id="file-related-people-input" type="text" placeholder="People or roles connected to this file">
-          </div>
-          <div>
-            <label class="label" for="file-typical-activities-input">Typical Activities</label>
-            <input class="capture-input" id="file-typical-activities-input" type="text" placeholder="Review, update, audit, prepare">
-          </div>
-          <div class="capture-wide">
-            <label class="label" for="file-checks-input">Checks before updating</label>
-            <textarea class="capture-textarea" id="file-checks-input" placeholder="Checks to complete before changing this file"></textarea>
-          </div>
-          <div class="capture-wide">
-            <label class="label" for="file-risks-input">Risks if updated incorrectly</label>
-            <textarea class="capture-textarea" id="file-risks-input" placeholder="What could go wrong if this file is changed incorrectly"></textarea>
-          </div>
-          <div class="capture-wide">
-            <label class="label" for="file-related-records-input">Related records</label>
-            <textarea class="capture-textarea" id="file-related-records-input" placeholder="Records that should be checked alongside this file"></textarea>
-          </div>
-          <div class="capture-wide">
-            <label class="label" for="file-dependent-records-input">Dependent records</label>
-            <textarea class="capture-textarea" id="file-dependent-records-input" placeholder="Records that may depend on this file being correct"></textarea>
-          </div>
-          <div>
-            <label class="label" for="file-impact-areas-input">Impact areas</label>
-            <input class="capture-input" id="file-impact-areas-input" type="text" placeholder="finance, operations, governance">
-          </div>
-          <div>
-            <label class="label" for="file-review-triggers-input">Review triggers</label>
-            <input class="capture-input" id="file-review-triggers-input" type="text" placeholder="ownership change, retire asset, value change">
-          </div>
-          <div class="capture-wide">
-            <label class="label" for="file-change-types-input">Change types</label>
-            <textarea class="capture-textarea" id="file-change-types-input" placeholder="Types of change this file commonly supports"></textarea>
-          </div>
-          <div class="capture-wide">
-            <label class="label" for="file-workflows-input">Suggested workflows</label>
-            <textarea class="capture-textarea" id="file-workflows-input" placeholder="Workflow steps as structured notes or JSON"></textarea>
-          </div>
-          <div>
-            <label class="label" for="file-date-added-input">Date added</label>
-            <input class="capture-input" id="file-date-added-input" type="date">
-          </div>
-          <div>
-            <label class="label" for="file-updated-input">Last known updated date</label>
-            <input class="capture-input" id="file-updated-input" type="date">
-          </div>
-        </div>
-
-        <div class="capture-actions">
-          <button class="generate-button" id="add-file-record" type="button">Add File</button>
-          <button class="secondary-button" id="clear-file-records" type="button">Clear File Library</button>
-          <span class="copy-status" id="file-record-status" aria-live="polite"></span>
-        </div>
-
-        <div>
-          <h3>File Records</h3>
-          <div class="active-observations" id="active-file-records" aria-live="polite"></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="context" aria-labelledby="context-title">
-      <div class="section-head">
-        <h2 id="context-title">Editable Context Areas</h2>
-        <p class="section-note">
-          These placeholder cards are deliberately simple. They are here to test what
-          context is useful before connecting Hold to any real system.
-        </p>
-      </div>
-
-      <div class="grid projects">
-        <article class="card project-card">
-          <h3>Hold</h3>
-          <div class="context-field">
-            <label class="label" for="hold-focus">Current focus</label>
-            <textarea class="editable-context" id="hold-focus">Testing whether structured context can make AI answers more useful.</textarea>
-          </div>
-          <div class="context-field">
-            <label class="label" for="hold-activity">Recent activity</label>
-            <textarea class="editable-context" id="hold-activity">Shaped a lightweight page that can gather project context into a copyable AI prompt.</textarea>
-          </div>
-          <div class="context-field">
-            <label class="label" for="hold-signals">Signals</label>
-            <textarea class="editable-context" id="hold-signals">Repeated questions show that context, not just information, is the useful layer.</textarea>
-          </div>
-          <div class="context-field">
-            <label class="label" for="hold-questions">Open questions</label>
-            <textarea class="editable-context" id="hold-questions">What is the smallest context pack that still improves AI answers?</textarea>
-          </div>
-          <div class="context-field">
-            <label class="label" for="hold-value">Value notes</label>
-            <textarea class="editable-context" id="hold-value">Potential value sits in reducing repeated explanation and helping decisions start from better context.</textarea>
-          </div>
-        </article>
-
-        <article class="card project-card">
-          <h3>IdexQR</h3>
-          <div class="context-field">
-            <label class="label" for="idex-focus">Current focus</label>
-            <textarea class="editable-context" id="idex-focus">Exploring how physical access points can connect to useful digital context.</textarea>
-          </div>
-          <div class="context-field">
-            <label class="label" for="idex-activity">Recent activity</label>
-            <textarea class="editable-context" id="idex-activity">Placeholder references cover scans, assets, site notes and handover moments.</textarea>
-          </div>
-          <div class="context-field">
-            <label class="label" for="idex-signals">Signals</label>
-            <textarea class="editable-context" id="idex-signals">The same object appearing in several places may need a shared context view.</textarea>
-          </div>
-          <div class="context-field">
-            <label class="label" for="idex-questions">Open questions</label>
-            <textarea class="editable-context" id="idex-questions">Which context is needed at scan time, and which belongs in the wider context pack?</textarea>
-          </div>
-          <div class="context-field">
-            <label class="label" for="idex-value">Value notes</label>
-            <textarea class="editable-context" id="idex-value">Could reduce missed handover detail and repeated searching for asset background.</textarea>
-          </div>
-        </article>
-
-        <article class="card project-card">
-          <h3>RuAI</h3>
-          <div class="context-field">
-            <label class="label" for="ruai-focus">Current focus</label>
-            <textarea class="editable-context" id="ruai-focus">Framing AI assistance around real intent, constraints and examples.</textarea>
-          </div>
-          <div class="context-field">
-            <label class="label" for="ruai-activity">Recent activity</label>
-            <textarea class="editable-context" id="ruai-activity">Sample prompts show where better surrounding context could improve answers.</textarea>
-          </div>
-          <div class="context-field">
-            <label class="label" for="ruai-signals">Signals</label>
-            <textarea class="editable-context" id="ruai-signals">Useful AI responses depend on knowing the purpose behind the question.</textarea>
-          </div>
-          <div class="context-field">
-            <label class="label" for="ruai-questions">Open questions</label>
-            <textarea class="editable-context" id="ruai-questions">How can context be gathered without becoming another system to maintain?</textarea>
-          </div>
-          <div class="context-field">
-            <label class="label" for="ruai-value">Value notes</label>
-            <textarea class="editable-context" id="ruai-value">The trial can show whether AI answers improve when project memory is prepared first.</textarea>
-          </div>
-        </article>
-
-        <article class="card project-card">
-          <h3>Employment</h3>
-          <div class="context-field">
-            <label class="label" for="employment-focus">Current focus</label>
-            <textarea class="editable-context" id="employment-focus">Holding career context, project evidence and next actions clearly.</textarea>
-          </div>
-          <div class="context-field">
-            <label class="label" for="employment-activity">Recent activity</label>
-            <textarea class="editable-context" id="employment-activity">Example entries include role tracking, portfolio notes and follow-up reminders.</textarea>
-          </div>
-          <div class="context-field">
-            <label class="label" for="employment-signals">Signals</label>
-            <textarea class="editable-context" id="employment-signals">Patterns across work and opportunities can guide what to prepare next.</textarea>
-          </div>
-          <div class="context-field">
-            <label class="label" for="employment-questions">Open questions</label>
-            <textarea class="editable-context" id="employment-questions">What evidence should be close at hand before asking AI for help?</textarea>
-          </div>
-          <div class="context-field">
-            <label class="label" for="employment-value">Value notes</label>
-            <textarea class="editable-context" id="employment-value">Could help turn scattered project evidence into clearer next steps and stronger responses.</textarea>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="knowledge" aria-labelledby="knowledge-title">
-      <div class="section-head">
-        <h2 id="knowledge-title">Knowledge Sources</h2>
-        <p class="section-note">
-          Hold will try to read these markdown files from <strong>hold-knowledge</strong>.
-          If the browser blocks direct local loading, select the files manually below.
-        </p>
-      </div>
-
-      <div class="grid sources" id="knowledge-sources" aria-live="polite"></div>
-
-      <div class="upload-control">
-        <label class="ask-label" for="knowledge-upload">Select knowledge files manually</label>
-        <input class="file-input" id="knowledge-upload" type="file" accept=".md,text/markdown,text/plain" multiple>
-        <p class="section-note">
-          Supported files: hold-overview.md, hold-positioning.md, hold-business-value.md,
-          hold-observations.md, hold-signals.md and hold-operational-memory.md.
-        </p>
-      </div>
-
-      <div class="preview-panel" id="knowledge-preview-panel" aria-live="polite">
-        <h3>Loaded File Preview</h3>
-        <p class="section-note">These are the file contents that will be included in the generated AI Context Pack.</p>
-        <div class="knowledge-preview" id="knowledge-preview"></div>
-      </div>
-    </section>
-
-    <section id="value" aria-labelledby="value-title">
-      <div class="section-head">
-        <h2 id="value-title">Value Test</h2>
-        <p class="section-note">Editable value notes for checking whether connected understanding creates practical value.</p>
-      </div>
-
-      <article class="observation" aria-labelledby="observation-title">
-        <h3 id="observation-title">Business Value Observation</h3>
-        <p>Organisations often hold information across multiple systems, formats and teams.</p>
-        <p>The systems themselves are not usually the problem.</p>
-        <p>The challenge occurs at the boundaries between them.</p>
-        <p>Hold is evolving as a context layer that helps connect understanding across those boundaries.</p>
-        <div class="core-line" aria-label="Business value core line">
-          <span>Existing systems manage information.</span>
-          <span>Hold helps connect understanding.</span>
-          <span>AI can then assist from better context.</span>
-        </div>
-      </article>
-
-      <div class="grid values">
-        <article class="card value-card">
-          <h3>Staff time</h3>
-          <label class="label" for="staff-time">Value notes</label>
-          <textarea class="editable-context value-note" id="staff-time">Reduce repeated searching, explaining and re-asking across projects.</textarea>
-        </article>
-        <article class="card value-card">
-          <h3>Expense</h3>
-          <label class="label" for="expense">Value notes</label>
-          <textarea class="editable-context value-note" id="expense">Avoid duplicated work, missed context and unnecessary revisits.</textarea>
-        </article>
-        <article class="card value-card">
-          <h3>Resilience</h3>
-          <label class="label" for="resilience">Value notes</label>
-          <textarea class="editable-context value-note" id="resilience">Help understanding survive across systems, formats, teams and people.</textarea>
-        </article>
-      </div>
-
-      <div class="note">
-        Local AI integration uses the Express server endpoint. The OpenAI API key stays server-side and is never stored in browser code.
-      </div>
-    </section>
-
-    <section id="tests" aria-labelledby="tests-title">
-      <div class="section-head">
-        <h2 id="tests-title">What This Tests</h2>
-        <p class="section-note">A small checklist for judging whether Hold v5 is useful before building anything heavier.</p>
-      </div>
-
-      <div class="grid tests">
-        <article class="card test-card">Does structured context improve AI answers?</article>
-        <article class="card test-card">What context is useful?</article>
-        <article class="card test-card">What context is missing?</article>
-        <article class="card test-card">Where does Hold create value?</article>
-      </div>
-    </section>
-
-      </div>
-    </details>
 
     <nav class="back-to-hold" aria-label="Back to Hold landing page">
       <a href="index.html">&larr; Back to Hold</a>
@@ -1820,9 +1364,6 @@
     const questionInput = document.querySelector("#hold-question");
     const generateButton = document.querySelector("#generate-context");
     const outputPanel = document.querySelector("#context-output-panel");
-    const output = document.querySelector("#context-output");
-    const copyButton = document.querySelector("#copy-context");
-    const copyStatus = document.querySelector("#copy-status");
     const currentDocumentTitle = document.querySelector("#current-document-title");
     const originalDocumentLink = document.querySelector("#original-document-link");
     const documentSelectorInputs = [...document.querySelectorAll('input[name="current-document"]')];
@@ -1897,8 +1438,6 @@
     const observationStorageKey = "hold-v5-active-observations";
     const articleObservationStorageKey = "hold-v5-article-observations";
     const fileRecordStorageKey = "hold-v5-file-library";
-    let aiPrompt = "";
-    let contextSources = [];
     let currentDocumentKey = "forklift";
     const roleLensDocuments = {
       forklift: {
@@ -2393,7 +1932,7 @@ Governance Reviewer`
         content: "",
         status: "Not loaded",
         lastUpdated: "Not available",
-        source: "hold-knowledge"
+        source: "Not loaded"
       }
     ]));
 
@@ -2443,7 +1982,6 @@ Governance Reviewer`
       if (roleResponseNote) {
         roleResponseNote.hidden = true;
       }
-      copyStatus.textContent = "";
     }
 
     function loadObservations() {
@@ -2870,36 +2408,6 @@ Governance Reviewer`
         hour: "2-digit",
         minute: "2-digit"
       });
-    }
-
-    async function loadKnowledgeFromFolder() {
-      await Promise.all(knowledgeFiles.map(async (fileName) => {
-        try {
-          const response = await fetch(`hold-knowledge/${fileName}`, { cache: "no-store" });
-
-          if (!response.ok) {
-            throw new Error("File not found");
-          }
-
-          const content = await response.text();
-          knowledgeSources.set(fileName, {
-            fileName,
-            content,
-            status: "Loaded",
-            lastUpdated: response.headers.get("last-modified") || "Not available",
-            source: "hold-knowledge"
-          });
-        } catch (error) {
-          const existing = knowledgeSources.get(fileName);
-          knowledgeSources.set(fileName, {
-            ...existing,
-            status: existing.content ? "Loaded" : "Not loaded"
-          });
-        }
-      }));
-
-      renderSources();
-      renderKnowledgePreview();
     }
 
     async function loadSelectedFiles(files) {
@@ -5368,44 +4876,6 @@ ${getTestContext()}`;
       return { question, answer: answerText || answer, considered, sources, notSelected, reason, limits, confidence, context };
     }
 
-    function buildAiPrompt(selection) {
-      const parts = buildAnswerParts(selection);
-
-      return `Question:
-${parts.question}
-
-AI task:
-Answer the question directly and concisely using the Hold context below.
-Identify patterns across observations instead of repeating each observation individually.
-Reference supporting observations only when useful.
-If insufficient evidence exists, say what context is missing.
-
-Evidence considered:
-${parts.considered.length ? parts.considered.map((item) => `- ${item}`).join("\n") : "- No evidence considered."}
-
-Evidence selected:
-${parts.sources.map((item) => `- ${item}`).join("\n")}
-
-Evidence not selected:
-${parts.notSelected.length ? parts.notSelected.map((item) => `- ${item}`).join("\n") : "- None."}
-
-What the evidence suggests:
-${parts.reason}
-
-What the evidence does NOT prove:
-${parts.limits}
-
-Confidence:
-${parts.confidence}
-
-Context Details:
-${parts.context}
-
-Important:
-- This is generated locally from static/client-side Hold context.
-- The OpenAI request is handled by the local server; no API key is exposed in browser code.`;
-    }
-
     function normalizeEvidenceSourceLabel(source) {
       const label = cleanText(String(source || ""))
         .replace(/^-\s*/, "")
@@ -5554,32 +5024,6 @@ Important:
       answerPreview.classList.add("is-visible");
     }
 
-    async function requestAiAnswer(question, selection) {
-      if (window.location.protocol === "file:") {
-        throw new Error("Run the local Express server and open http://localhost:3000/hold-v5-role-lens.html to use AI integration.");
-      }
-
-      const response = await fetch("/api/ask-hold", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          question,
-          aiPrompt,
-          contextSources
-        })
-      });
-
-      const payload = await response.json().catch(() => ({}));
-
-      if (!response.ok) {
-        throw new Error(payload.error || "Ask Hold could not get an AI response.");
-      }
-
-      return payload;
-    }
-
     function revealOutputPanel() {
       outputPanel.scrollIntoView({ behavior: "smooth", block: "start" });
       outputPanel.classList.remove("is-highlighted");
@@ -5606,26 +5050,15 @@ Important:
       });
     });
 
-    addObservationButton.addEventListener("click", addObservation);
-    clearObservationsButton.addEventListener("click", clearObservations);
-    addArticleObservationButton.addEventListener("click", addArticleObservation);
-    clearArticleObservationsButton.addEventListener("click", clearArticleObservations);
-    addFileRecordButton.addEventListener("click", addFileRecord);
-    clearFileRecordsButton.addEventListener("click", clearFileRecords);
-
     generateButton.addEventListener("click", async () => {
       const question = cleanText(questionInput.value) || "What are Hold\u2019s strongest points?";
       const selection = determineContextSelection(question);
       window.HoldAnalytics?.askHold(selection.sourceMode || "role-lens");
-      contextSources = getContextSources(selection, question);
-      aiPrompt = buildAiPrompt(selection);
       renderSelectedContext(selection);
 
       if (isFileQuestion(question) && !activeFileRecords.length) {
         renderAnswerPreview(selection, "No file records have been added yet.", ["File Library"]);
-        output.value = aiPrompt;
         outputPanel.classList.add("is-visible");
-        copyStatus.textContent = "Add file records to answer file-location questions.";
         revealOutputPanel();
         return;
       }
@@ -5633,9 +5066,7 @@ Important:
       const fileBuckets = getFileEvidenceBuckets(selection, question);
       if ((selection.sourceMode === "files" || isFileQuestion(question)) && activeFileRecords.length && !fileBuckets.selected.length) {
         renderAnswerPreview(selection, "No relevant file record found.", ["No relevant file record found."]);
-        output.value = aiPrompt;
         outputPanel.classList.add("is-visible");
-        copyStatus.textContent = "File records were considered, but none matched the question.";
         revealOutputPanel();
         return;
       }
@@ -5643,18 +5074,14 @@ Important:
       if ((selection.sourceMode === "files" || isFileQuestion(question)) && fileBuckets.selected.length) {
         const localAnswer = generateAnswer(selection, question);
         renderAnswerPreview(selection, localAnswer, fileBuckets.selected.map((item) => item.fileName));
-        output.value = aiPrompt;
         outputPanel.classList.add("is-visible");
-        copyStatus.textContent = "File context answer generated locally from the File Library.";
         revealOutputPanel();
         return;
       }
 
       if (isArticleQuestion(question) && !activeArticleObservations.length) {
         renderAnswerPreview(selection, "No article observations have been added yet.", ["Article Observations"]);
-        output.value = aiPrompt;
         outputPanel.classList.add("is-visible");
-        copyStatus.textContent = "Add article observations to answer article questions.";
         revealOutputPanel();
         return;
       }
@@ -5662,60 +5089,18 @@ Important:
       const articleBuckets = getArticleEvidenceBuckets(selection, question);
       if ((selection.sourceMode === "articles" || isArticleQuestion(question)) && activeArticleObservations.length && !articleBuckets.selected.length) {
         renderAnswerPreview(selection, "No relevant article evidence found.", ["No relevant article evidence found."]);
-        output.value = aiPrompt;
         outputPanel.classList.add("is-visible");
-        copyStatus.textContent = "Article records were considered, but none matched the question.";
         revealOutputPanel();
         return;
       }
 
-      renderAnswerPreview(selection);
-      output.value = aiPrompt;
+      const localAnswer = generateAnswer(selection, question);
+      renderAnswerPreview(selection, localAnswer, getSupportingContextNames(selection, question));
       outputPanel.classList.add("is-visible");
-      copyStatus.textContent = "Context sent to local Ask Hold API...";
       revealOutputPanel();
-
-      try {
-        const result = await requestAiAnswer(question, selection);
-        const evidence = Array.isArray(result.evidenceUsed) && result.evidenceUsed.length
-          ? result.evidenceUsed
-          : getSupportingContextNames(selection, question);
-        renderAnswerPreview(selection, result.answer, evidence, result.evidenceReason, result.confidenceLevel, result.evidenceLimits);
-        copyStatus.textContent = `AI response received${result.model ? ` from ${result.model}` : ""}.`;
-      } catch (error) {
-        renderAnswerPreview(selection, error.message, getSupportingContextNames(selection, question));
-        copyStatus.textContent = "AI response unavailable.";
-      }
-    });
-
-    copyButton.addEventListener("click", async () => {
-      if (!output.value.trim()) {
-        copyStatus.textContent = "Generate a prompt first.";
-        return;
-      }
-
-      output.select();
-
-      try {
-        await navigator.clipboard.writeText(output.value);
-        copyStatus.textContent = "AI prompt package copied.";
-      } catch (error) {
-        document.execCommand("copy");
-        copyStatus.textContent = "AI prompt package selected for copying.";
-      }
-    });
-
-    uploadInput.addEventListener("change", () => {
-      loadSelectedFiles(uploadInput.files);
     });
 
     updateSelectedDocument("forklift");
-    renderSources();
-    renderKnowledgePreview();
-    renderObservations();
-    renderArticleObservations();
-    renderFileRecords();
-    loadKnowledgeFromFolder();
   </script>
   <script src="umami-config.js?v=1"></script>
   <script src="hold-analytics.js?v=1"></script>
