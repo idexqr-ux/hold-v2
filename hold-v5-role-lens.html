@@ -2163,83 +2163,76 @@ Governance Reviewer`
     };
     const sampleFileRecords = [
       {
-        fileName: "Asset Sheet - Feb 2026 - verified & structured.xlsx",
-        filePath: "C:\\Users\\EllaS\\OneDrive\\Documents\\IdexQR\u00ae\\Asset Register\\IdexQR - Founder Records\\Asset Sheet - Feb 2026 - verified & structured.xlsx",
+        fileName: "Example Asset Status Register.xlsx",
+        filePath: "Demonstration source / Example Asset Status Register",
         fileType: "Spreadsheet",
-        relatedArea: "IdexQR / Asset Register",
-        keywords: "asset, assets, asset sheet, asset register, founder records, IdexQR, spreadsheet",
-        description: "Structured IdexQR asset sheet used for founder records and asset review.",
-        purpose: "Structured IdexQR asset sheet used for founder records and asset review.",
-        relatedInformation: "purchase records; asset ownership notes; current asset location; warranty information; insurance details; disposal or retired asset notes; QR / IdexQR reference information",
-        relatedFiles: "purchase records; insurance documents; warranty documents; disposal or retired asset notes; IdexQR reference records",
-        relatedPeople: "founder; finance; asset owner / reviewer",
-        typicalActivities: "add asset; update asset details; confirm asset location; retire asset; review asset value; prepare records for finance or insurance",
-        checksBeforeUpdating: "confirm latest version; check source evidence for the change; confirm whether asset is active, moved, sold, replaced or retired; avoid overwriting historic records; record reason for change",
-        risksIfUpdatedIncorrectly: "inaccurate asset records; missing insurance or ownership evidence; confusion over current asset status; loss of provenance",
-        relatedRecords: "purchase records; insurance documents; warranty documents; disposal / retired asset notes; IdexQR reference records; ownership notes; current location notes",
-        dependentRecords: "finance records; insurance schedules; operational asset lists; IdexQR reference records",
-        impactAreas: "finance; insurance; ownership; operations; governance; provenance",
-        reviewTriggers: "retire asset; dispose asset; change ownership; change value; change location; remove asset record",
-        changeTypes: "add asset; change value; change ownership; change location; retire asset; dispose asset; remove asset record",
+        relatedArea: "Synthetic Operations / Asset Status",
+        keywords: "example asset, equipment status, asset register, inspection, maintenance, location, spreadsheet",
+        description: "Synthetic equipment-status register created solely for the public Hold demonstration.",
+        purpose: "Demonstrate how Hold can connect an operational register with supporting context before a record is changed.",
+        relatedInformation: "current equipment status; assigned work area; latest inspection; maintenance state; retirement note",
+        relatedFiles: "inspection record; maintenance log; operational allocation note; retirement evidence",
+        relatedPeople: "equipment coordinator; maintenance lead; site supervisor",
+        typicalActivities: "confirm equipment status; update assigned area; record inspection; plan maintenance; retire equipment",
+        checksBeforeUpdating: "confirm the latest demonstration record; check supporting operational evidence; confirm whether equipment is active, unavailable, relocated or retired; preserve historic status; record the reason for change",
+        risksIfUpdatedIncorrectly: "incorrect equipment availability; missed maintenance dependency; inconsistent inspection status; loss of provenance",
+        relatedRecords: "inspection record; maintenance log; operational allocation note; retirement evidence; shift handover",
+        dependentRecords: "daily equipment list; maintenance plan; inspection schedule; shift handover",
+        impactAreas: "operations; maintenance; safety; scheduling; governance; provenance",
+        reviewTriggers: "retire equipment; change operational status; change assigned area; record an inspection exception; remove a record",
+        changeTypes: "add equipment; change operational status; change assigned area; record maintenance; retire equipment; remove a record",
         suggestedWorkflows: [
           {
-            name: "Retire Asset",
+            name: "Retire Example Equipment",
             steps: [
               {
                 stepNumber: 1,
                 action: "Confirm retirement evidence",
                 whyItMatters: "Prevent incorrect retirement",
-                likelyRole: "Asset owner / reviewer",
+                likelyRole: "Equipment coordinator",
                 evidenceRequired: "Retirement evidence or source note"
               },
               {
                 stepNumber: 2,
-                action: "Review ownership records",
-                whyItMatters: "Confirm accountability",
-                likelyRole: "Founder / asset owner",
-                evidenceRequired: "Ownership notes or purchase records"
+                action: "Review maintenance and inspection status",
+                whyItMatters: "Confirm the current operational position",
+                likelyRole: "Maintenance lead",
+                evidenceRequired: "Maintenance log and latest inspection record"
               },
               {
                 stepNumber: 3,
-                action: "Review finance records",
-                whyItMatters: "Asset value and reporting may be affected",
-                likelyRole: "Finance",
-                evidenceRequired: "Finance records and asset value evidence"
+                action: "Check operational dependencies",
+                whyItMatters: "Prevent an unexpected availability gap",
+                likelyRole: "Site supervisor",
+                evidenceRequired: "Operational allocation and shift plan"
               },
               {
                 stepNumber: 4,
-                action: "Review insurance records",
-                whyItMatters: "Coverage may need updating",
-                likelyRole: "Finance / asset reviewer",
-                evidenceRequired: "Insurance details or schedule"
+                action: "Update the example register",
+                whyItMatters: "Reflect the confirmed equipment status",
+                likelyRole: "Equipment coordinator",
+                evidenceRequired: "Confirmed source evidence and latest demonstration register"
               },
               {
                 stepNumber: 5,
-                action: "Update asset sheet",
-                whyItMatters: "Reflect current status",
-                likelyRole: "Asset owner / reviewer",
-                evidenceRequired: "Confirmed source evidence and latest asset sheet"
+                action: "Update the operational allocation",
+                whyItMatters: "Keep availability information consistent",
+                likelyRole: "Site supervisor",
+                evidenceRequired: "Updated equipment status"
               },
               {
                 stepNumber: 6,
-                action: "Update related IdexQR references",
-                whyItMatters: "Prevent outdated references",
-                likelyRole: "IdexQR records owner",
-                evidenceRequired: "IdexQR reference information"
-              },
-              {
-                stepNumber: 7,
                 action: "Record reason for retirement",
                 whyItMatters: "Preserve provenance and audit trail",
-                likelyRole: "Asset owner / reviewer",
+                likelyRole: "Equipment coordinator",
                 evidenceRequired: "Reason for change"
               },
               {
-                stepNumber: 8,
+                stepNumber: 7,
                 action: "Archive supporting evidence",
                 whyItMatters: "Future review and accountability",
-                likelyRole: "Asset owner / reviewer",
-                evidenceRequired: "Retirement, ownership, finance, insurance and IdexQR evidence"
+                likelyRole: "Equipment coordinator",
+                evidenceRequired: "Retirement, maintenance, inspection and operational evidence"
               }
             ]
           }
@@ -4132,16 +4125,15 @@ Confidence: ${confidence}`;
       const confidence = getConfidenceLevel(selection, question);
 
       return `Changes likely to require additional review:
-- retiring an asset
-- changing ownership
-- changing asset value
+- retiring equipment
+- changing operational status
 - changing location without supporting evidence
-- marking an asset disposed
-- removing an asset record
+- recording an inspection exception
+- removing an equipment record
 - overwriting historic records
 
 Why:
-These changes may affect ownership, insurance, finance records, provenance or current asset status. The File Library context points to source evidence, current location, ownership notes, insurance details and retired/disposal notes as related information to check before changing the asset sheet.
+These changes may affect equipment availability, maintenance planning, inspection status, provenance or the current operational position. The File Library context points to supporting operational evidence that should be checked before changing the demonstration register.
 
 Roles likely involved:
 ${formatFileList(fileRecord.relatedPeople, "- No related people or roles have been recorded yet.")}
@@ -4192,22 +4184,21 @@ Confidence: ${confidence}`;
 
       if (lens === "Finance Lens") {
         return `Finance Lens view:
-The main finance concern is whether changes to the asset sheet affect asset value, ownership evidence, insurance position, audit trail or provenance.
+The main finance concern is whether a change in equipment status creates an unsupported maintenance or replacement assumption.
 
 Finance priorities:
-- check source evidence before changing asset value or ownership
-- confirm insurance and warranty details where relevant
+- check supporting evidence before relying on a replacement or maintenance assumption
+- distinguish operational status from an approved spending decision
 - preserve an audit trail and reason for change
 - avoid overwriting historic records
-- check whether an asset is active, moved, sold, replaced or retired
-- notice financial risk from inaccurate asset records
+- check whether equipment is active, unavailable, relocated or retired
+- notice planning risk from inaccurate equipment status
 
 Likely review triggers:
-- changing asset value
-- changing ownership
-- retiring or disposing of an asset
-- removing an asset record
-- changing location without evidence where insurance or accountability may be affected
+- retiring equipment
+- recording a replacement dependency
+- removing an equipment record
+- changing status without supporting evidence
 
 Roles likely involved:
 ${formatFileList(fileRecord.relatedPeople, "- No related people or roles have been recorded yet.")}
@@ -4219,19 +4210,19 @@ Confidence: ${confidence}`;
 
       if (lens === "Operations Lens") {
         return `Operations Lens view:
-The main operations concern is whether the asset sheet reflects the real working status, location and availability of assets.
+The main operations concern is whether the demonstration register reflects the working status, location and availability of equipment.
 
 Operations priorities:
-- confirm current asset location
-- check whether the asset is active, moved, sold, replaced or retired
+- confirm the current assigned area
+- check whether equipment is active, unavailable, relocated or retired
 - identify dependencies before changing status
 - avoid creating confusion over operational availability
-- keep asset updates aligned with typical activities such as add, update, retire and review
+- keep register updates aligned with inspection, maintenance and allocation evidence
 
 Likely review triggers:
-- changing asset location
-- marking an asset retired or disposed
-- changing asset status without operational evidence
+- changing the assigned area
+- marking equipment retired
+- changing equipment status without operational evidence
 - updating records that affect availability or handover
 
 Related activities:
@@ -4250,14 +4241,14 @@ Governance priorities:
 - confirm source evidence for the change
 - record the reason for change
 - protect historic records from accidental overwrite
-- keep accountability clear across founder, finance and asset reviewer roles
+- keep accountability clear across the equipment coordinator, maintenance lead and site supervisor
 - preserve provenance and auditability
 
 Likely review triggers:
-- changing ownership
-- changing asset value
-- removing an asset record
-- marking an asset disposed
+- changing operational status
+- changing the assigned area
+- removing an equipment record
+- marking equipment retired
 - changing status without supporting evidence
 - any change with unclear accountability or provenance
 
@@ -4282,14 +4273,14 @@ Confidence: ${confidence}`;
       const confidence = getConfidenceLevel(selection, question);
       const lensLine = lens ? `\nRelevant Lens: ${lens}` : "";
       const q = question.toLowerCase();
-      let opening = "Hold should review the relationship around the file before changing the asset record.";
+      let opening = "Hold should review the relationship around the file before changing the equipment record.";
 
       if (/retired|retire|disposed|dispose/.test(q)) {
-        opening = "If an asset is retired, Hold should check retirement, disposal, insurance, ownership, finance and reference records before the asset sheet is changed.";
+        opening = "If equipment is retired, Hold should check retirement evidence, maintenance status, inspection records and operational dependencies before the demonstration register is changed.";
       }
 
       if (/ownership changes|change ownership|ownership/.test(q)) {
-        opening = "If ownership changes, Hold should check ownership evidence, purchase records, finance records, insurance records and provenance before the asset sheet is changed.";
+        opening = "If responsibility changes, Hold should check the current assignment, review authority, operational dependencies and provenance before the demonstration register is changed.";
       }
 
       return `${opening}${lensLine}
@@ -4925,26 +4916,26 @@ Confidence: ${confidence}`;
       const confidence = getConfidenceLevel(selection, question);
 
       if (workflow) {
-        return `The ${workflow.name || "workflow"} sequence exists to reduce the chance of changing the asset sheet before the supporting context is clear.
+        return `The ${workflow.name || "workflow"} sequence exists to reduce the chance of changing the demonstration register before the supporting context is clear.
 
 Retirement evidence is reviewed first to prevent incorrect retirement decisions.
 
-Ownership records are reviewed before finance and insurance because accountability must be clear before downstream records are changed.
+Maintenance and inspection records are reviewed next so the current operational position is clear.
 
-Finance and insurance reviews occur before updating the asset sheet because asset value, reporting and coverage may be affected by the retirement.
+Operational dependencies are checked before the register is updated so retirement does not create an unexpected availability gap.
 
-The asset sheet is updated only after supporting evidence has been reviewed, so the record reflects current status without overwriting history.
+The demonstration register is updated only after supporting evidence has been reviewed, so the record reflects current status without overwriting history.
 
-Related IdexQR references are updated after the asset sheet so linked references do not point to outdated asset status.
+The operational allocation is updated after the register so connected working records do not retain an outdated equipment status.
 
 Recording the reason and archiving evidence happens last to preserve provenance, audit trail and future accountability.
 
 Risks if the order changes:
 ${formatFileList(fileRecord.risksIfUpdatedIncorrectly, "- No risks have been recorded yet.")}
 - incorrect retirement
-- ownership disputes
-- inaccurate finance records
-- insurance inconsistencies
+- missed maintenance dependencies
+- inconsistent inspection status
+- inaccurate operational allocation
 - loss of audit trail
 - loss of provenance
 
@@ -4959,11 +4950,11 @@ Confidence: ${confidence}`;
       }
 
       if (source === "Governance") {
-        return `This governance control exists to make sure changes to the asset sheet are evidenced, accountable and auditable before records are changed.
+        return `This governance control exists to make sure changes to the demonstration register are evidenced, accountable and auditable before records are changed.
 
-It is trying to prevent unsupported changes to ownership, value, location, retirement status or historic records.
+It is trying to prevent unsupported changes to equipment status, assigned area, retirement status or historic records.
 
-If the control is skipped, the asset sheet could become disconnected from source evidence, finance records, insurance position or ownership accountability.
+If the control is skipped, the register could become disconnected from inspection evidence, maintenance records, operational allocation or review accountability.
 
 What could go wrong:
 ${formatFileList(fileRecord.risksIfUpdatedIncorrectly, "- No risks have been recorded yet.")}
@@ -4979,9 +4970,9 @@ Evidence used:
 Confidence: ${confidence}`;
       }
 
-      return `This relationship exists because changing the asset sheet can affect records beyond the spreadsheet itself.
+      return `This relationship exists because changing the demonstration register can affect records beyond the spreadsheet itself.
 
-Related and dependent records should be checked so ownership, finance, insurance, operational availability and provenance stay aligned.
+Related and dependent records should be checked so maintenance, inspection, operational availability and provenance stay aligned.
 
 If the relationship is ignored, a change in one place may leave other records outdated or inconsistent.
 
