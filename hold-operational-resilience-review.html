@@ -6,7 +6,7 @@
   <title>Hold – Operational Resilience Review</title>
   <meta name="description" content="A guided Hold demonstration following an Operational Resilience Review from paper through connected evidence, changed understanding and accountable action." />
   <link rel="stylesheet" href="hold-brand.css?v=4" />
-  <link rel="stylesheet" href="hold-paper-journey.css?v=1" />
+  <link rel="stylesheet" href="hold-paper-journey.css?v=2" />
   <style>
     :root {
       --ink: #26332e;
@@ -27,8 +27,8 @@
     .brand-line { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
     .brand-line strong { color: var(--hold); letter-spacing: 0.01em; }
     .example-label { color: var(--muted); font-size: 0.82rem; font-weight: 750; letter-spacing: 0.07em; text-transform: uppercase; }
-    h1 { max-width: 780px; margin: 20px 0 8px; font-size: clamp(2rem, 5vw, 3.7rem); line-height: 1.02; letter-spacing: -0.045em; }
-    .lede { max-width: 810px; margin: 0; color: var(--muted); font-size: 1.05rem; font-style: italic; line-height: 1.55; }
+    h1 { max-width: 780px; margin: 20px 0 8px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 5vw, 3.7rem); line-height: 1.02; letter-spacing: -0.045em; }
+    .lede { max-width: 810px; margin: 0; color: var(--muted); font-family: Georgia, "Times New Roman", serif; font-size: 1.05rem; font-style: italic; line-height: 1.55; }
     .example-note { margin: 18px 0 0; padding: 12px 14px; border-left: 4px solid #8da79a; background: var(--soft); color: #42574f; }
 
     .resilience-progress { margin: 18px 0; }
@@ -56,10 +56,10 @@
     h3 { margin: 0 0 8px; font-size: 1rem; }
     p { line-height: 1.55; }
     .muted { color: var(--muted); }
-    .stage-orientation { max-width: 760px; margin: -4px 0 16px; color: var(--muted); font-style: italic; }
+    .stage-orientation { max-width: 760px; margin: -4px 0 16px; color: var(--muted); font-family: Georgia, "Times New Roman", serif; font-style: italic; }
     .primary-message { margin: 0 0 16px; padding: 14px 16px; border-left: 4px solid #7f9c8d; background: #f1f6f2; color: #344a40; font-size: 1.02rem; font-weight: 700; }
-    .primary-message.editorial-extract { font-style: italic; font-weight: 600; }
-    .reflective-transition { font-style: italic; }
+    .primary-message.editorial-extract { font-family: Georgia, "Times New Roman", serif; font-style: italic; font-weight: 600; }
+    .reflective-transition { font-family: Georgia, "Times New Roman", serif; font-style: italic; }
     .status-pill { display: inline-flex; align-items: center; padding: 6px 9px; border: 1px solid #b7cabf; border-radius: 999px; background: var(--soft); color: #456055; font-size: 0.78rem; font-weight: 750; white-space: nowrap; }
     .paper-grid, .two-column, .outcome-grid { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 14px; }
     .record, .insight-card { padding: 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--soft); }
@@ -89,7 +89,7 @@
     .ai-connection span { padding: 9px; border: 1px solid #c9d5ce; border-radius: 8px; background: #fff; color: #4b6158; font-size: 0.8rem; font-weight: 700; text-align: center; }
     .central-question { padding: 18px; border: 1px solid #aac0b4; border-radius: 10px; background: #eef5ef; }
     .central-question strong { display: block; margin-bottom: 7px; color: var(--hold); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; }
-    .central-question p { margin: 0; font-size: 1.08rem; font-style: italic; line-height: 1.55; }
+    .central-question p { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.08rem; font-style: italic; line-height: 1.55; }
 
     .choice-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
     .choice-button, .primary-button, .secondary-button { min-height: 42px; padding: 9px 13px; border-radius: 8px; cursor: pointer; font-weight: 750; }
@@ -378,6 +378,14 @@
       <button class="primary-button" type="button" id="next-stage">Continue to Connected Context</button>
     </div>
     <a class="gallery-link" href="index.html">← Back to demo gallery</a>
+
+    <footer class="footer">
+      <p><span class="hold-endorsed-brand hold-endorsed-brand--footer" aria-label="Hold by IdexQR, registered trade mark"><span class="hold-endorsed-brand__name">Hold</span><span class="hold-endorsed-brand__by">by IdexQR<sup>&reg;</sup></span></span></p>
+      <p class="footer-sub">Hold operational governance concepts and workflow designs &copy; 2026 IdexQR. All rights reserved.</p>
+      <p class="footer-sub content-use-notice">
+        Hold content is provided for human review and evaluation. AI model training or dataset use is not permitted without prior written permission.
+      </p>
+    </footer>
   </main>
 
   <script>
