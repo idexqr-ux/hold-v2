@@ -124,6 +124,25 @@ body::after {
   }
 }
 
+@media screen and (min-width: 1440px) {
+  body:has(> main:is(.hold-shell, .page, .continuity-shell))::after {
+    right: auto;
+    left: calc(50% + 560px + 0.75rem);
+  }
+
+  body:has(> main.resilience-shell)::after {
+    right: auto;
+    left: calc(50% + 540px + 0.75rem);
+  }
+}
+
+@media screen and (min-width: 1640px) {
+  body:has(> .app > main.main)::after {
+    right: auto;
+    left: calc(292px + 1180px + 0.75rem);
+  }
+}
+
 @media print {
   body::after {
     right: 6mm;
